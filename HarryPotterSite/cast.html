@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cast</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Harry Potter</h1>
+        <h3>in 2 minutes</h3>
+    </header>
+    <nav>
+        <ul id="menu">
+            <li class="cta-primary-inactive"><a href="index.html">Home</a></li>
+            <li class="cta-primary-active"><a href="cast.html">Cast</a></li>
+            <li class="cta-primary-inactive"><a href="author.html">Author</a></li>
+        </ul>    
+    </nav>    
+    
+    <div id="main-box">
+        <section>
+            <h1>Main Characters</h1>
+            
+            <div id=img>
+                <img src="img/trio.jpg" alt="friends">
+            </div>
+            <p>The iconic trio. From the left to the right: Hermione, Harry and Ron</p>
+
+
+            <div class="box-space">
+                <h2>Harry Potter</h2>
+                <h3>Daniel Radcliffe</h3>
+                <p>Harry James Potter (b. 31 July 1980) was an English half-blood wizard, and one of the most famous wizards of modern times. The only child and son of James and Lily Potter (née Evans), Harry's birth was overshadowed by a prophecy, naming either himself or Neville Longbottom as the one with the power to vanquish Lord Voldemort. After half of the prophecy was reported to Voldemort, courtesy of Severus Snape, Harry was chosen as the target due to his many similarities with the Dark Lord. In turn, this caused the Potter family to go into hiding. Voldemort made his first vain attempt to circumvent the prophecy when Harry was a year and three months old. During this attempt, he murdered Harry's parents as they tried to protect him, but this unsuccessful attempt to kill Harry led to Voldemort's first downfall. This downfall marked the end of the First Wizarding War, and to Harry henceforth being known as "The Boy Who Lived", as he was the only known survivor of the Killing Curse.</p>   
+            </div>
+            
+            <div id="ron-hermione" class="box-space">
+                <div id="hermione">
+                    <h2>Hermione Granger</h2>
+                    <h3>Emma Watson</h3>
+                    <p>Minister Hermione Jean Granger (b. 19 September, 1979) was an English Muggle-born witch born to Mr and Mrs Granger. At the age of eleven, she learned about her magical nature and was accepted into Hogwarts School of Witchcraft and Wizardry. Hermione began attending Hogwarts in 1991 and was Sorted into Gryffindor House. She possessed a brilliant academic mind and proved to be a gifted student in almost every subject that she studied.</p>           
+                </div>
+                <div id="ron">
+                    <h2>Ron Weasley</h2>
+                    <h3>Rupert Grint</h3>
+                    <p>Ronald Bilius "Ron" Weasley (b. 1 March, 1980) was an English pure-blood wizard, the sixth and youngest son of Arthur and Molly Weasley (née Prewett). He was also the younger brother of Bill, Charlie, Percy, Fred, George, and the elder brother of Ginny. Ron and his siblings lived at the The Burrow, on the outskirts of Ottery St Catchpole, Devon.</p>
+                </div>
+            </div>
+
+            <div class="box-space"> 
+                <h2>Lord Voldemort</h2>
+                <h3>Ralph Fiennes</h3>
+                <p>Tom Marvolo Riddle (31 December 1926 - 2 May 1998), later known as Lord Voldemort or, alternatively as You-Know-Who, the Dark Lord, or He-Who-Must-Not-Be-Named was an English half-blood wizard considered to have been the most powerful and dangerous Dark Wizard of all time.He was amongst the greatest wizards to have ever lived, often considered to be the second most powerful wizard in history, his only superior being Albus Dumbledore. The only child and son of Tom and Merope Riddle (née Gaunt), Riddle was raised in the Muggle-run Wool's Orphanage after his father abandoned his new family on the streets of London when the influence of her magic was lifted, and his mother died moments after giving birth to and naming him after his father and maternal grandfather, Marvolo Gaunt.</p>    
+            </div>
+
+            <h1>Secondary Characters</h1>
+            <div id="others">
+                <ul>
+                    <ul>
+                        <li>
+                            <h3>Rubeus Hagrid</h3>
+                            <p>Robbie Coltrane</p>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <h3>Draco Malfoy</h3>
+                            <p>Tom Felton</p>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <h3>Ginny Weasley</h3>
+                            <p>Bonnie Wright</p>
+                        </li>
+                    </ul>
+                </ul>
+            </div>
+     </section>
+
+     <aside>
+        <div id="right-side">
+            <div id="sign-in" class="box-space-2">
+                <form action="./login.php" method="POST">    
+                    <h2 id="timer"></h2>
+
+                    <h4>Log-In</h4>
+                    <p>Have you got an account?</p>
+                    <label for="dni">DNI</label>
+                    <input
+                        type="text" required
+                        name="dni"
+                        size="10"
+                        maxlenght=15
+                        >
+                    <label for="password">Password</label>
+                    <input
+                        type="text" required
+                        name="password"
+                        size="20"
+                        maxlenght=30
+                        >
+                    <button>Enter!</button>
+                </form>
+                
+            <div id="register" class="box-space-2">
+                <h4>Register</h4>
+                <p>If you don't have an account <a href="sign-in.html"><br>click here</a></p>
+            </div>  
+    </aside>
+    
+    </div>
+    
+    <footer>
+        <div id="footer-top">
+            <p><a href="https://en.wikipedia.org/wiki/Harry_Potter" target="_blannk">Wikipedia</a></p>
+            <p><a href="https://www.imdb.com/list/ls063334991/" target="_blannk">IMDB</a></p>
+            <p><a href="https://reedsy.com/discovery/blog/harry-potter-books-in-order" target="_blannk">Reedsy</a></p>
+        </div>
+        <hr>
+        <div id="footer-bottom">
+            <p>Since 2021</p>
+            <p>All right reserved © <a href="https://www.instagram.com/therealcorrotto/" target="_blank"><span class="italic">@therealcorrotto</span></a></p>
+            <p class="italic">Website Engeenering</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</html>

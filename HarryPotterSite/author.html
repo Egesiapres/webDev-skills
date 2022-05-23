@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Author</title>
+    <link rel="stylesheet" href="./style.css">
+    </head>
+<body>
+
+    <header>
+        <h1>Harry Potter</h1>
+        <h3>in 2 minutes</h3>
+    </header>
+    
+    <nav>
+        <ul id="menu">
+            <li class="cta-primary-inactive"><a href="index.html">Home</a></li>
+            <li class="cta-primary-inactive"><a href="cast.html">Cast</a></li>
+            <li class="cta-primary-active"><a href="author.html">Author</a></li>
+        </ul>    
+    </nav>    
+    
+    <div id="main-box">
+        <section>
+            <h1>J. K. Rowling</h1>
+            
+            <div id="img2">
+                <img src="img/rowling.jpg" alt="author">
+            </div>
+            <p>The authoress of this timeless Saga</p>
+            
+            <h2>Biography</h2>
+            <p>Joanne Rowling was born on 31 July 1965 in Yate, Gloucestershire, to Anne (née Volant), a science technician, and Peter James Rowling, a Rolls-Royce aircraft engineer. Her parents first met on a train departing from King's Cross Station bound for Arbroath in 1964.They married on 14 March 1965. One of Rowling's maternal great-grandfathers, Dugald Campbell, was a Scottish man from Lamlash. Her mother's French paternal grandfather, Louis Volant, was awarded the War Cross for exceptional bravery in defending the village of Courcelles-le-Comte during World War I. Rowling originally believed Volant had won the Legion of Honour during the war, as she said when she received it herself in 2009. She later discovered the truth when featured in an episode of the UK genealogy series Who Do You Think You Are? in which she found out it was a different Louis Volant who won the Legion of Honour. When she heard her grandfather's story of bravery and discovered that the War Cross was for "ordinary" soldiers like her grandfather, who had been a waiter, she stated the War Cross was "better" to her than the Legion of Honour.</p>
+        </section>
+        
+        <aside>
+            <div id="right-side">
+                <div id="sign-in" class="box-space-2">
+                    <form action="./login.php" method="POST">    
+                        <h2 id="timer"></h2>
+
+                        <h4>Log-In</h4>
+                        <p>Have you got an account?</p>
+                        <label for="dni">DNI</label>
+                        <input
+                            type="text" required
+                            name="dni"
+                            size="10"
+                            maxlenght=15
+                            >
+                        <label for="password">Password</label>
+                        <input
+                            type="text" required
+                            name="password"
+                            size="20"
+                            maxlenght=30
+                            >
+                        <button>Enter!</button>
+                    </form>
+                    
+                <div id="register" class="box-space-2">
+                    <h4>Register</h4>
+                    <p>If you don't have an account <a href="sign-in.html"><br>click here</a></p>
+                </div>  
+        </aside>
+        </div>
+    </div>
+    
+    <footer>
+        <div id="footer-top">
+            <p><a href="https://en.wikipedia.org/wiki/Harry_Potter" target="_blannk">Wikipedia</a></p>
+            <p><a href="https://www.imdb.com/list/ls063334991/" target="_blannk">IMDB</a></p>
+            <p><a href="https://reedsy.com/discovery/blog/harry-potter-books-in-order" target="_blannk">Reedsy</a></p>
+        </div>
+        <hr>
+        <div id="footer-bottom">
+            <p>Since 2021</p>
+            <p>All right reserved © <a href="https://www.instagram.com/therealcorrotto/" target="_blank"><span class="italic">@therealcorrotto</span></a></p>
+            <p class="italic">Website Engeenering</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+
+</body>
+</html>

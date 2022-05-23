@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign-In</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Harry Potter</h1>
+        <h3>in 2 minutes</h3>
+    </header>
+    
+    <nav>
+        <ul id="menu">
+            <li class="cta-primary-inactive"><a href="index.html">Home</a></li>
+            <li class="cta-primary-inactive"><a href="cast.html">Cast</a></li>
+            <li class="cta-primary-inactive"><a href="author.html">Author</a></li>
+        </ul>    
+    </nav>    
+    
+    <div id="main-box">
+        <section id="form">
+            <form name="register" action="./register.php" method="POST" onsubmit="return validateForm()">
+                <h1>Registration form</h1>
+                <label for="name">Name</label>
+                <input
+                    type="text" required
+                    name="name"
+                    id="name"
+                    placeholder="Type here your name"
+                    size="4"
+                    maxlength="20"
+                >
+                <label for="surname">Surname</label>
+                <input
+                    type="text" required
+                    name="surname"
+                    id="surname"
+                    placeholder="Type here your surname"
+                    size="4"
+                    maxlength="20"
+                >
+                <label for="dni">DNI</label>
+                <input
+                    type="text" required
+                    name="dni"
+                    id="dni"
+                    placeholder="Type here your DNI"
+                    size="10"
+                >
+                <label for="bday">Birthday</label>
+                <input
+                    type="date" required
+                    name="bday"
+                    id="bday"
+                >
+                <label for="email">E-mail</label>
+                <input
+                    type="email" required
+                    name="email"
+                    id="email"
+                    placeholder="Type here your e-mail"
+                    size="8"
+                    maxlength="100"
+                >
+                <label for="password">Password</label>
+                <input
+                    type="password" required
+                    name="password"
+                    id="password"
+                    placeholder="Create your password"
+                    size="8"
+                    maxlength="50"
+                >
+                <label for="confirmpsw">Confirm your password</label>
+                <input
+                    type="password" required
+                    name="confirmpsw"
+                    placeholder="Confirm your password"
+                    size="8"
+                    maxlength="50"
+                >                
+                <label for="address">Address</label>
+                <input
+                    type="text" required
+                    name="address"
+                    id="address"
+                    placeholder="Type here your address"
+                    size="8"
+                    maxlength="100"
+                >
+                <label for="zip">ZIP code</label>
+                <input
+                    type="text" required
+                    name="zip"
+                    id="zip"
+                    placeholder="Type here your ZIP code"
+                    size="5"
+                    maxlength="5"
+                >
+                <label for="phone">Telephone number</label>
+                <input
+                    type="tel" required max="9" min="9"
+                    name="phone"
+                    id="phone"
+                    placeholder="Type here your phone number"
+                    size="14"
+                    maxlength="14"
+                >
+                            
+                <p id="prova"><input type="button" value="Review" id="button" onclick="fillTable()"></p>
+                
+                <Table></Table>
+                
+                <p><input type="button" value="Send all" onclick="validateForm()"></p>
+            </form>
+        </section>
+        
+        <aside>
+            <div id="right-side">
+                <div id="sign-in" class="box-space-2">
+                    <form action="./login.php" method="POST">    
+                        <h2 id="timer"></h2>
+
+                        <h4>Log-In</h4>
+                        <p>Have you got an account?</p>
+                        <label for="dni">DNI</label>
+                        <input
+                            type="text" required
+                            name="dni"
+                            size="10"
+                            maxlenght=15
+                            >
+                        <label for="password">Password</label>
+                        <input
+                            type="text" required
+                            name="password"
+                            size="20"
+                            maxlenght=30
+                            >
+                        <button>Enter!</button>
+                    </form>
+                    
+                <div id="register" class="box-space-2">
+                    <h4>Register</h4>
+                    <p>If you don't have an account <a href="sign-in.html"><br>click here</a></p>
+                </div>  
+        </aside>
+    
+    </div>
+    
+    <footer>
+        <div id="footer-top">
+            <p><a href="https://en.wikipedia.org/wiki/Harry_Potter" target="_blannk">Wikipedia</a></p>
+            <p><a href="https://www.imdb.com/list/ls063334991/" target="_blannk">IMDB</a></p>
+            <p><a href="https://reedsy.com/discovery/blog/harry-potter-books-in-order" target="_blannk">Reedsy</a></p>
+        </div>
+        <hr>
+        <div id="footer-bottom">
+            <p>Since 2021</p>
+            <p>All right reserved © <a href="https://www.instagram.com/therealcorrotto/" target="_blank"><span class="italic">@therealcorrotto</span></a></p>
+            <p class="italic">Website Engeenering</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

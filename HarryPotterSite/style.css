@@ -1,0 +1,178 @@
+* {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-block-end: 0;
+    margin-block-start: 0;
+    
+}
+
+h1 {font-size: 2.7em; margin-top: 0.2em; margin-bottom: 0.2em; text-align: center;}
+
+h2 {font-size: 1.9em; margin-top: 0.2em; margin-bottom: 0.2em; letter-spacing: -0.5px;}
+#left-box {text-align: center;}
+#index h1, ol {text-align: left;}
+#plot p {text-align: left;}
+.align-left {text-align: left;}
+
+h3 {font-size: 1.2em; font-style: italic; margin-top: 0.5em; margin-bottom: -0.5em;}
+
+aside h4 {font-size: 1.4em; text-align: center; text-transform: uppercase; margin-top: 2.5%; margin-top: 2.5%;}
+p, li, th, td {font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 18px;}
+p {margin-top: 1em; margin-bottom: 1em; font-size: 18px;}
+aside p {margin-top: 0.5em; margin-bottom: 1em;}
+
+a {text-decoration: none;}
+
+body {height: 1080px; margin: 0;}
+
+header, nav, aside, h1, h2, h3 {color: rgb(36, 36, 36);}
+
+.strong {font-weight: 300;}
+
+.italic {font-style: italic;}
+
+ul {
+    list-style-type: none;
+    padding-inline-start: 0;
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+header {height: 14%; text-align: center; background-color: rgb(36, 36, 36); display: flex; flex-direction: column; justify-content: center;}
+header h1 {margin-top: 0; color: rgb(240, 240, 240); font-size: 3.5em; letter-spacing: 0.7px; margin-bottom: 0;}
+header h3 {margin-top: 0.5em; margin-bottom: 0.2em; font-size: 1.2em; font-style: italic; color: rgb(240, 240, 240)}
+
+nav {display: flex; flex-direction: column; text-transform: uppercase;}
+
+#menu {
+    display: flex;
+    justify-content: space-around;
+    padding-left: 8%;
+    padding-right: 8%;
+    padding-top: 1.5%;
+    padding-bottom: 1.5%;
+    background-color: rgb(114, 114, 114);
+}
+
+.cta-primary-inactive {
+    background-color: rgb(202, 202, 202);
+    border-radius: 7px;
+    text-align: center;
+    padding-top: 1.5%;
+    padding-bottom: 1.5%;
+    padding-left: 7%;
+    padding-right: 7%;
+    font-weight: 600;
+    font-size: large;
+    text-transform: uppercase;
+}
+
+.cta-primary-inactive-2 {
+    background-color: rgb(53, 53, 53);
+    border-radius: 7px;
+    text-align: center;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
+    font-weight: 600;
+    font-size: large;
+    text-transform: uppercase;
+    color: rgb(202, 202, 202);
+}
+
+.cta-primary-inactive a {color: rgb(53, 53, 53);}
+
+.cta-primary-active {
+    background-color: rgb(36, 36, 36);
+    border-radius: 7px;
+    text-align: center;
+    padding-top: 1.5%;
+    padding-bottom: 1.5%;
+    padding-left: 7%;
+    padding-right: 7%;
+    font-weight: 600;
+    font-size: large;;
+    color: rgb(240, 240, 240);
+}
+.cta-primary-active a {color: rgb(240, 240, 240);}
+
+.plot {padding-top:0.5em; padding-bottom: 0.5em;}
+
+#main-box {display: flex;}
+
+#main-box li {margin-top: 1%; margin-bottom: 1%;}
+
+.box-space {padding-top: 1%; padding-bottom: 1%;}
+
+#left-box {
+    margin-left: 80px;
+    margin-right: 80px;
+    width: 65%;
+    margin-top: 3%;
+    margin-bottom: 4%;
+}
+
+#main-box, #form {display: flex; justify-content: center;}
+#form form {width: 40%;}
+
+section {margin-left: 5%; margin-right: 5%; margin-top: 3%; margin-bottom: 4%; width: 65%;}
+
+#video {display: flex; justify-content: center;}
+iframe {margin-top: 1em; margin-bottom: 1em; justify-content: center; border-radius: 5px;}
+
+tr, th, td {border: 1px; border-style: solid;}
+th, td {margin-left: 200px;}
+td {justify-content:left;}
+table {display: flex; justify-content: center;}
+
+#ron-hermione {display: flex;}
+#hermione, #ron {width: 47%; margin-right: 3%;}
+#others {margin-top: 1em;}
+
+
+aside {width: 25%; display: flex; justify-content: center; background-color: rgb(202, 202, 202); 
+    text-align: center; font-size: 0.8em;}
+
+#right-side {width: 70%; display: flex; flex-direction: column; justify-content:first baseline; margin-top: 15%; margin-bottom: 15%;}
+
+#timer {margin-bottom: 15%;}
+#sign-in {display: flex; flex-direction: column; justify-content: center; margin-bottom: 20%;}
+#register {margin-top: 15%; margin-bottom: 15%;}
+
+form {display: flex; flex-direction: column; justify-content: center; padding-bottom: 10px;}
+
+aside label {font-size: 1.4em; text-align: left; margin-bottom: 0.5em;}
+input {margin-top:0.4em; margin-bottom: 0.4em;}
+button {background-color: white; border-radius: 3px; padding-top: 0.5em; padding-bottom: 0.5em; 
+    padding-left: 0.5em; margin-top: 0.2em; margin-bottom: 0.2em;}
+
+#sex {padding-top: 0.4em; margin-bottom: 0.4em;}
+
+#img, #img2 {display: flex; justify-content: center;}
+#img img {width: 60%; margin-top: 1em; border-radius: 7px;}
+#img2 img {width: 55%; margin-top: 1em; border-radius: 7px;}
+#img+p {font-size: 1em; text-align: center; font-style: italic;}
+#img2+p {font-size: 1em; text-align: center; font-style: italic;}
+
+
+footer {height: 9%; background-color:rgb(53, 53, 53); margin-bottom: 1em; display: flex; flex-direction: column; justify-content: center;}
+
+hr {width: 75%; height: 0.7em; background-color: rgb(138, 138, 138); border-width: 0;}
+footer p {text-align: center; color: rgb(138, 138, 138);}
+footer #footer-top p {width: 20%; font-style: italic; font-weight: 300;}
+
+#footer-top {display: flex; justify-content: center;}
+#footer-top a {color: rgb(138, 138, 138);}
+#footer-top a:hover {color: rgb(240, 240, 240); transition-duration: 0.3s;}
+
+#footer-bottom {display: flex; justify-content: center;}
+#footer-bottom p {margin-left: 10em; margin-right: 10em; font-size: 0.8em;}
+#footer-bottom a {color: rgb(138, 138, 138);}
+#footer-bottom a:hover {color: rgb(240, 240, 240); transition-duration: 0.3s;}
+
+form input {margin-bottom: 12px; margin-top: 5px;}
+#sex {margin-bottom: 12px;}
+form p {display: flex; justify-content: center;}
+form h1 {margin-bottom: 15px;}
+form p input {width: 25%; height: 80%}
+form label {font-weight: bold; font-size: 1.2em;}
