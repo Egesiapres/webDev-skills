@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esperimento 1</title>
+</head>
+<body>
+    <button>Saluta</button>
+    <h1></h1>
+
+    <script>
+        const button = document.querySelector('button');
+        const title = document.querySelector('h1');
+        
+        //let prova = console.log(window.prompt().value);
+
+        button.addEventListener('click', function () {
+            let result = window.prompt();
+            console.log(result);
+            saluto(result);
+            //prova();
+        })
+
+        function saluto(result) {
+            title.innerHTML = `Ciao ${result}`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+h1 {
+    color: rebeccapurple;
+}
+
+h2 {
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+
+}
+
+label, input, button {
+    display: flex;
+}
+
+label {
+    margin-bottom: 4px;
+}
+
+input {
+    margin-bottom: 10px;
+}

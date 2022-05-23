@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L6: Array</title>
+</head>
+<body>
+    <script>
+        //1. Cosa è un array
+        //si tratta di una lista di valori
+        
+        //2. Creare un array 
+        //creo una variabile e inserisco il contenuto fra [] separato da ,
+        let array = ['Chiara', 'Emma', 'Fede', 'Umbe'];
+
+        //3. Accedere e modificare i dati di un array
+        console.log(array);
+        console.log(array[1]);
+        console.log(array[4]); //stampa undefined perchè non esiste un valore con index 4
+        
+        //la lenght è 4 (4 elementi). Stampa però l'index of di 4-1, il 3 è umbe
+        console.log(array[array.length - 1]); //Umbe
+
+        //4. Lunghezza di un array e passare in rassegna gli elementi all'interno
+        //ciclo for ha 3 parametri in entrata
+        //i è il contatore
+        //dove parte il contatore (da valore con index 0), dove finisce, di quanto incrementa
+        let citta = ['Napoli', 'Biella', 'Milano', 'Brescia'];
+        
+        //li potrei stampare manualmente prendendoli uno a uno con il loro valore di indice
+        console.log(citta[0], citta[2]);
+        
+        //ma è meglio creare un ciclo che stampa ogni elemento, così viene fatto anche se viene aggiunto qualcosa
+        for (i=0; i<citta.length; i++) {
+            console.log(citta[i]);
+        } //non so perché non stampa ma dovrebbe restituire tutti i valori
+        //scrivevo sbagliato il length
+
+        //5. Convertire stringhe e array
+        //.split()
+        //splittare, separare
+        //da stringa ad array
+        //per eseguire lo split i dati devono essere in forma di stringa, no dentro a []
+        let daSeparare = 'Umberto,Mariarosa,Giovanni';
+        let separati = daSeparare.split(','); //in questa variabile aggiungo il metodo e il separatore
+
+        console.log(separati);
+
+        //.join()
+        //unire
+        //da array a stringa
+        let daUnire = ['Inge', 'Psico', 'Data science', 'TTC'];
+        let uniti = daUnire.join(', '); //in questa var aggiungo il metodo e rimuovo il separatore indicato
+
+        console.log(uniti);
+
+        //6. Aggiungere e rimuovere elementi
+        //push e pop lavorano in coda
+        //.push()
+        //con il semplice push aggiungo l'elemento alla fine dell'index, come ultimo
+        citta.push('Bergamo');
+
+        //.pop()
+        //elimino l'ultimo elemento
+        //se inserisco l'index ne tolgo uno specifico
+        //tolgo TTC
+        daUnire.pop();
+        //tolgo inge
+        daUnire.pop(daUnire.indexOf[0]);
+
+        console.log(daUnire);
+
+        //unshift e shift lavorano in testa
+        //.unshift()
+        //aggiunge un elemento all'inizio
+        array.unshift('Thomas');
+        
+        //.shift()
+        //rimuove l'elemento all'inzio
+        array.shift(); //quindi in questo caso ririmuove Thomas appena aggiunto
+        
+        console.log(array);
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Todo App</title>
+</head>
+<body>
+    <div class="container">
+        <!--Il div card-container contiene tutta l'app-->
+        <div class="card-container">
+            <!--Quello che riguarda l'input, il testo-->
+            <div class="input-container">
+                <h1>Add task</h1>
+                <!--L'id viene aggiunto nel momento in cui devo richiamare la sezione nel file js-->
+                <input type="text" id="input" placeholder="Aggiungi todo"> <!--El richiamato 1-->
+                <button id="input-button">add</button> <!--El richiamato 2-->
+            </div>
+            <!--Qui aggiungiamo i todo-->
+            <div class="task-container">
+                <h1>Tasks</h1>
+
+                <!--Posto in cui verranno aggiunti i todo-->
+                <ul id="task-list"> <!--El richiamato 3-->
+                    
+                </ul>
+            
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
