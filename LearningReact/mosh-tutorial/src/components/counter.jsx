@@ -11,6 +11,7 @@ class Counter extends Component {
     // this object contains any data that this component need
     state = { 
         count: 0,
+        tags: ['tag1', 'tag2', 'tag3']
     };
 
     // to apply aimed changings to the style
@@ -25,8 +26,7 @@ class Counter extends Component {
         // how to render the color of the zero badge dinamically
         // in the const i put the class that is passed everywhere
         // i modify the const in a let to change the content of the bariable
-        let classes = 'badge m-2 badge-';
-        classes += (this.state.count === 0) ? 'warning' : 'primary';
+        // shift + ctrl + r automatically transforms in a function
 
         return ( // essential to insert the () after the return method. Pretter does it automatically
             // JSX expression, that will be compiled in vanilla JS code by Babel
@@ -38,11 +38,22 @@ class Counter extends Component {
             // set attributes (img example), the src value is setted automatically
             // className because we are in JSX
             // i can also apply inline styles, for example <span style={{ fontSize: 30 }}
+            // i map the tags in the state in the li
+            // the key={tag ia}
             <React.Fragment>
-                <span className={classes}>{this.formatCount()}</span>
+                <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
                 <button className='btn btn-secondary btn-sm'>Increment</button>
+                <ul>
+                    { this.state.tags.map(tag => <li key={tag}>{tag}</li>) }
+                </ul>
             </React.Fragment>
         );
+    }
+
+    getBadgeClasses() {
+        let classes = 'badge m-2 badge-';
+        classes += (this.state.count === 0) ? 'warning' : 'primary';
+        return classes;
     }
 
     // function that returns a vaue
