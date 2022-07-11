@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-// 2 here we make the button working. When there is a click, it happens something
+// here we make the button working. When there is a click, it happens something
 class Square extends React.Component { // i make the app remember using state
     constructor(props) { // if there is the state, there is also the constructor
         super(props); // it's the kind of start that a react class with a constructor has
@@ -37,19 +37,19 @@ class Board extends React.Component {
         <div>
             <div className="status">{status}</div>
             <div className="board-row">
-            {this.renderSquare(0)}
-            {this.renderSquare(1)}
-            {this.renderSquare(2)}
+                {this.renderSquare(0)}
+                {this.renderSquare(1)}
+                {this.renderSquare(2)}
             </div>
             <div className="board-row">
-            {this.renderSquare(3)}
-            {this.renderSquare(4)}
-            {this.renderSquare(5)}
+                {this.renderSquare(3)}
+                {this.renderSquare(4)}
+                {this.renderSquare(5)}
             </div>
             <div className="board-row">
-            {this.renderSquare(6)}
-            {this.renderSquare(7)}
-            {this.renderSquare(8)}
+                {this.renderSquare(6)}
+                {this.renderSquare(7)}
+                {this.renderSquare(8)}
             </div>
         </div>
         );
