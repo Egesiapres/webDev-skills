@@ -10,7 +10,16 @@ class Counter extends Component {
     // state is a property and set it to an object 
     // this object contains any data that this component need
     state = {
-        count: 0,
+        // changing 0 in this.props.value, allows react to pick the prop value from counters
+        // props is needed to pass values!
+        // F2 to rename
+        // rename from count to value. Better consistency
+        
+        // here i have just the value, and the problem is that i cannot modify here the counters props
+        // but is here that i have the delete button
+        // solution: raise event (onDelete in counter and handleDelete() in Counters)
+        // see in counters
+        value: this.props.value
         // tags: []
     };
 
@@ -31,11 +40,14 @@ class Counter extends Component {
     // cleaner and simpler
     // in this function we don't have access to the this, to the state
     handleIncrement = product => {
-        console.log('product');
+        // using the code above it's possible to see that you cannot modify the props in a different way than modofifying the state
+        // this.props.value = 0;
+        
+        // console.log('product');
         // the method immediately below doesn't work. I have to add also the second line
         // this.state.count++;
         // this m tells react we are updating the state. It keeps the dom updated with the virtual dom
-        this.setState({ count: this.state.count + 1 }); 
+        this.setState({ value: this.state.value + 1 }); 
     };
 
     // f that emulates the case in which i have to change the id of an item clicking on a button
@@ -60,6 +72,12 @@ class Counter extends Component {
     // }
 
     render() {
+        // console.log(this.props);
+
+        // every react component has a property called props
+        // this is a JS object that contains all the attributes in counters component
+        // console.log('props', this.props);
+
         // how to render the color of the zero badge dinamically
         // in the const i put the class that is passed everywhere
         // i modify the const in a let to change the content of the bariable
@@ -80,6 +98,11 @@ class Counter extends Component {
             // handling events
             // onClick, not onclick
             // by clicking on the button, only the span is updated, nothing else in the dom is affected
+
+            // rendering the children i render what the children contains
+            // in this case, a h4
+            // {this.props.children}
+            // or <h4>[this.props.id}</h4> better this option with the relative part in counters
             <div className='.flex-column'>
                 <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
                 <button
@@ -90,6 +113,7 @@ class Counter extends Component {
                 >
                     Increment
                 </button>
+                <button onClick={() => this.props.onDelete(this.props.id)} className='button btn btn-danger btn-sm m-2'>Delete</button>
             </div>
 
             // we want to display the array dynamically. If this array has at least one element we want to render this array in a list, otherwise print a msg
@@ -107,7 +131,7 @@ class Counter extends Component {
     // function for the dynamical choosing of the bootsrap style to apply
     getBadgeClasses() {
         let classes = 'badge m-2 badge-';
-        classes += (this.state.count === 0) ? 'warning' : 'primary';
+        classes += (this.state.value === 0) ? 'warning' : 'primary';
         return classes;
     }
 
@@ -115,10 +139,10 @@ class Counter extends Component {
     // if the value is 0, the f returns zero, otherwise the number
     formatCount() {
         // use object destructoring to improve the code and remove the repetition in the return
-        const { count } = this.state;
+        const { value } = this.state;
         // ? is then, : is else 
         // i can return also JSX expression, better than plain text
-        return count === 0 ? 'Zero' : count;
+        return value === 0 ? 'Zero' : value;
     }
 }
 
