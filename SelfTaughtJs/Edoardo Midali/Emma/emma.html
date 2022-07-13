@@ -1,41 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>emma prova</title>
-    <link rel="stylesheet" href="./style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
     <h1>titolo 1</h1>
     <h2>title 2</h2>
     <p>questo è un paragrafo</p>
     <p>questo è un paragrafo</p>
     <form>
-        <label for="name">Name</label>
-        <input type="text" id="name" placeholder="Insert ur name">
-        <input type="text" id="surname" placeholder="Insert ur surname">
-        <button>clicca qua</button>
+      <label for="name">Name</label>
+      <input type="text" id="name" placeholder="Insert ur name" />
+      <input type="text" id="surname" placeholder="Insert ur surname" />
+      <button>clicca qua</button>
     </form>
     <script>
-        //questa è una stampa
-        console.log('ciao sono emma');
-        
-        const bottone = document.querySelector('button');
+      //questa è una stampa
+      console.log("ciao sono emma");
 
-        const form = document.querySelector('form');        
-        const nome = document.getElementById('name');
-        const cognome = document.getElementById('surname');
+      const bottone = document.querySelector("button");
+      const form = document.querySelector("form");
+      const nome = document.getElementById("name");
+      const cognome = document.getElementById("surname");
 
-        form.onsubmit = function (e) {
-            if (nome.value === '' || cognome.value === '') {
-                e.preventDefault();
-                alert (`Vecchio sei un coglione! Guarda che ti sei dimenticato di inerire o il tuo nome o il tuo cognome!!!`);
-            } else {
-                alert(`Ciao ${nome.value} ${cognome.value}! Mi sei mancat*!!`);           
-            }
+      form.onsubmit = function (e) {
+        if (nome.value === "" || cognome.value === "") {
+          e.preventDefault();
+          alert(
+            `Vecchio sei un coglione! Guarda che ti sei dimenticato di inerire o il tuo nome o il tuo cognome!!!`
+          );
+        } else {
+          alert(`Ciao ${nome.value} ${cognome.value}! Mi sei mancat*!!`);
         }
+      };
     </script>
-</body>
+  </body>
 </html>
