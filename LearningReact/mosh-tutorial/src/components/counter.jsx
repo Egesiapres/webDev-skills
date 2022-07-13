@@ -6,6 +6,26 @@ import React, { Component } from "react";
 // with the sintax below i can also export the class wit a single line
 // export default class Counter extends Component
 class Counter extends Component {
+  // to compare the old state with the new one
+  // or to compare the old props with the new props
+  // to make the DOM working right also if i'm clicking on this button after selecting another one
+  // with this method we can decid whether make an ajax call to get new data based on the changes of props and states objects
+  componentDidUpdate(prevProps, prevState) {
+    console.log("prevProps", prevProps);
+    console.log("prevState", prevState);
+    // to update the value in the object (that still was 0, even increasing with the button)
+    if (prevProps.counter.value !== this.props.value) {
+      // ajax call and get new data from the server
+    }
+  }
+
+  // method called just before a component is removed from the DOM
+  // the unmount msg appears when i delete a component
+  // this because there is a changing of the virtual DOM in respect with the old one
+  componentWillUnmount() {
+    console.log('Counter - Unmount')
+  }
+
   // to render a data dynamically
   // state is a property and set it to an object
   // this object contains any data that this component need
@@ -72,6 +92,7 @@ class Counter extends Component {
   // }
 
   render() {
+    console.log("Component - Rendered");
     // console.log(this.props);
 
     // every react component has a property called props
