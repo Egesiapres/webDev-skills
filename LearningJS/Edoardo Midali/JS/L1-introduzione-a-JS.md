@@ -1,4 +1,4 @@
-## Qualche info
+## Qualche info generica
 
 JS è un linguaggio interpretato: viene passato così come lo scriviamo al browser
 
@@ -8,7 +8,7 @@ JS è dotato di molti APIs (Application Programming Interfaces)
 
 Anche se è nato come linguaggio client side, tramite NodeJS JS può essere usato anche per la parte server side
 
-## Aggiungere js
+## Aggiungere JS ad una pagina html
 
 il codice viene letto dall'alto verso il basso
 
@@ -18,3 +18,22 @@ esterno: <script src=""></script>
 
 inline: <p onclick="ciao()">Player 1: Umberto</p> (con la funzione ciao dentro allo script). 
 Questa cosa non è consigliata perché altrimenti devo mettere un onclick ad ogni bottone. Meglio gli eventi ad ascoltare il click
+
+di solito si mette lo script dentro al body con rimando esterno
+
+alternativa
+
+<script>
+  document.addEventListener("DOMContentLoaded", function(){
+
+  });
+</script>
+
+qui sopra ascoltiamo per un evento, il quale è il completo caricamento totale del DOM
+
+i defer 3 si leggono in ordine, come se fossero uno propedeutico all'altro
+<script src="" defer></script>
+<script src="" defer></script>
+<script src="" defer></script>
+async appena capita viene letto
+<script src="" async></script>
