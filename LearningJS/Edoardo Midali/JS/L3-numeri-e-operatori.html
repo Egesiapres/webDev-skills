@@ -21,63 +21,63 @@
       // octal
       // esadecimali
 
-      //2. js ce li identifica tutti come numeri
+      // 2. js ce li identifica tutti come numeri
       console.log(typeof intero);
       console.log(typeof float);
       console.log(typeof double);
       console.log(typeof binary);
 
-      //3. Metodo toFixed()
-      //funzione e metodo sono la stessa cosa
-      //(funzione: al di fuori di una classe; metodo: all'intero di una classe)
-      //permette di scegliere fino a quale decimare restituire la print
+      // 3. Metodo toFixed()
+      // funzione e metodo sono la stessa cosa
+      // (funzione: al di fuori di una classe; metodo: all'intero di una classe)
+      // permette di scegliere fino a quale decimare restituire la print
       const numero = 3.8736473465;
 
       console.log(numero.toFixed(2));
       console.log(numero.toFixed(4));
 
-      //4. Metodo Number()
+      // 4. Metodo Number()
       const number = "43"; //stringa
       const number2 = "43" + 3; //stampa 433, viene fatta una concatenazione, diventa tutto una stringa
 
       console.log(typeof number);
       console.log(number2);
 
-      //converte il numero da formato stringa in formato numero (toglie gli '')
+      // converte il numero da formato stringa in formato numero (toglie gli '')
       console.log(Number(number) + 3);
 
-      //5. Operatori (classici, base)
-      //addizione +
+      // 5. Operatori (classici, base)
+      // addizione +
       const addizione = 3 + 4;
-      //sottrazione -
+      // sottrazione -
       const sottrazione = 43 - 44;
-      //divisione /
+      // divisione /
       const divisione = 40 / 5;
-      //resto % (utile per capire se un numero è pari o dispari)
+      // resto % (utile per capire se un numero è pari o dispari)
       const resto = 40 % 5;
-      //potenza **
-      //per ora tralasciata
+      // potenza **
+      // per ora tralasciata
 
       console.log(addizione);
       console.log(sottrazione);
       console.log(divisione);
       console.log(resto);
 
-      //6. Precedenza degli operatori
-      //uguale a quella normale
-      //* e / prima, + e - dopo
+      // 6. Precedenza degli operatori
+      // uguale a quella normale
+      // * e / prima, + e - dopo
       const precedenza = 42 + 10 * 2 + 5;
 
-      //se voglio invece prima le addizioni uso le parentesi
+      // se voglio invece prima le addizioni uso le parentesi
       const precedenza2 = (42 + 10) * (2 + 5);
 
       console.log(precedenza);
       console.log(precedenza2);
 
-      //7. Operatori di incremento e decremento
+      // 7. Operatori di incremento e decremento
       let incremento = 10;
-      //++ operatore di incremento
-      //deve essere scritto prima della print della variabile
+      // ++ operatore di incremento
+      // deve essere scritto prima della print della variabile
       incremento++; //aumenta di 1
 
       let decremento = 5;
@@ -93,51 +93,51 @@
       let number4 = 4;
 
       // += sommo direttamente alla variabile
-      //al posto di
-      //number3 = number3 + 5;
-      //posso fare
+      // al posto di
+      // number3 = number3 + 5;
+      // posso fare
       number3 += 5;
 
       // -= (sottraggo direttamente alla variabile)
       number4 -= 3;
       // /=
       // *=
-      //stessa cosa con gli altri sottrazione e tutti gli altri
+      // stessa cosa con gli altri sottrazione e tutti gli altri
 
       console.log(number3);
       console.log(number4);
 
-      //9. Operatori di comparazione
+      // 9. Operatori di comparazione
       // < > <= >=
-      //maggiore, minore, maggiore o uguale, minore o uguale
-      //la console stampa un boolean
+      // maggiore, minore, maggiore o uguale, minore o uguale
+      // la console stampa un boolean
       let number5 = 10;
 
-      console.log(number5 < 11); //viene restituito true
-      console.log(number5 > 10); //false
-      console.log(number5 >= 10); //true
-      console.log(number5 <= 1); //false
+      console.log(number5 < 11); // viene restituito true
+      console.log(number5 > 10); // false
+      console.log(number5 >= 10); // true
+      console.log(number5 <= 1); // false
 
       // == !=
-      console.log(number5 == 10);
-      console.log(number5 != 10);
-      console.log(number5 == 11);
-      console.log(number5 != 12);
+      console.log(number5 == 10); // true
+      console.log(number5 != 10); // false
+      console.log(number5 == 11); // false
+      console.log(number5 != 12); // true
 
       // === (e !==) vs == (e !=)
-      //(identico vs uguale)
+      // (identico vs uguale)
       let number6 = "6";
       let number7 = 6;
 
-      console.log(number6 == 6); //il valore numerico è uguale ma il tipo di dato no (uno è una stringa, l'altro un numero)
+      console.log(number6 == 6); // il valore numerico è uguale ma il tipo di dato no (uno è una stringa, l'altro un numero)
       // === verifica che sia uguale anche il tipo di dato (deve essere uguale anche il valore!!!)
-      //non è una sola verifica del tipo di dato
+      // non è una sola verifica del tipo di dato
       // stessa cosa per !==
-      console.log(number6 === 6);
-      console.log(number7 === 6);
-      console.log(number6 != 5);
-      console.log(number6 !== 5);
-      console.log(number7 !== 6);
+      console.log(number6 === 6); // false
+      console.log(number7 === 6); // true
+      console.log(number6 != 5);  // true
+      console.log(number6 !== 5); // true
+      console.log(number7 !== 6); // false
     </script>
   </body>
 </html>
