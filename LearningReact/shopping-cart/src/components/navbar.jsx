@@ -1,5 +1,3 @@
-import React, { Component } from "react";
-
 // stateless functional component
 // instead of using a class for this component, we're gonna use a f
 // stateless because being not a class, it has no state
