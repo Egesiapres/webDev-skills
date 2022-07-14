@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Maximum and Minimum</title>
+  </head>
+
+  <body>
+    <h1>Qual'è il numero Maggiore? E quale quello minore?</h1>
+    <p>Guarda la console</p>
+  </body>
+  <script>
+    // programma che dati i seguenti numeri restituisca
+    // 1. numero maggiore
+    // 2. numero minore
+    let a = 3;
+    let b = -1;
+    let c = 4;
+    let d = -2;
+
+    // METODO 1(artigianale): condizioni
+    // maggiore
+    if (a >= b && a >= c && a >= d) {
+      console.log(`maggiore = ${a}`);
+    } else if (b >= a && b >= c && b >= d) {
+      console.log(`maggiore = ${b}`);
+    } else if (c >= a && c >= b && c >= d) {
+      console.log(`maggiore = ${c}`);
+    } else if (d >= a && d >= b && d >= c) {
+      console.log(`maggiore = ${d}`);
+    }
+    // minore
+    if (a <= b && a <= c && a <= d) {
+      console.log(`minore = ${a}`);
+    } else if (b <= a && b <= c && b <= d) {
+      console.log(`minore = ${b}`);
+    } else if (c <= a && c <= b && c <= d) {
+      console.log(`minore = ${c}`);
+    } else if (d <= a && d <= b && d <= c) {
+      console.log(`minore = ${d}`);
+    }
+
+    // METODO 2(sensato): metodi Math.max() e .min()
+    let numbers = [3, -1, 4, -2];
+
+    console.log("maggiore = " + Math.max(...numbers));
+    console.log("minore = " + Math.min(...numbers));
+  </script>
+</html>

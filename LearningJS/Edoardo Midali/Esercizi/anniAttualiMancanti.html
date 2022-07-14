@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anni</title>
+  </head>
+
+  <body>
+    <h1>Anni attuali e mancanti prima dei 100</h1>
+
+    <script>
+      // programma che dati data corrente e data di nascita restituisca
+      // 1. età della persona
+      // 2. anni necessari per raggiungere i 100
+      let annoCorrente = new Date().getFullYear(); // 2022
+      let annoDiNascita = 1996;
+      let eta = annoCorrente - annoDiNascita;
+      console.log(`età = ${eta}`);
+
+      let primaDeiCento = 100 - eta;
+      console.log(`anni mancanti = ${primaDeiCento}`);
+    </script>
+  </body>
+</html>
