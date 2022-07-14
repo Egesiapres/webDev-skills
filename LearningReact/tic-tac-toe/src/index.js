@@ -2,38 +2,56 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 
-// here we make the button working. When there is a click, it happens something
+// SQUARE: elemento figlio
+
+// STATE
+// this.state fa in modo che Square si ricordi che è stato fatto click
+// inserendo constructor(), devo mette anche super() - inizio standard
 class Square extends React.Component {
-  // i make the app remember using state
   constructor(props) {
-    // if there is the state, there is also the constructor
-    super(props); // it's the kind of start that a react class with a constructor has
+    super(props);
     this.state = {
-      // states allow the app to remember
       value: null,
     };
   }
 
+  // onClick = {function() {console.log('click'); }} e
+  // onClick = {() => console.log('click')}
+  // è la stessa cosa. Meglio la arrow function =>
+  // risolve problemi con i this.
+  // onClick è una props
+
+  // {this.props.value} è il ricevitore. Riceve value, la prop presente in Board (l'elemento padre)
+
+  // sostituendo {this.props.value} in {this.state.value} visualizziamo il valore corrente dello stato quando clicchiamo il bottone
   render() {
     return (
-      // here we make the button working. When there is a click, it happens something
       <button
         className="square"
-        //
         onClick={() => {
           this.setState({ value: "X" });
         }}
       >
         {this.state.value}
-      </button> // this.props.value is like a receiver. It receives the value from the p
+      </button>
     );
   }
 }
 
-// Board is square's parent element
+// Board: elemento PADRE
+
+// PROPS
+// value è una props. Le prop permettono il passaggio di informazioni fra componenti padre e figlio
 class Board extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      squares: Array(9).fill(null),
+    };
+  }
+
   renderSquare(i) {
-    return <Square value={i} />; // the prop is passed from the p to the c
+    return <Square value={i} />;
   }
 
   render() {

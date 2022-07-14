@@ -1,110 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>L8: For, while e do while</title>
-</head>
-<body>
+  </head>
+  <body>
     <script>
-        // 1. Introduzione
-        
-        // esempio del libro
-        // ho un libro con tante pagine
-        // ha una pagina? si
-        // l'ho letta? no
-        // allora la leggo
-        // ogni volta che la condizione (trovo una pagina non letta) è vera eseguo
-        // quando non trovo più pagine finisco, interrompo
+      // 1. Introduzione
 
-        let array = [22,13,34,56,99,101];
+      // esempio del libro
+      // ho un libro con tante pagine
+      // ha una pagina? si
+      // l'ho letta? no
+      // allora la leggo
+      // ogni volta che la condizione (trovo una pagina non letta) è vera eseguo
+      // quando non trovo più pagine finisco, interrompo
 
-        // 2. Perchè ci servono i loop (cicli)
-        // al posto di
-        // macchinoso, ripetitivo e non automatico
-        //  console.log(array[0]);
-        //  console.log(array[1]);
-        //  console.log(array[2]);
-        //  console.log(array[3]);
-        //  console.log(array[4]);
-        //  console.log(array[5]);
-        
-        // 3. Loop for
-        // faccio questo
-        // per ogni volta che si verifica () fai {}
-        // let i=0 significa inizializzare una variabile
-        // gli dico di partire da 0
-        // i è il contatore
-        // dopo il primo ; c'è la condizione (finché i è minore della lunghezza totale 6. Quindi prendo fino a 5)
-        //dopo il secondo ; c'è l'iteratore
+      let array = [22, 13, 34, 56, 99, 101];
 
-        // si ferma perché dopo array.lenght[5] i contatore prova a salire
-        // però array.lenght[6] è uguale alla lenght totale, quindi si blocca
-        // perché la condizione è solo <, non <=
-        for (let i=0; i<array.length; i++) {
-            console.log(array[i]);
-            // 4. Uscire dal ciclo
-            // break
-            // se mi imbatto nel numero 56 esci dal ciclo
-            if(array[i] == 56) {
-                break;
-            }
+      // 2. Perchè ci servono i loop (cicli)
+      // al posto di
+      // macchinoso, ripetitivo e non automatico
+      //  console.log(array[0]);
+      //  console.log(array[1]);
+      //  console.log(array[2]);
+      //  console.log(array[3]);
+      //  console.log(array[4]);
+      //  console.log(array[5]);
+
+      // 3. Loop for
+      // faccio questo
+      // per ogni volta che si verifica () fai {}
+      // let i=0 significa inizializzare una variabile
+      // gli dico di partire da 0
+      // i è il contatore
+      // dopo il primo ; c'è la condizione (finché i è minore della lunghezza totale 6. Quindi prendo fino a 5)
+      // dopo il secondo ; c'è l'iteratore
+
+      // si ferma perché dopo array.lenght[5] i contatore prova a salire
+      // però array.lenght[6] è uguale alla lenght totale, quindi si blocca
+      // perché la condizione è solo <, non <=
+      for (let i = 0; i < array.length; i++) {
+        console.log(array[i]);
+        // 4. Uscire dal ciclo
+        // break
+        // se mi imbatto nel numero 56 esci dal ciclo
+        if (array[i] == 56) {
+          break;
         }
+      }
 
-        for (let i=0; i<array.length; i++) {
-            // 4. Saltare l'iterazione
-            // continue
-            // stampa tutto tranne il numero 56
-            // se mettessi il console.log qua stamperebbe anche il 56
-            // perché non avrebbe ancora letto l'istruzione di rimozione
-            if(array[i] == 56) {
-                continue;
-            }
-            console.log(array[i]);
+      for (let i = 0; i < array.length; i++) {
+        // 4. Saltare l'iterazione
+        // continue
+        // stampa tutto tranne il numero 56
+        // se mettessi il console.log qua stamperebbe anche il 56
+        // perché non avrebbe ancora letto l'istruzione di rimozione
+        if (array[i] == 56) {
+          continue;
         }
+        console.log(array[i]);
+      }
 
-        // stampa tutti i numeri dispari
-        for (let i=0; i<array.length; i++) {
-            if (array[i] % 2 == 0) {
-                continue;
-            }
-            console.log(array[i]);
+      // stampa tutti i numeri dispari
+      for (let i = 0; i < array.length; i++) {
+        if (array[i] % 2 == 0) {
+          continue;
         }
+        console.log(array[i]);
+      }
 
-        // 6. While e do while
-        // let array2 = [22,13,34,56,99,101];
-        let array2 = [22]; // length 1 e indice di partenza 0
+      // 6. While e do while
+      // let array2 = [22,13,34,56,99,101];
+      let array2 = [22]; // length 1 e indice di partenza 0
 
-        // while
-        // la sintassi è scomposta rispetto al for
-        // inizializzo il contatore (no differenze, si tratta di una mera variabile)
-        let i = 1;
-        let k = 1;
-        // condizione di terminazione, cosa eseguo e infine iteratore
-        // poiché prima viene verificata la condizione
-        // con l'array di 1 numero si blocca
-        // 1 non è < di 1 (avrei dovuto mettere)
-        while (i<array2.length) {
-            console.log('while:', array2[i-1]); //
-            // iteratore
-            i++
-        }
+      // while
+      // la sintassi è scomposta rispetto al for
+      // inizializzo il contatore (no differenze, si tratta di una mera variabile)
+      let i = 1;
+      let k = 1;
+      // condizione di terminazione, cosa eseguo e infine iteratore
+      // poiché prima viene verificata la condizione
+      // con l'array di 1 numero si blocca
+      // 1 non è < di 1 (avrei dovuto mettere)
+      while (i < array2.length) {
+        console.log("while:", array2[i - 1]); //
+        // iteratore
+        i++;
+      }
 
-        // do while
-        // è un for smontato e al contrario
-        // prima dico cosa eseguo
-        // il do while esegue il codice prima di verificare la condizione
-        // per questo non si blocca se nel caso dell'array a 1 numero
-        // faccio eseguire il codice almeno una volta anche prima della verifica della condizione
-        do {console.log('do while:', array2[k-1]);
-            k++;
-        } while (k<array2.length)
+      // do while
+      // è un for smontato e al contrario
+      // prima dico cosa eseguo
+      // il do while esegue il codice prima di verificare la condizione
+      // per questo non si blocca se nel caso dell'array a 1 numero
+      // faccio eseguire il codice almeno una volta anche prima della verifica della condizione
+      do {
+        console.log("do while:", array2[k - 1]);
+        k++;
+      } while (k < array2.length);
 
-        //for sostituisce egregiamente il while
-        //for usarlo in quasi tutti i casi in cui si può
-        //do while offre quella flessibilità in più in certe situazioni
-
+      // for sostituisce egregiamente il while
+      // for usarlo in quasi tutti i casi in cui si può
+      // do while offre quella flessibilità in più in certe situazioni
     </script>
-</body>
+  </body>
 </html>
