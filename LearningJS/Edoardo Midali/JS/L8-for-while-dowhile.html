@@ -18,30 +18,33 @@
       // ogni volta che la condizione (trovo una pagina non letta) è vera eseguo
       // quando non trovo più pagine finisco, interrompo
 
-      let array = [22, 13, 34, 56, 99, 101];
+      let array = [22,13,34,6,99,101];
+      let a = [1,2,3,4,5,6,7,8,9]
 
       // 2. Perchè ci servono i loop (cicli)
       // al posto di
-      // macchinoso, ripetitivo e non automatico
       //  console.log(array[0]);
       //  console.log(array[1]);
       //  console.log(array[2]);
       //  console.log(array[3]);
       //  console.log(array[4]);
       //  console.log(array[5]);
+      // macchinoso, ripetitivo e non automatico
 
       // 3. Loop for
       // faccio questo
       // per ogni volta che si verifica () fai {}
-      // let i=0 significa inizializzare una variabile
-      // gli dico di partire da 0
+      // let i = 0 significa inizializzare una variabile
+      // gli dico di partire da 0. Dall'elemento dell'array il cui indice è 0
       // i è il contatore
       // dopo il primo ; c'è la condizione (finché i è minore della lunghezza totale 6. Quindi prendo fino a 5)
       // dopo il secondo ; c'è l'iteratore
 
-      // si ferma perché dopo array.lenght[5] i contatore prova a salire
+      // si ferma perché dopo array.lenght[5] il contatore prova a salire
       // però array.lenght[6] è uguale alla lenght totale, quindi si blocca
       // perché la condizione è solo <, non <=
+      // se eseguo {console.log(i)} stampa l'indice a cui corrispondono i valori
+      // per avere i numeri: {console.log(a[i])}
       for (let i = 0; i < array.length; i++) {
         console.log(array[i]);
         // 4. Uscire dal ciclo
@@ -52,13 +55,28 @@
         }
       }
 
+      // io: stampare solo 3, 4, 5, 6, 7
+      // let a = [1,2,3,4,5,6,7,8,9]
+      for (let i = 2; i < a.length - 2; i ++) {
+        console.log(a[i]);
+      }
+
+      // io: stampare al contrario i numeri
+      for (let i = 8; i > a.length - 10; i --) {
+        console.log(a[i])
+      }
+
+      // let array = [22,13,34,6,99,101];
       for (let i = 0; i < array.length; i++) {
         // 4. Saltare l'iterazione
         // continue
         // stampa tutto tranne il numero 56
         // se mettessi il console.log qua stamperebbe anche il 56
         // perché non avrebbe ancora letto l'istruzione di rimozione
-        if (array[i] == 56) {
+
+        // io: saltare 13 e 34
+        // no && si ||: può essere uno dei due o entrambi. Non per forza contemporaneamente
+        if (array[i] == 13 || array[i] == 34) {
           continue;
         }
         console.log(array[i]);

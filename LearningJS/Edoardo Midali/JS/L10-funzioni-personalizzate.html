@@ -1,37 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>L10: Funzioni personalizzate</title>
-</head>
-<body>
-
-    <input type="text" name="nome" placeholder="nome persona">
+  </head>
+  <body>
+    <input type="text" name="name" placeholder="nome persona" />
     <button>Saluta!</button>
-    <h1>Nessun saluto</h1>
-    
-    <script>
-        //1. Crea una funzione basica custom
-        const button = document.querySelector('button');
-        const title = document.querySelector('h1');
-        const nome = document.querySelector('input');
+    <button id="b">Prova!</button>
 
-        //4, Parametri di default
-        function saluta(name = 'Persona sconosciuta'){ //parametro di default: se non inserisco un nome specifico come parametro della funzione mi prende questo
-            //.innerHTML cambia il contenuto
-            //in questo caso di h1
-            title.innerHTML = `Ciao ${name}`; //se metto name come parametro non va perché non ll'ho definito
-        }
-        
-        //2. Usarla nel codice
-        //3. Inserire dei parametri
-        //devo aggiungere il listener sul bottone
-        button.addEventListener('click', () => {
-            saluta(nome.value); 
-            //.value prende il valore specifico
-        })
+    <h1>Nessun saluto</h1>
+
+    <script>
+      // 1. Crea una funzione basica custom
+      const name = document.querySelector("input");
+      const helloButton = document.querySelector("button");
+      const h1 = document.querySelector("h1");
+
+      // io
+      const b = document.getElementById("b");
+
+      // 4. Parametri di default
+      // parametro di default: se non inserisco un parametro specifico come parametro della funzione mi prende questo
+      // appare Persona sconosciuta solamente se tengo sayHello(), senza parametro interno
+      // se metto solo x come parametro (senza ="") non va perché non l'ho definito
+      // .innerHTML cambia il contenuto (qui di h1)
+      function sayHello(
+        x = "Ti stampo il parametro di default. O non hai messo un parametro nella funzione (sayHello()), o l'hai inserito non correttamente"
+      ) {
+        h1.innerHTML = `Ciao ${x}`;
+      }
+
+      //io
+      function prova(y = "Default parameter") {
+        alert(`${y} sta eseguendo una prova`);
+      }
+
+      // 2. Usarla nel codice
+      // 3. Inserire dei parametri
+      // devo aggiungere il listener sul bottone
+      // .value prende il valore specifico
+      helloButton.addEventListener("click", () => {
+        sayHello(name.value);
+      });
+
+      // io
+      b.addEventListener("click", () => {
+        prova(name.value);
+      });
     </script>
-</body>
+  </body>
 </html>

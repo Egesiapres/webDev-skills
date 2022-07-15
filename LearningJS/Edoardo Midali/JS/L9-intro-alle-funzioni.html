@@ -1,126 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>L9: Introduzione alla funzioni</title>
-</head>
-<body>
-
+  </head>
+  <body>
     <button>Salutami</button>
 
     <script>
-        //1. Blocchi di codici riutilizzabili
-        //set di istruzioni che si ripete ogni volta che viene richiamato
-        //diverse da loop
-        function cucinaPasta() {
-            tiraFuoripentola
-            mettereAcqua
-            lasciareBollire
-            mettereSale
-            metterePasta
-            fareSugo
-            impiattate
-        }
+      // 1. Blocchi di codici riutilizzabili
+      // set di istruzioni che si ripete ogni volta che viene richiamato
+      // diverse da loop
+      function cucinaPasta() {
+        tiraFuoripentola;
+        mettereAcqua;
+        lasciareBollire;
+        mettereSale;
+        metterePasta;
+        fareSugo;
+        impiattate;
+      }
 
-        //2. Funzioni del browser string.replace, array.join, math.random
-        let nome = 'Luca';
-        //anche questa è una funzione
-        //date insieme al browser
-        nome.replace('Luca', 'Antonio');
+      // 2. Funzioni del browser string.replace, array.join, math.random
 
-        //3. Funzioni e metodi
-        //metodi: funzioni di oggetti
-        //funzioni: al di fuori di oggetti o custom
-        //però sono praticamente la stessa cosa
+      // anche questa è una funzione
+      // date insieme al browser
+      let u = "Umberto";
+      let e = u.replace("Umberto", "Emma");
+      console.log(e);
 
-        //4. Invocare una funzione
-        //con quelle del browser
-        nome.replace('Luca', 'Piero');
-        //questa è la sintassi
-        function ciao() {
-            console.log('ciao');
-        }
-        
-        ciao(); //invocazione
+      // 3. Funzioni e metodi
+      // metodi: funzioni di oggetti
+      // funzioni: al di fuori di oggetti o custom
+      // però sono praticamente la stessa cosa
 
-        //5. Funzioni anonime
-        //non hanno nome, le chiamiamo in un altro modo
-        //molto usate negli eventi e nelle callback
-        const myButton = document.querySelector('button');
-                        
-        myButton.onclick = function () { //funzione anonima
-            alert('hello');
-        }
+      // 4. Invocare una funzione
+      // predefinita
+      u.replace("Luca", "Piero");
+      console.log(u);
+      // custom
+      function ciao() {
+        console.log("ciao");
+      }
 
-        //potrei assegnare la funzione anonima a una variabile
-        //in questo modo però la starei dotando di un nome
+      ciao(); // invocazione
 
-        //6. Lo scope e i conflitti
-        //scope: scopo delle variabili dentro e fuori dalla funzione
-        //fuori dalla funzione si tratta di variabili globali
-        let nome2 = 'Umberto';
-        let eta = 25;
+      // 5. Funzioni anonime
+      // no nome, le chiamiamo in un altro modo
+      // molto usate negli eventi e nelle callback
+      const myButton = document.querySelector("button");
 
-        function prova () {
-            //dentro alla funzione si tratta di variabili locali
-            let cognome = 'Pasinetti';
-            console.log(`${nome2} ${cognome} ha ${eta} anni`)
-        }
+      myButton.onclick = function () {
+        // funzione anonima
+        alert("hello");
+      };
 
-        prova();
+      // potrei assegnare la funzione anonima a una variabile
+      // in questo modo però la starei dotando di un nome
 
-        console.log(nome2);
-        //console.log(cognome); //mi da errore (not defined) perché lo scope di cognome è prova()
+      // 6. SCOPE e i conflitti
+      // scope: scopo delle variabili dentro e fuori dalla funzione
+      // globali: fuori dalla funzione
+      let nome = "Umberto";
+      let eta = 25;
+      // locali: dentro alla funzione
+      function prova() {
+        let cognome = "Pasinetti";
+        console.log(`${nome} ${cognome} ha ${eta} anni`);
+      }
 
-        //7. Innestare funzioni
-        //8. Parametri
-        //name qua è il parametro
-        //mi fai una funzione che si aspetta in entrata ogni volta il parametro name
-        //name è come se fosse un segnaposto
-        function hello(name) {
-            console.log('hello', name);
-        }
+      prova();
 
-        hello (); //stampa undefined, perché non ho richiamato la funzione con il parametro
-        hello(nome2); //funzione richiamata correttamente con il parametro
+      console.log(nome);
+      // console.log(cognome); 
+      // mi da errore (not defined) perché lo scope di cognome è prova()
 
-        function ciao() {
-            let surname = 'Pasinetti';
-            let surname2 = 'Franchino';
-            console.log('ciao', surname);
-            hello(surname2); //funzione innestata
-            //ha il parametro in entrata
-            //il parametro può essere solo locale
-            //se prendo una variabile globale mi da errore
-        } 
+      // 7. Innestare funzioni
+      // 8. Parametri
+      // parametro: ciò che sta dentro le ()
+      // in questo caso name
+      // la f si aspetta in entrata OGNI VOLTA il parametro name
+      // name è come se fosse un segnaposto
+      // (non deve corrispondere necessariamente a qualcosa)
+      function hello(x) {
+        console.log("hello", x);
+      }
 
-        ciao(); //non metto il parametro perché la f ciao() non ce l'ha
-        // ciao(surname); //error
+      hello(); // stampa undefined: non ho richiamato la funzione con il parametro
+      hello(e); // funzione richiamata correttamente con il parametro
 
-        //concatenazione di funzioni serve molto nelle tabelle
-        //esempio di innesto
-        function generaTabella() {
-            generaHeader();
-            generaRighe();
-            generaFooter();
-            console.log('Tabella generata');
-        }
+      function ciao() {
+        let su = "Pasinetti";
+        let se = "Franchino";
+        console.log("ciao", su);
+        hello(se); // funzioni innestate
+        // ha il parametro in entrata
+        // il parametro può essere solo locale
+        // se prendo una variabile globale mi da errore ???
+      }
 
-        function generaHeader() {
-            console.log('Header generato');
-        }
+      ciao(); // non parametro perché la f ciao() non ce l'ha
+      // ciao(surname); // error
 
-        function generaRighe() {
-            console.log('Righe generate');
-        }
+      // concatenazione di funzioni serve molto nelle tabelle
+      // esempio di innesto
+      function generaTabella() {
+        generaHeader();
+        generaRighe();
+        generaFooter();
+        console.log("Tabella generata");
+      }
+      
+      function generaHeader() {
+        console.log("Header generato");
+      }
 
-        function generaFooter() {
-            console.log('Footer generato');
-        }
+      function generaRighe() {
+        console.log("Righe generate");
+      }
 
-        generaTabella();
+      function generaFooter() {
+        console.log("Footer generato");
+      }
+
+      generaTabella();
     </script>
-</body>
+  </body>
 </html>
