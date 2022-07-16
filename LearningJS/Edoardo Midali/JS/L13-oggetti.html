@@ -1,93 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>L13: Oggetti</title>
-</head>
-<body>
+  </head>
+  <body>
     <script>
-        //1. Cosa è un oggetto? Proprietà, metodi
-        //2. Creare un oggetto
-        //collezione di dati
-        //correlati fra loro
-        const persona = {
-            //i dati si leggono per coppia chiave valore
-            //persona è un oggetto
-            nome: 'Luca',
-            cognome: 'Rossi',
-            genere: 'Maschio',
-            eta: 25,
-            interessi: ['snowboard', 'basket', 'picnic al parco'],
-            //oggetti nidificati
-            indirizzo: {
-                via: 'Piazza Roma',
-                cap: '98765',
-                provincia: 'MI',
-                citta: 'Milano'
-            },
-            saluta: function() {
-                //accedo a una proprietà specifica scendendo attraverso il nuemro
-                console.log(`Ciao sono ${persona.nome}`);
-                //oppure con il this
-                console.log(`Ciao il mio cognome è ${this.cognome}`)
-            }
-        }
-        //le "variabili" dento un oggetto sono proprietà sono nome, cognome...
-        //saluta è un metodo: funzione di un particolare oggetto
-        //saluta è il metodo di persona
+      // 1. Cosa è un oggetto? Proprietà, metodi
+      // 2. Creare un oggetto
+      // collezione di dati correlati fra loro
+      // i dati si leggono per coppia chiave (key) valore (value) separari da una ,
+      const persona = {
+        nome: "Luca",
+        cognome: "Rossi",
+        genere: "Maschio",
+        eta: 25,
+        interessi: ["snowboard", "basket", "picnic al parco"],
+        // oggetti nidificati
+        indirizzo: {
+          via: "Piazza Roma",
+          cap: "98765",
+          provincia: "MI",
+          citta: "Milano",
+        },
+        saluta: function () {
+          // ACCEDO a una proprietà specifica scendendo attraverso oggetto.chiave[indice]
+          // oppure con il this.
+          console.log(`Ciao sono ${persona.nome}`);
+          console.log(`Ciao il mio cognome è ${this.cognome}`);
+        },
+      };
 
-        //2. Leggere proprietà e funzioni
-        console.log(persona.nome);
-        console.log(persona.eta);
-        console.log(persona.interessi[2]); //array quindi se voglio un interesse specifico uso l'index
-        console.log(persona.indirizzo.cap); //proprietà di un oggetto in una proprietà di un oggetto
-        persona.saluta(); //richiamare le funzioni
-        // console.log(persona.saluta()); //bugga, da undefined. Sopra giusto
-        //è uguale a
-        console.log(persona.nome.toLocaleUpperCase());
+      // le "variabili" dentro un oggetto sono proprietà (nome, cognome...)
+      // metodo: funzione di un particolare oggetto (saluta)
+      // saluta è il metodo di persona
 
-        //3. Dot vs brackets notation
-        //questo
-        console.log(persona.nome);
-        //è uguale a
-        console.log(persona['nome']);
-        console.log(persona['interessi']);
-        console.log(persona['interessi'][1]);
-        console.log(persona['indirizzo']['cap']);
-        //per prendere in maniera statica va bene la dot notation
-        //per prendere dinamicamente cose è meglio la braketes notation
-        const chiave = 'interessi';
+      // 2. Leggere proprietà e funzioni
+      console.log(persona.nome);
+      console.log(persona.eta);
+      console.log(persona.interessi[2]); // nell'array se voglio un daro specifico uso l'index
+      console.log(persona.indirizzo.cap); // proprietà di un oggetto in una proprietà di un oggetto
+      persona.saluta(); // richiamare le funzioni
+      // console.log(persona.saluta()); // bugga, da undefined. Sopra giusto
+      // è uguale a
+      console.log(persona.nome.toLocaleUpperCase());
 
-        console.log(persona.chiave); //undefined, dentro a persona non c'è chiave
-        console.log(persona[chiave][0]); //Maschio
+      // 3. Dot vs brackets notation
+      // questo
+      console.log(persona.nome);
+      // è uguale a
+      console.log(persona["nome"]);
+      console.log(persona["interessi"]);
+      console.log(persona["interessi"][1]);
+      console.log(persona["indirizzo"]["cap"]);
+      // per prendere in maniera statica va bene la dot notation
+      // per prendere dinamicamente cose è meglio la braketes notation
+      const chiave = "interessi";
+      console.log(persona.chiave); // undefined, dentro a persona non c'è chiave
+      console.log(persona[chiave][0]); // snowboard
 
-        //4. Aggiornare un oggetto
-        //perché posso modificare un avlore nella costante?
-        //perché non sto cambiando interamente la natura dell'oggetto persona
-        persona.nome = 'Paolo';
-        // persona = 65; qua da errore
-        persona.indirizzo.cap = 12300;
-        persona.interessi[2] = 'cazzeggiare';
+      // 4. Aggiornare un oggetto
+      // (come per i let, scendendo con i . fin dove mi serve)
+      // perché posso modificare un valore nella costante?
+      // perché non sto cambiando interamente la natura dell'oggetto persona
+      persona.nome = "Paolo";
+      // persona = 65; qua da errore
+      persona.indirizzo.cap = 12300;
+      persona.interessi[2] = "cazzeggiare";
 
-        console.log(persona.nome);
-        console.log(persona.indirizzo.cap);
-        console.log(persona.interessi[2]);
-        
-        //aggiungere proprietà
-        //l'aggiunta avviene in ordine alfabetico
-        persona.colorePreferito = 'blu';
+      console.log(persona.nome);
+      console.log(persona.indirizzo.cap);
+      console.log(persona.interessi[2]);
 
-        console.log(persona.colorePreferito);
-        console.log(persona);
+      // aggiungere proprietà
+      // l'aggiunta avviene in ordine alfabetico
+      persona.colorePreferito = "blu";
 
-        //5. this
-        //quando lo usiamo facciamo riferiemnto allo stesso oggetto
-        //quello che stiamo utilizzando
-        //vedi sopra dove c'è la stampa del cognome
-        //this prende come context l'oggetto
-        //stampa il cognome perché siamo dentro all'oggetto persona
+      console.log(persona.colorePreferito);
+      console.log(persona);
+
+      // 5. THIS
+      // quando lo usiamo facciamo riferiemnto allo STESSO oggetto
+      // quello che stiamo utilizzando
+      // vedi sopra dove c'è la stampa del cognome
+      // this prende come context l'oggetto
+      // stampa il cognome perché siamo dentro all'oggetto persona
     </script>
-</body>
+  </body>
 </html>
