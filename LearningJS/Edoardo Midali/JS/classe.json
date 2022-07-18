@@ -1,5 +1,7 @@
 {
   "nome": "4A",
+  "numeroAlunni": 21,
+  "scuolaSabato": false,
   "scuola": "Scuola Elementare Miao",
   "insegnanti": [
     {

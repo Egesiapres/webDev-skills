@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>L18: Introduzione pratica Asincrono</title>
+  </head>
+  <body>
+    <button>Vai</button>
+
+    <script>
+      // 1. JS sync
+      // tutto quello di L17
+
+      // 2. JS async
+      // fecth(): metodo asincrono
+      // (fetch significa andare a prendere)
+      // let response = fetch('https://sk.picdn.net/shutterstock/videos/11773709/thumb/10.jpg');
+      // console.log(response); // da una promise in pending (che aspetta)
+      // blob(): metodo per il passaggio di dati
+      // (binary large object)
+      // let blob = response.blob();
+      // così la console da errore
+      // perché facendo fetch, response non esiste ancora, è in attesa
+      // non posso procedere in questo modo
+
+      // 3. Async e callbacks
+      // metodo VECCHIO, lungo e confusionario
+      // f carica asset. L'asset è l'img
+      // i 3 parametri
+      // una callback è una funzione che restituisce qualcosa
+      // le richiamo una volta finito
+      function loadAsset(url, type, callback) {
+        let xhr = new XMLHttpRequest(); // la funzione apre una richiesta
+        xhr.open("GET", url); // la apriamo (open()) e diciamo che è di tipo get, e aggiungiamo l'url
+        xhr.responseType = type; // il tipo di risposta è type che sarà poi blob
+
+        // una volta caricata la risposta e preso l'img che serve
+        // fai una f di callBack con dentro la risposta
+        xhr.onload = function () {
+          callback(xhr.response);
+        };
+
+        xhr.send();
+      }
+
+      function displayImage(blob) {
+        let objectURL = URL.createObjectURL(blob);
+
+        let image = document.createElement("img");
+        image.src = objectURL;
+        document.body.appendChild(image);
+      }
+
+      // par1: url, par2: blob, par3: displayImage
+      loadAsset(
+        "https://ak.picdn.net/shutterstock/videos/11773709/thumb/10.jpg",
+        "blob",
+        displayImage
+      );
+
+      // 4. Promises (fetch)
+      // metodo ATTUALE
+      // fetch, promises e then. risovolo i problemi di prima
+      // (codice vecchio, lungo e poco leggibile)
+      // ora l'asincrono è più facile e gestibile
+      fetch("classe.json")
+        .then(function (response) {
+          // fetch() sostituisce il codice di prima fino a prima della callback
+          return response.json();
+        })
+        .then(function (json) {
+          // then. = callback di prima
+          classe = json; // DIFFICILE: al parametro generico (response prima, json ora) è stato dato un nome a noi utile, classe
+          console.log("Dati: ", classe); // qui abbiamo già terminato tutto il casino di prima
+        })
+        .catch(function (err) {
+          // con due righe in più faccio anche il .catch, che serve per la gestione dell'errore
+          console.log("Fetch problem: " + err.message);
+        });
+    </script>
+  </body>
+</html>
