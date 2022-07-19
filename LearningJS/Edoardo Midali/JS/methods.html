@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Methods</title>
+  </head>
+  <body>
+    <script>
+      let t = 'testo';
+      // console: oggetto, .log(): metodo. Console è un oggetto built-in di JS
+      console.log(t);
+      console.log(t.length);
+
+      let maiuscT = t.toUpperCase();
+      console.log(maiuscT);
+      console.log('testo1'.toUpperCase());
+
+      console.log(t.startsWith('t')); // true
+
+      console.log('     testo1 '.trim()); // rimuove lo spazio pre e post stringa
+
+      // Math: oggetto built-in di JS. Si usa per operazioni più complesse delle aritmetiche base
+      Math.random(); // random() genera un numero random tra 1 e 0 (conta anche il valore decimale)
+      console.log(Math.random());
+      Math.random() * 100; // numero a caso fra 0 e 100
+      console.log(Math.random() * 100);
+      // numero a caso fra 0 e 100 senza i decimali
+      console.log(Math.floor(Math.random() * 100)); // Math.floor() prende come input un n decimale e lo arrotonda
+      console.log(Math.ceil(43.8)); // numero intero più piccolo maggiore o uguale a un numero decimale
+      console.log(Number.isInteger(2017)); // dice se 2017 è un integer
+      // sono davvero tanti, vedi la documentazione
+    </script>
+  </body>
+</html>

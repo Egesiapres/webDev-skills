@@ -15,12 +15,12 @@
 
     <script>
       // 1. Crea una funzione basica custom
-      const name = document.querySelector("input");
-      const helloButton = document.querySelector("button");
-      const h1 = document.querySelector("h1");
+      const name = document.querySelector('input');
+      const helloButton = document.querySelector('button');
+      const h1 = document.querySelector('h1');
 
       // io
-      const b = document.getElementById("b");
+      const b = document.getElementById('b');
 
       // 4. Parametri di default
       // parametro di default: se non inserisco un parametro specifico come parametro della funzione mi prende questo
@@ -34,7 +34,7 @@
       }
 
       //io
-      function prova(y = "Default parameter") {
+      function prova(y = 'Default parameter') {
         alert(`${y} sta eseguendo una prova`);
       }
 
@@ -42,12 +42,12 @@
       // 3. Inserire dei parametri
       // devo aggiungere il listener sul bottone
       // .value prende il valore specifico
-      helloButton.addEventListener("click", () => {
+      helloButton.addEventListener('click', () => {
         sayHello(name.value);
       });
 
       // io
-      b.addEventListener("click", () => {
+      b.addEventListener('click', () => {
         prova(name.value);
       });
     </script>

@@ -25,8 +25,8 @@
       // 2. Blocking code: concetto di thread (processo)
       // va avanti e ogni task blocca l'esecuzione del codice finché non è finito il task
       // ogni task occupa un singolo processo (thread)
-      const btn = document.querySelector("#date");
-      const btnAlert = document.querySelector("#alert");
+      const btn = document.querySelector('#date');
+      const btnAlert = document.querySelector('#alert');
 
       // btn è lento, genera del delay
       // non viene eseguito immediatamente
@@ -34,8 +34,7 @@
       // relativo alla stampa della data
       // o in aggiunta anche dell'alert se subito dopo clicco su btnAlert
       // anche se btnAlert è già pronto
-
-      btn.addEventListener("click", () => {
+      btn.addEventListener('click', () => {
         let myDate;
         for (let i = 0; i < 10000000; i++) {
           let date = new Date(); // qui sto semplicemente calcolando la data di oggi
@@ -44,14 +43,14 @@
 
         console.log(myDate);
 
-        let pElem = document.createElement("p");
-        pElem.textContent = "This is a newly-added paragraph.";
+        let pElem = document.createElement('p');
+        pElem.textContent = 'This is a newly-added paragraph.';
         document.body.appendChild(pElem);
       });
 
       // btnAlert parte subito
-      btnAlert.addEventListener("click", () => {
-        alert("Ecccomi");
+      btnAlert.addEventListener('click', () => {
+        alert('Eccomi');
       });
 
       // 3. Threads, js single threat - main thread, worker threads

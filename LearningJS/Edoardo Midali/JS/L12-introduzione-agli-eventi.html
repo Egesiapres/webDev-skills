@@ -46,14 +46,14 @@
       // 1. Cosa sono gli eventi?
       // cose che succedono sulla pagina
       // all'agire di una persona
-      const form = document.querySelector("form");
-      const nome = document.getElementById("fname");
-      const cognome = document.getElementById("lname");
-      const nickname = document.getElementById("nname");
-      const paragrafo = document.querySelector("p");
+      const form = document.querySelector('form');
+      const nome = document.getElementById('fname');
+      const cognome = document.getElementById('lname');
+      const nickname = document.getElementById('nname');
+      const paragrafo = document.querySelector('p');
 
       nome.onfocus = function () {
-        console.log("sono in focus"); // quando metto il cursore nella casella di input
+        console.log('sono in focus'); // quando metto il cursore nella casella di input
       };
 
       // 2. Event handler
@@ -61,13 +61,13 @@
       // e a fianco ci metto .onclick, .onsubmit, .onfocus...
       // onclick è per quando clicco con il mouse
       nome.onclick = function () {
-        console.log("ciao");
+        console.log('ciao');
       };
 
       // 3. Inline event handler (vedi l'html)
       // sconsigliato, meglio non intaccare l'html
       function prova() {
-        console.log("Hai cliccato sul cognome");
+        console.log('Hai cliccato sul cognome');
       }
 
       function prova2() {
@@ -77,7 +77,7 @@
       // 4. addEventListener()
       // metodo migliore
       // danno + controllo
-      nname.addEventListener("focus", () => {
+      nname.addEventListener('focus', () => {
         console.log(`Sei in focus sull'input del nickname tramite il listener`);
       });
 
@@ -90,7 +90,7 @@
 
       // ho selezionato una proprietà dell'oggetto event
       // il .target si userà molto molto
-      nome.addEventListener("focus", function (e) {
+      nome.addEventListener('focus', function (e) {
         console.log(`Sei in focus sull'input del nome tramite il listener`);
         console.log(e);
         console.log(e.target);
@@ -105,13 +105,13 @@
       // se un evento ha qualche problema aggiungo .preventDefault() e mi faccio il debugging
       form.onsubmit = function (e) {
         if (
-          nome.value === "" ||
-          cognome.value === "" ||
-          nickname.value === ""
+          nome.value === '' ||
+          cognome.value === '' ||
+          nickname.value === ''
         ) {
           e.preventDefault();
           // mandi a schermo della roba
-          paragrafo.textContent = "You need to fill in every input field!";
+          paragrafo.textContent = 'You need to fill in every input field!';
         }
       };
 

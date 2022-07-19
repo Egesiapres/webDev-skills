@@ -18,8 +18,8 @@
       // ogni volta che la condizione (trovo una pagina non letta) è vera eseguo
       // quando non trovo più pagine finisco, interrompo
 
-      let array = [22,13,34,6,99,101];
-      let a = [1,2,3,4,5,6,7,8,9]
+      let array = [22, 13, 34, 6, 99, 101];
+      let a = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
       // 2. Perchè ci servono i loop (cicli)
       // al posto di
@@ -57,13 +57,13 @@
 
       // io: stampare solo 3, 4, 5, 6, 7
       // let a = [1,2,3,4,5,6,7,8,9]
-      for (let i = 2; i < a.length - 2; i ++) {
+      for (let i = 2; i < a.length - 2; i++) {
         console.log(a[i]);
       }
 
       // io: stampare al contrario i numeri
-      for (let i = 8; i > a.length - 10; i --) {
-        console.log(a[i])
+      for (let i = 8; i > a.length - 10; i--) {
+        console.log(a[i]);
       }
 
       // let array = [22,13,34,6,99,101];
@@ -104,7 +104,7 @@
       // con l'array di 1 numero si blocca
       // 1 non è < di 1 (avrei dovuto mettere)
       while (i < array2.length) {
-        console.log("while:", array2[i - 1]); //
+        console.log('while:', array2[i - 1]); //
         // iteratore
         i++;
       }
@@ -116,7 +116,7 @@
       // per questo non si blocca se nel caso dell'array a 1 numero
       // faccio eseguire il codice almeno una volta anche prima della verifica della condizione
       do {
-        console.log("do while:", array2[k - 1]);
+        console.log('do while:', array2[k - 1]);
         k++;
       } while (k < array2.length);
 

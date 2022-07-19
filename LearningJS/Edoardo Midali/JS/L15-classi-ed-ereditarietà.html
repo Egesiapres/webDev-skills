@@ -10,7 +10,6 @@
     <script>
       // 1. Nota sui prototipi
       // 2. Definiamo il costruttore di una classe figlia
-
       function Persona(nome, cognome, eta, genere, interessi) {
         this.nome = nome;
         this.cognome = cognome;
@@ -23,12 +22,13 @@
       }
 
       // 3. Ereditare da un costruttore con e senza parametri
-      // il this serve per far riferimento all'insegnante e alla persona
+      // il this. serve per far riferimento all'insegnante e alla persona
       // potrei mettere solo this e non tutti i parametri solo se il costruttore fosse
       // Persona()
       // senza nessun parametro
-      // se invece li ho li devo specificare tutti dopo il this
+      // se invece li ho li devo specificare tutti dopo il this.
       // gli agganciamo poi i parametri della persona
+      // usando .call()
       function Insegnante(nome, cognome, eta, genere, interessi, materia) {
         Persona.call(this, nome, cognome, eta, genere, interessi);
         this.materia = materia;
@@ -40,21 +40,21 @@
       }
 
       const insegnante = new Insegnante(
-        "Anna",
-        "Blu",
+        'Anna',
+        'Blu',
         32,
-        "Femmina",
-        ["Netflix"],
-        "Storia"
+        'Femmina',
+        ['Netflix'],
+        'Storia'
       );
       console.log(insegnante);
       insegnante.saluta();
 
-      //5. Ecmascript 2015 classi
-      //classi introdotte per avvicinare js a linguaggi di programmazione come java, C++
-      //semplificano la gestione
-      //le classi derivano degli oggetti di prima
-      //sono un'alternativa migliore ai prototipi
+      // 5. Ecmascript 2015 classi (ES6)
+      // classi introdotte per avvicinare JS a linguaggi di programmazione come Java, C++
+      // semplificano la gestione
+      // le classi derivano degli oggetti di prima
+      // sono un'alternativa migliore ai prototipi
       class Persona1 {
         constructor(nome, cognome, eta, genere, interessi) {
           this.nome = nome;
@@ -69,21 +69,21 @@
         }
       }
 
-      //6. Ereditarieà nelle classi
+      // 6. Ereditarieà nelle classi
       class Insegnante1 extends Persona1 {
         constructor(nome, cognome, eta, genere, interessi, materia) {
-          //indica sopra
-          //sostituisce il vecchio persona.call(this,...)
-          //riprendo tutti i parametri che da persona erano ok
+          // indica sopra
+          // sostituisce il vecchio persona.call(this,...)
+          // riprendo tutti i parametri che da persona erano ok
           super(nome, cognome, eta, genere, interessi);
-          //gestisco separatamente l'eccezione
+          // gestisco separatamente l'eccezione
           this.materia = materia;
         }
 
-        //7.Getters e Setters
-        //funzione che ci restituisce
-        //vanno messi necessariamente in coppia
-        //dopo il this devo mettere ._
+        // 7.Getters e Setters
+        // funzione che ci restituisce
+        // vanno messi necessariamente in coppia
+        // dopo il this devo mettere ._
         get materia() {
           return this._materia;
         }
@@ -97,23 +97,23 @@
       }
 
       const insegnante1 = new Insegnante1(
-        "Anna",
-        "Blu",
+        'Anna',
+        'Blu',
         32,
-        "Femmina",
-        ["Netflix"],
-        "Storia"
+        'Femmina',
+        ['Netflix'],
+        'Storia'
       );
-      insegnante1.riprendiAlunno("Umberto");
+      insegnante1.riprendiAlunno('Umberto');
 
       console.log(insegnante1.materia);
-      //modifica dinamica della proprietà
-      insegnante1.materia = "Matematica";
+      // modifica dinamica della proprietà
+      insegnante1.materia = 'Matematica';
       console.log(insegnante1.materia);
 
-      //anche se questo approccio funziona
-      //devo mettere dei getters e dei setters
-      //vedi sopra
+      // anche se questo approccio funziona
+      // devo mettere dei getters e dei setters
+      // vedi sopra
     </script>
   </body>
 </html>

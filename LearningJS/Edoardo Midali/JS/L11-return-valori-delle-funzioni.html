@@ -12,9 +12,9 @@
     <h1>-</h1>
 
     <script>
-      let button = document.querySelector("button");
-      let title = document.querySelector("h1");
-      let numero = document.querySelector("input");
+      let button = document.querySelector('button');
+      let title = document.querySelector('h1');
+      let numero = document.querySelector('input');
 
       // RETURN: prende un valore e lo rimanda a schermo
       // la funzione esegue
@@ -32,11 +32,11 @@
         let result = number * number * number;
         console.log(result);
         return result;
-        console.log("ciao");
+        console.log('ciao');
       }
 
       // quando si attiva?, cosa eseguo?
-      button.addEventListener("click", () => {
+      button.addEventListener('click', () => {
         cubo(numero.value);
         title.innerHTML = cubo(numero.value);
       });

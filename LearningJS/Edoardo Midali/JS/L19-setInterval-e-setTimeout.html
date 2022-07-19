@@ -25,7 +25,7 @@
       //   alert('ciao sono in timeout')
       // }, 5000);
       // let prova = setTimeout(saluta, 5000);
-      const btn = document.querySelector("button");
+      const btn = document.querySelector('button');
 
       // function saluta() {
       //   alert("ciao sono in timeout");
@@ -38,12 +38,11 @@
 
       // prima impedivo che comparisse l'alert
       // ora blocco l'orologio (pulisco createClock)
-      btn.addEventListener("click", () => {
+      btn.addEventListener('click', () => {
         clearTimeout(createClock);
       });
 
-
-      function displayTime () {
+      function displayTime() {
         let date = new Date(); // questa funzione manda tantissimi dati
         // console.log(date);
         let time = date.toLocaleTimeString(); // da date prendiamo la stringa del tempo rispetto al nostro orario locale

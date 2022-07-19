@@ -11,10 +11,10 @@
       // 1. Cos'è una variabile?
       // 2. Dichiarare vs inizializzare
       // quando dichiaro la variabile creo la scatola. Quando la inizializzo la riempio
-      let nome = "Edoardo";
+      let nome = 'Edoardo';
 
       // 3. Aggiornare una variabile
-      nome = "Luca"; //riprendo il nome ma senza il let
+      nome = 'Luca'; //riprendo il nome ma senza il let
       // i valori nella variabile sono mutabili nel corso del tempo
 
       console.log(nome); //se il risultato è undefined: la variabile esiste (è definita) ma non ha contenuto (non è stata inzializzata)
@@ -32,15 +32,15 @@
       // 5. Let vs Var
       // meglio usare let quando devo definire una variabile, var ormai non si usa più
       // aggiornare una variabile
-      let n = "Umberto";
-      n = "Emma";
+      let n = 'Umberto';
+      n = 'Emma';
 
       // 6. Tipi di varibili
       let number = 25; // number: interi
       let float = 25.2; // float: numeri con la virgola
-      let string = "Umberto"; // string: stringhe di testo (il testo va scritto dento le '' o "")
+      let string = 'Umberto'; // string: stringhe di testo (il testo va scritto dento le '' o "")
       let boolean = true; // boolean: può essere true or false
-      let erasmusFriends = ["Fede", "Thomas", "Kiki"]; // array (vettore): insieme di dati
+      let erasmusFriends = ['Fede', 'Thomas', 'Kiki']; // array (vettore): insieme di dati
       // negli array (e in generale) il conteggio parte sempre da 0 (si tratta dell'indice, di index)
       let esempioInfame = [1, 2, 3];
 
@@ -58,24 +58,24 @@
       // sono rappresentazioni programmatiche, in codice di quello che esiste nella realtà
       // contengono molti dati fra cui ci possono anche essere array
       let persona = {
-        nome: "Umberto",
-        cognome: "Pasinetti",
-        codiceFiscale: "PSNMRT96S01B157M",
-        dni: "AY8213233",
+        nome: 'Umberto',
+        cognome: 'Pasinetti',
+        codiceFiscale: 'PSNMRT96S01B157M',
+        dni: 'AY8213233',
         eta: 25,
-        cittaNascita: "Brescia",
-        coloriPreferiti: ["rosso", "blu", "nero"],
+        cittaNascita: 'Brescia',
+        coloriPreferiti: ['rosso', 'blu', 'nero'],
       };
 
       console.log(persona);
       console.log(persona.dni); // stampare valori specifici ripresi dall'interno dell'oggetto
       // in persona.dni, il . può essere letto come un "della"
-      // 
+      //
       console.log(persona.coloriPreferiti[1]);
 
       // 8. Tipizzazione dinamica
       // js a differenza di ts (typescript) o java, quando dobbiamo dichiarare una variabile, non ci costringe a dichiararne il tipo
-      let user = "Giovanni"; // in altri linguaggi sarebbe stato una cosa tipo let string user = 'Giovanni';
+      let user = 'Giovanni'; // in altri linguaggi sarebbe stato una cosa tipo let string user = 'Giovanni';
       user = 55; // da string viene dimanicamente cambiato il tipo di variabile in number all'aggiornamento della variabile
 
       console.log(typeof user);
@@ -84,10 +84,18 @@
       // valori che non devono variare nel tempo (varaibili fisse)
       // quindi non possono essere aggiornate come per i let
       // es: indirizzo del db
-      const secondUser = "Mariarosa";
+      const secondUser = 'Mariarosa';
       // secondUser = 'Montirone'; //qui viene restituito un errore perchè le const sono fisse
 
       console.log(secondUser);
+
+      // AGGIUNTA
+      // posso dichiarare una variabile senza assegnarle un valore
+      // viene inizializzata automaticamente con il valore: undefined
+      let ciao;
+      console.log(ciao);
+      ciao = 'ciao persona';
+      console.log(ciao);
     </script>
   </body>
 </html>

@@ -16,7 +16,7 @@ interno: tag <script></script> e lo inserisco, in head o body. Dentro al tag hea
 
 esterno: <script src=""></script>
 
-inline: <p onclick="ciao()">Player 1: Umberto</p> (con la funzione ciao dentro allo script). 
+inline: <p onclick="ciao()">Player 1: Umberto</p> (con la funzione ciao dentro allo script).
 Questa cosa non è consigliata perché altrimenti devo mettere un onclick ad ogni bottone. Meglio gli eventi ad ascoltare il click
 
 di solito si mette lo script dentro al body con rimando esterno
@@ -32,8 +32,11 @@ alternativa
 qui sopra ascoltiamo per un evento, il quale è il completo caricamento totale del DOM
 
 i defer 3 si leggono in ordine, come se fossero uno propedeutico all'altro
+
 <script src="" defer></script>
 <script src="" defer></script>
 <script src="" defer></script>
+
 async appena capita viene letto
+
 <script src="" async></script>

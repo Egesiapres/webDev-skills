@@ -57,8 +57,8 @@
           // simile a if inline
           console.log(
             `${this.nome} ${this.cognome} è ${
-              this.genere == "Maschio" ? " un ragazzo" : "una ragazza"
-            } di ${this.eta} anni a cui piace ${this.interessi.join(", ")}`
+              this.genere == 'Maschio' ? ' un ragazzo' : 'una ragazza'
+            } di ${this.eta} anni a cui piace ${this.interessi.join(', ')}`
           );
         };
         // altro metodo
@@ -69,14 +69,14 @@
 
       //istanze
       //le istanze diverse sono fatte a partire da uno stampino
-      const persona1 = new Persona("Luca", "Rossi", 23, "Maschio", [
-        "calcio",
-        "basket",
+      const persona1 = new Persona('Luca', 'Rossi', 23, 'Maschio', [
+        'calcio',
+        'basket',
       ]);
-      const persona2 = new Persona("Anna", "Verdi", 19, "Ragazza", [
-        "letteratura",
-        "masterchef",
-        "musica",
+      const persona2 = new Persona('Anna', 'Verdi', 19, 'Ragazza', [
+        'letteratura',
+        'masterchef',
+        'musica',
       ]);
 
       console.log(persona1); // le proprietà vengono stampate in ordine alfabetico

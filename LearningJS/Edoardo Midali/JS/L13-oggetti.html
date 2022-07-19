@@ -13,17 +13,17 @@
       // collezione di dati correlati fra loro
       // i dati si leggono per coppia chiave (key) valore (value) separari da una ,
       const persona = {
-        nome: "Luca",
-        cognome: "Rossi",
-        genere: "Maschio",
+        nome: 'Luca',
+        cognome: 'Rossi',
+        genere: 'Maschio',
         eta: 25,
-        interessi: ["snowboard", "basket", "picnic al parco"],
+        interessi: ['snowboard', 'basket', 'picnic al parco'],
         // oggetti nidificati
         indirizzo: {
-          via: "Piazza Roma",
-          cap: "98765",
-          provincia: "MI",
-          citta: "Milano",
+          via: 'Piazza Roma',
+          cap: '98765',
+          provincia: 'MI',
+          citta: 'Milano',
         },
         saluta: function () {
           // ACCEDO a una proprietà specifica scendendo attraverso oggetto.chiave[indice]
@@ -51,13 +51,13 @@
       // questo
       console.log(persona.nome);
       // è uguale a
-      console.log(persona["nome"]);
-      console.log(persona["interessi"]);
-      console.log(persona["interessi"][1]);
-      console.log(persona["indirizzo"]["cap"]);
+      console.log(persona['nome']);
+      console.log(persona['interessi']);
+      console.log(persona['interessi'][1]);
+      console.log(persona['indirizzo']['cap']);
       // per prendere in maniera statica va bene la dot notation
       // per prendere dinamicamente cose è meglio la braketes notation
-      const chiave = "interessi";
+      const chiave = 'interessi';
       console.log(persona.chiave); // undefined, dentro a persona non c'è chiave
       console.log(persona[chiave][0]); // snowboard
 
@@ -65,10 +65,10 @@
       // (come per i let, scendendo con i . fin dove mi serve)
       // perché posso modificare un valore nella costante?
       // perché non sto cambiando interamente la natura dell'oggetto persona
-      persona.nome = "Paolo";
+      persona.nome = 'Paolo';
       // persona = 65; qua da errore
       persona.indirizzo.cap = 12300;
-      persona.interessi[2] = "cazzeggiare";
+      persona.interessi[2] = 'cazzeggiare';
 
       console.log(persona.nome);
       console.log(persona.indirizzo.cap);
@@ -76,7 +76,7 @@
 
       // aggiungere proprietà
       // l'aggiunta avviene in ordine alfabetico
-      persona.colorePreferito = "blu";
+      persona.colorePreferito = 'blu';
 
       console.log(persona.colorePreferito);
       console.log(persona);

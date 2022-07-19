@@ -27,8 +27,8 @@
 
       // anche questa è una funzione
       // date insieme al browser
-      let u = "Umberto";
-      let e = u.replace("Umberto", "Emma");
+      let u = 'Umberto';
+      let e = u.replace('Umberto', 'Emma');
       console.log(e);
 
       // 3. Funzioni e metodi
@@ -38,11 +38,11 @@
 
       // 4. Invocare una funzione
       // predefinita
-      u.replace("Luca", "Piero");
+      u.replace('Luca', 'Piero');
       console.log(u);
       // custom
       function ciao() {
-        console.log("ciao");
+        console.log('ciao');
       }
 
       ciao(); // invocazione
@@ -50,11 +50,11 @@
       // 5. Funzioni anonime
       // no nome, le chiamiamo in un altro modo
       // molto usate negli eventi e nelle callback
-      const myButton = document.querySelector("button");
+      const myButton = document.querySelector('button');
 
       myButton.onclick = function () {
         // funzione anonima
-        alert("hello");
+        alert('hello');
       };
 
       // potrei assegnare la funzione anonima a una variabile
@@ -63,18 +63,18 @@
       // 6. SCOPE e i conflitti
       // scope: scopo delle variabili dentro e fuori dalla funzione
       // globali: fuori dalla funzione
-      let nome = "Umberto";
+      let nome = 'Umberto';
       let eta = 25;
       // locali: dentro alla funzione
       function prova() {
-        let cognome = "Pasinetti";
+        let cognome = 'Pasinetti';
         console.log(`${nome} ${cognome} ha ${eta} anni`);
       }
 
       prova();
 
       console.log(nome);
-      // console.log(cognome); 
+      // console.log(cognome);
       // mi da errore (not defined) perché lo scope di cognome è prova()
 
       // 7. Innestare funzioni
@@ -85,16 +85,16 @@
       // name è come se fosse un segnaposto
       // (non deve corrispondere necessariamente a qualcosa)
       function hello(x) {
-        console.log("hello", x);
+        console.log('hello', x);
       }
 
       hello(); // stampa undefined: non ho richiamato la funzione con il parametro
       hello(e); // funzione richiamata correttamente con il parametro
 
       function ciao() {
-        let su = "Pasinetti";
-        let se = "Franchino";
-        console.log("ciao", su);
+        let su = 'Pasinetti';
+        let se = 'Franchino';
+        console.log('ciao', su);
         hello(se); // funzioni innestate
         // ha il parametro in entrata
         // il parametro può essere solo locale
@@ -110,19 +110,19 @@
         generaHeader();
         generaRighe();
         generaFooter();
-        console.log("Tabella generata");
+        console.log('Tabella generata');
       }
-      
+
       function generaHeader() {
-        console.log("Header generato");
+        console.log('Header generato');
       }
 
       function generaRighe() {
-        console.log("Righe generate");
+        console.log('Righe generate');
       }
 
       function generaFooter() {
-        console.log("Footer generato");
+        console.log('Footer generato');
       }
 
       generaTabella();
