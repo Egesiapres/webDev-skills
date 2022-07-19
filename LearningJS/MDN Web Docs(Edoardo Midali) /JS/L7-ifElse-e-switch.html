@@ -168,9 +168,18 @@
       // si usa molto nei template literals ``
       let numero2 = 12;
       // è numero2 minore di 20? Se si scrivi Luca, altrimenti Leonardo
+      // ? stampa in caso di true
+      // : stampa in caso di false
       let templateOperator = numero2 < 20 ? 'Luca' : 'Leonardo';
 
       console.log(templateOperator);
+
+      // AGGIUNTA
+      // short-circuit evaluation
+      let tool = 'marker'; // se rendo tool falso, svuotando la variabile inserendo 0, o '', viene stampato pen
+      let writingUtensil = tool || 'pen';
+
+      console.log(`The ${writingUtensil} is mightier than the sword.`);
     </script>
   </body>
 </html>
