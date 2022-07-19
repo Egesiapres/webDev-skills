@@ -9,8 +9,8 @@
   <body>
     <script>
       let t = 'testo';
-      // console: oggetto, .log(): metodo. Console è un oggetto built-in di JS
-      console.log(t);
+      // log(): metodo
+      console.log(t); // console: oggetto bult-in di JS
       console.log(t.length);
 
       let maiuscT = t.toUpperCase();
@@ -31,6 +31,10 @@
       console.log(Math.ceil(43.8)); // numero intero più piccolo maggiore o uguale a un numero decimale
       console.log(Number.isInteger(2017)); // dice se 2017 è un integer
       // sono davvero tanti, vedi la documentazione
+
+      console.log(typeof t); // no metodo, si operatore, keyword (controlla il valore alla sua dx)
+      t = 10; // keywords sono anche let, const e var
+      console.log(typeof t);
     </script>
   </body>
 </html>

@@ -8,6 +8,7 @@
   </head>
   <body>
     <script>
+      // LET & CONST
       let t = 'testo';
       console.log(t);
       t = 'nuovo testo'; // riassegnazione: posso assegnare un nuovo valore
@@ -18,11 +19,18 @@
       console.log(n);
 
       const t1 = 'altro testo';
-      // t1 = 't1 testo nuovo' // da errore, le const non possono essere aggiornate
+      // t1 = 't1 testo nuovo' // TypeError: le const non possono essere aggiornate
       // const n1; // SyntaxError: non posso dichiarare una const vuota
 
       console.log(t);
       console.log(t1);
+
+      // TEMPLATE LITERALS
+      // use backticks (``)
+      let favoriteAnimal = 'cat';
+      console.log(`My favorite animal: ${favoriteAnimal}`); // interpolazione/concatenazione stringa e variabile
+      
+      
     </script>
   </body>
 </html>
