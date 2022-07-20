@@ -20,9 +20,7 @@
       console.log('stringa'.toUpperCase());
       console.log('stringa'.toLowerCase());
       console.log(maiuscT.toLowerCase());
-
       console.log(t.startsWith('t')); // true
-
       console.log('     stringa '.trim()); // rimuove lo spazio pre e post stringa
 
       // INTEGERS
@@ -44,13 +42,17 @@
       // ARRAY
       const emma = ['franchino', 'emma', 21, 'psicologia'];
       let n = 'umberto';
+      const nestedArr = [[1], [2, 3]];
+
       // ------------------------------ RICERCA
       console.log(emma[2]); // Output: 21
+      console.log(nestedArr[1]); // Output: [2, 3]
+      console.log(nestedArr[1][0]); // Output: 2
       console.log(emma.indexOf('emma')); // Output: 1
       console.log(emma.lastIndexOf('psicologia')); 
       console.log(n[4]); // Output: r
-      console.log(emma.length);
-      console.log(emma.includes(21));
+      console.log(emma.length); // Output: 4
+      console.log(emma.includes(21)); // Output: true
       // ------------------------------ AGGIUNGERE/RIMUOVERE
       emma.push('bella', true); // aggiunge elementi
       console.log(emma);
