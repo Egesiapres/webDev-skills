@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Magic Eight Ball</title>
+  </head>
+  <body>
+    <script>
+      let userName = 'Umberto';
+      userName ? console.log(`Hello, ${userName}!`) : console.log('Hello!');
+
+      let userQuestion = 'can i sleep tomorrow morning?';
+      console.log(`${userName} asked: ${userQuestion}`);
+
+      let randomNumber = Math.floor(Math.random() * 8);
+      console.log(randomNumber);
+
+      let eightBall;
+
+      // ATTENZIONE agli SWITCH
+      // condizione 1 sola volta. Nei case metto solo il valore che la c può avere
+      // (NO randomNumber === 0 e così via. Questa è l'impostazione che darei a un if)
+      switch (randomNumber) {
+        case 0:
+          eightBall = 'It is certain';
+          break;
+        case 1:
+          eightBall = 'It is decidely so';
+          break;
+        case 2:
+          eightBall = 'Reply hazy try again';
+          break;
+        case 3:
+          eightBall = 'Cannot predict now';
+          break;
+        case 4:
+          eightBall = 'Do not count on it';
+          break;
+        case 5:
+          eightBall = 'My sources say no';
+          break;
+        case 6:
+          eightBall = 'Outlook not so good';
+          break;
+        case 7:
+          eightBall = 'Signs point to yes';
+          break;
+        default:
+          eightBall = 'Default answer';
+      }
+
+      // IF, ELSE IF, ELSE
+      // if (randomNumber === 0) {
+      //   eightBall = 'It is certain';
+      // } else if (randomNumber === 1) {
+      //   eightBall = 'It is decidely so';
+      // } else if (randomNumber === 2) {
+      //   eightBall = 'Reply hazy try again';
+      // } else if (randomNumber === 3) {
+      //   eightBall = 'Cannot predict now';
+      // } else if (randomNumber === 4) {
+      //   eightBall = 'Do not count on it';
+      // } else if (randomNumber === 5) {
+      //   eightBall = 'My sources say no';
+      // } else if (randomNumber === 6) {
+      //   eightBall = 'My sources say no';
+      // } else if (randomNumber === 7) {
+      //   eightBall = 'My sources say no';
+      // }
+
+      console.log(eightBall);
+    </script>
+  </body>
+</html>
