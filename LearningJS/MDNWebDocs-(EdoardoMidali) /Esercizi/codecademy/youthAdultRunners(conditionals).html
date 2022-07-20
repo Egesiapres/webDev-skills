@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Youth and adult runners</title>
+  </head>
+  <body>
+    <script>
+      // assegnazione casuale del numero
+      let raceNumber = Math.floor(Math.random() * 1000);
+      // sono registrati o no?
+      let registered = false;
+      // sono adulti o no? (quanti anni hanno?)
+      let runnerAge = 18;
+
+      if (runnerAge > 18 && registered) {
+        raceNumber + 1000;
+      }
+
+      if (runnerAge > 18 && registered) {
+        console.log(`The runner number ${raceNumber} will race at 9:30 am.`);
+      } else if (runnerAge > 18 && !registered) {
+        console.log(`The runner number ${raceNumber} will race at 11:00 am.`);
+      } else if (runnerAge < 18) {
+        console.log(`The runner number ${raceNumber} will race at 12:30 pm.`);
+      } else {
+        console.log(
+          `Runners that are exaclty ${runnerAge} have to see the registration desk.`
+        );
+      }
+    </script>
+  </body>
+</html>

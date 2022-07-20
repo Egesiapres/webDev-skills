@@ -22,21 +22,40 @@
       // io
       const b = document.getElementById('b');
 
-      // 4. Parametri di default
-      // parametro di default: se non inserisco un parametro specifico come parametro della funzione mi prende questo
-      // appare Persona sconosciuta solamente se tengo sayHello(), senza parametro interno
+      // AGGIUNTA
+      // PARAMETRO: ciò che sta dentro alle () nella definizione di una f. Agisce da segnaposto
+      function sayThanks(name) {
+        console.log(
+          'Thank you for your purchase ' +
+            name +
+            '! We appreciate your business.'
+        );
+      }
+      // ARGOMENTO: ciò che sta dentro alle () nell'invocazione di una funzione. Valore vero e proprio che viene passato alla f
+      sayThanks('Cole');
+
+      // 4. Parametri di DEFAULT: ciò che viene preso quando invoco la f senza inserire uno argomento specifico
+      function greeting(name = 'stranger') {
+        console.log(`Hello, ${name}!`);
+      }
+
+      greeting('Nick'); // Output: Hello, Nick!
+      greeting(); // Output: Hello, stranger!
+
       // se metto solo x come parametro (senza ="") non va perché non l'ho definito
-      // .innerHTML cambia il contenuto (qui di h1)
       function sayHello(
         x = "Ti stampo il parametro di default. O non hai messo un parametro nella funzione (sayHello()), o l'hai inserito non correttamente"
       ) {
-        h1.innerHTML = `Ciao ${x}`;
+        h1.innerHTML = `Ciao ${x}`; // .innerHTML cambia il contenuto (qui di h1)
       }
 
-      //io
-      function prova(y = 'Default parameter') {
-        alert(`${y} sta eseguendo una prova`);
+      // io
+      function prova(nome = 'Persona generica') {
+        console.log(`${nome} sta eseguendo una prova`);
       }
+
+      // prova();
+      prova('Umberto');
 
       // 2. Usarla nel codice
       // 3. Inserire dei parametri

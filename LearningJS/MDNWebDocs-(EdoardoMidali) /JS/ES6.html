@@ -29,8 +29,39 @@
       // use backticks (``)
       let favoriteAnimal = 'cat';
       console.log(`My favorite animal: ${favoriteAnimal}`); // interpolazione/concatenazione stringa e variabile
-      
-      
+
+      // DEFAULT PARAMETERS
+      function greeting(name = 'stranger') {
+        console.log(`Hello, ${name}!`);
+      }
+
+      greeting('Nick'); // Output: Hello, Nick!
+      greeting(); // Output: Hello, stranger!
+
+      // AGGIUNTA
+      // ARROW FUNCTIONS
+      // rimuovo la keyword function
+      // inserisco direttamente la condizione () seguita da => e da ciò che eseguo {}
+      const rectangleArea = (width, height) => {
+        let area = width * height;
+        return area;
+      };
+
+      // CONCISE BODY ARROW FUNCTIONS
+      // sintassi basata sul numero di parametri
+      const functionZeroParam = () => {}; // no, 0 parametri
+      const functionOneParam = paramOne => {}; // 1 parametro (no ())
+      const functionTwoParam = (paramOne, paramTwo) => {}; // >= 2 parametri
+      // sintassi basata sul numero di linee
+      const sumNumbers = number => number + number; // 1 linea (evito le {} e l'uso del return) (automatico)
+      const subtractNumbers = number => { // linee multiple (uso sia {} che il return)
+        let subtraction = number - number;
+        return number; 
+      }
+
+      // single line es 2
+      const plantNeedsWater = day => day === 'Wednesday' ? true : false;
+
     </script>
   </body>
 </html>

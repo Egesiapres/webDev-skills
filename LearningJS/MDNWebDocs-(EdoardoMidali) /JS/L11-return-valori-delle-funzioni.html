@@ -40,6 +40,18 @@
         cubo(numero.value);
         title.innerHTML = cubo(numero.value);
       });
+
+      // HELPER FUNCTIONS
+      // return di una f (con qualche modifica) all'interno di un'altra f
+      function multiplyByNineFifths(number) {
+        return number * (9 / 5);
+      }
+
+      function getFahrenheit(celsius) {
+        return multiplyByNineFifths(celsius) + 32;
+      }
+
+      getFahrenheit(15); // Returns 59
     </script>
   </body>
 </html>
