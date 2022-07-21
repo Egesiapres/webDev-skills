@@ -152,13 +152,14 @@
       const functionTwoParam = (paramOne, paramTwo) => {}; // >= 2 parametri
       // sintassi basata sul numero di linee
       const sumNumbers = number => number + number; // 1 linea (evito le {} e l'uso del return) (automatico)
-      const subtractNumbers = number => { // linee multiple (uso sia {} che il return)
+      const subtractNumbers = number => {
+        // linee multiple (uso sia {} che il return)
         let subtraction = number - number;
-        return number; 
-      }
+        return number;
+      };
 
       // single line es 2
-      const plantNeedsWater = day => day === 'Wednesday' ? true : false;
+      const plantNeedsWater = day => (day === 'Wednesday' ? true : false);
     </script>
   </body>
 </html>

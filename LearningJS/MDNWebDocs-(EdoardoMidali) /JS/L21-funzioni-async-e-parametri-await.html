@@ -36,7 +36,7 @@
 
       // prendere l'oggetto generato. Il risultato della promise
       // l'argomento valore non è altro che 'hello'
-      hello().then((value) => {
+      hello().then(value => {
         console.log(value);
       });
       // sinstassi più corta
@@ -54,23 +54,23 @@
         return (greeting = await Promise.resolve('hello'));
       }
 
-      hello().then((value) => {
+      hello().then(value => {
         console.log(value);
       });
 
       // 4. Riscriviamo le promise con async/await
       // SENZA
       fetch('coffee.jpg')
-        .then((response) => {
+        .then(response => {
           return response.blob();
         })
-        .then((myBlob) => {
+        .then(myBlob => {
           let objectURL = URL.createObjectURL(myBlob);
           let image = document.createElement('img');
           image.src = objectURL;
           document.body.appendChild(image);
         })
-        .catch((e) => {
+        .catch(e => {
           console.log(
             'There has been a problem with your fetch operation: ' + e.message
           );
@@ -90,7 +90,7 @@
         document.body.appendChild(image);
       }
 
-      myFetch().catch((e) => {
+      myFetch().catch(e => {
         console.log(
           'There has been a problem with your fetch operation: ' + e.message
         );

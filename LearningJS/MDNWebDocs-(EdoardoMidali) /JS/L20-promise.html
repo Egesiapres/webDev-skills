@@ -68,17 +68,17 @@
       // aggiunta di un immagine grazie al fetch
       // aggiunta dinamica
       fetch('coffee.jpg')
-        .then((response) => {
+        .then(response => {
           return response.blob(); // .blob() si usa quando ho un binary large object
         })
         // agganciando un .then con un punto si tratta di chaining
-        .then((myBlob) => {
+        .then(myBlob => {
           let objectURL = URL.createObjectURL(myBlob);
           let image = document.createElement('img');
           image.src = objectURL;
           document.body.appendChild(image);
         })
-        .catch((e) => {
+        .catch(e => {
           console.log(
             'There has been a problem with your fetch operation: ' + e.message
           );
@@ -121,10 +121,10 @@
       // con le promise custom gestiamo manualmente gli errori
       // stringa vuota per generare volutamente l'errore
       timeoutPromise('', 1000)
-        .then((message) => {
+        .then(message => {
           alert(message);
         })
-        .catch((e) => {
+        .catch(e => {
           // e è riferito alla fase di reject della promise
           console.log('Error: ' + e);
         });

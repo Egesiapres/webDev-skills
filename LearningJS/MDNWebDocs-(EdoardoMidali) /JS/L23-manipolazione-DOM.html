@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>L23: Manipolazione DOM</title>
-    
+
     <style>
-      div.prova{
+      div.prova {
         margin: 10px;
         padding: 30px;
         background-color: rgb(226, 226, 226);
       }
 
-      .modificaStili{
+      .modificaStili {
         color: red;
         background-color: aquamarine;
         text-align: center;
@@ -55,7 +55,9 @@
       paragrafo.textContent = 'Elemento creato dinamicamente.'; // metto testo in p
       div.appendChild(paragrafo); // appendo p dentro a div
       // aggiungere altro testo (nodo di testo)
-      const extraTesto = document.createTextNode('Altra parte di testo come node');
+      const extraTesto = document.createTextNode(
+        'Altra parte di testo come node'
+      );
       paragrafo.appendChild(extraTesto); // appendo il extratesto nel p
 
       // 4. Spostare o eliminare elementi
@@ -86,7 +88,7 @@
       paragrafo.setAttribute('class', 'modificaStili');
       paragrafo.setAttribute('data-value', 'ciao');
       console.log(paragrafo.getAttribute('data-value'));
-      
+
       // NOTA:
       // Gli elementi possono essere
       // HARDCODATI: scritti a mano

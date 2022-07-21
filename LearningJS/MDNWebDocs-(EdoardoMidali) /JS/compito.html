@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Compito</title>
+
+    <style>
+      .small {
+        width: 60px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2></h2>
+    <ol>
+      <li>Creare un bottone</li>
+      <li>Creare un JSON di 3 prodotti con</li>
+      <li>Dotare bottone di eventListener</li>
+      <li>eventListener fetcha un JSON</li>
+      <li>Mandare a schermo la lista dei prodotti (con immagine, nome...)</li>
+      <li>Mandare a schermo il carrello</li>
+    </ol>
+
+    <button>Mostra prodotti!</button>
+
+    <script>
+      const btn = document.querySelector('button');
+      let url = './compito-prodotti.json';
+      let ProdottiFetch;
+
+      btn.addEventListener('click', () => {
+        fetch(url)
+          .then(response => response.json())
+          .then(json => {
+            prodottiFetch = json;
+            console.log('fetch: ', prodottiFetch.prodottoUno);
+            let nUno = document.createElement('p');
+            nUno.textContent = `Prodotto 1: ${prodottiFetch.prodottoUno.nome}.`;
+            document.body.appendChild(nUno);
+            let pUno = document.createElement('p');
+            pUno.textContent = `Prezzo: ${prodottiFetch.prodottoUno.prezzo}.`;
+            document.body.appendChild(pUno);
+            let imgUno = document.createElement('img');
+            imgUno.setAttribute('src', './compito-img-1.jpg');
+            imgUno.setAttribute('class', 'small');
+            document.body.appendChild(imgUno);
+            let dUno = document.createElement('p');
+            dUno.textContent = `Descrizione: ${prodottiFetch.prodottoUno.descrizione}.`;
+            document.body.appendChild(dUno);
+
+            let nDue = document.createElement('p');
+            nDue.textContent = `Prodotto 2: ${prodottiFetch.prodottoDue.nome}.`;
+            document.body.appendChild(nDue);
+            let pDue = document.createElement('p');
+            pDue.textContent = `Prezzo: ${prodottiFetch.prodottoDue.prezzo}.`;
+            document.body.appendChild(pDue);
+            let imgDue = document.createElement('img');
+            imgDue.setAttribute('src', './compito-img-2.jpg');
+            imgDue.setAttribute('class', 'small');
+            document.body.appendChild(imgDue);
+            let dDue = document.createElement('p');
+            dDue.textContent = `Descrizione: ${prodottiFetch.prodottoDue.descrizione}.`;
+            document.body.appendChild(dDue);
+
+            let nTre = document.createElement('p');
+            nTre.textContent = `Prodotto 3: ${prodottiFetch.prodottoTre.nome}.`;
+            document.body.appendChild(nTre);
+            let pTre = document.createElement('p');
+            pTre.textContent = `Prezzo: ${prodottiFetch.prodottoTre.prezzo}.`;
+            document.body.appendChild(pTre);
+            let imgTre = document.createElement('img');
+            imgTre.setAttribute('src', './compito-img-3.jpg');
+            imgTre.setAttribute('class', 'small');
+            document.body.appendChild(imgTre);
+            let dTre = document.createElement('p');
+            dTre.textContent = `Descrizione: ${prodottiFetch.prodottoTre.descrizione}.`;
+            document.body.appendChild(dTre);
+          });
+      });
+    </script>
+  </body>
+</html>
