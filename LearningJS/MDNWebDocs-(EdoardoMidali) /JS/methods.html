@@ -50,16 +50,18 @@
       ];
 
       // ------------------------------------------- RICERCA
+      console.log(emma.length); // Output: 4
       console.log(emma[2]); // Output: 21
+      console.log(n[4]); // Output: r
       console.log(nestedArr[1]); // Output: [2, 3]
       console.log(nestedArr[1][0]); // Output: 2
+
+      // indexOf(), lastIndexOf(), includes()
       console.log(emma.indexOf('emma')); // Output: 1
       console.log(emma.lastIndexOf('psicologia'));
-      console.log(n[4]); // Output: r
-      console.log(emma.length); // Output: 4
       console.log(emma.includes(21)); // Output: true
 
-      // 1 occorrenza
+      // find(), findIndex(): 1 occorrenza
       /* sintassi:
       let results = arr.filter(function(item, index, array) {
         // se un item è true viene messo dentro results e l'iterazione continua
@@ -73,14 +75,15 @@
       let userIndex = users.findIndex(item => item.id == 3);
       console.log(userIndex); // Output: index
 
-      // 2 o + occorrenze
+      // filter(): 2 o + occorrenze
       // sintassi: come sopra ma con filter
       // output: array con elementi che soddisfano le condizioni
       let someUsers = users.filter(item => item.id < 3);
       console.log(someUsers);
       console.log(someUsers.lenght); // Output: 2
 
-      // --------------------------------- AGGIUNGERE/RIMUOVERE
+      // ----------------------------------- AGGIUNGERE/RIMUOVERE
+      // push(), pop(), shift(), unshift()
       emma.push('bella', true); // aggiunge elementi in coda
       console.log(emma);
       emma.pop(); // toglie un elemento in coda (no arguments)
@@ -89,11 +92,14 @@
       console.log(emma);
       emma.unshift('brusnengo'); // aggiunge un elemento all'inizio
       console.log(emma);
+
+      // slice()
       // il limite di dx è index + 1
       console.log(emma.slice(1, 3)); // scelgo cosa stampare. () contiene i limiti
       emma.slice(); // senza argomenti non seleziona nulla
       console.log();
 
+      // splice()
       let arr = ['I', 'study', 'JavaScript', 'right', 'now'];
       console.log(arr);
       // elimina 3 elementi (a partire da quello con index 0) e ne aggiunge altri
@@ -105,40 +111,97 @@
       arr.splice(-1, 0, 'my'); // indice negativo parte dal fondo
       console.log(arr);
 
+      // concat()
       arr = [1, 2];
       let conc = arr.concat([3, 4]); // concatena
       console.log(conc);
       let anotherConc = conc.concat([5, 6, 7], 8, [9, 10], 11);
       console.log(anotherConc);
 
-      let signoreAnelli = ['Bilbo', 'Gandalf', 'Nazgul'];
-      signoreAnelli.forEach((item, index, array) => {
-        console.log(`${item} is at index ${index} in ${array}`);
-      });
-
-      // ---------------------------- TRASFORMARE (o riordinare)
-      /*
-      let result = arr.map(function(item, index, array) {
-        // ritorna il nuovo valore piuttosto di item
-      })
-      */
-      // uno dei più utili e usati
-      // trasformiamo ogni elemento nella sua lunghezza
-      let lengths = signoreAnelli.map(item => item.length)
-      console.log(lengths);
-
       // --------------------------------------- ITERATE
+      // forEach()
       /* sintassi:
       arr.forEach(function (item, index, array) {
         // ... fa qualcosa con l'elemento
       });
       */
+      // eseguo una f su ogni elemento dell'array
+      // itero su un array
       let num = [1, 2, 3, 4];
       num.forEach(arr => {
-        // eseguo una f su ogni elemento dell'array
         let doppio = arr * 2;
         console.log(doppio);
       });
+      let signoreAnelli = ['Bilbo', 'Gandalf', 'Nazgul'];
+      signoreAnelli.forEach((item, index, array) => {
+        console.log(`${item} is at index ${index} in ${array}`);
+      });
+      // vedi anche for e for...of
+
+      // ---------------------------- TRASFORMARE (o riordinare)
+      // map()
+      /*
+      let result = arr.map(function(item, index, array) {
+        // ritorna il nuovo valore piuttosto di item
+      })
+      */
+      // itero e ritorno dati per ogni elemento
+      // trasformiamo ogni elemento nella sua lunghezza
+      // uno dei più utili e usati
+      let lengths = signoreAnelli.map(item => item.length);
+      console.log(lengths);
+
+      // sort()
+      let numbers = [1, 2, 15];
+      numbers.sort(); // riordina il contenuto di a (e lo ritorna)
+      console.log(numbers); // 1, 15, 2, perché sono ordinati come stringhe
+      // fra (), devo introdurre una funzione per il corretto sorting
+      const compareNumeric = (a, b) => {
+        if (a > b) return 1;
+        if (a == b) return 0;
+        if (a < b) return -1;
+      };
+      numbers.sort(compareNumeric);
+      console.log(numbers);
+      // FINIRE
+
+      // reverse()
+      // inverte l'ordine degli elementi
+      let toReverse = [1, 2, 3, 4, 5];
+      toReverse.reverse();
+      console.log(toReverse);
+
+      // split(), join()
+      let names = 'Bilbo, Gandalf, Nazgul';
+      // separa
+      let splitted = names.split(', '); // da stringa ad array
+      let nSplitted = n.split(''); // nella stringa no separatore
+      console.log(splitted);
+      console.log(nSplitted);
+      // unisce elementi dell'array in una stringa
+      let nomi = ['Giovanni', 'Mariarosa', 'e', 'Umberto'];
+      let nomiJoined = nomi.join(' '); // unisco con lo spazio
+      console.log(nomiJoined);
+
+      // reduce(), reduceRight()
+      /* sintassi
+      let value = arr.reduce(function(accumulator, item, index, array) {
+          // ...
+      }, [initial]);
+      */
+      // stessa categoria di foEach(), (for, for...of), map()
+      // calcolano un singolo valore basato sul contenuto dell'array
+      let a = [1, 2, 3, 4, 5];
+      let result = a.reduce((sum, current) => sum + current, 0);
+      console.log(result); // 15
+      // reduceRight() fa la stessa cosa ma da destra veso sinistra
+
+      // Array.isArray()
+      // array basati sulla convenzione degli oggetti
+      // type of non li distingue
+      console.log(typeof [1, 2]); // Output: object
+      console.log(typeof { persona1: 'Umberto' }); // Output: object
+      console.log(Array.isArray([1, 2])); // Output: true
     </script>
   </body>
 </html>
