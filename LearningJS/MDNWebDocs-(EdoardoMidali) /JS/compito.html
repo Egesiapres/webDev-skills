@@ -30,12 +30,14 @@
       let url = './compito-prodotti.json';
       let ProdottiFetch;
 
+      // servirebbe una funzione
       btn.addEventListener('click', () => {
         fetch(url)
           .then(response => response.json())
           .then(json => {
             prodottiFetch = json;
             console.log('fetch: ', prodottiFetch.prodottoUno);
+
             let nUno = document.createElement('p');
             nUno.textContent = `Prodotto 1: ${prodottiFetch.prodottoUno.nome}.`;
             document.body.appendChild(nUno);
@@ -77,6 +79,26 @@
             let dTre = document.createElement('p');
             dTre.textContent = `Descrizione: ${prodottiFetch.prodottoTre.descrizione}.`;
             document.body.appendChild(dTre);
+
+            // si dovrebbe fare una funzione che sostituisce
+            // tutta la robaccia sopra
+            // const prova = (nome, prezzo, immagine, descrizione) => {
+            //   for (let i = 0; i <= .lenght; i++) {
+            //     let n = document.createElement('p');
+            //     n.textContent = `Prodotto: ${prodottiFetch.prodottoUno.nome}.`;
+            //     document.body.appendChild(n);
+            //     let p = document.createElement('p');
+            //     p.textContent = `Prezzo: ${prodottiFetch.prodottoUno.prezzo}.`;
+            //     document.body.appendChild(p);
+            //     let img = document.createElement('img');
+            //     img.setAttribute('src', './compito-img-1.jpg');
+            //     img.setAttribute('class', 'small');
+            //     document.body.appendChild(img);
+            //     let dUno = document.createElement('p');
+            //     d.textContent = `Descrizione: ${prodottiFetch.prodottoUno.descrizione}.`;
+            //     document.body.appendChild(d);
+            //   }
+            // };
           });
       });
     </script>
