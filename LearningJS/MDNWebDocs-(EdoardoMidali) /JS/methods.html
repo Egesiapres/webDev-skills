@@ -43,24 +43,51 @@
       const emma = ['franchino', 'emma', 21, 'psicologia'];
       let n = 'umberto';
       const nestedArr = [[1], [2, 3]];
+      let users = [
+        { id: 1, name: 'John' },
+        { id: 2, name: 'Pete' },
+        { id: 3, name: 'Mary' },
+      ];
 
-      // ------------------------------ RICERCA
+      // ------------------------------------------- RICERCA
       console.log(emma[2]); // Output: 21
       console.log(nestedArr[1]); // Output: [2, 3]
       console.log(nestedArr[1][0]); // Output: 2
       console.log(emma.indexOf('emma')); // Output: 1
-      console.log(emma.lastIndexOf('psicologia')); 
+      console.log(emma.lastIndexOf('psicologia'));
       console.log(n[4]); // Output: r
       console.log(emma.length); // Output: 4
       console.log(emma.includes(21)); // Output: true
-      // ------------------------------ AGGIUNGERE/RIMUOVERE
-      emma.push('bella', true); // aggiunge elementi
+
+      // 1 occorrenza
+      /* sintassi:
+      let results = arr.filter(function(item, index, array) {
+        // se un item è true viene messo dentro results e l'iterazione continua
+        // ritorna un array vuoto qualora nessun elemento ritornasse true
+      });
+      */
+      // parametri: solo item variante più usata (index, array rari)
+      // output: primo oggetto che soddisfa le condizioni
+      let user = users.find(item => item.id == 1);
+      console.log(user.name); // Output: oggetto.nome (John)
+      let userIndex = users.findIndex(item => item.id == 3);
+      console.log(userIndex); // Output: index
+
+      // 2 o + occorrenze
+      // sintassi: come sopra ma con filter
+      // output: array con elementi che soddisfano le condizioni
+      let someUsers = users.filter(item => item.id < 3);
+      console.log(someUsers);
+      console.log(someUsers.lenght); // Output: 2
+
+      // --------------------------------- AGGIUNGERE/RIMUOVERE
+      emma.push('bella', true); // aggiunge elementi in coda
       console.log(emma);
-      emma.pop(); // toglie l'ultimo elemento (no arguments)
+      emma.pop(); // toglie un elemento in coda (no arguments)
       console.log(emma);
       emma.shift(); // toglie il primo elemento
       console.log(emma);
-      emma.unshift('brusnengo');
+      emma.unshift('brusnengo'); // aggiunge un elemento all'inizio
       console.log(emma);
       // il limite di dx è index + 1
       console.log(emma.slice(1, 3)); // scelgo cosa stampare. () contiene i limiti
@@ -69,30 +96,49 @@
 
       let arr = ['I', 'study', 'JavaScript', 'right', 'now'];
       console.log(arr);
-      // rimuove i primi 3 elementi e li rimpiazza con altri
+      // elimina 3 elementi (a partire da quello con index 0) e ne aggiunge altri
+      // dentro (): indice elem di partenza, n elem da togliere, "elem nuovo"
       arr.splice(0, 3, "Let's", 'dance');
       console.log(arr); // ora ["Let's", "dance", "right", "now"]
-      arr.splice(2, 0, 'mate'); // per aggiungere 0 elementi da eliminare
-      console.log(arr); // ora ["Let's", "dance", "mate" "right", "now"]
-      arr.splice(-1, 0, 'exaclty'); // indice negativo parte dal fondo
+      arr.splice(4, 0, 'bro'); // aggiungere: 0 elementi da eliminare
+      console.log(arr); // ora ["Let's", "dance","right", "now", "bro"]
+      arr.splice(-1, 0, 'my'); // indice negativo parte dal fondo
       console.log(arr);
 
       arr = [1, 2];
-      arr.concat[(3, 4)];
-      console.log(arr);
+      let conc = arr.concat([3, 4]); // concatena
+      console.log(conc);
+      let anotherConc = conc.concat([5, 6, 7], 8, [9, 10], 11);
+      console.log(anotherConc);
 
       let signoreAnelli = ['Bilbo', 'Gandalf', 'Nazgul'];
       signoreAnelli.forEach((item, index, array) => {
         console.log(`${item} is at index ${index} in ${array}`);
       });
 
+      // ---------------------------- TRASFORMARE (o riordinare)
+      /*
+      let result = arr.map(function(item, index, array) {
+        // ritorna il nuovo valore piuttosto di item
+      })
+      */
+      // uno dei più utili e usati
+      // trasformiamo ogni elemento nella sua lunghezza
+      let lengths = signoreAnelli.map(item => item.length)
+      console.log(lengths);
+
+      // --------------------------------------- ITERATE
+      /* sintassi:
+      arr.forEach(function (item, index, array) {
+        // ... fa qualcosa con l'elemento
+      });
+      */
       let num = [1, 2, 3, 4];
-      num.forEach((arr) => {
+      num.forEach(arr => {
+        // eseguo una f su ogni elemento dell'array
         let doppio = arr * 2;
         console.log(doppio);
       });
-
-
     </script>
   </body>
 </html>
