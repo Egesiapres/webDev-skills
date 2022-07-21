@@ -19,7 +19,7 @@
         text-align: center;
         padding: 10px;
       }
-    </style>>
+    </style>
   </head>
   <body>
     <button id="bottone" class="prova">Bottone</button>
@@ -79,8 +79,10 @@
       // riutilizzabile
       // si usa molto per gli errori
       // creo un attrivuto classe dal nome modificaStili
-      // ATTRIBUTI PERSONALIZZATI: storano un valore a nostro piacimento
       // creo un attributo personalizzato data-value dal valore ciao
+      // ATTRIBUTI PERSONALIZZATI: storano un valore a nostro piacimento
+      // se il nome è diverso da quello di uno attributo standard
+      // è automaticamente un attributo personalizzato
       paragrafo.setAttribute('class', 'modificaStili');
       paragrafo.setAttribute('data-value', 'ciao');
       console.log(paragrafo.getAttribute('data-value'));
