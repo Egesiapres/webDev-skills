@@ -42,7 +42,7 @@
       console.log(persona.eta);
       console.log(persona.interessi[2]); // nell'array se voglio un daro specifico uso l'index
       console.log(persona.indirizzo.cap); // proprietà di un oggetto in una proprietà di un oggetto
-      persona.saluta(); // richiamare le funzioni
+      persona.saluta(); // richiamare le funzioni (oggetto.metodo())
       // console.log(persona.saluta()); // bugga, da undefined. Sopra giusto
       // è uguale a
       console.log(persona.nome.toLocaleUpperCase());
@@ -87,6 +87,107 @@
       // vedi sopra dove c'è la stampa del cognome
       // this prende come context l'oggetto
       // stampa il cognome perché siamo dentro all'oggetto persona
+
+      // AGGIUNTE
+      // la chive usa le '' se ha caratteri speciali (es: 'Fuel type')
+      // key e value compongono le proprietà
+
+      // ai valori si può accedere anche con la bracket notation
+      let spaceship = {
+        'Fuel Type': 'Turbo Fuel',
+        'Active Mission': true,
+        homePlanet: 'Earth',
+        numCrew: 5,
+      };
+
+      let propName = 'Active Mission';
+
+      let isActive = spaceship['Active Mission'];
+      console.log(spaceship[propName]);
+
+      // anche oggetto definito con const si modifiche
+      const spaceshipOne = { type: 'shuttle' };
+      // spaceshipOne = { type: 'alien' }; // TypeError: Assignment to constant variable.
+      spaceshipOne.type = 'alien'; // Changes the value of the type property
+      spaceshipOne.speed = 'Mach 5'; // Creates a new key of 'speed' with a value of 'Mach 5'
+
+      // delete operator per nimuovere proprietà
+      delete spaceshipOne.homePlanet;
+
+      // quando a una key è associato un metodo, la key diventa il suo nome
+      // pre ES6
+      let alienShip = {
+        invade: function () {
+          console.log(
+            'Hello! We have come to dominate your planet. Instead of Earth, it shall be called New Xaculon.'
+          );
+        },
+      };
+      // post ES6: posso rimuovere i : dopo la key quando il value è un method
+      alienShip = {
+        invade() {
+          console.log(
+            'Hello! We have come to dominate your planet. Instead of Earth, it shall be called New Xaculon.'
+          );
+        },
+      };
+
+      // pass by reference
+      let spaceshipTwo = {
+        'Fuel Type': 'Turbo Fuel',
+        homePlanet: 'Earth',
+      };
+
+      const greenEnergy = obj => (obj['Fuel Type'] = 'avocado oil');
+      greenEnergy(spaceshipTwo);
+      const remotelyDisable = obj => (obj.disabled = true);
+      remotelyDisable(spaceshipTwo);
+
+      console.log(spaceshipTwo);
+      
+      // for...in
+      spaceship = {
+        crew: {
+          captain: {
+            name: 'Lily',
+            degree: 'Computer Engineering',
+            cheerTeam() {
+              console.log('You got this!');
+            },
+          },
+          'chief officer': {
+            name: 'Dan',
+            degree: 'Aerospace Engineering',
+            agree() {
+              console.log('I agree, captain!');
+            },
+          },
+          medic: {
+            name: 'Clementine',
+            degree: 'Physics',
+            announce() {
+              console.log(`Jets on!`);
+            },
+          },
+          translator: {
+            name: 'Shauna',
+            degree: 'Conservation Science',
+            powerFuel() {
+              console.log('The tank is full!');
+            },
+          },
+        },
+      };
+
+      for (let crewMember in spaceship.crew) {
+        console.log(`${crewMember}: ${spaceship.crew[crewMember].name}`);
+      }
+
+      for (let crewMember in spaceship.crew) {
+        console.log(
+          `${spaceship.crew[crewMember].name}: ${spaceship.crew[crewMember].degree}`
+        );
+      }
     </script>
   </body>
 </html>

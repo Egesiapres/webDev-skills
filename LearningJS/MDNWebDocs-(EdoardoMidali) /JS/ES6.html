@@ -62,6 +62,24 @@
 
       // single line es 2
       const plantNeedsWater = day => (day === 'Wednesday' ? true : false);
+
+      // quando a una key è associato un metodo, la key diventa il suo nome
+      // pre ES6
+      let alienShip = {
+        invade: function () {
+          console.log(
+            'Hello! We have come to dominate your planet. Instead of Earth, it shall be called New Xaculon.'
+          );
+        },
+      };
+      // post ES6: posso rimuovere i : dopo la key quando il value è un method
+      alienShip = {
+        invade() {
+          console.log(
+            'Hello! We have come to dominate your planet. Instead of Earth, it shall be called New Xaculon.'
+          );
+        },
+      };
     </script>
   </body>
 </html>
