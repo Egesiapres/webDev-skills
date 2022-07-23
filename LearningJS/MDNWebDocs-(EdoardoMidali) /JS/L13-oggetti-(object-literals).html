@@ -85,7 +85,7 @@
       // quando lo usiamo facciamo riferiemnto allo STESSO oggetto
       // quello che stiamo utilizzando
       // vedi sopra dove c'è la stampa del cognome
-      // this prende come context l'oggetto
+      // this prende come scope l'oggetto
       // stampa il cognome perché siamo dentro all'oggetto persona
 
       // AGGIUNTE
@@ -144,7 +144,7 @@
       remotelyDisable(spaceshipTwo);
 
       console.log(spaceshipTwo);
-      
+
       // for...in
       spaceship = {
         crew: {
@@ -188,6 +188,51 @@
           `${spaceship.crew[crewMember].name}: ${spaceship.crew[crewMember].degree}`
         );
       }
+
+      // PRIVACY
+      // alcuni linguaggi hanno feature di default per il trattamento di oggetti che non devono essere modificati
+      // JS no
+      // si usa _ davanti al nome per indicare che qualcosa non deve essere mutato
+      // rimangono comunque modificabili (sono solo segnalati)
+      const bankAccount = {
+        _amount: 1000,
+      };
+      // bankAccount._amount = 100000000
+
+      // GETTERS & SETTERS
+      // metodi per ottenere o modificare dei valori senza intaccarli veramente
+      // get, set: prima della funzione
+      // invocazione: come le proprietà, senza ()
+      const robot = {
+        _model: '1E78V2',
+        _energyLevel: 100,
+        _numOfSensors: 15,
+        get energyLevel() {
+          if (typeof this._energyLevel == 'number') {
+            return `My current energy level is ${this._energyLevel}`;
+          } else {
+            return 'System malfunction: cannot retrieve energy level';
+          }
+        },
+        get numOfSensors() {
+          if (typeof this._numOfSensors === 'number') {
+            return this._numOfSensors;
+          } else {
+            return 'Sensors are currently down.';
+          }
+        },
+        set numOfSensors(num) {
+          if (typeof num === 'number' && num >= 0) {
+            this._numOfSensors = num;
+          } else {
+            console.log('Pass in a number that is greater than or equal to 0');
+          }
+        },
+      };
+
+      console.log(robot.energyLevel);
+      robot.numOfSensors = 100; // riassegnare il numero di sensori e usare il metodo
+      console.log(robot.numOfSensors);
     </script>
   </body>
 </html>

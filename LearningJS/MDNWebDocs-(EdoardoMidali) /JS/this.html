@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>this</title>
+  </head>
+  <body>
+    <script>
+      // THIS
+      // ----------- oggetti
+      // mi permette di accedere ad una proprietà fuori dalla f
+      // model e energyLevel sono fuori dallo scope della f
+      // senza this (es: scrivendo solo model) darebbe errore
+      let robot = {
+        model: '1E78V2',
+        energyLevel: 100,
+        provideInfo() {
+          return `I am ${this.model} and my current energy level is ${this.energyLevel}`;
+        },
+      };
+
+      console.log(robot.provideInfo());
+
+      // ----------- arrow function
+      /* sintassi non funzionante: checkEnergy: () => {}
+      const robot = {
+        energyLevel: 100,
+        checkEnergy: () => {
+          console.log(`Energy is currently at ${this.energyLevel}%.`);
+        },
+      };
+
+      robot.checkEnergy();
+      */
+
+      // sintassi funzionante: checkEnergy () {}
+      robot = {
+        energyLevel: 100,
+        checkEnergy() {
+          console.log(`Energy is currently at ${this.energyLevel}%.`);
+        },
+      };
+
+      robot.checkEnergy();
+    </script>
+  </body>
+</html>
