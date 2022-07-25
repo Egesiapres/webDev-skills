@@ -50,11 +50,14 @@
       console.log(insegnante);
       insegnante.saluta();
 
-      // 5. Ecmascript 2015 classi (ES6)
-      // classi introdotte per avvicinare JS a linguaggi di programmazione come Java, C++
+      // 5. CLASSI (ES6)
+      // template per oggetti
+      // introdotte per avvicinare JS a linguaggi di programmazione come Java, C++
       // semplificano la gestione
-      // le classi derivano degli oggetti di prima
-      // sono un'alternativa migliore ai prototipi
+      // classi derivano degli oggetti
+      // alternativa migliore ai prototipi
+
+      // la classe invoca il metodo constructor() ogni volta creo una nuova istanza
       class Persona1 {
         constructor(nome, cognome, eta, genere, interessi) {
           this.nome = nome;
@@ -96,6 +99,7 @@
         }
       }
 
+      // new: kewyword che richiama il costruttore e runna il codiche che contiene
       const insegnante1 = new Insegnante1(
         'Anna',
         'Blu',
@@ -114,6 +118,86 @@
       // anche se questo approccio funziona
       // devo mettere dei getters e dei setters
       // vedi sopra
+
+      // AGGIUNTE
+      // Classe ed eridarietà
+      class HospitalEmployee {
+        constructor(name) {
+          this._name = name;
+          this._remainingVacationDays = 20;
+        }
+
+        get name() {
+          return this._name;
+        }
+
+        get remainingVacationDays() {
+          return this._remainingVacationDays;
+        }
+
+        takeVacationDays(daysOff) {
+          this._remainingVacationDays -= daysOff;
+        }
+        // STATIC METHOD
+        // metodo che può essere chiamato solo dalla classe
+        // NON dall'ISTANZA
+        // metodo che viene comunque ereditato (dalle classi figlie)
+        // invocabile solo dalla classe parent
+        static generatePassword() {
+          return Math.floor(Math.random() * 10000);
+        }
+      }
+
+      // super(): keyword that calls the constructor of the parent class
+      // class Nurse's name argument is passed to the contructor of the HospitalEmployee parent class
+      class Nurse extends HospitalEmployee {
+        constructor(name, certifications) {
+          super(name);
+          this._certifications = certifications;
+        }
+
+        get certifications() {
+          return this._certifications;
+        }
+
+        addCertification(newCertification) {
+          this.certifications.push(newCertification);
+        }
+      }
+
+      const nurseOlynyk = new Nurse('Olynyk', ['Trauma', 'Pediatrics']);
+      nurseOlynyk.takeVacationDays(5);
+      console.log(nurseOlynyk.remainingVacationDays);
+      nurseOlynyk.addCertification('Genetics');
+      console.log(nurseOlynyk.certifications);
+      console.log(HospitalEmployee.generatePassword());
+      console.log(Nurse.generatePassword());
+      // console.log(nurseOlynyk.generatePassword()); // Output: TypeError. L'istanza non può chiamare lo static method
+
+      class Surgeon extends HospitalEmployee {
+        constructor(name, department) {
+          super(name);
+          this._department = department;
+        }
+      }
+
+      const surgeonRomero = new Surgeon('Francisco Romero', 'Cardiovascular');
+      const surgeonJackson = new Surgeon('Ruth Jackson', 'Orthopedics');
+
+      // le proprietà private (_proprietà) si possono richiamare senza _ (proprietà)
+      console.log(surgeonRomero.name);
+      surgeonRomero.takeVacationDays(3);
+      console.log(surgeonRomero.remainingVacationDays);
+
+      class Doctor extends HospitalEmployee {
+        constructor (name, insurance) {
+          super(name);
+          this._insurance = insurance
+        }
+      }
+
+      const doctorAcerbis = new Doctor('Acerbis', true);
+      console.log(doctorAcerbis);
     </script>
   </body>
 </html>

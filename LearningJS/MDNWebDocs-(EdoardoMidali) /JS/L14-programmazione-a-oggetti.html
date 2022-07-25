@@ -39,36 +39,29 @@
       // l'insegnante che è classe figlia eredita tutto da persona
       // posso accedere all'insegnante perché ha un nome e un cognome
 
-      // 3. Costruttori e istanze di un oggetto
-      // questo è un costruttore
-      // funzione che ci permette di costruire un oggetto o una persona
-      // il nome va messo in maiuscolo
-      // i parametri della funzione sono simbolici
-      // usiamo semplicemente una dicitura coerente
+      // 3. COSTRUTTORI e ISTANZE di un oggetto
+      // costruttore: funzione che ci permette di costruire un oggetto
+      // nome in maiuscolo
+      // this.bio(), this.saluta(): metodi
       function Persona(nome, cognome, eta, genere, interessi) {
         this.nome = nome;
         this.cognome = cognome;
         this.eta = eta;
         this.genere = genere;
         this.interessi = interessi;
-        // questo è un metodo
         this.bio = function () {
-          // li sotto abbiamo il ternary operator
-          // simile a if inline
           console.log(
             `${this.nome} ${this.cognome} è ${
               this.genere == 'Maschio' ? ' un ragazzo' : 'una ragazza'
             } di ${this.eta} anni a cui piace ${this.interessi.join(', ')}`
           );
         };
-        // altro metodo
         this.saluta = function () {
           console.log(`Ciao sono ${this.nome}`);
         };
       }
 
-      //istanze
-      //le istanze diverse sono fatte a partire da uno stampino
+      // istanze
       const persona1 = new Persona('Luca', 'Rossi', 23, 'Maschio', [
         'calcio',
         'basket',
@@ -79,7 +72,7 @@
         'musica',
       ]);
 
-      console.log(persona1); // le proprietà vengono stampate in ordine alfabetico
+      console.log(persona1); // proprietà stampate in ordine alfabetico
       console.log(persona2);
 
       persona1.saluta();
@@ -87,71 +80,6 @@
 
       persona1.bio();
       persona2.bio();
-
-      // AGGIUNTE
-      // FACTORY FUNCTION
-      // creazione di oggetti (definisco una sorta di template)
-      // f personalizzata che genera un oggetto
-      // (usare il return)
-      function robotFactory(model, mobile) {
-        return {
-          model: model,
-          mobile: mobile,
-          beep() {
-            console.log('Beep Boop');
-          },
-        };
-      }
-
-      const newRobot = robotFactory('P-501', false);
-
-      // DESCRUCTORING - ES6
-      // property value shorthand
-      // NO: name: name
-      // YES: name,
-      function person(name, surname, interUno, interDue, paese, pNascita, aNascita) {
-        return {
-          name,
-          surname,
-          interessi: [interUno, interDue],
-          anagrafica: {
-            paese,
-            pNascita,
-            aNascita
-          },
-          saluto() {
-            console.log(`Ciao, mi chiamo ${name} ${surname}`);
-          },
-        };
-      }
-
-      const e = person('Emma', 'Franchino', 'viaggiare', 'dormire', 'Brusnengo', 'Biella', 2001);
-      const m = person('Mariarosa', 'Tirelli', 'pulire', 'urlare', 'Montirone', 'Brescia', 1967);
-      console.log(e);
-      console.log(e.surname);
-      console.log(m);
-      e.saluto();
-
-      // DESTRUCTORED ASSIGNMENT
-      // per accedere a un valore
-      // dentro {} chiamo la variabile con il nome della key
-      // const interessi = e.interessi;
-      const { interessi } = e;
-      console.log(interessi);
-      const { surname } = m;
-      console.log(surname);
-      const { aNascita } = e.anagrafica;
-      console.log(aNascita);
-
-      // METHODS
-      // hasOwnProperty(), valueOf(), Object.assign(), Object.entries(), Object.keys()
-      const eProps = Object.keys(e); 
-      console.log(eProps); // Output: nomi delle key
-      const eEntries = Object.entries(e);
-      console.log(eEntries);  // Output: array (che può contenere altri array) con dentro coppie chiave, valore
-      const eNewProps = {facoltà: {nome: 'Psicologia', anno: 2, anniPrevistri: 3}};
-      const eNew = Object.assign(eNewProps, e);
-      console.log(eNew);
     </script>
   </body>
 </html>
