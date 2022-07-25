@@ -82,6 +82,45 @@
       };
 
       // DESCRUCTORING
+      // property value shorthand
+      // NO: name: name
+      // YES: name,
+      function person(name, surname, interUno, interDue, paese, pNascita, aNascita) {
+        return {
+          name,
+          surname,
+          interessi: [interUno, interDue],
+          anagrafica: {
+            paese,
+            pNascita,
+            aNascita
+          },
+          saluto() {
+            console.log(`Ciao, mi chiamo ${name} ${surname}`);
+          },
+        };
+      }
+
+      const e = person('Emma', 'Franchino', 'viaggiare', 'dormire', 'Brusnengo', 'Biella', 2001);
+      const m = person('Mariarosa', 'Tirelli', 'pulire', 'urlare', 'Montirone', 'Brescia', 1967);
+      console.log(e);
+      console.log(e.surname);
+      console.log(m);
+      e.saluto();
+
+      // DESTRUCTORED ASSIGNMENT
+      // per accedere a un valore
+      // dentro {} chiamo la variabile con il nome della key
+      // const interessi = e.interessi;
+      const { interessi } = e;
+      console.log(interessi);
+      const { surname } = m;
+      console.log(surname);
+      const { aNascita } = e.anagrafica;
+      console.log(aNascita);
+
+      // CLASSI
+      
     </script>
   </body>
 </html>

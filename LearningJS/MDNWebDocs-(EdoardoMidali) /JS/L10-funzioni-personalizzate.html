@@ -22,18 +22,6 @@
       // io
       const b = document.getElementById('b');
 
-      // AGGIUNTA
-      // PARAMETRO: ciò che sta dentro alle () nella definizione di una f. Agisce da segnaposto
-      function sayThanks(name) {
-        console.log(
-          'Thank you for your purchase ' +
-            name +
-            '! We appreciate your business.'
-        );
-      }
-      // ARGOMENTO: ciò che sta dentro alle () nell'invocazione di una funzione. Valore vero e proprio che viene passato alla f
-      sayThanks('Cole');
-
       // 4. Parametri di DEFAULT: ciò che viene preso quando invoco la f senza inserire uno argomento specifico
       function greeting(name = 'stranger') {
         console.log(`Hello, ${name}!`);
@@ -69,6 +57,18 @@
       b.addEventListener('click', () => {
         prova(name.value);
       });
+
+      // AGGIUNTA
+      // PARAMETRO: ciò che sta dentro alle () nella definizione di una f. Agisce da segnaposto
+      function sayThanks(name) {
+        console.log(
+          'Thank you for your purchase ' +
+            name +
+            '! We appreciate your business.'
+        );
+      }
+      // ARGOMENTO: ciò che sta dentro alle () nell'invocazione di una funzione. Valore vero e proprio che viene passato alla f
+      sayThanks('Cole');
     </script>
   </body>
 </html>

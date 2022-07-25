@@ -12,7 +12,7 @@
       // 2. Definire un object template
 
       // prendere oggetti dalla realtà e portare dati nel nostro programma
-      // per correlare i dati in modod logico e usarli con una certa facilità
+      // per correlare i dati in modo logico e usarli con una certa facilità
       // programmi complessi ma più semplici da interconnettere fra di loro
       // il codice è anche + utilizzabile, leggibile etc
       // creiamo per es l'oggetto db e ci si accede
@@ -87,6 +87,71 @@
 
       persona1.bio();
       persona2.bio();
+
+      // AGGIUNTE
+      // FACTORY FUNCTION
+      // creazione di oggetti (definisco una sorta di template)
+      // f personalizzata che genera un oggetto
+      // (usare il return)
+      function robotFactory(model, mobile) {
+        return {
+          model: model,
+          mobile: mobile,
+          beep() {
+            console.log('Beep Boop');
+          },
+        };
+      }
+
+      const newRobot = robotFactory('P-501', false);
+
+      // DESCRUCTORING - ES6
+      // property value shorthand
+      // NO: name: name
+      // YES: name,
+      function person(name, surname, interUno, interDue, paese, pNascita, aNascita) {
+        return {
+          name,
+          surname,
+          interessi: [interUno, interDue],
+          anagrafica: {
+            paese,
+            pNascita,
+            aNascita
+          },
+          saluto() {
+            console.log(`Ciao, mi chiamo ${name} ${surname}`);
+          },
+        };
+      }
+
+      const e = person('Emma', 'Franchino', 'viaggiare', 'dormire', 'Brusnengo', 'Biella', 2001);
+      const m = person('Mariarosa', 'Tirelli', 'pulire', 'urlare', 'Montirone', 'Brescia', 1967);
+      console.log(e);
+      console.log(e.surname);
+      console.log(m);
+      e.saluto();
+
+      // DESTRUCTORED ASSIGNMENT
+      // per accedere a un valore
+      // dentro {} chiamo la variabile con il nome della key
+      // const interessi = e.interessi;
+      const { interessi } = e;
+      console.log(interessi);
+      const { surname } = m;
+      console.log(surname);
+      const { aNascita } = e.anagrafica;
+      console.log(aNascita);
+
+      // METHODS
+      // hasOwnProperty(), valueOf(), Object.assign(), Object.entries(), Object.keys()
+      const eProps = Object.keys(e); 
+      console.log(eProps); // Output: nomi delle key
+      const eEntries = Object.entries(e);
+      console.log(eEntries);  // Output: array (che può contenere altri array) con dentro coppie chiave, valore
+      const eNewProps = {facoltà: {nome: 'Psicologia', anno: 2, anniPrevistri: 3}};
+      const eNew = Object.assign(eNewProps, e);
+      console.log(eNew);
     </script>
   </body>
 </html>
