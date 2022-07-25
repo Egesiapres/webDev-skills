@@ -1,6 +1,6 @@
 // shortcuts (using Simple React Snippets)
 // imrc (import react component)
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 // cc (create class)
 // with the sintax below i can also export the class wit a single line
@@ -11,8 +11,8 @@ class Counter extends Component {
   // to make the DOM working right also if i'm clicking on this button after selecting another one
   // with this method we can decid whether make an ajax call to get new data based on the changes of props and states objects
   componentDidUpdate(prevProps, prevState) {
-    console.log("prevProps", prevProps);
-    console.log("prevState", prevState);
+    console.log('prevProps', prevProps);
+    console.log('prevState', prevState);
     // to update the value in the object (that still was 0, even increasing with the button)
     if (prevProps.counter.value !== this.props.value) {
       // ajax call and get new data from the server
@@ -23,7 +23,7 @@ class Counter extends Component {
   // the unmount msg appears when i delete a component
   // this because there is a changing of the virtual DOM in respect with the old one
   componentWillUnmount() {
-    console.log('Counter - Unmount')
+    console.log('Counter - Unmount');
   }
 
   // to render a data dynamically
@@ -92,7 +92,7 @@ class Counter extends Component {
   // }
 
   render() {
-    console.log("Component - Rendered");
+    console.log('Component - Rendered');
     // console.log(this.props);
 
     // every react component has a property called props
@@ -157,8 +157,8 @@ class Counter extends Component {
 
   // function for the dynamical choosing of the bootsrap style to apply
   getBadgeClasses() {
-    let classes = "badge m-2 badge-";
-    classes += this.props.counter.value === 0 ? "warning" : "primary";
+    let classes = 'badge m-2 badge-';
+    classes += this.props.counter.value === 0 ? 'warning' : 'primary';
     return classes;
   }
 
@@ -169,7 +169,7 @@ class Counter extends Component {
     const { value } = this.props.counter;
     // ? is then, : is else
     // i can return also JSX expression, better than plain text
-    return value === 0 ? "Zero" : value;
+    return value === 0 ? 'Zero' : value;
   }
 }
 

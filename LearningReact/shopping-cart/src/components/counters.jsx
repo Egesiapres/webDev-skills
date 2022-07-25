@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import Counter from "./counter";
+import React, { Component } from 'react';
+import Counter from './counter';
 
 class Counters extends Component {
   render() {
@@ -19,7 +19,7 @@ class Counters extends Component {
         >
           Reset
         </button>
-        {counters.map((counter) => (
+        {counters.map(counter => (
           // we no longer have the state
 
           // attributes to initialize the counter
