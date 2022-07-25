@@ -58,12 +58,25 @@ const paragraphs = (
   </div>
 );
 
-// compare tutto a schermo
+// 6. ReactDOM.render()
+
+// importare le librerie
 import React from 'react';
 import ReactDOM from 'react-dom';
 
 // ReactDOM: nome della libreria
 // che contiene in metodi specifici
-// render() è un metodo della libreria ReactDOM
-// il più usato comunemente
-ReactDOM.render(<h1>Hello world</h1>, document.getElementById('app'));
+// render() è un metodo della libreria ReactDOM (il più usato)
+// primo argomento: cosa renderizzare (pezzo html)
+// secondo argomento: dove renderizzare (posizione)
+// (se come secondo elemento metto document.querySelector('#...') non va)
+ReactDOM.render(<h1>Hello world</h1>, document.getElementById('container'));
+// (MANCANO UNA SERIE DI FILE PER FAR FUNZIONARE IL TUTTO)
+
+// 7. VIRTUAL DOM
+// ReactDOM.render() aggiorna solo gli elementi del DOM che cambiano
+// se provo a renderizzare due volte la stessa cosa non succede niente
+// avviene una comparazione DOM reale vs DOM virtuale
+const hello = <p>Hello world</p>;
+ReactDOM.render(hello, document.getElementById('app'));
+ReactDOM.render(hello, document.getElementById('app'))
