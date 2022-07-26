@@ -50,3 +50,9 @@ let math = (
     2 + 3 = {2 + 3}
   </h1>
 )
+
+// 4. VARIABLES in JSX
+// work as normal variables, just remember to insert {}
+const theBestString = 'tralalalala i am da best';
+
+ReactDOM.render(<h1>{theBestString}</h1>, document.getElementById('app'));
