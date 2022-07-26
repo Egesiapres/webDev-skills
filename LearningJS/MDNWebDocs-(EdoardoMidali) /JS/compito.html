@@ -30,75 +30,33 @@
       let url = './compito-prodotti.json';
       let ProdottiFetch;
 
-      // servirebbe una funzione
+      // all'inizio hardcodato per ogni prodotto
+      // migliorato: utilizzo del ciclo for
       btn.addEventListener('click', () => {
         fetch(url)
           .then(response => response.json())
           .then(json => {
             prodottiFetch = json;
-            console.log('fetch: ', prodottiFetch.prodottoUno);
-
-            let nUno = document.createElement('p');
-            nUno.textContent = `Prodotto 1: ${prodottiFetch.prodottoUno.nome}.`;
-            document.body.appendChild(nUno);
-            let pUno = document.createElement('p');
-            pUno.textContent = `Prezzo: ${prodottiFetch.prodottoUno.prezzo}.`;
-            document.body.appendChild(pUno);
-            let imgUno = document.createElement('img');
-            imgUno.setAttribute('src', './compito-img-1.jpg');
-            imgUno.setAttribute('class', 'small');
-            document.body.appendChild(imgUno);
-            let dUno = document.createElement('p');
-            dUno.textContent = `Descrizione: ${prodottiFetch.prodottoUno.descrizione}.`;
-            document.body.appendChild(dUno);
-
-            let nDue = document.createElement('p');
-            nDue.textContent = `Prodotto 2: ${prodottiFetch.prodottoDue.nome}.`;
-            document.body.appendChild(nDue);
-            let pDue = document.createElement('p');
-            pDue.textContent = `Prezzo: ${prodottiFetch.prodottoDue.prezzo}.`;
-            document.body.appendChild(pDue);
-            let imgDue = document.createElement('img');
-            imgDue.setAttribute('src', './compito-img-2.jpg');
-            imgDue.setAttribute('class', 'small');
-            document.body.appendChild(imgDue);
-            let dDue = document.createElement('p');
-            dDue.textContent = `Descrizione: ${prodottiFetch.prodottoDue.descrizione}.`;
-            document.body.appendChild(dDue);
-
-            let nTre = document.createElement('p');
-            nTre.textContent = `Prodotto 3: ${prodottiFetch.prodottoTre.nome}.`;
-            document.body.appendChild(nTre);
-            let pTre = document.createElement('p');
-            pTre.textContent = `Prezzo: ${prodottiFetch.prodottoTre.prezzo}.`;
-            document.body.appendChild(pTre);
-            let imgTre = document.createElement('img');
-            imgTre.setAttribute('src', './compito-img-3.jpg');
-            imgTre.setAttribute('class', 'small');
-            document.body.appendChild(imgTre);
-            let dTre = document.createElement('p');
-            dTre.textContent = `Descrizione: ${prodottiFetch.prodottoTre.descrizione}.`;
-            document.body.appendChild(dTre);
-
-            // si dovrebbe fare una funzione che sostituisce
-            // tutta la robaccia sopra
-            // const prova = (nome, prezzo, immagine, descrizione) => {
-            //   for (let i = 0; i <= .lenght; i++) {
-            //     let n = document.createElement('p');
-            //     n.textContent = `Prodotto: ${prodottiFetch.prodottoUno.nome}.`;
-            //     document.body.appendChild(n);
-            //     let p = document.createElement('p');
-            //     p.textContent = `Prezzo: ${prodottiFetch.prodottoUno.prezzo}.`;
-            //     document.body.appendChild(p);
-            //     let img = document.createElement('img');
-            //     img.setAttribute('src', './compito-img-1.jpg');
-            //     img.setAttribute('class', 'small');
-            //     document.body.appendChild(img);
-            //     let dUno = document.createElement('p');
-            //     d.textContent = `Descrizione: ${prodottiFetch.prodottoUno.descrizione}.`;
-            //     document.body.appendChild(d);
-            //   }
-            // };
+            
+            for (let i = 0; i <= prodottiFetch.prodotti.length - 1; i++) {
+              let n = document.createElement('p');
+              n.textContent = `Prodotto: ${prodottiFetch.prodotti[i].nome}.`;
+              document.body.appendChild(n);
+              let p = document.createElement('p');
+              p.textContent = `Prezzo: ${prodottiFetch.prodotti[i].prezzo}.`;
+              document.body.appendChild(p);
+              let img = document.createElement('img');
+              
+              img.setAttribute('src', prodottiFetch.prodotti[i].img);
+              img.setAttribute('class', 'small');
+              document.body.appendChild(img);
+              
+              let d = document.createElement('p');
+              d.textContent = `Descrizione: ${prodottiFetch.prodotti[i].descrizione}.`;
+              document.body.appendChild(d);
+              // carrello?
+              console.log(prodottiFetch.prodotti[i]);
+            }
           });
       });
     </script>
