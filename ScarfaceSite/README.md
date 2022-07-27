@@ -4,7 +4,7 @@
 My university project of the Laboratory of Visual Communication course
 
 ### 1. Aim
-To build a website centered on a film we had to choose. I've chosen Scarface
+The website had to be centered on a film we had to choose. I've chosen Scarface
 
 ### 2. Guide-lines
 The site had to be responsive 
