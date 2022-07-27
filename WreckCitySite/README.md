@@ -4,7 +4,7 @@
 My university project for the Visual Communication and Interfaces Design course.
 
 ### 1. Aim
-Each group had to build a website centered on an immaginary city. Me and my team decided to base it on a Steampunk one;
+Each group had to build a website centered on an imaginary city. Me and my team decided to base it on a Steampunk one;
 
 ### 2. Guide-lines
 The site had to be designed and realized for different devices (mobile, tablet and desktop) following the mobile-first philosophy and to be responsive; 
