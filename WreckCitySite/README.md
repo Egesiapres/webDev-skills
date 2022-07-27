@@ -13,6 +13,6 @@ The website had to be designed and realized for different devices (mobile, table
 The website has been designed using Figma. It has been coded all using HTML, CSS and a bit of JS
 
 #### Figma file
-Here (https://www.figma.com/file/yXVIdLNHCQNRSgiAEn6OfY/WreckCitySite?node-id=0%3A1) is possible to find 
+Here (https://www.figma.com/file/yXVIdLNHCQNRSgiAEn6OfY/WreckCitySite?node-id=0%3A1), it's possible to find 
 the site information architecture, low and high-fidelity wireframes and mockups of each website version. It's also possible to find the choices regarding 
 typography, palette, navigation elements and images
