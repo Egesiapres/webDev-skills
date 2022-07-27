@@ -1,5 +1,5 @@
-## University project: WreckCity
-#### Course: Visual Communication and Interfaces Design course.
+#### University project: ## WreckCity
+#### Course: #### Visual Communication and Interfaces Design
 
 ### 1. Aim: 
 Each group had to build a website centered on an immaginary city. Me and my team decided to base it on a Steampunk one;
