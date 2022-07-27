@@ -14,5 +14,5 @@ The website has been designed using Figma. In the end, the site has been coded a
 
 #### Figma file
 Here (https://www.figma.com/file/yXVIdLNHCQNRSgiAEn6OfY/WreckCitySite?node-id=0%3A1), it's possible to find 
-the site low and high-fidelity wireframes and mockups of each website version. It's also possible to find the choices regarding 
+the site information architecture, low and high-fidelity wireframes and mockups of each website version. It's also possible to find the choices regarding 
 typography, palette, navigation elements and images
