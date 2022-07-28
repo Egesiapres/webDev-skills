@@ -49,7 +49,7 @@ const theBestString = 'tralalalala i am da best';
 
 ReactDOM.render(<h1>{theBestString}</h1>, document.getElementById('variablesInJsx'));
 
-// 5. VARIABLE ATTRIBUTES IN JSX
+// 4.1 VARIABLE ATTRIBUTES IN JSX
 // in JSX common to use variables to pass attributes
 const pics = {
   panda: 'http://bit.ly/1Tqltv5',
@@ -66,7 +66,7 @@ const owlCat = <img src={pics.owlCat} alt="Ghastly Abomination" width={small}/>;
 
 ReactDOM.render(owlCat, document.getElementById('varibleAttributesInJSX'));
 
-// 6. EVENT LISTENERS
+// 5. EVENT LISTENERS
 // JSX camelCase intead of html lowercase (onClick)
 // attributes are part of JSX expressions
 // i have to inject JS to make the f run (using{})
@@ -91,8 +91,9 @@ const kitty = (
 
 ReactDOM.render(kitty, document.getElementById('eventListeners'));
 
-// 7. JSX CONDITIONALS
-// if statements do not run in JSX
+// 6. JSX CONDITIONALS
+// if statements do not run into JSX pieces of code
+// NO inject, YES put if/else outside the JSX
 // (because of the way in which it's compiled)
 /*
 (
@@ -106,4 +107,89 @@ ReactDOM.render(kitty, document.getElementById('eventListeners'));
 )
 */
 
+// This function will randomly return either 'heads' or 'tails'.
+function coinToss() {
+  return Math.random() < 0.5 ? 'heads' : 'tails';
+}
 
+const picsOne = {
+  kitty: 'https://content.codecademy.com/courses/React/react_photo-kitty.jpg',
+  doggy: 'https://content.codecademy.com/courses/React/react_photo-puppy.jpeg'
+};
+let img;
+
+if (coinToss() === 'heads') {
+  img = <img src={picsOne.kitty} width={small} />
+} else {
+  img = <img src={picsOne.doggy} width={small}/>
+}
+
+ReactDOM.render(img, document.getElementById('workingIfStatements'));
+
+// 6.1 ternary operator and &&: not React-specific
+// OFTEN USED
+// ternary operator
+const imgOne = <img src={picsOne[coinToss() === 'heads' ? 'kitty' : 'doggy']} width={small} />;
+
+ReactDOM.render(
+	imgOne, 
+	document.getElementById('ternaryOperator')
+);
+
+// 6.2 &&
+// if the condition at the left of the && is satisfied
+// the code on the right is executed
+
+// judgmental will be true half the time.
+const judgmental = Math.random() < 0.5;
+
+const favoriteFoods = (
+  <div>
+    <h1>My Favorite Foods</h1>
+    <ul>
+      <li>Sushi Burrito</li>
+      <li>Rhubarb Pie</li>
+      {!judgmental && <li>Nacho Cheez Straight Out The Jar</li>}
+      <li>Broiled Grapefruit</li>
+    </ul>
+  </div>
+);
+
+ReactDOM.render(
+	favoriteFoods, 
+	document.getElementById('&&')
+);
+
+// 7. map()
+// the function contained between () is applied
+// to the elements of the array before the .
+// OFTEN USED to create list of elements
+const people = ['Rowe', 'Prevost', 'Gare'];
+// person: parametro della funzione anonima dentro a map()
+let peopleLis = people.map(person =>
+  <li>{person}</li>
+);
+
+ReactDOM.render(<ul>{peopleLis}</ul>, document.getElementById('map()'));
+
+// 8. KEYS
+// unique attribute (similar to id)
+// useful for React to keep track of lists. Not all lists
+// YES ones:
+// to-do: list items have a memory from one render to one other
+// (the item has to remember wheter it was checked)
+// search: results might be shuffled from one render to the next 
+peopleLis = people.map((person, i) => <li key={"person_"+i}>{person}</li>)
+
+ReactDOM.render(<ul>{peopleLis}</ul>, document.getElementById('keys'));
+
+// 9. React.createElement()
+// every JSX piece of code is a call to the React.createElement() method
+const h1 = <h1>Hello world</h1>;
+/* is compiled into
+const h1 = React.createElement(
+  "h1",
+  null,
+  "Hello world"
+);
+*/
