@@ -64,14 +64,16 @@ const paragraphs = (
 // import React from 'react';
 // import ReactDOM from 'react-dom';
 
-
 // ReactDOM: nome della libreria
 // che contiene in metodi specifici
 // render() è un metodo della libreria ReactDOM (il più usato)
 // primo argomento: cosa renderizzare (pezzo html)
 // secondo argomento: dove renderizzare (posizione)
 // (se come secondo elemento metto document.querySelector('#...') non va)
-ReactDOM.render(<h1>Hello world! - ReactDOM.render</h1>, document.getElementById('reactDom'));
+ReactDOM.render(
+  <h1>Hello world! - ReactDOM.render</h1>,
+  document.getElementById('reactDom')
+);
 // (MANCANO UNA SERIE DI FILE PER FAR FUNZIONARE IL TUTTO)
 
 // 7. VIRTUAL DOM
