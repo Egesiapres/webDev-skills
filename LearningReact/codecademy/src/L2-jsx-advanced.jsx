@@ -1,5 +1,5 @@
-// import React from 'react';
-// import ReactDOM from 'react-dom';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 // 1. class vs className
 // in JSX NO class, YES className
@@ -7,7 +7,7 @@
 // (it is translated by the compiler in class)
 const myDiv = <div className="big">I AM A BIG DIV</div>;
 
-ReactDOM.render(myDiv, document.getElementById('classVsClassName'));
+ReactDOM.render(myDiv, document.getElementById('ciao'));
 
 // 2. SELF CLOSING TAGS
 // html: YES <br> and <br/>

@@ -61,8 +61,8 @@ const paragraphs = (
 // 6. ReactDOM.render()
 
 // importare le librerie
-// import React from 'react';
-// import ReactDOM from 'react-dom';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 // ReactDOM: nome della libreria
 // che contiene in metodi specifici
