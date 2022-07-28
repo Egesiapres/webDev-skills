@@ -35,7 +35,7 @@ import ReactDOM from 'react-dom';
 // return: followed by JSX
 class MyComponentClass extends React.Component {
   render() {
-    return <h1>Speriamo!</h1>;
+    return <h1>Hello world!</h1>;
   }
 }
 // 3.3 AFTER BODY
