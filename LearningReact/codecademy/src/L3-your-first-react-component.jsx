@@ -41,10 +41,8 @@ class MyComponentClass extends React.Component {
 // 3.3 AFTER BODY
 // component INSTANCE: different form html tags (lowercase)
 // (similar, vecause both can be rendered by JSX)
-ReactDOM.render(<MyComponentClass />, document.getElementById('app'));
+ReactDOM.render(<MyComponentClass />, document.getElementById('firstReactComponent'));
 
 // COMPONENT CLASS
 // what we've created so far
 // NO component, YES factory that produces components
-
-
