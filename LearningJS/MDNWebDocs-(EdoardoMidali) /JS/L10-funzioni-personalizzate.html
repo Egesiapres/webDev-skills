@@ -68,7 +68,160 @@
         );
       }
       // ARGOMENTO: ciò che sta dentro alle () nell'invocazione di una funzione. Valore vero e proprio che viene passato alla f
+
       sayThanks('Cole');
+
+      // HIGH-ORDER f
+      // accettano altre funzioni come argomento, restituiscono f come output (anche entrambi)
+      // permettono l'astrazione
+
+      // riassegnamento della f in una variabile f più leggibile
+      // f trattate come ogni altro tipo di dato
+      const checkThatTwoPlusTwoEqualsFourAMillionTimes = () => {
+        for (let i = 1; i <= 1000000; i++) {
+          if (2 + 2 != 4) {
+            console.log('Something has gone very wrong :( ');
+          }
+        }
+      };
+
+      // checkThatTwoPlusTwoEqualsFourAMillionTimes è richiamato SENZA ()
+      // vogliamo assegnare il VALORE DELLA FUNZIONE STESSA
+      // NON SOLO il valore RITORNATO QUANDO INVOCATA
+      const isTwoPlusTwo = checkThatTwoPlusTwoEqualsFourAMillionTimes;
+      isTwoPlusTwo();
+
+      // funzione: FIRST CLASS OBJECT
+      // (può avere proprietà e metodi: .name, .toString(), .length...)
+      // se non mi ricordo più il nome della funzione originale:
+      console.log(isTwoPlusTwo.name);
+
+      // CALLBACK F: f che vengono passate come PARAMETRI
+      // (durante l'esecuzione di una high-order f)
+      // callback f passate senza (): dobbiamo passare la funzione stessa
+      // altrimenti sarebbe passato il parametro che viene ritornato dall'esecuzione della f
+      // le f anonime possono essere degli argomenti
+      const addTwo = num => {
+        return num + 2;
+      };
+
+      const checkConsistentOutput = (func, val) => {
+        const checkA = val + 2;
+        const checkB = func(val);
+
+        if (checkA === checkB) {
+          return func(val);
+        } else {
+          return 'inconsistent results';
+        }
+      };
+
+      console.log(checkConsistentOutput(addTwo, 7));
+
+      // ITERATORS (.forEach(), .map(), .filter())
+      // (vedi methods)
+      // array built-in iteration methods (instead of using loopings)
+      // they are high-order f because THE ARGUMENT IS A CB F
+
+      // .forEach()
+      // the argument is a callback f. Three ways to recall it
+      // SYNTAX 1
+      // the cb f is executed for each array element
+      // each element is passed as an argument to the cb f
+      /*
+      groceries.forEach(function (groceryItem) {
+        console.log(' - ' + groceryItem);
+      });
+      */
+      // SYNTAX 2 (better)
+      // cb f can be passed also as an arrow f
+      // groceries.forEach(groceryItem => console.log(' - ' + groceryItem));
+      // SYNTAX 3
+      // define a f beforehand to be used as the cb f
+      /*
+      function printGrocery(element) {
+        console.log(element);
+      }
+
+      groceries.forEach(printGrocery);
+      */
+      const fruits = ['mango', 'papaya', 'pineapple', 'apple'];
+      fruits.forEach(fruit => console.log(`I want to eat a ${fruit}`));
+
+      // .map()
+      // takes an argument of a cb, returns a new array
+      // SIMILAR to .forEach(), BUT RETURNA A NEW ARRAY
+      // (elements in the original array are not modified)
+      let animals = [
+        'Hen',
+        'elephant',
+        'llama',
+        'leopard',
+        'ostrich',
+        'Whale',
+        'octopus',
+        'rabbit',
+        'lion',
+        'dog',
+      ];
+
+      // Create the secretMessage array below
+      const secretMessage = animals.map(animal => animal[0]);
+      console.log(secretMessage.join(''));
+
+      const bigNumbers = [100, 200, 300, 400, 500];
+      let smallNumbers = bigNumbers.map(bigNumber => bigNumber / 100); // Create the smallNumbers array below
+      console.log(smallNumbers);
+
+      // .filter()
+      // (like .map()) returns a new array
+      // BUT after FILTERING AOUT certain elements
+      // filter()'s cb f return a T/F value
+      // T values (that satisfies the condition) are stored in the new array
+      const randomNumbers = [375, 200, 3.14, 7, 13, 852];
+      smallNumbers = randomNumbers.filter(
+        randomNumber => randomNumber < 250
+      );
+
+      const favoriteWords = [
+        'nostalgia',
+        'hyperbole',
+        'fervent',
+        'esoteric',
+        'serene',
+      ];
+      const longFavoriteWords = favoriteWords.filter(
+        favoriteWord => favoriteWord.length > 7
+      );
+
+      console.log(smallNumbers);
+      console.log(longFavoriteWords);
+
+      // .findIndex()
+      // used to find the location of an element (into an array)
+      // returns the index ONLY of the first element T, that satisfies the condition in the cb
+      // NO element in the array that satisfies the condition, returned -1
+      animals = [
+        'hippo',
+        'tiger',
+        'lion',
+        'seal',
+        'cheetah',
+        'monkey',
+        'salamander',
+        'elephant',
+      ];
+
+      const foundAnimal = animals.findIndex(animal => {
+        return animal === 'elephant';
+      });
+
+      const startsWithS = animals.findIndex(animal => {
+        return animal[0] === 's';
+      });
+
+      console.log(foundAnimal);
+      console.log(startsWithS);
     </script>
   </body>
 </html>
