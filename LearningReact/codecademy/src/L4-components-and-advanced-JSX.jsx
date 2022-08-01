@@ -4,7 +4,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const small = 250;
+export const small = 250;
 
 const owl = {
   title: 'Excellent Owl',
@@ -127,4 +127,4 @@ class Button extends React.Component {
   }
 }
 
-ReactDOM.render(<Button />, document.getElementById('app'));
+ReactDOM.render(<Button />, document.getElementById('eventHandlers'));
