@@ -24,6 +24,7 @@ import ReactDOM from 'react-dom';
 import { GreetingOne } from './L6-other-files/GreetingOne';
 import { GreetingTwo } from './L6-other-files/GreetingTwo';
 import { Button } from './L6-other-files/Button';
+import { List } from './L6-other-files/List';
 
 class PropsDisplayer extends React.Component {
   render() {
@@ -164,5 +165,58 @@ ReactDOM.render(
   document.getElementById('eventHandlerInComponentClass')
 );
 
+// 11. this.props.children
+// return everything in between a component’s opening and closing JSX tags
+// more than one component as child: array
 
+//
 
+// import React from 'react';
+// import ReactDOM from 'react-dom';
+// import { List } from './List';
+
+class AppOne extends React.Component {
+  render() {
+    return (
+      <div>
+        <List type='Living Musician'>
+          <li>Sachiko M</li>
+          <li>Harvey Sid Fisher</li>
+        </List>
+        <List type='Living Cat Musician'>
+          <li>Nora the Piano Cat</li>
+          <li>Romeo the Singer Cat</li>
+        </List>
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(
+  <AppOne />, 
+  document.getElementById('this.props.children')
+);
+
+// 12. DEFAULT PROPS
+
+// import React from 'react';
+// import ReactDOM from 'react-dom';
+
+class ButtonOne extends React.Component {
+  render() {
+    return (
+      <button>
+        {this.props.text}
+      </button>
+    );
+  }
+}
+
+// to add to the object ButtonOne a property called defaultProps
+// rendered when <ButtonOne /> has not a text prop 
+ButtonOne.defaultProps = { text: "I am a button" };
+
+ReactDOM.render(
+  <ButtonOne />, 
+  document.getElementById('defaultProps')
+);
