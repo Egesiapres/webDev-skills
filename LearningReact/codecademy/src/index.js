@@ -7,6 +7,7 @@ import reportWebVitals from './reportWebVitals';
 import MyComponentClass from './L3-your-first-react-component';
 import NewComponent from './L4-components-and-advanced-JSX'; // prende tutti i componenti di questo file (Owl, Friend...)
 import ProfilePage from './L5-components-render-other-components';
+import PropsDisplayer from './L6-this.props';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

@@ -1,4 +1,7 @@
 // 1. A COMPONENT IN A RENDER F
+// how components INTERACT PT1:
+// component render another component
+
 // the render() f can return a piece of JSX
 // (ex: return <h1>Hello world!</h1>)
 // BUT ALSO an INSTACE OF A COMPONENT CLASS
