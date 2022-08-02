@@ -19,13 +19,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-// vedi punto 5 per questo import 
+// vedi punto 5 per questo import
 // qua per bug sull'import
-import { GreetingOne } from './Greeting';
+import { GreetingOne } from './GreetingOne';
+import { GreetingTwo } from './GreetingTwo';
 
 class PropsDisplayer extends React.Component {
   render() {
-  	const stringProps = JSON.stringify(this.props);
+    const stringProps = JSON.stringify(this.props);
 
     return (
       <div>
@@ -36,7 +37,10 @@ class PropsDisplayer extends React.Component {
   }
 }
 
-ReactDOM.render(<PropsDisplayer myProp="Hello"/>, document.getElementById('this.props'));
+ReactDOM.render(
+  <PropsDisplayer myProp="Hello" />,
+  document.getElementById('this.props')
+);
 
 // 4. RENDER A COMPONENT'S PROPS
 // step1 (PASS the props): add the props to the component instance (firstName='Alex')
@@ -51,7 +55,7 @@ class Greeting extends React.Component {
 }
 
 ReactDOM.render(
-  <Greeting firstName='Alex' />, 
+  <Greeting firstName="Alex" />,
   document.getElementById('renderComponentsProps')
 );
 
@@ -60,8 +64,8 @@ ReactDOM.render(
 
 // NOTE:
 // props: name of the object (storing passed-in information)
-// this.props: refers to that storage object 
-// prop: (at the same time) each piece of passed-in information. 
+// this.props: refers to that storage object
+// prop: (at the same time) each piece of passed-in information.
 // props could refer to TWO pieces of passed-in information, or it could refer to the object that stores those pieces of information :(
 
 // PROCESS:
@@ -77,20 +81,37 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h1>
-          Hullo and, "Welcome to The Newzz," "On Line!"
-        </h1>
-        <GreetingOne name = "Umbe"/>
-        <article>
-          Latest newzz:  where is my phone?
-        </article>
+        <h1>Hullo and, "Welcome to The Newzz," "On Line!"</h1>
+        <GreetingOne name="Umbe" />
+        <article>Latest newzz: where is my phone?</article>
       </div>
     );
   }
 }
 
 ReactDOM.render(
-  <App />, 
+  <App />,
   document.getElementById('passPropsFromComponentToComponent')
 );
 
+// 6. RENDER DIFFERENT UI BASED ON PROPS
+// WIDELY USED technique: use this.props to make a decision
+// (WITHOUT rendering it. thi.props will be used outside the return, or associated to an if with different return)
+
+// changing between true and false the sentence rendered changes
+class AppTwo extends React.Component {
+  render() {
+    return (
+      <div>
+        <h1>Hullo and, "Welcome to The Newzz," "On Line!"</h1>
+        <GreetingTwo nameOne="Alison" signedIn={true} />
+        <article>Latest: where is my phone?</article>
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(
+  <AppTwo />,
+  document.getElementById('renderDifferentBasedOnProps')
+);
