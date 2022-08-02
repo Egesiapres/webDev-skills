@@ -17,7 +17,7 @@
 // (export/import used also to pass JS var, let, const, functions or classes also outside react) 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { NavBar } from './NavBar.jsx';
+import { NavBar } from './L6-other-files/NavBar.jsx';
 
 // export/import of a const
 import { small } from './L4-components-and-advanced-JSX';

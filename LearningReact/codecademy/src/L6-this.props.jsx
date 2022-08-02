@@ -21,8 +21,9 @@ import ReactDOM from 'react-dom';
 
 // vedi punto 5 per questo import
 // qua per bug sull'import
-import { GreetingOne } from './GreetingOne';
-import { GreetingTwo } from './GreetingTwo';
+import { GreetingOne } from './L6-other-files/GreetingOne';
+import { GreetingTwo } from './L6-other-files/GreetingTwo';
+import { Button } from './L6-other-files/Button';
 
 class PropsDisplayer extends React.Component {
   render() {
@@ -115,3 +116,53 @@ ReactDOM.render(
   <AppTwo />,
   document.getElementById('renderDifferentBasedOnProps')
 );
+
+// 7. PUT AN EVENT HANDLER IN A COMPONENT CLASS
+// FUNCTIONS too can be passed as props, especially EVENT HANDLERS f
+// (obviously, define it before pass it)
+// event handlers are defined as f of the component class
+// (just like render())
+
+// 8. PASS AN EVENT HANDLER AS A PROP
+// SENDER
+// event handler can have a custom name
+// {this.talks}: injects JS code that passes to the f talk() defined inside the object class Talker (STEP1)
+
+// 9. RECIVE AN EVENT HANDLER AS A PROP
+// RECIEVER
+// link the component instance prop <Button talk=... />, (contained inside the parent component), with the original (child) one (STEP2)
+// insert an event handler in the original (child) component
+// (onClick={this.props.talk})
+
+// 10. LANGUAGE CONVENTIONS
+// handleClick(): f that runs when there is an event (depending on the event type: handleHover, handleKeyPress...)
+// <Button onClick=... /> (parent component onClick): ARBITRARY prop name WITHOUT FUNCTION (linked to the event handler, to the f)
+// <Button onClick=... ><Button/> (child component onClick): keyword that creates an event handler and links it to the parent c f, NOT ARBITRARY
+
+// NOTE: component instance and not HTML-like JSX element (<ComponentInstance /> VS <Button><Button/>) means prop and not event handler
+
+// import React from 'react';
+// import ReactDOM from 'react-dom';
+// import { Button } from './Button';
+
+class Talker extends React.Component {
+  handleClick() {
+    let speech = '';
+    for (let i = 0; i < 10000; i++) {
+      speech += 'blah ';
+    }
+    alert(speech);
+  }
+
+  render() {
+    return <Button onClick={this.handleClick} />;
+  }
+}
+
+ReactDOM.render(
+  <Talker />,
+  document.getElementById('eventHandlerInComponentClass')
+);
+
+
+
