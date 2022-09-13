@@ -40,7 +40,7 @@ ReactDOM.render(<TodayImFeeling />, document.getElementById('accessState'));
 // arguments: object and calback
 // cb basically never needed
 
-// 4. CALL this.setState() from another f
+// 5. CALL this.setState() FROM ANOTHER F
 // when u define an event handler that uses this, you need to add
 // this.methodName = this.methodName.bind(this) to the constructor
 // (otherwise, not removing this, it wouldn't work)
@@ -73,3 +73,42 @@ class Mood extends React.Component {
 }
 
 ReactDOM.render(<Mood />, document.getElementById('this.setStateCall'));
+
+// import React from 'react';
+// import ReactDOM from 'react-dom';
+
+const green = '#39D1B4';
+const yellow = '#FFD712';
+
+class Toggle extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = { color: green }
+    this.changeColor = this.changeColor.bind(this);
+  }
+
+  changeColor() {
+    const newColor = this.state.color == green ? yellow : green;
+    this.setState({ color: newColor })
+  }
+  
+  render() {
+    return (
+      <div style={{background: this.state.color}}>
+        <h1>
+          Change my color
+        </h1>
+        <button onClick={this.changeColor}> 
+          Change color
+        </button>
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(<Toggle />, document.getElementById('this.setStateCallDue'));
+
+// 6. this.setState() AUTOMATICALLY CALLS render()
+// ??
+// to make the changeColor() f work 
+// remeber to insert style={{background: this.state.color}} as a tag in the div inside the render()
