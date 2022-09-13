@@ -35,3 +35,41 @@ class TodayImFeeling extends React.Component {
 }
 
 ReactDOM.render(<TodayImFeeling />, document.getElementById('accessState'));
+
+// 3. UPDATE STATE WITH this.setState()
+// arguments: object and calback
+// cb basically never needed
+
+// 4. CALL this.setState() from another f
+// when u define an event handler that uses this, you need to add
+// this.methodName = this.methodName.bind(this) to the constructor
+// (otherwise, not removing this, it wouldn't work)
+// this.setState() f cannot be called inside the render method
+// (but in a custom f)
+
+// import React from 'react';
+// import ReactDOM from 'react-dom';
+
+class Mood extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { mood: 'good' };
+    this.toggleMood = this.toggleMood.bind(this);
+  }
+
+  toggleMood() {
+    const newMood = (this.state.mood = 'good' ? 'bad' : 'good');
+    this.setState({ mood: newMood });
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>I'm feeling {this.state.mood}!</h1>
+        <button onClick={this.toggleMood}>Click Me</button>
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(<Mood />, document.getElementById('this.setStateCall'));
