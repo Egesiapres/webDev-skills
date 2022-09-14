@@ -9,6 +9,7 @@ import NewComponent from './L4-components-and-advanced-JSX'; // prende tutti i c
 import ProfilePage from './L5-components-render-other-components';
 import PropsDisplayer from './L6-this.props';
 import TodayImFeeling from './L7-this.state';
+import Clock from './L8-component-lifecycle-methods';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
