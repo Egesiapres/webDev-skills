@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meal Maker</title>
+  </head>
+  <body>
+    <script>
+      const menu = {
+        _meal: '',
+        _price: 0,
+
+        set meal(mealToCheck) {
+          if (typeof mealToCheck == 'string') {
+            return (this._meal = mealToCheck);
+          }
+        },
+
+        set price(priceToCheck) {
+          if (typeof priceToCheck == 'number') {
+            return (this._price = priceToCheck);
+          }
+        },
+
+        get todaySpecial() {
+          if (!(this._meal == 0 && this._price == 0)) {
+            return `Today’s Special is ${this._meal} for ${this._price}€!`;
+          } else {
+            return 'Meal or price was not set correctly!';
+          }
+        },
+      };
+
+      menu.meal = 'chicken';
+      menu.price = 4;
+      console.log(menu._meal);
+      console.log(menu._price);
+      console.log(menu.todaySpecial);
+    </script>
+  </body>
+</html>
