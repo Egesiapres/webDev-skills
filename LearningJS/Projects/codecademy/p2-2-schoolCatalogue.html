@@ -87,6 +87,25 @@
         }
       }
 
+      class MiddleSchool extends School {
+        constructor(
+          name,
+          numberOfStudents,
+          journeys,
+          averageTestScores,
+          schoolOverview
+        ) {
+          super(
+            name,
+            'middle',
+            numberOfStudents,
+            averageTestScores,
+            schoolOverview
+          );
+          this._journeys = journeys;
+        }
+      }
+
       class HighSchool extends School {
         constructor(
           name,
@@ -107,25 +126,6 @@
 
         get sportsTeams() {
           return this._sportsTeams;
-        }
-      }
-
-      class MiddleSchool extends School {
-        constructor(
-          name,
-          numberOfStudents,
-          journeys,
-          averageTestScores,
-          schoolOverview
-        ) {
-          super(
-            name,
-            'middle',
-            numberOfStudents,
-            averageTestScores,
-            schoolOverview
-          );
-          this._journeys = journeys;
         }
       }
 
@@ -205,6 +205,7 @@
         [niccoloCopernico, alSmith]
       );
       console.log(firstCatalog);
+      console.log(donMilani);
     </script>
   </body>
 </html>
