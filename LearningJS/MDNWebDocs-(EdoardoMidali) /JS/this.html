@@ -9,7 +9,7 @@
   <body>
     <script>
       // THIS
-      // ----------- oggetti
+      // ----------- Oggetti
       // mi permette di accedere ad una proprietà fuori dalla f
       // model e energyLevel sono fuori dallo scope della f
       // senza this (es: scrivendo solo model) darebbe errore
@@ -23,7 +23,62 @@
 
       console.log(robot.provideInfo());
 
-      // ----------- arrow function
+      // ----------- Classi
+      class School {
+        // level with default values
+        constructor(
+          name,
+          level,
+          numberOfStudents,
+          averageTestScores,
+          schoolOverview
+        ) {
+          this._name = name;
+          this._level = level;
+          this._numberOfStudents = numberOfStudents;
+          this._averageTestScores = averageTestScores;
+          this._schoolOverview = schoolOverview;
+        }
+
+        get name() {
+          return this._name;
+        }
+        get level() {
+          return this._level;
+        }
+        get numberOfStudents() {
+          return this._numberOfStudents;
+        }
+        get averageTestScores() {
+          return this._averageTestScores;
+        }
+        get schoolOverview() {
+          return this._schoolOverview;
+        }
+
+        set numberOfStudents(newNumberOfStudents) {
+          typeof newNumberOfStudents == 'number'
+            ? (this.numberOfStudents = newNumberOfStudents)
+            : console.log(
+                'Invalid input: numberOfStudents must be set to a Number.'
+              );
+        }
+
+        quickFacts() {
+          console.log(
+            `${this.name} educates ${this.numberOfStudents} students at the ${this.level} school level.`
+          );
+        }
+
+        static pickSubstituteTeacher(substituteTeacher) {
+          const randomIndex = Math.floor(
+            Math.random() * substituteTeacher.length
+          );
+          console.log(substituteTeacher[randomIndex]);
+        }
+      }
+
+      // ----------- Arrow Functions
       /* sintassi non funzionante: checkEnergy: () => {}
       const robot = {
         energyLevel: 100,
@@ -43,7 +98,7 @@
         },
       };
 
-      robot.checkEnergy();
+      robot.checkEnergy();    
     </script>
   </body>
 </html>
