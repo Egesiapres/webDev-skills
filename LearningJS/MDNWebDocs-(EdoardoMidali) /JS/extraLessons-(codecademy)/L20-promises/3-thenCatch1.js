@@ -1,4 +1,4 @@
-const { checkInventory } = require('./3-L20-thenCatch2.js');
+const { checkInventory } = require('./3-thenCatch2.js');
 
 const order = [
   ['sunglasses', 1],
