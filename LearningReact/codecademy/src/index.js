@@ -10,7 +10,8 @@ import ProfilePage from './L5-components-render-other-components';
 import PropsDisplayer from './L6-this.props';
 import TodayImFeeling from './L7-this.state';
 import Clock from './L8-component-lifecycle-methods';
-import Friend from './L9-p1-functionalComponents';
+import Friend from './L9-functionalComponents';
+import ColorPicker from './L10-theStateHook';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -19,5 +20,7 @@ root.render(
     {/* <MyComponentClass /> */}
   </React.StrictMode>
 );
+
+ReactDOM.render(<ColorPicker />, document.getElementById('functionalStatefulComponent'));
 
 reportWebVitals();
