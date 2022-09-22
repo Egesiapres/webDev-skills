@@ -1,0 +1,8 @@
+1. npx create-react-app esercizio (cd projects)
+  1.1 aggiungo gli import
+  1.2 creo un class component (ormai i default sono i functional)
+2. npm install axios (cd esercizio)
+  2.1 in package.json, trovo la voce axios
+  2.2 importo axios nel componente che serve a me
+  2.3 posso accedere al metodo e inserisco il risultato in una variabile
+  2.4 in

@@ -36,7 +36,7 @@ export default function ColorPicker() {
 // if I don't pass it, the value is undefined
 // states are always initialized with null
 // it is preferred to undefined
-import React, { useState } from 'react';
+//import React, { useState } from 'react';
 
 const colorNames = ['Aquamarine', 'BlueViolet', 'Chartreuse', 'CornflowerBlue', 'Thistle', 'SpringGreen', 'SaddleBrown', 'PapayaWhip', 'MistyRose'];
 
@@ -61,3 +61,57 @@ export default function ColorPicker() {
   );
 }
 
+// 4. USE STATE SETTER OUTSIDE JSX
+// when we want to do something more interesting 
+// (than just calling the state setter with a static value)
+// good idea to separate that logic from everything else going on in our JSX
+export default function EmailTextInput() {
+  const [email, setEmail] = useState('');
+  const handleChange = (event) => {
+    const updatedEmail = event.target.value;
+    setEmail(updatedEmail);
+  }
+ 
+  return (
+    <input value={email} onChange={handleChange} />
+  );
+}
+
+// alternatives for handleChange
+// removing variable
+// const handleChange = (event) => setEmail(event.target.value);
+// with object desctructoring
+// const handleChange = ({target}) => setEmail(target.value);
+
+// 5. SET FROM PREVIOUS STATE
+// the state setter can be used to dynamically manage the state
+// I have to use setState(prevState => prevState + 1) in the body of a f
+export default function QuizNavBar({ questions }) {
+  const [questionIndex, setQuestionIndex] = useState(0);
+
+  // define event handlers 
+  const goBack = () => {setQuestionIndex(prevQuestionIndex => prevQuestionIndex - 1)};
+  const goToNext = () => {setQuestionIndex(prevQuestionIndex => prevQuestionIndex + 1)};
+  // determine if on the first question or not 
+  const onFirstQuestion = true;
+  const onLastQuestion = questionIndex === questions.length - 1;
+
+  return (
+    <nav>
+      <span>Question #{questionIndex + 1}</span>
+      <div>
+        <button onClick={goBack} disabled={onFirstQuestion}>
+          Go Back
+        </button>
+        <button onClick={goToNext} disabled={onLastQuestion}>
+          Next Question
+        </button>
+      </div>
+    </nav>
+  );
+}
+
+// 6. ARRAY IN STATE
+
+
+// MAKE IT WORK
