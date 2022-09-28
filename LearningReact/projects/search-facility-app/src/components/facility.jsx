@@ -3,6 +3,9 @@ function Facility (props) {
     <div key={props.facility.id}>
       <h3>{props.facility.name}</h3>
       <p>{props.facility.city}</p>
+      
+      <button>Modifica</button>
+      
     </div>
   )
 }

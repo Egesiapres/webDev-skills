@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 // import axios from 'axios';
 import API from '../api.js';
-import Facility from './returnedFacilitiesList';
+import Facility from './facility';
 import { LinearProgress } from '@mui/material';
 
 // PROCESS
@@ -56,7 +56,7 @@ function FacilitiesList(props) {
       {loading ? (
         <LinearProgress variant="determinate" value={100} />
       ) : error ? (
-        <></>
+        <p>Error!</p>
       ) : (
         filteredFacilities.map(item => (
           <Facility key={item.uuid} facility={item} />
