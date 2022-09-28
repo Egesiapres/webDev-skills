@@ -9,3 +9,8 @@ SEARCH APP
 NEW: 
 1. Al posto di ritornare il map del componente facilitiesList, mettere h3 etc in un nuovo componente...
 2. Aggiungi una gestione dello stato api (far comparire un loading mentre la chiamata sta venendo effettuata e la gestione dell'errore a schermo). Queste gestioni mostrare attraverso una tabella o una card, usando MUI material
+
+Alert per errore
+3. Aggiungere un componente dialog (singolo componente. Per ogni facility inserire un bottone modifica che quando cliccato apre il dialog e dentro un form con 3 text input, regione città e id modificabili. Poi bottone salva.)
+
+Dopo la modifica la lista sotto dovrebbe aggiornarsi

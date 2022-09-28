@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 // import axios from 'axios';
 import API from '../api.js';
-import ReturnedFacilitiesList from './returnedFacilitiesList';
+import Facility from './returnedFacilitiesList';
 import { LinearProgress } from '@mui/material';
 
 // PROCESS
@@ -22,14 +22,16 @@ function FacilitiesList(props) {
   // new status setters to assign the loading and the error
   const fetchData = async () => {
     try {
+      setLoading(true);
       const res = await API.get(`/`);
       console.log(res);
       console.log(res.data); // see the object in the console
       setFacilities(res.data);
-      setLoading(true);
+      setLoading(false); // RIVEDERE
     } catch (e) {
-      console.log(e);
       setError(true);
+      setLoading(false); // RIVEDERE
+      console.log(e);
     }
   };
 
@@ -52,21 +54,14 @@ function FacilitiesList(props) {
     <div>
       <h2>Tutte</h2>
       {loading ? (
-        filteredFacilities.map(item => (
-          <ReturnedFacilitiesList key={item.uuid} data={item} />
-        ))
-      ) : (
         <LinearProgress variant="determinate" value={100} />
-      )}
-      {/* {loading && error ? (
-        filteredFacilities.map(item => (
-          <ReturnedFacilitiesList key={item.uuid} data={item} />
-        ))
-      ) : !loading && error ? (
-        <LinearProgress variant="determinate" value={100} />
+      ) : error ? (
+        <></>
       ) : (
-        <h1>Ciao</h1>
-      )} */}
+        filteredFacilities.map(item => (
+          <Facility key={item.uuid} facility={item} />
+        ))
+      ) }
     </div>
   );
 }
@@ -79,3 +74,4 @@ export default FacilitiesList;
 // 2. I child dentro al return() devono avere key diversi (quando aggiungo altri tag html)
 // S2. Dare la key al tag padre, nel nostro caso il <div>
 // 3. Uguale a 2
+// S3. Dare la key al tag istanza <ReturnedFacilitiesList />
