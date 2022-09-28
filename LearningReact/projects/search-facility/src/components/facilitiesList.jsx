@@ -19,12 +19,12 @@ function FacilitiesList(props) {
 
   // data fetch & fetch management
   // try & catch for the success/failure management
-  //
+  // new status setters to assign the loading and the error
   const fetchData = async () => {
     try {
       const res = await API.get(`/`);
       console.log(res);
-      console.log(res.data); // vedi l'oggetto
+      console.log(res.data); // see the object in the console
       setFacilities(res.data);
       setLoading(true);
     } catch (e) {
