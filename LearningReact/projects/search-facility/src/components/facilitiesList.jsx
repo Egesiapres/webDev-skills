@@ -51,15 +51,22 @@ function FacilitiesList(props) {
   return (
     <div>
       <h2>Tutte</h2>
-      {loading && error ? (
-        filteredFacilities.map(facility => (
-          <ReturnedFacilitiesList key={facility.uuid} data={facility} />
+      {loading ? (
+        filteredFacilities.map(item => (
+          <ReturnedFacilitiesList key={item.uuid} data={item} />
+        ))
+      ) : (
+        <LinearProgress variant="determinate" value={100} />
+      )}
+      {/* {loading && error ? (
+        filteredFacilities.map(item => (
+          <ReturnedFacilitiesList key={item.uuid} data={item} />
         ))
       ) : !loading && error ? (
         <LinearProgress variant="determinate" value={100} />
       ) : (
         <h1>Ciao</h1>
-      )}
+      )} */}
     </div>
   );
 }
