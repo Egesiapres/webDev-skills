@@ -1,6 +1,10 @@
-import React, { useState } from 'react'; 
+import React, { useState } from 'react';
 import TextField from '@mui/material/TextField';
+import { Typography } from '@mui/material';
 import FacilitiesList from './components/facilitiesList';
+
+import './App.css';
+
 
 function App() {
   // the default state is an empty string
@@ -14,14 +18,17 @@ function App() {
   };
 
   return (
-    <div>
-      <h1>Strutture mediche</h1>
-      <TextField 
-        id='outlined-basic'
+    <div className='App'>
+      <Typography variant="h2">
+        Strutture mediche
+      </Typography>
+      <br />
+      <TextField
+        id="outlined-basic"
         onChange={inputHandler}
-        variant='outlined'
-        label='Cerca'
-        placeholder='Es: Abbiategrasso'
+        variant="outlined"
+        label="Cerca"
+        placeholder="Es: Abbiategrasso"
       />
       <FacilitiesList input={inputBox} />
     </div>

@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 // import axios from 'axios';
 import API from '../api.js';
 import Facility from './facility';
+import { Typography } from '@mui/material';
 import { LinearProgress } from '@mui/material';
+import { Alert } from '@mui/material';
 
 // PROCESS
 // fetchData(): f in the body of an anonymous cb f inside the useEffect() hook
@@ -17,6 +19,8 @@ function FacilitiesList(props) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
+  const [prova, setProva] = useState();
+
   // data fetch & fetch management
   // try & catch for the success/failure management
   // new status setters to assign the loading and the error
@@ -29,6 +33,7 @@ function FacilitiesList(props) {
       setFacilities(res.data);
       setLoading(false); // RIVEDERE
     } catch (e) {
+      setProva(e.name);
       setError(true);
       setLoading(false); // RIVEDERE
       console.log(e);
@@ -51,17 +56,22 @@ function FacilitiesList(props) {
   });
 
   return (
-    <div>
-      <h2>Tutte</h2>
+    <div className="facilitisList">
+      <br />
+      <br />
+      <Typography variant="h4">Tutte</Typography>
+      <br />
       {loading ? (
         <LinearProgress variant="determinate" value={100} />
       ) : error ? (
-        <p>Error!</p>
+        <Alert variant="outlined" severity="error">
+          Errore: {prova}!
+        </Alert>
       ) : (
         filteredFacilities.map(item => (
           <Facility key={item.uuid} facility={item} />
         ))
-      ) }
+      )}
     </div>
   );
 }

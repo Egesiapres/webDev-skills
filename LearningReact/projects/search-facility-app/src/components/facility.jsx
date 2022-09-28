@@ -1,13 +1,16 @@
-function Facility (props) {
-    return (
+import { Typography } from '@mui/material';
+import FormDialog from './formDialog';
+
+function Facility(props) {
+  return (
     <div key={props.facility.id}>
-      <h3>{props.facility.name}</h3>
-      <p>{props.facility.city}</p>
-      
-      <button>Modifica</button>
-      
+      <Typography variant="h6">{props.facility.name}</Typography>
+      <Typography variant="body1">{props.facility.city}</Typography>
+
+      <FormDialog facility={props.facility} />
+      <br />
     </div>
-  )
+  );
 }
 
 export default Facility;
