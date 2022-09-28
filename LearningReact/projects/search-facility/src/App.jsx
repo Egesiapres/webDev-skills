@@ -1,15 +1,16 @@
 import React, { useState } from 'react'; 
 import TextField from '@mui/material/TextField';
 import FacilitiesList from './components/facilitiesList';
-// import SearchBox from './components/searchBox';
 
 function App() {
-  const [inputText, setInputText] = useState('');
+  // the default state is an empty string
+  const [inputBox, setInputBox] = useState('');
 
+  // always convert input text to lower case
+  // using the state setter I can update the state value
   const inputHandler = e => {
-    // always convert input text to lower case
     const lowercase = e.target.value.toLowerCase();
-    setInputText(lowercase);
+    setInputBox(lowercase);
   };
 
   return (
@@ -22,7 +23,7 @@ function App() {
         label='Cerca'
         placeholder='Es: Abbiategrasso'
       />
-      <FacilitiesList input={inputText} />
+      <FacilitiesList input={inputBox} />
     </div>
   );
 }

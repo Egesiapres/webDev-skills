@@ -1,0 +1,11 @@
+SEARCH APP 
+
+1. Chiamata ad un API (axios)
+2. Visualizzazione a schermo dei risultati (useState()/map())
+3. Search box (useState()/filter()/MUI)
+4. Gestione errori (MUI)
+
+
+NEW: 
+1. Al posto di ritornare il map del componente facilitiesList, mettere h3 etc in un nuovo componente...
+2. Aggiungi una gestione dello stato api (far comparire un loading mentre la chiamata sta venendo effettuata e la gestione dell'errore a schermo). Queste gestioni mostrare attraverso una tabella o una card, usando MUI material
