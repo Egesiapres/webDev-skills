@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 // import axios from 'axios';
 import API from '../api.js';
 import Facility from './facility';
+import FormDialog from './formDialog.jsx';
 import { Typography } from '@mui/material';
 import { LinearProgress } from '@mui/material';
 import { Alert } from '@mui/material';
@@ -16,10 +17,10 @@ import { Alert } from '@mui/material';
 
 function FacilitiesList(props) {
   const [facilities, setFacilities] = useState([]);
+
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-
-  const [prova, setProva] = useState();
+  const [printedError, setPrintedError] = useState('');
 
   // data fetch & fetch management
   // try & catch for the success/failure management
@@ -33,7 +34,7 @@ function FacilitiesList(props) {
       setFacilities(res.data);
       setLoading(false); // RIVEDERE
     } catch (e) {
-      setProva(e.name);
+      setPrintedError(e.name);
       setError(true);
       setLoading(false); // RIVEDERE
       console.log(e);
@@ -55,23 +56,46 @@ function FacilitiesList(props) {
     }
   });
 
+  // IMPORTANT
+  // how to pass data from a child to a parent
+  // map: executes a changing when a condition is satisfied
+  // I'm working on facilities, the state that stores all the fetched data
+  // uuid: used to match original and changed facility
+  const onChangedFacility = (uuid, facilityChanged) => {
+    const newFacility = facilities.map(facility =>
+      facility.uuid === uuid ? facilityChanged : facility
+    );
+    setFacilities(newFacility);
+  };
+
   return (
     <div className="facilitisList">
       <br />
       <br />
       <Typography variant="h4">Tutte</Typography>
       <br />
+
       {loading ? (
         <LinearProgress variant="determinate" value={100} />
       ) : error ? (
         <Alert variant="outlined" severity="error">
-          Errore: {prova}!
+          Errore: {printedError}!
         </Alert>
       ) : (
-        filteredFacilities.map(item => (
-          <Facility key={item.uuid} facility={item} />
+        filteredFacilities.map(facility => (
+          <div key={facility.id}>
+            <Facility facility={facility} />
+            <FormDialog
+              facility={facility}
+              onChangedFacility={onChangedFacility}
+            />
+            <br />
+          </div>
         ))
       )}
+
+      {/* <FormDialog facilities={facilities} onFacilityChanged={onFacilityChanged} */}
+      <br />
     </div>
   );
 }

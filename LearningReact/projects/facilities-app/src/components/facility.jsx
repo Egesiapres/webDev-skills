@@ -1,14 +1,12 @@
 import { Typography } from '@mui/material';
-import FormDialog from './formDialog';
 
 function Facility(props) {
   return (
     <div key={props.facility.id}>
-      <Typography variant="h6">{props.facility.name}</Typography>
+      <Typography variant="h6">
+        {props.facility.name}
+      </Typography>
       <Typography variant="body1">{props.facility.city}</Typography>
-
-      <FormDialog facility={props.facility} />
-      <br />
     </div>
   );
 }

@@ -23,11 +23,12 @@ function App() {
         Strutture mediche
       </Typography>
       <br />
+      {/* searching box */}
       <TextField
         id="outlined-basic"
         onChange={inputHandler}
         variant="outlined"
-        label="Cerca"
+        label="Cerca struttura"
         placeholder="Es: Abbiategrasso"
       />
       <FacilitiesList input={inputBox} />

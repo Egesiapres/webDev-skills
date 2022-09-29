@@ -7,14 +7,20 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
+// PROBLEM: how to import props & f???
 export default function FormDialog(props) {
-  // the states manage the presentation of the dialog form
+  // importing of the parent function
+  const { onChangedFacility } = props;
+  // the states deal with the presentation of the dialog form
   const [open, setOpen] = useState(false);
+  // storing a value that is not going to change 
+  const uuid = props.facility.uuid;
 
-  const [newName, setNewName] = useState(props.facility.name);
-  const [newCity, setNewCity] = useState(props.facility.city);
-  const [newId, setNewId] = useState(props.facility.id);
-  // const [newFacility, setNewFacility] = useState();
+  const [name, setName] = useState(props.facility.name);
+  const [city, setCity] = useState(props.facility.city);
+  const [id, setId] = useState(props.facility.id);
+
+  const facilityChanged = {uuid, name, city, id}
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -25,22 +31,21 @@ export default function FormDialog(props) {
   // managing of the custom working of the saving button
   const inputNameHandler = e => {
     const inputName = e.target.value;
-    setNewName(inputName);
+    setName(inputName);
   };
   const inputCityHandler = e => {
     const inputCity = e.target.value;
-    setNewCity(inputCity);
+    setCity(inputCity);
   };
   const inputIdHandler = e => {
     const inputId = e.target.value;
-    setNewId(inputId);
+    setId(inputId);
   };
 
-  const handleSave = () => {
-    console.log(newName);
-    console.log(newCity);
-    console.log(newId);
-
+  // IMPORTANT
+  const handleSave = () => {  
+    // to return back to the facilitiesList component the data
+    onChangedFacility(uuid, facilityChanged);
     setOpen(false);
   };
 
@@ -55,8 +60,9 @@ export default function FormDialog(props) {
 
         <DialogContent>
           <DialogContentText>
-            Inserisci i nuovi dati per la struttura: {props.facility.name}
+            Inserisci i nuovi dati
           </DialogContentText>
+          <br />
 
           <TextField
             autoFocus
@@ -64,6 +70,7 @@ export default function FormDialog(props) {
             label="Nome"
             fullWidth
             variant="standard"
+            value={name}
             onChange={inputNameHandler}
           />
           <TextField
@@ -72,6 +79,7 @@ export default function FormDialog(props) {
             label="Città"
             fullWidth
             variant="standard"
+            value={city}
             onChange={inputCityHandler}
           />
           <TextField
@@ -80,6 +88,7 @@ export default function FormDialog(props) {
             label="Id"
             fullWidth
             variant="standard"
+            value={id}
             onChange={inputIdHandler}
           />
         </DialogContent>
