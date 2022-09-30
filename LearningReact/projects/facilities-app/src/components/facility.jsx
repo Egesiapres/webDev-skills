@@ -1,21 +1,63 @@
-import { Typography } from '@mui/material';
+import '../App.css';
+// import React, { useState } from 'react';
+import { Typography, Button } from '@mui/material';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom"; // PROSEGUIRE
 
 // props importing using the destructoring
 // (there's no props.)
-function Facility({ facility }) {
+function Facility({ facility, setOpen, onClickedFacility }) {
+  // QUESTION
+  // why not simple variables?
+  // const [clickedUuid, setClickedUuid] = useState(); // ?
+  // const [clickedName, setClickedName] = useState();
+  // const [clickedCity, setClickedCity] = useState();
+  // const [clickedId, setClickedId] = useState();
+
+  const handleClickOpen = () => {
+    setOpen(true); // open the dialog
+    // // create every single variable
+    // setClickedUuid(facility.uuid); // ?
+    // setClickedName(facility.name);
+    // setClickedCity(facility.city);
+    // setClickedId(facility.id);
+    const uuid = facility.uuid;
+    const name = facility.name;
+    const city = facility.city;
+    const id = facility.id;
+    // create a variable that includes the past ones
+    const clickedFacility = {
+      uuid,
+      name,
+      city,
+      id,
+    };
+    // pass the variable back to the parent component
+    onClickedFacility(clickedFacility);
+  };
+
   return (
-    <div key={facility.id}>
+    <div key={facility.uuid}>
       <Typography variant="h6">{facility.name}</Typography>
       <Typography variant="body1">{facility.city}</Typography>
       <Typography variant="body2">{facility.id}</Typography>
+
+      <Button variant="contained" size="small">
+        Apri
+      </Button>
+      {/* the button sends the values of the facility clicked */}
+      <Button variant="contained" size="small" onClick={handleClickOpen}>
+        Modifica
+      </Button>
     </div>
   );
 }
 
 export default Facility;
-
-// PROBLEMS
-// 1. React Hook useEffect has a missing dependency: 'props.data'. Either include it or remove the dependency array. If 'setState' needs the current value of 'props.data', you can also switch to useReducer instead of useState and read 'props.data' in the reducer  react-hooks/exhaustive-deps
 
 // NOTES
 // The state is automatically passed from the parent to the child component

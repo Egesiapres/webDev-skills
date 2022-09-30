@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from 'react';
-// import axios from 'axios';
 import API from '../api.js';
-import Facility from './facility';
+import Facility from './facility.jsx';
 import FormDialog from './formDialog.jsx';
-import { Typography } from '@mui/material';
-import { LinearProgress } from '@mui/material';
-import { Alert } from '@mui/material';
+import { Typography, LinearProgress, Alert } from '@mui/material';
 
 // PROCESS
 // fetchData(): f in the body of an anonymous cb f inside the useEffect() hook
@@ -21,6 +18,10 @@ function FacilitiesList(props) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [printedError, setPrintedError] = useState('');
+  // the states deal with the presentation of the dialog form
+  const [open, setOpen] = useState(false);
+  // state that allow to pass the facility clicked to the formDialog
+  const [selectedFacility, setSelectedFacility] = useState([]);
 
   // data fetch & fetch management
   // try & catch for the success/failure management
@@ -45,16 +46,23 @@ function FacilitiesList(props) {
     fetchData();
   }, []);
 
-  // RIVEDERE
+  // CHECK
   // logic that talks with the props in App.jsx
   // filer(): returns only the elements that satisfy the conditions specified
-  const filteredFacilities = facilities.filter(item => {
+  const filteredFacilities = facilities.filter(filteredFacility => {
     if (props.input === '') {
-      return item;
+      return filteredFacility;
     } else {
-      return item.name.toLowerCase().includes(props.input);
+      return filteredFacility.name.toLowerCase().includes(props.input);
     }
   });
+
+  const onClickedFacility = clickedFacility => {
+    setSelectedFacility(clickedFacility);
+    // why print at the second attempt?
+    // PROBLEM WITH SELECTEDFACILITY
+    console.log(selectedFacility);
+  };
 
   // IMPORTANT
   // how to pass data from a child to a parent
@@ -62,10 +70,10 @@ function FacilitiesList(props) {
   // I'm working on facilities, the state that stores all the fetched data
   // uuid: used to match original and changed facility
   const onChangedFacility = changedFacility => {
-    const newFacility = facilities.map(facility =>
+    const newFacilities = facilities.map(facility =>
       facility.uuid === changedFacility.uuid ? changedFacility : facility
     );
-    setFacilities(newFacility);
+    setFacilities(newFacilities);
   };
 
   return (
@@ -83,19 +91,25 @@ function FacilitiesList(props) {
         </Alert>
       ) : (
         filteredFacilities.map(facility => (
-          <div key={facility.id}>
-            <Facility facility={facility} />
-            <FormDialog
+          <div key={facility.uuid}>
+            <Facility
               facility={facility}
-              onChangedFacility={onChangedFacility}
+              onClickedFacility={onClickedFacility}
+              setOpen={setOpen}
             />
             <br />
           </div>
         ))
       )}
 
-      {/* <FormDialog facilities={facilities} onFacilityChanged={onFacilityChanged} */}
-      <br />
+      {/* out of the map() */}
+      {/* passare facility e gestirla */}
+      <FormDialog
+        selectedFacility={selectedFacility}
+        open={open}
+        setOpen={setOpen}
+        onChangedFacility={onChangedFacility}
+      />
     </div>
   );
 }

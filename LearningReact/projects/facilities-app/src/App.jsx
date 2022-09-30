@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import TextField from '@mui/material/TextField';
-import { Typography } from '@mui/material';
+import { TextField, Typography } from '@mui/material';
 import FacilitiesList from './components/facilitiesList';
 
 import './App.css';
@@ -28,6 +27,7 @@ function App() {
         label="Cerca struttura"
         placeholder="Es: Abbiategrasso"
       />
+
       <FacilitiesList input={inputBox} />
     </div>
   );
