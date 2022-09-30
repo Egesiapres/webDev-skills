@@ -18,7 +18,8 @@ export default function FormDialog({
   // storing a value that is not going to change
   const uuid = selectedFacility.uuid;
 
-  const [name, setName] = useState(selectedFacility.name);
+  // modificando il dato compaiono le scritte
+  const [name, setName] = useState(selectedFacility.city);
   const [city, setCity] = useState(selectedFacility.city);
   const [id, setId] = useState(selectedFacility.id);
 

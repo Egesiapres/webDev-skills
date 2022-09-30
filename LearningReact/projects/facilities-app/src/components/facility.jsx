@@ -36,6 +36,7 @@ function Facility({ facility, setOpen, onClickedFacility }) {
       city,
       id,
     };
+    console.log(clickedFacility)
     // pass the variable back to the parent component
     onClickedFacility(clickedFacility);
   };
