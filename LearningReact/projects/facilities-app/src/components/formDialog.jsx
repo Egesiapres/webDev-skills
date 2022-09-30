@@ -7,20 +7,18 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
-// PROBLEM: how to import props & f???
-export default function FormDialog(props) {
-  // importing of the parent function
-  const { onChangedFacility } = props;
+// props and parent f importing using the destructoring
+export default function FormDialog({ facility, onChangedFacility }) {
   // the states deal with the presentation of the dialog form
   const [open, setOpen] = useState(false);
-  // storing a value that is not going to change 
-  const uuid = props.facility.uuid;
+  // storing a value that is not going to change
+  const uuid = facility.uuid;
 
-  const [name, setName] = useState(props.facility.name);
-  const [city, setCity] = useState(props.facility.city);
-  const [id, setId] = useState(props.facility.id);
-
-  const changedFacility = {uuid, name, city, id}
+  const [name, setName] = useState(facility.name);
+  const [city, setCity] = useState(facility.city);
+  const [id, setId] = useState(facility.id);
+  // storing all the values needed by the parent component
+  const changedFacility = { uuid, name, city, id };
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -43,7 +41,7 @@ export default function FormDialog(props) {
   };
 
   // IMPORTANT
-  const handleSave = () => {  
+  const handleSave = () => {
     // to return back to the facilitiesList component the data
     onChangedFacility(changedFacility);
     setOpen(false);
@@ -59,9 +57,7 @@ export default function FormDialog(props) {
         <DialogTitle>Modifica dati</DialogTitle>
 
         <DialogContent>
-          <DialogContentText>
-            Inserisci i nuovi dati
-          </DialogContentText>
+          <DialogContentText>Inserisci i nuovi dati</DialogContentText>
           <br />
 
           <TextField

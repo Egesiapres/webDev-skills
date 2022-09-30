@@ -1,13 +1,13 @@
 import { Typography } from '@mui/material';
 
-function Facility(props) {
+// props importing using the destructoring
+// (there's no props.)
+function Facility({ facility }) {
   return (
-    <div key={props.facility.id}>
-      <Typography variant="h6">
-        {props.facility.name}
-      </Typography>
-      <Typography variant="body1">{props.facility.city}</Typography>
-      <Typography variant='body2'>{props.facility.id}</Typography>
+    <div key={facility.id}>
+      <Typography variant="h6">{facility.name}</Typography>
+      <Typography variant="body1">{facility.city}</Typography>
+      <Typography variant="body2">{facility.id}</Typography>
     </div>
   );
 }
