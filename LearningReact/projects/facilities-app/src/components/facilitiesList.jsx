@@ -61,9 +61,9 @@ function FacilitiesList(props) {
   // map: executes a changing when a condition is satisfied
   // I'm working on facilities, the state that stores all the fetched data
   // uuid: used to match original and changed facility
-  const onChangedFacility = (uuid, facilityChanged) => {
+  const onChangedFacility = (changedFacility) => {
     const newFacility = facilities.map(facility =>
-      facility.uuid === uuid ? facilityChanged : facility
+      facility.uuid === changedFacility.uuid ? changedFacility : facility
     );
     setFacilities(newFacility);
   };

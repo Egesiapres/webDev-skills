@@ -20,7 +20,7 @@ export default function FormDialog(props) {
   const [city, setCity] = useState(props.facility.city);
   const [id, setId] = useState(props.facility.id);
 
-  const facilityChanged = {uuid, name, city, id}
+  const changedFacility = {uuid, name, city, id}
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -45,7 +45,7 @@ export default function FormDialog(props) {
   // IMPORTANT
   const handleSave = () => {  
     // to return back to the facilitiesList component the data
-    onChangedFacility(uuid, facilityChanged);
+    onChangedFacility(changedFacility);
     setOpen(false);
   };
 

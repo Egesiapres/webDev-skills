@@ -7,6 +7,7 @@ function Facility(props) {
         {props.facility.name}
       </Typography>
       <Typography variant="body1">{props.facility.city}</Typography>
+      <Typography variant='body2'>{props.facility.id}</Typography>
     </div>
   );
 }

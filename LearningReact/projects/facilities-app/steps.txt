@@ -1,4 +1,4 @@
-SEARCH APP 
+FACILITIES APP 
 
 1. Chiamata ad un API (axios)
 2. Visualizzazione a schermo dei risultati (useState()/map())
@@ -12,11 +12,9 @@ NEW:
 2. Aggiungi una gestione dello stato api (far comparire un loading mentre la chiamata sta venendo effettuata e la gestione dell'errore a schermo). Queste gestioni mostrare attraverso una tabella o una card, usando MUI material
 
 3. Aggiungere un componente dialog (singolo componente. Per ogni facility inserire un bottone modifica che quando cliccato apre il dialog e dentro un form con 3 text input, regione città e id modificabili. Poi bottone salva.)
+Dopo la modifica la lista sotto dovrebbe aggiornarsi.
 
-Dopo la modifica la lista sotto dovrebbe aggiornarsi
+4. una sola modale, spostare a lvl di facilities list e gestirla (riceve i dati ogni volta)
 
-NEW:
-1 una sola modale, spostare a lvl di facilities list e gestirla (riceve i dati ogni volta)
-
-2 mostrare il form precompilato con i precedenti nomi
-3 gestire il salvataggio (passare stati della Dialog a facilitiesList, che poi passa a facility, e fare in modo che riaggiorni)
+5. mostrare il form precompilato con i precedenti nomi
+6. gestire il salvataggio (passare stati della Dialog a facilitiesList, che poi passa a facility, e fare in modo che riaggiorni)
