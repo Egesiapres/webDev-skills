@@ -21,7 +21,12 @@ function FacilitiesList(props) {
   // the states deal with the presentation of the dialog form
   const [open, setOpen] = useState(false);
   // state that allow to pass the facility clicked to the formDialog
-  const [selectedFacility, setSelectedFacility] = useState({uuid: '', name: '', city: '', id: ''});
+  const [selectedFacility, setSelectedFacility] = useState({
+    uuid: '',
+    name: '',
+    city: '',
+    id: '',
+  });
 
   // data fetch & fetch management
   // try & catch for the success/failure management
@@ -91,18 +96,15 @@ function FacilitiesList(props) {
         </Alert>
       ) : (
         filteredFacilities.map(facility => (
-          <div key={facility.uuid}>
-            <Facility
-              facility={facility}
-              onClickedFacility={onClickedFacility}
-              setOpen={setOpen}
-            />
-            <br />
-          </div>
+          <Facility
+            key={facility.uuid}
+            facility={facility}
+            onClickedFacility={onClickedFacility}
+            setOpen={setOpen}
+          />
         ))
       )}
 
-      {/* out of the map() */}
       {/* passare facility e gestirla */}
       <FormDialog
         selectedFacility={selectedFacility}

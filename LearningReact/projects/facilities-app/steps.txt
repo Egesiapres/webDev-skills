@@ -19,5 +19,5 @@ Dopo la modifica la lista sotto dovrebbe aggiornarsi.
 5. mostrare il form precompilato con i precedenti nomi
 6. gestire il salvataggio (passare stati della Dialog a facilitiesList, che poi passa a facility, e fare in modo che riaggiorni)
 
-7. Router: implementare il router con due pagine: 1 con la lista delle strutture, 1 con il dettaglio di una singola struttura (per ogni facility un bottone di apertura). 
+7. router: implementare il router con due pagine: 1 con la lista delle strutture, 1 con il dettaglio di una singola struttura (per ogni facility un bottone di apertura). 
 In questa nuova pagina probabilmente ci sarà da chiamare una nuova api da cui visualizzare i dati.

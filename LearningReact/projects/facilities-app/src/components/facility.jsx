@@ -1,30 +1,17 @@
 import '../App.css';
 // import React, { useState } from 'react';
 import { Typography, Button } from '@mui/material';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom"; // PROSEGUIRE
+import { Routes, Route } from 'react-router-dom';
+import FacilityDetails from './facilityDetails';
 
 // props importing using the destructoring
 // (there's no props.)
 function Facility({ facility, setOpen, onClickedFacility }) {
   // QUESTION
-  // why not simple variables?
-  // const [clickedUuid, setClickedUuid] = useState(); // ?
-  // const [clickedName, setClickedName] = useState();
-  // const [clickedCity, setClickedCity] = useState();
-  // const [clickedId, setClickedId] = useState();
-
+  // how to decide between states and variables?
   const handleClickOpen = () => {
     setOpen(true); // open the dialog
     // // create every single variable
-    // setClickedUuid(facility.uuid); // ?
-    // setClickedName(facility.name);
-    // setClickedCity(facility.city);
-    // setClickedId(facility.id);
     const uuid = facility.uuid;
     const name = facility.name;
     const city = facility.city;
@@ -36,24 +23,29 @@ function Facility({ facility, setOpen, onClickedFacility }) {
       city,
       id,
     };
-    console.log(clickedFacility)
+    console.log(clickedFacility);
     // pass the variable back to the parent component
     onClickedFacility(clickedFacility);
   };
 
   return (
     <div key={facility.uuid}>
-      <Typography variant="h6">{facility.name}</Typography>
-      <Typography variant="body1">{facility.city}</Typography>
-      <Typography variant="body2">{facility.id}</Typography>
+        {/* il vecchio Switch, la sintassi è cambiata */}
+        <Typography variant="h6">{facility.name}</Typography>
+        <Typography variant="body1">{facility.city}</Typography>
+        <Typography variant="body2">{facility.id}</Typography>
 
-      <Button variant="contained" size="small">
-        Apri
-      </Button>
-      {/* the button sends the values of the facility clicked */}
-      <Button variant="contained" size="small" onClick={handleClickOpen}>
-        Modifica
-      </Button>
+        <Button className='btn-space' variant="contained" size="small">
+          <a href="facilityDetails"></a>Apri
+        </Button>
+        {/* the button sends the values of the facility clicked */}
+        <Button className='btn-space' variant="contained" size="small" onClick={handleClickOpen}>
+          Modifica
+        </Button>
+
+        <Routes>
+          <Route path="facilityDetails" element={<FacilityDetails />} />
+        </Routes>
     </div>
   );
 }
