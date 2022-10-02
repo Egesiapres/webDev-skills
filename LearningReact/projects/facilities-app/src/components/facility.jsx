@@ -1,8 +1,6 @@
 import '../App.css';
 // import React, { useState } from 'react';
 import { Typography, Button } from '@mui/material';
-import { Routes, Route } from 'react-router-dom';
-import FacilityDetails from './facilityDetails';
 
 // props importing using the destructoring
 // (there's no props.)
@@ -26,6 +24,8 @@ function Facility({ facility, setOpen, onClickedFacility }) {
     console.log(clickedFacility);
     // pass the variable back to the parent component
     onClickedFacility(clickedFacility);
+    
+    // prova a fare lo stesso con selectedFacility (evito di passare 2 volte)
   };
 
   return (
@@ -35,17 +35,13 @@ function Facility({ facility, setOpen, onClickedFacility }) {
         <Typography variant="body1">{facility.city}</Typography>
         <Typography variant="body2">{facility.id}</Typography>
 
-        <Button className='btn-space' variant="contained" size="small">
-          <a href="facilityDetails"></a>Apri
+        <Button className='btn' variant="contained" size="medium">
+          <a href="detail">Apri</a>
         </Button>
-        {/* the button sends the values of the facility clicked */}
-        <Button className='btn-space' variant="contained" size="small" onClick={handleClickOpen}>
+        {/* the button seds the values of the facility clicked */}
+        <Button className='btn' variant="outlined" size="medium" onClick={handleClickOpen}>
           Modifica
         </Button>
-
-        <Routes>
-          <Route path="facilityDetails" element={<FacilityDetails />} />
-        </Routes>
     </div>
   );
 }
