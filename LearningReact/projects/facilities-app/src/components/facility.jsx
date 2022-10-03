@@ -1,47 +1,52 @@
 import '../App.css';
 // import React, { useState } from 'react';
 import { Typography, Button } from '@mui/material';
+import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
 
 // props importing using the destructoring
 // (there's no props.)
-function Facility({ facility, setOpen, onClickedFacility }) {
-  // QUESTION
-  // how to decide between states and variables?
+function Facility({
+  facility,
+  setOpen,
+  setOpenPage,
+  onClickOpen,
+  onClickModify,
+  openedFacility
+}) {
+  // instead of creating a new variable
+  // it's sufficient to pass facility (with all the past data)
+  // pass the variable back to the parent component
+  // back to App.jsx
   const handleClickOpen = () => {
-    setOpen(true); // open the dialog
-    // // create every single variable
-    const uuid = facility.uuid;
-    const name = facility.name;
-    const city = facility.city;
-    const id = facility.id;
-    // create a variable that includes the past ones
-    const clickedFacility = {
-      uuid,
-      name,
-      city,
-      id,
-    };
-    console.log(clickedFacility);
-    // pass the variable back to the parent component
-    onClickedFacility(clickedFacility);
-    
-    // prova a fare lo stesso con selectedFacility (evito di passare 2 volte)
+    setOpenPage(true);
+    onClickOpen(facility);
+  };
+  // back to facilitiesList.jsx
+  const handleClickModify = () => {
+    setOpen(true);
+    onClickModify(facility);
   };
 
   return (
     <div key={facility.uuid}>
-        {/* il vecchio Switch, la sintassi è cambiata */}
-        <Typography variant="h6">{facility.name}</Typography>
-        <Typography variant="body1">{facility.city}</Typography>
-        <Typography variant="body2">{facility.id}</Typography>
+      <Typography variant="h6">{facility.name}</Typography>
+      <Typography variant="body1">{facility.city}</Typography>
+      <Typography variant="body2">{facility.id}</Typography>
 
-        <Button className='btn' variant="contained" size="medium">
-          <a href="detail">Apri</a>
-        </Button>
-        {/* the button seds the values of the facility clicked */}
-        <Button className='btn' variant="outlined" size="medium" onClick={handleClickOpen}>
-          Modifica
-        </Button>
+      <Button className="btn" variant="contained" size="medium" onClick={handleClickOpen}>
+        <Link to={`/${openedFacility.uuid}`}>Apri</Link>
+        {/* <Link to="/:uuid">Apri</Link> */}
+      </Button>
+      {/* the button sends the values of the facility clicked */}
+      <Button
+        className="btn"
+        variant="outlined"
+        size="medium"
+        onClick={handleClickModify}
+      >
+        Modifica
+      </Button>
     </div>
   );
 }

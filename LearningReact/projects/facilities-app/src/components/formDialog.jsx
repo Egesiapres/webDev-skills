@@ -15,11 +15,20 @@ export default function FormDialog({
   setOpen,
   onChangedFacility,
 }) {
+  
+  // WRONG METHOD
+  // problem: the selectedFacility value changes (check)
+  // useEffect(): update the value that changes
+  // useEffect(() => {
+  //   setName(selectedFacility.name);
+  //   setCity(selectedFacility.city);
+  //   setId(selectedFacility.id)
+  // }, [selectedFacility]);
+  
   // storing a value that is not going to change
   const uuid = selectedFacility.uuid;
 
-  // modificando il dato compaiono le scritte
-  const [name, setName] = useState(selectedFacility.city);
+  const [name, setName] = useState(selectedFacility.name);
   const [city, setCity] = useState(selectedFacility.city);
   const [id, setId] = useState(selectedFacility.id);
 
@@ -48,7 +57,7 @@ export default function FormDialog({
     const changedFacility = { uuid, name, city, id };
     onChangedFacility(changedFacility);
     setOpen(false);
-  };
+  };   
 
   return (
     <div>

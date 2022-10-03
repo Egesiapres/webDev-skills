@@ -11,22 +11,17 @@ import { Typography, LinearProgress, Alert } from '@mui/material';
 // []: second argument of useEffect() avoids the continuous data fetching (it happens just one time)
 // response: stores the values awaited from the axios call with the url specified
 // data: using .data I can acces to the objects stored in response
-
-function FacilitiesList(props) {
+function FacilitiesList({ setOpenPage, openedFacility, onClickOpen, input }) {
   const [facilities, setFacilities] = useState([]);
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-  const [printedError, setPrintedError] = useState('');
+  const [printedError, setPrintedError] = useState('All fine, no errors :)');
+
   // the states deal with the presentation of the dialog form
   const [open, setOpen] = useState(false);
   // state that allow to pass the facility clicked to the formDialog
-  const [selectedFacility, setSelectedFacility] = useState({
-    uuid: '',
-    name: '',
-    city: '',
-    id: '',
-  });
+  const [selectedFacility, setSelectedFacility] = useState([]);
 
   // data fetch & fetch management
   // try & catch for the success/failure management
@@ -35,7 +30,6 @@ function FacilitiesList(props) {
     try {
       setLoading(true);
       const res = await API.get(`/`);
-      console.log(res);
       console.log(res.data); // see the object in the console
       setFacilities(res.data);
       setLoading(false); // RIVEDERE
@@ -55,18 +49,16 @@ function FacilitiesList(props) {
   // logic that talks with the props in App.jsx
   // filer(): returns only the elements that satisfy the conditions specified
   const filteredFacilities = facilities.filter(filteredFacility => {
-    if (props.input === '') {
+    if (input === '') {
       return filteredFacility;
     } else {
-      return filteredFacility.name.toLowerCase().includes(props.input);
+      return filteredFacility.name.toLowerCase().includes(input);
     }
   });
 
-  const onClickedFacility = clickedFacility => {
-    setSelectedFacility(clickedFacility);
-    // why print at the second attempt?
-    // PROBLEM WITH SELECTEDFACILITY
-    console.log(selectedFacility);
+  const onClickModify = facility => {
+    setSelectedFacility(facility);
+    console.log(facility);
   };
 
   // IMPORTANT
@@ -82,12 +74,13 @@ function FacilitiesList(props) {
   };
 
   return (
-    <div className="facilitisList">
+    <div>
       <br />
       <br />
       <Typography variant="h4">Tutte</Typography>
       <br />
 
+      {/* conditional rendering of loading, error or multiple Facility istances */}
       {loading ? (
         <LinearProgress variant="determinate" value={100} />
       ) : error ? (
@@ -97,21 +90,26 @@ function FacilitiesList(props) {
       ) : (
         filteredFacilities.map(facility => (
           <Facility
-            key={facility.uuid}
+            setOpenPage={setOpenPage}
+            openedFacility={openedFacility}
+            onClickOpen={onClickOpen}
             facility={facility}
-            onClickedFacility={onClickedFacility}
+            key={facility.uuid}
             setOpen={setOpen}
+            onClickModify={onClickModify}
           />
         ))
       )}
 
-      {/* passare facility e gestirla */}
-      <FormDialog
-        selectedFacility={selectedFacility}
-        open={open}
-        setOpen={setOpen}
-        onChangedFacility={onChangedFacility}
-      />
+      {/* conditionally render formDialog */}
+      {open === true ? (
+        <FormDialog
+          selectedFacility={selectedFacility}
+          open={open}
+          setOpen={setOpen}
+          onChangedFacility={onChangedFacility}
+        />
+      ) : null}
     </div>
   );
 }

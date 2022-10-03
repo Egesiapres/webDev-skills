@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import { TextField, Typography } from '@mui/material';
-import FacilitiesList from "./facilitiesList";
+import FacilitiesList from './facilitiesList';
 
-function FacilitiesHome () {
+function FacilitiesHome({ setOpenPage, openedFacility, onClickOpen }) {
   // the default state is an empty string
   const [inputBox, setInputBox] = useState('');
 
@@ -26,8 +26,12 @@ function FacilitiesHome () {
         placeholder="Es: Abbiategrasso"
       />
 
-      <FacilitiesList input={inputBox} />
-      {/* spostare la form dialog qua sotto? */}
+      <FacilitiesList
+        setOpenPage={setOpenPage}
+        openedFacility={openedFacility}
+        onClickOpen={onClickOpen}
+        input={inputBox}
+      />
     </div>
   );
 }

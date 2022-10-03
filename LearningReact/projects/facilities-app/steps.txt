@@ -21,3 +21,9 @@ Dopo la modifica la lista sotto dovrebbe aggiornarsi.
 
 7. router: implementare il router con due pagine: 1 con la lista delle strutture, 1 con il dettaglio di una singola struttura (per ogni facility un bottone di apertura). 
 In questa nuova pagina probabilmente ci sarà da chiamare una nuova api da cui visualizzare i dati.
+
+8. Far comparire la modale solo quando open=true: quando chiudo la modale, questo componente viene eliminato dalla pagina (quando la apro viene aggiunto e gli viene passato il valore corretto della facility, rimuovendo l'useEffect).
+
+Mettere in detail, come path, l'id della facility. Nel componente facilityDetail recupera dal path l'id chiamato e usarlo per far la chiamata api, che ritorna i dettagli della singola facility.
+
+api: https://ooxvks6089.execute-api.eu-south-1.amazonaws.com/dev/test/facility/{ UUID }
