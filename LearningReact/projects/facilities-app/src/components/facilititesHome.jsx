@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { TextField, Typography } from '@mui/material';
 import FacilitiesList from './facilitiesList';
+import { TitleContext } from './titleContext';
 
-function FacilitiesHome({ setOpenPage, openedFacility, onClickOpen }) {
+function FacilitiesHome() {
   // the default state is an empty string
   const [inputBox, setInputBox] = useState('');
-
   // always convert input text to lower case
   // using the state setter I can update the state value
   const inputHandler = e => {
@@ -13,11 +13,16 @@ function FacilitiesHome({ setOpenPage, openedFacility, onClickOpen }) {
     setInputBox(lowercase);
   };
 
+  const title = useContext(TitleContext);
+
   return (
     <div className="App">
-      <Typography variant="h2">Strutture mediche</Typography>
       <br />
-      {/* searching box */}
+      {title}
+      <Typography variant="h2">Tutte</Typography>
+      <br />
+      <br />
+      {/* search box */}
       <TextField
         id="outlined-basic"
         onChange={inputHandler}
@@ -26,12 +31,7 @@ function FacilitiesHome({ setOpenPage, openedFacility, onClickOpen }) {
         placeholder="Es: Abbiategrasso"
       />
 
-      <FacilitiesList
-        setOpenPage={setOpenPage}
-        openedFacility={openedFacility}
-        onClickOpen={onClickOpen}
-        input={inputBox}
-      />
+      <FacilitiesList input={inputBox} />
     </div>
   );
 }

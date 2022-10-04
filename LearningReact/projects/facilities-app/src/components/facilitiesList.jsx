@@ -11,7 +11,7 @@ import { Typography, LinearProgress, Alert } from '@mui/material';
 // []: second argument of useEffect() avoids the continuous data fetching (it happens just one time)
 // response: stores the values awaited from the axios call with the url specified
 // data: using .data I can acces to the objects stored in response
-function FacilitiesList({ setOpenPage, openedFacility, onClickOpen, input }) {
+function FacilitiesList({ input }) {
   const [facilities, setFacilities] = useState([]);
 
   const [loading, setLoading] = useState(false);
@@ -22,7 +22,6 @@ function FacilitiesList({ setOpenPage, openedFacility, onClickOpen, input }) {
   const [open, setOpen] = useState(false);
   // state that allow to pass the facility clicked to the formDialog
   const [selectedFacility, setSelectedFacility] = useState([]);
-
   // data fetch & fetch management
   // try & catch for the success/failure management
   // new status setters to assign the loading and the error
@@ -34,7 +33,7 @@ function FacilitiesList({ setOpenPage, openedFacility, onClickOpen, input }) {
       setFacilities(res.data);
       setLoading(false); // RIVEDERE
     } catch (e) {
-      setPrintedError(e.name);
+      setPrintedError(e.message);
       setError(true);
       setLoading(false); // RIVEDERE
       console.log(e);
@@ -77,9 +76,6 @@ function FacilitiesList({ setOpenPage, openedFacility, onClickOpen, input }) {
     <div>
       <br />
       <br />
-      <Typography variant="h4">Tutte</Typography>
-      <br />
-
       {/* conditional rendering of loading, error or multiple Facility istances */}
       {loading ? (
         <LinearProgress variant="determinate" value={100} />
@@ -90,9 +86,6 @@ function FacilitiesList({ setOpenPage, openedFacility, onClickOpen, input }) {
       ) : (
         filteredFacilities.map(facility => (
           <Facility
-            setOpenPage={setOpenPage}
-            openedFacility={openedFacility}
-            onClickOpen={onClickOpen}
             facility={facility}
             key={facility.uuid}
             setOpen={setOpen}

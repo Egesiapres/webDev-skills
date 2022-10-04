@@ -1,45 +1,33 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/navbar.jsx';
 import FacilitiesHome from './components/facilititesHome.jsx';
-import FacilitiesDetail from './components/facilityDetail';
+import FacilitiesDetail from './components/facilitiesDetail';
 
-// * has been inserted as suggested from the console
+import { TitleContext } from './components/titleContext';
+import { Typography } from '@mui/material';
+
 // :uuid: param that will be recalled in FacilityDetail
 function App() {
-  const [openedFacility, setOpenedFacility] = useState([]);
-  const [openPage, setOpenPage] = useState(false);
-  // probably I could just use onClickedFacility
-
-  const onClickOpen = facility => {
-    setOpenedFacility(facility);
-  };
-
+  
+  const title = <Typography variant='body1'>Strutture mediche</Typography>
+  
+  // no conditional rendering with the router
+  // and also no props
+  // FacilitiesDetail: is the first because in facility,
+  // the button takes you in the first element with /
   return (
     <div className="App">
       <Navbar />
 
-      <Routes>
-        <Route
-          path="/home/*"
-          element={
-            <FacilitiesHome
-              setOpenPage={setOpenPage}
-              openedFacility={openedFacility}
-              onClickOpen={onClickOpen}
-            />
-          }
-        />
-        <Route
-          path='/:uuid'       
-             element={
-            openPage === true ? (
-              <FacilitiesDetail openedFacility={openedFacility} setOpenedFacility={setOpenedFacility} />
-            ) : null
-          }
-        />
-      </Routes>
+      <TitleContext.Provider value={title}>
+        <Routes>
+          <Route path="/:uuid" element={<FacilitiesDetail />} />
+
+          <Route path="/" element={<FacilitiesHome />} />
+        </Routes>
+      </TitleContext.Provider>
     </div>
   );
 }

@@ -1,35 +1,38 @@
 import { Typography, Button } from '@mui/material';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
 
-function FacilityDetail({ openedFacility }) {
-  console.log(openedFacility);
+import { TitleContext } from './titleContext';
 
-  // the first time prints undefined
-  const params = useParams();
-  useEffect(() => {
-    console.log('Params', params)
-  }, [params])
+function FacilityDetail({ facilityDetail }) {
+  const title = useContext(TitleContext);
 
   return (
     <div>
+      <br />
+      {title}
       <Typography variant="h2">Dettaglio</Typography>
       <br />
       <br />
       <br />
       <br />
 
-      <Typography variant="h4">{openedFacility.name}</Typography>
-      <Typography variant="h6">{openedFacility.city}</Typography>
-      <Typography variant="body1">{openedFacility.region}</Typography>
-      <Typography variant="h5">{openedFacility.id}</Typography>
-      <Typography variant="h7">{openedFacility.uuid}</Typography>
-      <Typography variant="body2">{openedFacility.created_at}</Typography>
-      <Typography variant="body2">{openedFacility.updated_at}</Typography>
+      <Typography variant="h4">{facilityDetail.name}</Typography>
+      <Typography variant="h6">{facilityDetail.phone}</Typography>
+      <Typography variant="body1">{facilityDetail.city}</Typography>
+      <Typography variant="body1">
+        {facilityDetail.address}, {facilityDetail.street_number}
+      </Typography>
+      <Typography variant="body1">
+        {facilityDetail.zip_code} - {facilityDetail.district} (
+        {facilityDetail.country}){' '}
+      </Typography>
+      <Typography variant="body1">{facilityDetail.uuid}</Typography>
+      <Typography variant="body2">{facilityDetail.created_at}</Typography>
+      <Typography variant="body2">{facilityDetail.updated_at}</Typography>
 
       <Button className="btn" variant="contained" size="medium">
-        <Link to="/home">Indietro</Link>
+        <Link to="/">Indietro</Link>
       </Button>
     </div>
   );

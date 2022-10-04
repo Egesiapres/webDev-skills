@@ -2,31 +2,36 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { LinearProgress, Alert } from '@mui/material';
 import FacilityDetail from './facilityDetail';
+import { useParams } from 'react-router-dom';
 
 // the new call is caused by the additional details of the url
-function FacilitiesDetail({ openedFacility, setOpenedFacility }) {
-  const [detail, setDetail] = useState();
-
+// using the router, I don't have to pass props
+// (no state prop to know if the window has been opened)
+function FacilitiesDetail() {
+  const [facilityDetail, setFacilityDetail] = useState([]);
+  
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [printedError, setPrintedError] = useState('All fine, no errors :)');
 
+  // useParams(): reads from the Routes and from the Link
+  const params = useParams();
+
   const api = axios.create({
-    baseURL: `/https://ooxvks6089.execute-api.eu-south-1.amazonaws.com/dev/test/facility/${uuid}`,
+    baseURL: `https://ooxvks6089.execute-api.eu-south-1.amazonaws.com/dev/test/facility/${params.uuid}`,
   });
 
-  // per qualche motivo, probabilmente le props, non sta facendo il fetch
   const fetchData = async () => {
     try {
       setLoading(true);
-      const res = api.get('/');
-      console.log(res.data); // see the object in the console
-      setOpenedFacility(res.data);
-      setLoading(false); // RIVEDERE
+      const res = await api.get('/');
+      console.log(res.data);
+      setFacilityDetail(res.data)
+      setLoading(false);
     } catch (e) {
-      setPrintedError(e.name);
+      setPrintedError(e.message);
       setError(true);
-      setLoading(false); // RIVEDERE
+      setLoading(false);
       console.log(e);
     }
   };
@@ -44,7 +49,8 @@ function FacilitiesDetail({ openedFacility, setOpenedFacility }) {
           Errore: {printedError}!
         </Alert>
       ) : (
-        <FacilityDetail openedFacility={openedFacility} />
+        <FacilityDetail facilityDetail={facilityDetail}
+        />
       )}
     </div>
   );

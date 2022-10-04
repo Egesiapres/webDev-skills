@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import {
   Button,
   TextField,
@@ -8,7 +8,8 @@ import {
   DialogContentText,
   DialogTitle,
 } from '@mui/material';
-// props and parent f importing using the destructoring
+import { TitleContext } from './titleContext';
+
 export default function FormDialog({
   selectedFacility,
   open,
@@ -57,7 +58,9 @@ export default function FormDialog({
     const changedFacility = { uuid, name, city, id };
     onChangedFacility(changedFacility);
     setOpen(false);
-  };   
+  };
+
+  const { title, setTitle } = useContext(TitleContext);
 
   return (
     <div>
