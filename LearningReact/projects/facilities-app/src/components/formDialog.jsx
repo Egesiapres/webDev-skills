@@ -60,8 +60,6 @@ export default function FormDialog({
     setOpen(false);
   };
 
-  const { title, setTitle } = useContext(TitleContext);
-
   return (
     <div>
       {/* <Button variant="contained" size="small" onClick={handleClickOpen}>
