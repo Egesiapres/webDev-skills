@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import {
   Button,
   TextField,
@@ -8,15 +8,14 @@ import {
   DialogContentText,
   DialogTitle,
 } from '@mui/material';
-import { TitleContext } from './titleContext';
+import useFormDialog from './useFormDialog';
 
 export default function FormDialog({
-  selectedFacility,
   open,
-  setOpen,
-  onChangedFacility,
+  handleClose,
+  selectedFacility,
+  onChangedFacility
 }) {
-  
   // WRONG METHOD
   // problem: the selectedFacility value changes (check)
   // useEffect(): update the value that changes
@@ -25,10 +24,9 @@ export default function FormDialog({
   //   setCity(selectedFacility.city);
   //   setId(selectedFacility.id)
   // }, [selectedFacility]);
-  
-  // storing a value that is not going to change
-  const uuid = selectedFacility.uuid;
 
+  // value that is not going to change
+  const uuid = selectedFacility.uuid;
   const [name, setName] = useState(selectedFacility.name);
   const [city, setCity] = useState(selectedFacility.city);
   const [id, setId] = useState(selectedFacility.id);
@@ -47,25 +45,17 @@ export default function FormDialog({
     setId(inputId);
   };
 
-  const handleClose = () => {
-    setOpen(false);
-  };
-
   // IMPORTANT
+  // to return back to the facilitiesList component the data
+  // storing all the values needed by the parent component
   const handleSave = () => {
-    // to return back to the facilitiesList component the data
-    // storing all the values needed by the parent component
     const changedFacility = { uuid, name, city, id };
     onChangedFacility(changedFacility);
-    setOpen(false);
+    handleClose();
   };
 
   return (
     <div>
-      {/* <Button variant="contained" size="small" onClick={handleClickOpen}>
-        Modifica
-      </Button> */}
-
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Modifica dati</DialogTitle>
 

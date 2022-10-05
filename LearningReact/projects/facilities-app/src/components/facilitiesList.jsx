@@ -1,48 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import useApi from './useApi.jsx';
 import API from '../api.js';
 import Facility from './facility.jsx';
 import FormDialog from './formDialog.jsx';
-import { Typography, LinearProgress, Alert } from '@mui/material';
+import { LinearProgress, Alert } from '@mui/material';
+import useFormDialog from './useFormDialog.jsx';
 
-// PROCESS
-// fetchData(): f in the body of an anonymous cb f inside the useEffect() hook
-// It's the first argument of this hook
-// !!!
-// []: second argument of useEffect() avoids the continuous data fetching (it happens just one time)
-// response: stores the values awaited from the axios call with the url specified
-// data: using .data I can acces to the objects stored in response
 function FacilitiesList({ input }) {
-  const [facilities, setFacilities] = useState([]);
-
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
-  const [printedError, setPrintedError] = useState('All fine, no errors :)');
-
   // the states deal with the presentation of the dialog form
-  const [open, setOpen] = useState(false);
+  // const [open, setOpen] = useState(false);
+  // using a custom hook that does the same work
+  const { open, handleOpen, handleClose } = useFormDialog();
+
   // state that allow to pass the facility clicked to the formDialog
   const [selectedFacility, setSelectedFacility] = useState([]);
-  // data fetch & fetch management
-  // try & catch for the success/failure management
-  // new status setters to assign the loading and the error
-  const fetchData = async () => {
-    try {
-      setLoading(true);
-      const res = await API.get(`/`);
-      console.log(res.data); // see the object in the console
-      setFacilities(res.data);
-      setLoading(false); // RIVEDERE
-    } catch (e) {
-      setPrintedError(e.message);
-      setError(true);
-      setLoading(false); // RIVEDERE
-      console.log(e);
-    }
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
+  // setFacilities has been exported because required in a below f
+  const { facilities, setFacilities, loading, error } = useApi(API);
 
   // CHECK
   // logic that talks with the props in App.jsx
@@ -56,6 +29,7 @@ function FacilitiesList({ input }) {
   });
 
   const onClickModify = facility => {
+    // handleOpen();
     setSelectedFacility(facility);
     console.log(facility);
   };
@@ -70,25 +44,25 @@ function FacilitiesList({ input }) {
       facility.uuid === changedFacility.uuid ? changedFacility : facility
     );
     setFacilities(newFacilities);
+    // handleClose();
   };
 
   return (
     <div>
       <br />
       <br />
-      {/* conditional rendering of loading, error or multiple Facility istances */}
       {loading ? (
         <LinearProgress variant="determinate" value={100} />
       ) : error ? (
         <Alert variant="outlined" severity="error">
-          Errore: {printedError}!
+          Errore: {error}!
         </Alert>
       ) : (
         filteredFacilities.map(facility => (
           <Facility
             facility={facility}
             key={facility.uuid}
-            setOpen={setOpen}
+            handleOpen={handleOpen}
             onClickModify={onClickModify}
           />
         ))
@@ -97,9 +71,9 @@ function FacilitiesList({ input }) {
       {/* conditionally render formDialog */}
       {open === true ? (
         <FormDialog
-          selectedFacility={selectedFacility}
           open={open}
-          setOpen={setOpen}
+          handleClose={handleClose}
+          selectedFacility={selectedFacility}
           onChangedFacility={onChangedFacility}
         />
       ) : null}
@@ -114,5 +88,3 @@ export default FacilitiesList;
 // S1. Eliminare i tag <React.StrictMode> in index.js
 // 2. I child dentro al return() devono avere key diversi (quando aggiungo altri tag html)
 // S2. Dare la key al tag padre, nel nostro caso il <div>
-// 3. Uguale a 2
-// S3. Dare la key al tag istanza <ReturnedFacilitiesList />

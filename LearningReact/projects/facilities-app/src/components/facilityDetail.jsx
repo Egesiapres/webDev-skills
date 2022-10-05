@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import { TitleContext } from './titleContext';
 
-function FacilityDetail({ facilityDetail }) {
+function FacilityDetail({ facilities }) {
   const title = useContext(TitleContext);
 
   return (
@@ -17,19 +17,19 @@ function FacilityDetail({ facilityDetail }) {
       <br />
       <br />
 
-      <Typography variant="h4">{facilityDetail.name}</Typography>
-      <Typography variant="h6">{facilityDetail.phone}</Typography>
-      <Typography variant="body1">{facilityDetail.city}</Typography>
+      <Typography variant="h4">{facilities.name}</Typography>
+      <Typography variant="h6">{facilities.phone}</Typography>
+      <Typography variant="body1">{facilities.city}</Typography>
       <Typography variant="body1">
-        {facilityDetail.address}, {facilityDetail.street_number}
+        {facilities.address}, {facilities.street_number}
       </Typography>
       <Typography variant="body1">
-        {facilityDetail.zip_code} - {facilityDetail.district} (
-        {facilityDetail.country}){' '}
+        {facilities.zip_code} - {facilities.district} (
+        {facilities.country}){' '}
       </Typography>
-      <Typography variant="body1">{facilityDetail.uuid}</Typography>
-      <Typography variant="body2">{facilityDetail.created_at}</Typography>
-      <Typography variant="body2">{facilityDetail.updated_at}</Typography>
+      <Typography variant="body1">{facilities.uuid}</Typography>
+      <Typography variant="body2">{facilities.created_at}</Typography>
+      <Typography variant="body2">{facilities.updated_at}</Typography>
 
       <Button className="btn" variant="contained" size="medium">
         <Link to="/">Indietro</Link>

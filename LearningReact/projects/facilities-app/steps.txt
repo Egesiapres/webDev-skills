@@ -1,29 +1,12 @@
-FACILITIES APP 
+FACILITIES-APP 
 
-1. Chiamata ad un API (axios)
+1. Chiamata ad un API (axios, useEffect())
 2. Visualizzazione a schermo dei risultati (useState()/map())
 3. Search box (useState()/filter()/MUI)
 4. Gestione loading/errors (MUI, useState())
-5. Dialog form per la modifica dei dati (childToParent(), useState(), map())
-
-
-NEW: 
-1. Al posto di ritornare il map del componente facilitiesList, mettere h3 etc in un nuovo componente...
-2. Aggiungi una gestione dello stato api (far comparire un loading mentre la chiamata sta venendo effettuata e la gestione dell'errore a schermo). Queste gestioni mostrare attraverso una tabella o una card, usando MUI material
-
-3. Aggiungere un componente dialog (singolo componente. Per ogni facility inserire un bottone modifica che quando cliccato apre il dialog e dentro un form con 3 text input, regione città e id modificabili. Poi bottone salva.)
-Dopo la modifica la lista sotto dovrebbe aggiornarsi.
-
-4. una sola modale, spostare a lvl di facilities list e gestirla (riceve i dati ogni volta)
-
-5. mostrare il form precompilato con i precedenti nomi
-6. gestire il salvataggio (passare stati della Dialog a facilitiesList, che poi passa a facility, e fare in modo che riaggiorni)
-
-7. router: implementare il router con due pagine: 1 con la lista delle strutture, 1 con il dettaglio di una singola struttura (per ogni facility un bottone di apertura). 
-In questa nuova pagina probabilmente ci sarà da chiamare una nuova api da cui visualizzare i dati.
-
-8. Far comparire la modale solo quando open=true: quando chiudo la modale, questo componente viene eliminato dalla pagina (quando la apro viene aggiunto e gli viene passato il valore corretto della facility, rimuovendo l'useEffect).
-
-Mettere in detail, come path, l'id della facility. Nel componente facilityDetail recupera dal path l'id chiamato e usarlo per far la chiamata api, che ritorna i dettagli della singola facility.
-
-api: https://ooxvks6089.execute-api.eu-south-1.amazonaws.com/dev/test/facility/{ UUID }
+5. Modale per la modifica dei dati. Riceve i dati di volta in volta (childToParent(), useState(), map(), MUI)
+6. I campi della modale devono avere il value della facility cliccata
+7. Separare le pagine: una per facilitiesList e una per facilityDetail. In facilityDetail chiamare una nuova api per la visualizzazione di altri dati. Gestire il path (react-router, useParams())
+8. Conditional rendering della modale (ternary operator)
+9. Migliora la visualizzazione delle date (date-fns)
+10. Custom hooks per la gestione della modale (open, setOpen), e per la gestione di loding ed error

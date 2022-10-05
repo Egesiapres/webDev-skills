@@ -2,6 +2,7 @@ import { createContext } from 'react';
 
 export const TitleContext = createContext(null);
 
+// NOTES:
 // 1. separate file with .createContext() and a new context variable exported
 // 2. import the exported variable
 // 2. wrap (usually inside App.js) the istances that share the context

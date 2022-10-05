@@ -1,25 +1,22 @@
 import '../App.css';
 import { Typography, Button } from '@mui/material';
 import { Link } from 'react-router-dom';
+import useFormDialog from './useFormDialog';
 
 // props importing using the destructoring
 // (there's no props.)
-function Facility({
-  facility,
-  setOpen,
-  onClickModify,
-}) {
+function Facility({ facility, onClickModify, handleOpen }) {
   // instead of creating a new variable
   // it's sufficient to pass facility (with all the past data)
   // pass the variable back to the parent component
-    // back to facilitiesList.jsx
+  // back to facilitiesList.jsx
   const handleClickModify = () => {
-    setOpen(true);
+    handleOpen();
     onClickModify(facility);
   };
 
   return (
-    <div key={facility.uuid}>
+    <div>
       <Typography variant="h6">{facility.name}</Typography>
       <Typography variant="body1">{facility.city}</Typography>
       <Typography variant="body2">{facility.id}</Typography>
