@@ -39,9 +39,8 @@ function FacilitiesList({ input }) {
     const newFacilities = facilities.state.data.map(facility =>
       facility.uuid === changedFacility.uuid ? changedFacility : facility
     );
-    // ???
-    // facilities.setData(newFacilities);
     // reassign f.s.d in nF
+    // facilities.setData(newFacilities);
     facilities.state.data = newFacilities;
   };
 

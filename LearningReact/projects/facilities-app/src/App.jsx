@@ -8,15 +8,9 @@ import FacilitiesDetail from './components/facilitiesDetail';
 import { TitleContext } from './components/titleContext';
 import { Typography } from '@mui/material';
 
-// :uuid: param that will be recalled in FacilityDetail
 function App() {
-  
-  const title = <Typography variant='body1'>Strutture mediche</Typography>
-  
-  // no conditional rendering with the router
-  // and also no props
-  // FacilitiesDetail: is the first because in facility,
-  // the button takes you in the first element with /
+  const title = <Typography variant="body1">Strutture mediche</Typography>;
+
   return (
     <div className="App">
       <Navbar />
@@ -33,3 +27,8 @@ function App() {
 }
 
 export default App;
+
+// :uuid: param that will be recalled in FacilityDetail
+// YES router, NO conditional rendering (and props)
+// FacilitiesDetail: first because in facility,
+// the button takes you in the first element with /
