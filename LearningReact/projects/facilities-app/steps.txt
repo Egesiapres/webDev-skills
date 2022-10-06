@@ -10,3 +10,17 @@ FACILITIES-APP
 8. Conditional rendering della modale (ternary operator)
 9. Migliora la visualizzazione delle date (date-fns)
 10. Custom hooks per la gestione della modale (open, setOpen), e per la gestione di loding ed error
+
+
+11. ampliare useApi e gestione delle api in generale. 
+
+1. In api.js 1 funzione per ogni api che mi serve (getFacilities e getFacility) 
+L'api che mi permette di creare una nuova facility sarà una post facility. 
+
+2. Poi una f generica che fa fisicamente la chiamata, che contiene axios. 
+
+Dal codice effettivo chiamo getFacilties che da api.js chiama l'altra funzione che chiama l'api generica. La chiamata è sempre la stessa, ciò che cambia l'url.
+
+3. Fare in modo che useApi vada bene per qualsiasi tipo di data (rinominare facilities e setFacilities in 'data').
+
+4. Quando ho set multipli (setFacilities(), setLoading()), posso usare lo useReduce() di React.

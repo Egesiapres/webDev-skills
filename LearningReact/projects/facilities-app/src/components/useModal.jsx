@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const useFormDialog = () => {
+const useModal = () => {
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => {
@@ -11,10 +11,11 @@ const useFormDialog = () => {
     setOpen(false);
   };
 
-  return { open, handleOpen, handleClose };
+  const modal = { open, handleOpen, handleClose };
+  return modal;
 };
 
-export default useFormDialog;
+export default useModal;
 
 // NOTES:
 // avoids (a lot of open and) all the setOpen props

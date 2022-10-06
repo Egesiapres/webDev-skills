@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
+import { axiosGet } from '../api';
 
-const useApi = urlVariable => {
-  const [facilities, setFacilities] = useState([]);
+const useApi = api => {
+  const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -11,9 +12,9 @@ const useApi = urlVariable => {
   const fetchData = async () => {
     try {
       setLoading(true);
-      const res = await urlVariable.get('/');
+      const res = await axiosGet(api);
       console.log(res.data);
-      setFacilities(res.data);
+      setData(res.data);
       setLoading(false);
     } catch (e) {
       console.log(e);
@@ -27,8 +28,9 @@ const useApi = urlVariable => {
     fetchData();
   }, []);
 
-  // return the states as an object 
-  return { facilities, setFacilities, loading, error };
+  // return the states as an object
+  return { data, setData, loading, error };
+  
 };
 
 export default useApi;

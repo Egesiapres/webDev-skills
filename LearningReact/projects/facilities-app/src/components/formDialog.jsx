@@ -8,7 +8,6 @@ import {
   DialogContentText,
   DialogTitle,
 } from '@mui/material';
-import useFormDialog from './useFormDialog';
 
 export default function FormDialog({
   open,
@@ -25,7 +24,7 @@ export default function FormDialog({
   //   setId(selectedFacility.id)
   // }, [selectedFacility]);
 
-  // value that is not going to change
+  // uuid: value that is not going to change
   const uuid = selectedFacility.uuid;
   const [name, setName] = useState(selectedFacility.name);
   const [city, setCity] = useState(selectedFacility.city);

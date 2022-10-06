@@ -4,22 +4,22 @@ import { useContext } from 'react';
 import { TitleContext } from './titleContext';
 import { format, parseISO } from 'date-fns';
 
-function FacilityDetail({ facilities }) {
+function FacilityDetail({ data }) {
   const title = useContext(TitleContext);
 
   const date = new Date();
-  const creationDate = new Date(facilities.created_at);
-  console.log(facilities.created_at);
-  console.log(typeof facilities.created_at);
+  const creationDate = new Date(data.created_at);
+  console.log(data.created_at);
+  console.log(typeof data.created_at);
   console.log(date);
   console.log(typeof date);
   console.log(creationDate);
   console.log(typeof creationDate);
-  console.log(parseISO(facilities.created_at));
-  // console.log(format(parseISO(facilities.created_at), 'MM/dd/yyyy'))
+  console.log(parseISO(data.created_at));
+  // console.log(format(parseISO(data.created_at), 'MM/dd/yyyy'))
 
   // const formattedCreationDate = format(creationDate, 'MM/dd/yyyy');
-  // console.log(format(creationDate, 'MM/dd/yyy'));
+  // console.log(format(date, 'MM/dd/yyy'));
 
   return (
     <div>
@@ -31,15 +31,15 @@ function FacilityDetail({ facilities }) {
       <br />
       <br />
 
-      <Typography variant="h4">Nome: {facilities.name}</Typography>
-      <Typography variant="h6">Telefono: {facilities.phone}</Typography>
-      <Typography variant="body1">Città: {facilities.city}</Typography>
+      <Typography variant="h4">Nome: {data.name}</Typography>
+      <Typography variant="h6">Telefono: {data.phone}</Typography>
+      <Typography variant="body1">Città: {data.city}</Typography>
       <Typography variant="body1">
-        Indirizzo: {facilities.address}, {facilities.street_number},{' '}
-        {facilities.district} ({facilities.country})
+        Indirizzo: {data.address}, {data.street_number},{' '}
+        {data.district} ({data.country})
       </Typography>
-      <Typography variant="body1">CAP: {facilities.zip_code}</Typography>
-      <Typography variant="body1">uuid: {facilities.uuid}</Typography>
+      <Typography variant="body1">CAP: {data.zip_code}</Typography>
+      <Typography variant="body1">uuid: {data.uuid}</Typography>
       <Typography variant="body2">Data di creazione:{}</Typography>
       <Typography variant="body2">Ultimo aggiornamento:{}</Typography>
 

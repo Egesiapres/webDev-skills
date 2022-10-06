@@ -1,26 +1,26 @@
 import React, { useState } from 'react';
-import useApi from './useApi.jsx';
-import API from '../api.js';
 import Facility from './facility.jsx';
 import FormDialog from './formDialog.jsx';
 import { LinearProgress, Alert } from '@mui/material';
-import useFormDialog from './useFormDialog.jsx';
+import useModal from './useModal.jsx';
+import { GetFacilities, facilitiesApi } from '../api.js';
 
 function FacilitiesList({ input }) {
   // the states deal with the presentation of the dialog form
   // const [open, setOpen] = useState(false);
   // using a custom hook that does the same work
-  const { open, handleOpen, handleClose } = useFormDialog();
+  // const { open, handleOpen, handleClose } = useModal();
+  // below: same thing, shorter syntax
+  const modal = useModal();
 
   // state that allow to pass the facility clicked to the formDialog
   const [selectedFacility, setSelectedFacility] = useState([]);
   // setFacilities has been exported because required in a below f
-  const { facilities, setFacilities, loading, error } = useApi(API);
+  const facilities = GetFacilities(facilitiesApi);
 
-  // CHECK
   // logic that talks with the props in App.jsx
   // filer(): returns only the elements that satisfy the conditions specified
-  const filteredFacilities = facilities.filter(filteredFacility => {
+  const filteredFacilities = facilities.data.filter(filteredFacility => {
     if (input === '') {
       return filteredFacility;
     } else {
@@ -29,50 +29,45 @@ function FacilitiesList({ input }) {
   });
 
   const onClickModify = facility => {
-    // handleOpen();
     setSelectedFacility(facility);
     console.log(facility);
   };
 
-  // IMPORTANT
   // how to pass data from a child to a parent
   // map: executes a changing when a condition is satisfied
-  // I'm working on facilities, the state that stores all the fetched data
-  // uuid: used to match original and changed facility
   const onChangedFacility = changedFacility => {
-    const newFacilities = facilities.map(facility =>
+    const newFacilities = facilities.data.map(facility =>
       facility.uuid === changedFacility.uuid ? changedFacility : facility
     );
-    setFacilities(newFacilities);
-    // handleClose();
+    facilities.setData(newFacilities);
   };
 
   return (
     <div>
       <br />
       <br />
-      {loading ? (
+      {facilities.loading ? (
         <LinearProgress variant="determinate" value={100} />
-      ) : error ? (
+      ) : facilities.error ? (
         <Alert variant="outlined" severity="error">
-          Errore: {error}!
+          Errore: {facilities.error}!
         </Alert>
       ) : (
         filteredFacilities.map(facility => (
           <Facility
             facility={facility}
             key={facility.uuid}
-            handleOpen={handleOpen}
+            handleOpen={modal.handleOpen}
             onClickModify={onClickModify}
           />
         ))
       )}
 
       {/* conditionally render formDialog */}
-      {open === true ? (
+      {modal.open === true ? (
         <FormDialog
-          open={open}
-          handleClose={handleClose}
+          open={modal.open}
+          handleClose={modal.handleClose}
           selectedFacility={selectedFacility}
           onChangedFacility={onChangedFacility}
         />
