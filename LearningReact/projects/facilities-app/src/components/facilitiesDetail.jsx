@@ -1,29 +1,27 @@
-import axios from 'axios';
 import { LinearProgress, Alert } from '@mui/material';
 import FacilityDetail from './facilityDetail';
-// import { useParams } from 'react-router-dom';
 import { GetFacility, FacilityApi } from '../api.js';
 
-// the new call is caused by the additional details of the url
-// using the router, I don't have to pass props
-// (no state prop to know if the window has been opened)
 function FacilitiesDetail() {
-  const facility = GetFacility(FacilityApi())
+  const facility = GetFacility(FacilityApi());
 
   return (
     <div>
-      {facility.loading ? (
+      {facility.state.loading ? (
         <LinearProgress variant="determinate" value={100} />
-      ) : facility.error ? (
+      ) : facility.state.error ? (
         <Alert variant="outlined" severity="error">
-          Errore: {facility.error}!
+          Errore: {facility.state.error}!
         </Alert>
       ) : (
-        <FacilityDetail data={facility.data}
-        />
+        <FacilityDetail data={facility.state.data} />
       )}
     </div>
   );
 }
 
 export default FacilitiesDetail;
+
+// new api call due to the additional details of the new api
+// id I use the router, I don't have to pass props
+// (no state prop to know if the window has been opened)

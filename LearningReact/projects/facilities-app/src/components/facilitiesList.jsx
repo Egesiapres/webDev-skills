@@ -6,21 +6,21 @@ import useModal from './useModal.jsx';
 import { GetFacilities, facilitiesApi } from '../api.js';
 
 function FacilitiesList({ input }) {
-  // the states deal with the presentation of the dialog form
+  // states that manages the presentation of the dialog form
   // const [open, setOpen] = useState(false);
-  // using a custom hook that does the same work
+  // custom hook that does the same work
   // const { open, handleOpen, handleClose } = useModal();
-  // below: same thing, shorter syntax
+  // shorter syntax
   const modal = useModal();
 
-  // state that allow to pass the facility clicked to the formDialog
+  // state that allow to pass the facility clicked to formDialog
   const [selectedFacility, setSelectedFacility] = useState([]);
-  // setFacilities has been exported because required in a below f
+  // setFacilities is required in a below f
   const facilities = GetFacilities(facilitiesApi);
 
   // logic that talks with the props in App.jsx
-  // filer(): returns only the elements that satisfy the conditions specified
-  const filteredFacilities = facilities.data.filter(filteredFacility => {
+  // filter(): returns only the elements that satisfy the conditions specified
+  const filteredFacilities = facilities.state.data.filter(filteredFacility => {
     if (input === '') {
       return filteredFacility;
     } else {
@@ -33,24 +33,27 @@ function FacilitiesList({ input }) {
     console.log(facility);
   };
 
-  // how to pass data from a child to a parent
+  // data passing from child to parent
   // map: executes a changing when a condition is satisfied
   const onChangedFacility = changedFacility => {
-    const newFacilities = facilities.data.map(facility =>
+    const newFacilities = facilities.state.data.map(facility =>
       facility.uuid === changedFacility.uuid ? changedFacility : facility
     );
-    facilities.setData(newFacilities);
+    // ???
+    // facilities.setData(newFacilities);
+    // reassign f.s.d in nF
+    facilities.state.data = newFacilities;
   };
 
   return (
     <div>
       <br />
       <br />
-      {facilities.loading ? (
+      {facilities.state.loading ? (
         <LinearProgress variant="determinate" value={100} />
-      ) : facilities.error ? (
+      ) : facilities.state.error ? (
         <Alert variant="outlined" severity="error">
-          Errore: {facilities.error}!
+          Errore: {facilities.state.error}!
         </Alert>
       ) : (
         filteredFacilities.map(facility => (

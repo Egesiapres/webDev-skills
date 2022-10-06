@@ -1,36 +1,35 @@
-import { useState, useEffect } from 'react';
+import { useReducer, useEffect } from 'react';
 import { axiosGet } from '../api';
+import { initialState, useApiReducer } from './useApiReducer';
 
 const useApi = api => {
-  const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+  // BAD: multiple useState() to manage data, loading and error
+  // GOOD: useReducer() hook
+  // initialState: passed as the first useApiReducer() parameter
+  // dispatch: f that allow send actions to the reducer
+  const [state, dispatch] = useReducer(useApiReducer, initialState);
 
   // data fetch & fetch management
   // try & catch for the success/failure management
-  // new status setters to assign the loading and the error
+  // !!! {type: 'fetch_success', data: res.data}
   const fetchData = async () => {
     try {
-      setLoading(true);
+      dispatch({ type: 'fetch_start' });
       const res = await axiosGet(api);
       console.log(res.data);
-      setData(res.data);
-      setLoading(false);
+      dispatch({ type: 'fetch_success', payload: res.data });
     } catch (e) {
       console.log(e);
-      setError(e);
-      setLoading(false);
+      dispatch({ type: 'fetch_error' });
     }
   };
 
-  // []: dependency/ies
   useEffect(() => {
-    fetchData();
+    fetchData(); // []: dependency/ies
   }, []);
 
-  // return the states as an object
-  return { data, setData, loading, error };
-  
+  // return the state (or states) as an object
+  return { state };
 };
 
 export default useApi;
@@ -49,3 +48,27 @@ export default useApi;
 // []: second argument of useEffect() avoids the continuous data fetching (it happens just one time)
 // response: stores the values awaited from the axios call with the url specified
 // data: using .data I can acces to the objects stored in response
+
+// BAD:
+// const [data, setData] = useState([]);
+// const [loading, setLoading] = useState(false);
+// const [error, setError] = useState(null);
+// const fetchData = async () => {
+//   try {
+//     setLoading(true);
+//     const res = await axiosGet(api);
+//     console.log(res.data);
+//     setData(res.data); // {type: 'fetch_success', data: res.data}
+//     setLoading(false);
+//   } catch (e) {
+//     console.log(e);
+//     setError(e);
+//     setLoading(false);
+//   }
+// };
+
+// useEffect(() => {
+//   fetchData();
+// }, []);
+
+// return { data, setData, loading, error };
