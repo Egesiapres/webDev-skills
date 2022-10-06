@@ -26,6 +26,7 @@ const useApi = api => {
 
   useEffect(() => {
     fetchData(); // []: dependency/ies
+    // eslint-disable-next-line
   }, []);
 
   // return the state (or states) as an object
