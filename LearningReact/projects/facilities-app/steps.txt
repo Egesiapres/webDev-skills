@@ -12,11 +12,12 @@ FACILITIES-APP
 8. Conditional rendering della modale (ternary operator)
 9. Migliora la visualizzazione delle date (date-fns)
 10. Custom hooks per la gestione della modale (useModal()), e per la gestione di loding ed error (useApi())
+- useContext()
 11. ampliare e gestire meglio useApi e api in generale: - una f per ogni api che mi serve (getFacilities e getFacility)
 - f generica che fa fisicamente la chiamata (utilizzando axios)
 (es flusso: da facilitiesList.jsx chiamo getFacilties da api.js, che chiama il custom hook useApi(), che chiama la f per la chiamata generica
 - useApi deve andare bene per qualsiasi tipo di dato (rinominare facilities e setFacilities in data, setData).
-- useReduce() per gestire gli stati multipli
+- useReducer() per gestire gli stati multipli
 
 
 
