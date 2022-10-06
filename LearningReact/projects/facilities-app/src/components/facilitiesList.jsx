@@ -6,17 +6,17 @@ import useModal from './useModal.jsx';
 import { GetFacilities, facilitiesApi } from '../api.js';
 
 function FacilitiesList({ input }) {
-  // states that manages the presentation of the dialog form
+  const facilities = GetFacilities(facilitiesApi);
+  const [selectedFacility, setSelectedFacility] = useState([]);
+  const modal = useModal();
   // const [open, setOpen] = useState(false);
   // custom hook that does the same work
   // const { open, handleOpen, handleClose } = useModal();
   // shorter syntax
-  const modal = useModal();
 
   // state that allow to pass the facility clicked to formDialog
-  const [selectedFacility, setSelectedFacility] = useState([]);
-  // setFacilities is required in a below f
-  const facilities = GetFacilities(facilitiesApi);
+
+  // states that manages the presentation of the dialog form
 
   // logic that talks with the props in App.jsx
   // filter(): returns only the elements that satisfy the conditions specified
