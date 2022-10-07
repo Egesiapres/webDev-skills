@@ -1,9 +1,13 @@
 import { LinearProgress, Alert } from '@mui/material';
 import FacilityDetail from './facilityDetail';
-import { GetFacility, FacilityApi } from '../api.js';
+import { getFacility, } from '../api.js';
+import { useParams } from 'react-router-dom';
+import useApi from './useApi';
 
 function FacilitiesDetail() {
-  const facility = GetFacility(FacilityApi());
+  const params = useParams();
+  // () => allows to execute after, not immediately
+  const facility = useApi(() => getFacility(params.uuid))
 
   return (
     <div>

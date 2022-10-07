@@ -1,8 +1,7 @@
 import { useReducer, useEffect } from 'react';
-import { axiosGet } from '../api';
 import { initialState, useApiReducer } from './useApiReducer';
 
-const useApi = api => {
+const useApi = apiFunction => {
   // BAD: multiple useState() to manage data, loading and error
   // GOOD: useReducer() hook
   // initialState: passed as the first useApiReducer() parameter
@@ -15,7 +14,7 @@ const useApi = api => {
   const fetchData = async () => {
     try {
       dispatch({ type: 'fetch_start' });
-      const res = await axiosGet(api);
+      const res = await apiFunction();
       console.log(res.data);
       dispatch({ type: 'fetch_success', payload: res.data });
     } catch (e) {

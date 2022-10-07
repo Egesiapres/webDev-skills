@@ -1,29 +1,24 @@
 import axios from 'axios';
-import useApi from './components/useApi';
-import { useParams } from 'react-router-dom';
 
 // f which calls the facilities list
-export const GetFacilities = api => {
-  const facilities = useApi(api);
-  return facilities;
+export const getFacilities = () => {
+  // NO hooks() inside a f, YES inside the component
+  // const facilities = useApi(api);
+  // return facilities;
+  return axiosGet(
+    'https://ooxvks6089.execute-api.eu-south-1.amazonaws.com/dev/test/facility'
+  );
 };
+
 // f which calls the single facility neeeded
-export const GetFacility = api => {
-  const facility = useApi(api);
-  return facility;
+export const getFacility = uuid => {
+  // const facility = useApi(api);
+  // return facility;
+  return axiosGet(`https://ooxvks6089.execute-api.eu-south-1.amazonaws.com/dev/test/facility/${uuid}`)
 };
 
 // general f that make an axios call
 export const axiosGet = api => axios.get(api);
-
-// all the facilities
-export const facilitiesApi =
-  'https://ooxvks6089.execute-api.eu-south-1.amazonaws.com/dev/test/facility';
-// each time a different facility
-export const FacilityApi = () => {
-  const params = useParams();
-  return `${facilitiesApi}/${params.uuid}`;
-};
 
 // useParams(): reads from the Routes and from the Link
 // export: YES destructoring (object)

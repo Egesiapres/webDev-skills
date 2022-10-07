@@ -3,11 +3,14 @@ import Facility from './facility.jsx';
 import FormDialog from './formDialog.jsx';
 import { LinearProgress, Alert } from '@mui/material';
 import useModal from './useModal.jsx';
-import { GetFacilities, facilitiesApi } from '../api.js';
+import { getFacilities } from '../api.js';
+import useApi from './useApi.jsx';
 
 function FacilitiesList({ input }) {
-  const facilities = GetFacilities(facilitiesApi);
+  const facilities = useApi(getFacilities);
+  
   const [selectedFacility, setSelectedFacility] = useState([]);
+  
   const modal = useModal();
   // const [open, setOpen] = useState(false);
   // custom hook that does the same work
