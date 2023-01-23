@@ -1,11 +1,16 @@
-import React from 'react'
+import React from 'react';
 
-export default class NestedClassComponent extends React.Component {
+export class NestedClassComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { exampleTitle2: 'exampleTitle2' };
+  }
+
   render() {
     return (
       <>
-        <h1>{this.props.example1}</h1>
-        <p>{this.props.example2}</p>
+        <h1>{this.props.example}</h1>
+        <h2>{this.state.exampleTitle2}</h2>
         <button onClick={this.props.handleClick}>Click here!</button>
       </>
     );
