@@ -1,0 +1,16 @@
+@import 'bootstrap/scss/bootstrap';
+
+$body-bg: #000;
+$body-color: #111;
+
+$primary: #0074d9;
+$danger: #ff4136;
+
+$theme-colors: (
+  'primary': $primary,
+  'danger': $danger,
+);
+
+button {
+  border-radius: 50px;
+};
