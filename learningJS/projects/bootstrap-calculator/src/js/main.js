@@ -40,21 +40,21 @@ const handleClick = buttonNumber => {
   return newInput;
 };
 
-const handleCalculate = (opSymbol, n1, n2) => {
+const handleCalculate = (operators, numbers) => {
   let calcResult;
 
-  switch (opSymbol) {
-    case '+':
-      calcResult = n1 + n2;
+  switch (operators) {
+    case operators.includes('+'):
+      calcResult = numbers.reduce((total, amount) => total + amount);
       break;
-    case '-':
-      calcResult = n1 - n2;
+    case operators.includes('-'):
+      calcResult = numbers.reduce((total, amount) => total - amount);
       break;
-    case 'x':
-      calcResult = n1 * n2;
+    case operators.includes('x'):
+      calcResult = numbers.reduce((total, amount) => total * amount);
       break;
-    case '/':
-      calcResult = n1 / n2;
+    case operators.includes('/'):
+      calcResult = numbers.reduce((total, amount) => total / amount);
       break;
 
     default:
@@ -64,6 +64,49 @@ const handleCalculate = (opSymbol, n1, n2) => {
 
   return calcResult;
 };
+
+const numbers = [
+  {
+    name: 'zero',
+    value: '0',
+  },
+  {
+    name: 'one',
+    value: '1',
+  },
+  {
+    name: 'two',
+    value: '2',
+  },
+  {
+    name: 'three',
+    value: '3',
+  },
+  {
+    name: 'four',
+    value: '4',
+  },
+  {
+    name: 'five',
+    value: '5',
+  },
+  {
+    name: 'six',
+    value: '6',
+  },
+  {
+    name: 'seven',
+    value: '7',
+  },
+  {
+    name: 'eight',
+    value: '8',
+  },
+  {
+    name: 'nine',
+    value: '9',
+  },
+];
 
 const operators = [
   {
@@ -84,29 +127,51 @@ const operators = [
   },
 ];
 
+const handleRetrieveNumbers = (oi, dv) => {
+  parseInt(dv.slice(oi - 1, oi));
+};
+
 const handlePrintResult = () => {
-  let operatorIndex;
-  let n1;
-  let n2;
+  let inputValues = input.value.split('');
+  let _operators = operators.map(op => op.value);
+  let inputOperators = [];
+  let inputNumbers = [];
+  let inputOperatorsIndexes = [];
   let result;
 
-  operators.forEach(op => console.log(input.value.includes(op.value)));
+  // array vs array
+  let match = inputValues.filter(el => _operators.includes(el));
 
-  operators.forEach(op => {
-    let display = input.value;
+  if (match.length > 0) {
+    inputOperators = match;
 
-    if (display.includes(op.value)) {
-      operatorIndex = display.indexOf(op.value);
+    console.log(inputValues);
+    console.log(inputOperators);
 
-      if (operatorIndex !== 0) {
-        n1 = parseInt(display.slice(0, operatorIndex));
-        n2 = parseInt(display.slice(operatorIndex + 1));
-        result = handleCalculate(op.value, n1, n2);
+    match.forEach(m => {
+      inputOperatorsIndexes = [
+        ...inputOperatorsIndexes,
+        inputValues.indexOf(m),
+      ];
+    });
+    console.log(inputOperatorsIndexes);
 
+    inputOperatorsIndexes.forEach(oi => {
+      // inputValues = inputValues.join('');
+
+      inputNumbers = [
+        ...inputNumbers,
+        parseInt(inputValues.slice(oi - 1, oi)),
+        parseInt(inputValues.slice(oi + 1)),
+      ];
+      console.log(inputNumbers);
+
+      if (oi !== 0) {
+        result = handleCalculate(inputOperators, inputNumbers);
         input.setAttribute('value', result);
       }
-    }
-  });
+    });
+  }
 };
 
 // ! event listeners
@@ -135,6 +200,7 @@ divBtn.addEventListener('click', () => handleClick(divBtn));
 equalBtn.addEventListener('click', () => handlePrintResult());
 
 // 1. controlla quali operatori ci sono
+
 // 1.1 esisono singolarmente o più di uno?
 // 1.2 singolarmente logica base, più di uno punto 2
 
