@@ -1,60 +1,146 @@
 import '../scss/styles.scss';
 
-import * as bootstrap from 'bootstrap';
+const keypad = [
+  {
+    name: 'numbers',
+    values: [
+      {
+        id: 'zero',
+        value: '0',
+      },
+      {
+        id: 'one',
+        value: '1',
+      },
+      {
+        id: 'two',
+        value: '2',
+      },
+      {
+        id: 'three',
+        value: '3',
+      },
+      {
+        id: 'four',
+        value: '4',
+      },
+      {
+        id: 'five',
+        value: '5',
+      },
+      {
+        id: 'six',
+        value: '6',
+      },
+      {
+        id: 'seven',
+        value: '7',
+      },
+      {
+        id: 'eight',
+        value: '8',
+      },
+      {
+        id: 'nine',
+        value: '9',
+      },
+    ],
+  },
+  {
+    name: 'operators',
+    values: [
+      {
+        id: 'plus',
+        value: '+',
+      },
+      {
+        id: 'minus',
+        value: '-',
+      },
+      {
+        id: 'by',
+        value: 'x',
+      },
+      {
+        id: 'dividedBy',
+        value: '/',
+      },
+      {
+        id: 'equal',
+        value: '=',
+      },
+    ],
+  },
+  {
+    name: 'others',
+    values: [
+      {
+        id: 'ac',
+        value: '0',
+      },
+    ],
+  },
+];
 
-// ? elements
-const form = document.querySelector('form');
 const input = document.querySelector('input');
 
-const acBtn = document.getElementById('ac');
-
-const zeroBtn = document.getElementById('zero');
-const oneBtn = document.getElementById('one');
-const twoBtn = document.getElementById('two');
-const threeBtn = document.getElementById('three');
-const fourBtn = document.getElementById('four');
-const fiveBtn = document.getElementById('five');
-const sixBtn = document.getElementById('six');
-const sevenBtn = document.getElementById('seven');
-const eightBtn = document.getElementById('eight');
-const nineBtn = document.getElementById('nine');
-
-const addBtn = document.getElementById('add');
-const subBtn = document.getElementById('sub');
-const mulBtn = document.getElementById('mul');
-const divBtn = document.getElementById('div');
-
-const equalBtn = document.getElementById('equal');
-
-// ! handlers
-const handleClick = buttonNumber => {
-  let newInput;
-
-  buttonNumber === acBtn || input.value === '0'
-    ? (newInput = input.setAttribute('value', buttonNumber.value))
-    : (newInput = input.setAttribute(
-        'value',
-        input.value + buttonNumber.value
-      ));
-
-  return newInput;
+let inputValues = {
+  firstNumber: null,
+  operator: null,
+  secondNumber: null,
 };
 
-const handleCalculate = (operators, numbers) => {
+const handleButton = ({ id, value }) => {
+  const currentInputValue = input.value;
+  const buttonValue = value;
+  const buttonId = id;
+
+  if (['0', '+', '-', 'x', '/'].includes(currentInputValue)) {
+    
+    input.value = buttonValue;
+
+    inputValues.operator === null
+      ? (inputValues.firstNumber = parseInt(buttonValue))
+      : (inputValues.secondNumber = parseInt(buttonValue));
+  
+    } else if (buttonId === 'ac') {
+  
+    input.value = buttonValue;
+    resetInputValues();
+
+  } else if (['+', '-', 'x', '/'].includes(buttonValue)) {
+    
+    input.value = buttonValue;
+    inputValues.operator = buttonValue;
+  
+  } else if (buttonValue !== '=') {
+    
+    input.value = currentInputValue + buttonValue;
+
+    inputValues.operator === null
+      ? (inputValues.firstNumber = parseInt(input.value))
+      : (inputValues.secondNumber = parseInt(input.value));
+  
+    } else if (buttonValue === '=') {
+    handleCalculate(inputValues);
+  }
+};
+
+const handleCalculate = ({ firstNumber, operator, secondNumber }) => {
   let calcResult;
 
-  switch (operators) {
-    case operators.includes('+'):
-      calcResult = numbers.reduce((total, amount) => total + amount);
+  switch (operator) {
+    case '+':
+      calcResult = firstNumber + secondNumber;
       break;
-    case operators.includes('-'):
-      calcResult = numbers.reduce((total, amount) => total - amount);
+    case '-':
+      calcResult = firstNumber - secondNumber;
       break;
-    case operators.includes('x'):
-      calcResult = numbers.reduce((total, amount) => total * amount);
+    case 'x':
+      calcResult = firstNumber * secondNumber;
       break;
-    case operators.includes('/'):
-      calcResult = numbers.reduce((total, amount) => total / amount);
+    case '/':
+      calcResult = firstNumber / secondNumber;
       break;
 
     default:
@@ -62,147 +148,30 @@ const handleCalculate = (operators, numbers) => {
       break;
   }
 
-  return calcResult;
+  inputValues = {
+    firstNumber: calcResult,
+    operator: null,
+    secondNumber: null,
+  };
+
+  input.value = calcResult;
 };
 
-const numbers = [
-  {
-    name: 'zero',
-    value: '0',
-  },
-  {
-    name: 'one',
-    value: '1',
-  },
-  {
-    name: 'two',
-    value: '2',
-  },
-  {
-    name: 'three',
-    value: '3',
-  },
-  {
-    name: 'four',
-    value: '4',
-  },
-  {
-    name: 'five',
-    value: '5',
-  },
-  {
-    name: 'six',
-    value: '6',
-  },
-  {
-    name: 'seven',
-    value: '7',
-  },
-  {
-    name: 'eight',
-    value: '8',
-  },
-  {
-    name: 'nine',
-    value: '9',
-  },
-];
-
-const operators = [
-  {
-    name: 'plus',
-    value: '+',
-  },
-  {
-    name: 'minus',
-    value: '-',
-  },
-  {
-    name: 'by',
-    value: 'x',
-  },
-  {
-    name: 'dividedBy',
-    value: '/',
-  },
-];
-
-const handleRetrieveNumbers = (oi, dv) => {
-  parseInt(dv.slice(oi - 1, oi));
+const resetInputValues = () => {
+  inputValues = {
+    firstNumber: null,
+    operator: null,
+    secondNumber: null,
+  };
 };
 
-const handlePrintResult = () => {
-  let inputValues = input.value.split('');
-  let _operators = operators.map(op => op.value);
-  let inputOperators = [];
-  let inputNumbers = [];
-  let inputOperatorsIndexes = [];
-  let result;
-
-  // array vs array
-  let match = inputValues.filter(el => _operators.includes(el));
-
-  if (match.length > 0) {
-    inputOperators = match;
-
-    console.log(inputValues);
-    console.log(inputOperators);
-
-    match.forEach(m => {
-      inputOperatorsIndexes = [
-        ...inputOperatorsIndexes,
-        inputValues.indexOf(m),
-      ];
+const initializeKeypad = () => {
+  keypad.forEach(({ values }) => {
+    values.forEach(({ id, value }) => {
+      const btn = document.getElementById(id);
+      btn.addEventListener('click', () => handleButton({ id, value }));
     });
-    console.log(inputOperatorsIndexes);
-
-    inputOperatorsIndexes.forEach(oi => {
-      // inputValues = inputValues.join('');
-
-      inputNumbers = [
-        ...inputNumbers,
-        parseInt(inputValues.slice(oi - 1, oi)),
-        parseInt(inputValues.slice(oi + 1)),
-      ];
-      console.log(inputNumbers);
-
-      if (oi !== 0) {
-        result = handleCalculate(inputOperators, inputNumbers);
-        input.setAttribute('value', result);
-      }
-    });
-  }
+  });
 };
 
-// ! event listeners
-form.addEventListener('click', e => e.preventDefault());
-
-input.addEventListener('click', () => console.log(input.value));
-
-acBtn.addEventListener('click', () => handleClick(acBtn));
-
-zeroBtn.addEventListener('click', () => handleClick(zeroBtn));
-oneBtn.addEventListener('click', () => handleClick(oneBtn));
-twoBtn.addEventListener('click', () => handleClick(twoBtn));
-threeBtn.addEventListener('click', () => handleClick(threeBtn));
-fourBtn.addEventListener('click', () => handleClick(fourBtn));
-fiveBtn.addEventListener('click', () => handleClick(fiveBtn));
-sixBtn.addEventListener('click', () => handleClick(sixBtn));
-sevenBtn.addEventListener('click', () => handleClick(sevenBtn));
-eightBtn.addEventListener('click', () => handleClick(eightBtn));
-nineBtn.addEventListener('click', () => handleClick(nineBtn));
-
-addBtn.addEventListener('click', () => handleClick(addBtn));
-subBtn.addEventListener('click', () => handleClick(subBtn));
-mulBtn.addEventListener('click', () => handleClick(mulBtn));
-divBtn.addEventListener('click', () => handleClick(divBtn));
-
-equalBtn.addEventListener('click', () => handlePrintResult());
-
-// 1. controlla quali operatori ci sono
-
-// 1.1 esisono singolarmente o più di uno?
-// 1.2 singolarmente logica base, più di uno punto 2
-
-// 2. esistono * o / ?
-// 3. se si esegui, in ordine, prima i * e i /, altrimenti, in ordine, + e -
+initializeKeypad();
