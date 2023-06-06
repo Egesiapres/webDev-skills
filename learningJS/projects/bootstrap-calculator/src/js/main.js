@@ -45,12 +45,90 @@ let inputValues = {
   secondNumber: null,
 };
 
-const setInputValues = (inputValues, value) => {
-  if (inputValues.operator === null) {
-    inputValues.firstNumber = parseInt(value);
+const handleKeypad = ({ value }) => {
+  const buttonValue = value;
+
+  let decimalNumber;
+
+  if (
+    (input.value === '0' && isNumber(buttonValue)) ||
+    (isNotSecondNumber(inputValues) && isNumber(buttonValue))
+  ) {
+    // values to change with the button values
+    input.value = buttonValue;
+
+    setInputValues(inputValues, input.value, decimalNumber);
+  } else if (buttonValue === 'C') {
+    // C button behaviour
+    input.value = 0;
+
+    resetInputValues();
+  } else if (buttonValue === '+/-') {
+    // +/- button behaviour
+    if (isFirstNumber(inputValues)) {
+      input.value = -input.value;
+      setInputValues(inputValues, input.value);
+    }
+  } else if (buttonValue === '%') {
+    // % button behaviour
+
+    if (isFirstNumber(inputValues)) {
+      input.value = input.value / 100;
+
+      decimalNumber = handleComma();
+
+      setInputValues(inputValues, input.value, decimalNumber);
+    }
+  } else if (['+', '-', 'x', '/'].includes(buttonValue)) {
+    // +, -, x, / buttons behaviour
+    if (input.value === '0') {
+      setInputValues(inputValues, input.value);
+    } else if (canCalculate(inputValues)) {
+      handleCalculate(inputValues);
+    }
+
+    inputValues.operator = buttonValue;
+  } else if (buttonValue === '=') {
+    // = button behaviour
+    canCalculate(inputValues) && handleCalculate(inputValues);
   } else {
-    inputValues.secondNumber = parseInt(value);
+    // . button behaviour
+    // numbers with more than one numeral
+    if (input.value.includes('.')) {
+      if (isNumber(buttonValue)) {
+        input.value += buttonValue;
+
+        decimalNumber = handleComma();
+
+        setInputValues(inputValues, input.value, decimalNumber);
+      }
+    } else {
+      input.value += buttonValue;
+      setInputValues(inputValues, input.value);
+    }
   }
+
+  console.log(inputValues);
+};
+
+const isNumber = value => keypad[0].values.map(el => el.value).includes(value);
+
+const isFirstNumber = ({ firstNumber }) => firstNumber;
+
+const isNotSecondNumber = ({ operator, secondNumber }) =>
+  operator && !secondNumber;
+
+const canCalculate = ({ operator, secondNumber }) =>
+  isFirstNumber && operator && secondNumber;
+
+const setInputValues = (inputValues, entireValue, decimalValue) => {
+  const number = decimalValue
+    ? parseInt(entireValue) + decimalValue
+    : parseInt(entireValue);
+
+  inputValues.operator === null
+    ? (inputValues.firstNumber = number)
+    : (inputValues.secondNumber = number);
 };
 
 const resetInputValues = () => {
@@ -60,15 +138,6 @@ const resetInputValues = () => {
     secondNumber: null,
   };
 };
-
-const isNumber = value => keypad[0].values.map(el => el.value).includes(value);
-
-const isFirstNumber = ({ firstNumber }) => firstNumber;
-const isNotSecondNumber = ({ operator, secondNumber }) =>
-  operator && !secondNumber;
-
-const canCalculate = ({ operator, secondNumber }) =>
-  isFirstNumber && operator && secondNumber;
 
 const handleCalculate = ({ firstNumber, operator, secondNumber }) => {
   let calcResult;
@@ -101,66 +170,14 @@ const handleCalculate = ({ firstNumber, operator, secondNumber }) => {
   input.value = calcResult;
 };
 
-const handleKeypad = ({ value }) => {
-  const buttonValue = value;
+const handleComma = () => {
+  const commaIndex = input.value.indexOf('.');
+  const decimal = input.value.slice(commaIndex + 1);
+  const decimalLength = decimal.length;
 
-  console.log(input.value);
+  const decimalNumber = decimal / 10 ** decimalLength;
 
-  if (
-    (input.value === '0' && isNumber(buttonValue)) ||
-    (isNotSecondNumber(inputValues) && isNumber(buttonValue))
-  ) {
-    // values to change with the button values
-    input.value = buttonValue;
-
-    setInputValues(inputValues, input.value);
-  } else if (buttonValue === 'C') {
-    // C button behaviour
-    input.value = 0;
-
-    resetInputValues();
-  } else if (buttonValue === '+/-') {
-    // +/- button behaviour
-    if (isFirstNumber(inputValues)) {
-      input.value = -input.value;
-      setInputValues(inputValues, input.value);
-    }
-  } else if (buttonValue === '%') {
-    // % button behaviour
-    if (isFirstNumber(inputValues)) {
-      input.value === buttonValue;
-      inputValues.operator = '/';
-      inputValues.secondNumber = 100;
-
-      handleCalculate(inputValues);
-    }
-  } else if (['+', '-', 'x', '/'].includes(buttonValue)) {
-    // +, -, x, / buttons behaviour
-    if (canCalculate(inputValues)) {
-      handleCalculate(inputValues);
-    }
-
-    inputValues.operator = buttonValue;
-  } else if (buttonValue === '=') {
-    // = button behaviour
-    canCalculate(inputValues) && handleCalculate(inputValues);
-  } else {
-    // numbers with more than one numeral
-    if (input.value.includes('.')) {
-      if (isNumber(buttonValue)) {
-        input.value += buttonValue;
-
-        const commaIndex = input.value.indexOf('.');
-        const entire = input.value.slice(0, commaIndex);
-        const decimal = input.value.slice(commaIndex + 1);
-      }
-    } else {
-      input.value += buttonValue;
-      setInputValues(inputValues, input.value);
-    }
-  }
-
-  console.log(inputValues);
+  return decimalNumber;
 };
 
 const initializeKeypad = () => {
