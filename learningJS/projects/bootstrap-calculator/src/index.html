@@ -19,7 +19,7 @@
       <form class="row justify-content-center p-2">
         <div class="col">
           <input
-            type="tel"
+            type="number"
             class="form-control form-control-lg text-end"
             value="0"
           />
@@ -30,27 +30,31 @@
         <button
           type="button"
           class="btn btn-secondary col m-1"
-          id="ac"
-          value="0"
+          id="cancel"
+          value="C"
         >
-          AC
+          C
         </button>
         <button
           type="button"
           class="btn btn-secondary col m-1"
+          id="negate"
+          value="+/-"
         >
           +/-
         </button>
         <button
           type="button"
           class="btn btn-secondary col m-1"
+          id="percent"
+          value="%"
         >
           %
         </button>
         <button
           type="button"
           class="btn btn-primary col m-1"
-          id="dividedBy"
+          id="div"
           value="/"
         >
           /
@@ -84,7 +88,7 @@
         <button
           type="button"
           class="btn btn-primary col m-1"
-          id="by"
+          id="mul"
           value="x"
         >
           x
@@ -171,7 +175,7 @@
           type="button"
           class="btn btn-light col m-1"
           id="comma"
-          value=","
+          value="."
         >
           ,
         </button>
