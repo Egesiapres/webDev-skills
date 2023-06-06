@@ -15,8 +15,8 @@
   </head>
 
   <body>
-    <div class="d-flex justify-content-center align-items-center">
-      <div class="col-8 p-3 bg-body-secondary border rounded">
+    <div class="d-flex justify-content-center align-items-center" style="height: 100vh">
+      <div class="col-8 p-3 bg-body-secondary rounded">
         <form class="row justify-content-center p-2">
           <div class="col">
             <input
@@ -30,7 +30,7 @@
         <div class="row m-1">
           <button
             type="button"
-            class="btn btn-secondary col m-1"
+            class="btn secondary-blue col m-1"
             id="cancel"
             value="C"
           >
@@ -38,7 +38,7 @@
           </button>
           <button
             type="button"
-            class="btn btn-secondary col m-1"
+            class="btn secondary-blue col m-1"
             id="negate"
             value="+/-"
           >
@@ -46,7 +46,7 @@
           </button>
           <button
             type="button"
-            class="btn btn-secondary col m-1"
+            class="btn secondary-blue col m-1"
             id="percent"
             value="%"
           >
@@ -187,6 +187,33 @@
             value="="
           >
             =
+          </button>
+        </div>
+
+        <div class="row justify-content-center m-1">
+          <button
+            type="button"
+            class="btn col m-1 text-white primary-purple"
+            id="lilac"
+            value="false"
+          >
+            Lilac
+          </button>
+          <button
+            type="button"
+            class="btn btn-secondary col m-1"
+            id="random"
+            value="false"
+          >
+            Random
+          </button>
+          <button
+            type="button"
+            class="btn btn-dark col m-1"
+            id="dark"
+            value="false"
+          >
+            Dark
           </button>
         </div>
       </div>
