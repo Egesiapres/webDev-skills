@@ -1,4 +1,4 @@
-console.log('------ ❎ %cVariables & constants', 'font-weight: bold;');
+console.log('------ %c1: Variables & constants ❎', 'font-weight: bold;');
 
 // E1
 console.log(

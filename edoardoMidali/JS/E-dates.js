@@ -1,4 +1,4 @@
-console.log('------ ⌚️ %cDates', 'font-weight: bold;');
+console.log('------ %cDates ⌚️', 'font-weight: bold;');
 
 // E1
 console.log(

@@ -1,4 +1,4 @@
-console.log('------ 📟 %cData types', 'font-weight: bold');
+console.log('------ %c2: Data types 📟', 'font-weight: bold');
 
 // E1
 console.log(
