@@ -1,3 +1,5 @@
+console.log('------ ⌚️ %cDates', 'font-weight: bold;');
+
 // E1
 console.log(
   'E1: Write a code that gets the current date and displays it in console'
