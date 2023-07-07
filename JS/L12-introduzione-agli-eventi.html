@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>L12: Introduzione agli eventi</title>
+    <style>
+      form,
+      div,
+      p {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        margin-top: 7px;
+      }
+      label {
+        margin-bottom: 5px;
+      }
+      form div:last-child {
+        margin-top: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <div>
+        <label for="fname">Nome:</label>
+        <input id="fname" type="text" />
+      </div>
+      <div>
+        <label for="lname" onclick="prova()">Cognome:</label>
+        <input id="lname" type="text" onfocus="prova2()" />
+      </div>
+      <div>
+        <label for="nname">Nickname:</label>
+        <input id="nname" type="text" />
+      </div>
+      <div>
+        <input id="submit" type="submit" />
+      </div>
+    </form>
+    <p></p>
+
+    <script>
+      // 1. Cosa sono gli eventi?
+      // cose che succedono sulla pagina
+      // all'agire di una persona
+      const form = document.querySelector('form');
+      const nome = document.getElementById('fname');
+      const cognome = document.getElementById('lname');
+      const nickname = document.getElementById('nname');
+      const paragrafo = document.querySelector('p');
+
+      nome.onfocus = function () {
+        console.log('sono in focus'); // quando metto il cursore nella casella di input
+      };
+
+      // 2. Event handler
+      // prendo l'elemento che mi interessa
+      // e a fianco ci metto .onclick, .onsubmit, .onfocus...
+      // onclick è per quando clicco con il mouse
+      nome.onclick = function () {
+        console.log('ciao');
+      };
+
+      // 3. Inline event handler (vedi l'html)
+      // sconsigliato, meglio non intaccare l'html
+      function prova() {
+        console.log('Hai cliccato sul cognome');
+      }
+
+      function prova2() {
+        console.log(`Daje ora riempi l'input!`);
+      }
+
+      // 4. addEventListener()
+      // metodo migliore
+      // danno + controllo
+      nname.addEventListener('focus', () => {
+        console.log(`Sei in focus sull'input del nickname tramite il listener`);
+      });
+
+      // 5. Oggetto Event
+      // se aggiungo un evento creo un oggetto evento
+      // il parametro di .addEventListener() spesso è e o event
+      // (potrebbe anche essere pippo)
+      // se nel console.log metto come parametro e mi fa vedere l'oggetto generato
+      // e tutti i suoi parametri
+
+      // ho selezionato una proprietà dell'oggetto event
+      // il .target si userà molto molto
+      nome.addEventListener('focus', function (e) {
+        console.log(`Sei in focus sull'input del nome tramite il listener`);
+        console.log(e);
+        console.log(e.target);
+        // console.log(e.value);
+        console.log(e.target.value);
+      });
+
+      // 6. e.preventDefault
+      // certi eventi hanno comportamento predefiniti
+      // esempio: il form manda i dati
+      // se il valore di nome, cognome o nickname è vuoto eviti il comportamento di base (eviti che i dati vengano inviati)
+      // se un evento ha qualche problema aggiungo .preventDefault() e mi faccio il debugging
+      form.onsubmit = function (e) {
+        if (
+          nome.value === '' ||
+          cognome.value === '' ||
+          nickname.value === ''
+        ) {
+          e.preventDefault();
+          // mandi a schermo della roba
+          paragrafo.textContent = 'You need to fill in every input field!';
+        }
+      };
+
+      // 7. Event bubbling e capturing (stop propagation)
+      // 2 eventi che possono succedere
+      // vedi documentazione MDN
+
+      // event capturing: lettura a scendere degli event handlers applicati (prima html, body, poi div e infine video)
+      // event bubbling: lettura e propagazione a salire (prima video, che passa a div che passa a html e body)
+      // il loop si interrompe con e.stopPropagation();
+      // appunto stoppo la propagazione dell'evento
+      // cose abbastanza rare ma che vanno capite
+      // serve + per eventuali debug
+
+      // 8. Event delegation
+      // approfondimento extra fai da te
+    </script>
+  </body>
+</html>

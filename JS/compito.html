@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Compito</title>
+
+    <style>
+      .small {
+        width: 60px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2></h2>
+    <ol>
+      <li>Creare un bottone</li>
+      <li>Creare un JSON di 3 prodotti con</li>
+      <li>Dotare bottone di eventListener</li>
+      <li>eventListener fetcha un JSON</li>
+      <li>Mandare a schermo la lista dei prodotti (con immagine, nome...)</li>
+      <li>Mandare a schermo il carrello</li>
+    </ol>
+
+    <button>Mostra prodotti!</button>
+
+    <script>
+      const btn = document.querySelector('button');
+      let url = './compito-prodotti.json';
+      let ProdottiFetch;
+
+      // all'inizio hardcodato per ogni prodotto
+      // migliorato: utilizzo del ciclo for
+      btn.addEventListener('click', () => {
+        fetch(url)
+          .then(response => response.json())
+          .then(json => {
+            prodottiFetch = json;
+            
+            for (let i = 0; i <= prodottiFetch.prodotti.length - 1; i++) {
+              let n = document.createElement('p');
+              n.textContent = `Prodotto: ${prodottiFetch.prodotti[i].nome}.`;
+              document.body.appendChild(n);
+              let p = document.createElement('p');
+              p.textContent = `Prezzo: ${prodottiFetch.prodotti[i].prezzo}.`;
+              document.body.appendChild(p);
+              let img = document.createElement('img');
+              
+              img.setAttribute('src', prodottiFetch.prodotti[i].img);
+              img.setAttribute('class', 'small');
+              document.body.appendChild(img);
+              
+              let d = document.createElement('p');
+              d.textContent = `Descrizione: ${prodottiFetch.prodotti[i].descrizione}.`;
+              document.body.appendChild(d);
+              // carrello?
+              console.log(prodottiFetch.prodotti[i]);
+            }
+          });
+      });
+    </script>
+  </body>
+</html>

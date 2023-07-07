@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>L22: Introduzione ai web API</title>
+  </head>
+  <body>
+    <script>
+      // 1. Cosa sono gli API
+      // es. presa della corrente
+      // quando voglio fornire energia attacco la spina e automaticamente arriva l'energia
+      // non devo rifare i cavi della casa tutte le volte
+      // qualcuno ha fatto per noi un grande lavoro creando una sorta di presa comune in cui gli altri sviluppatori possono attaccarsi
+
+      // 2. Api client side in JavaScript: browser (es. manipolazione audio) e terze parti (api)
+      // browser API: la parte di JS scritta nel browser, un piccolo layer sopra JS, che ci permette di eseguire certe funzioni (alcuni browser fanno certe cose altri no)
+      // terze parti: se voglio incorporare twitter nel mio sito uso i suoi API
+
+      // 3. DISTINZIONE (JavaScript, API e altri tool)
+      // JS: linguaggio di alto livello che usiamo per scrivere
+      // API browser: funzionalità costruite nel browser che aiutano a implementare delle funzionalità con maggiore semplicità
+      // API 3 parti: per comunicare direttamente con altre app e usarle nel proprio sito (es. twitter, facebook...)
+      // librerie: insieme di file e funzioni che facilitano un lavoro. JQuery ad es. rendeva il lavoro sul DOM molto semplice
+      // framework: nuove tecnologie, basate su JS. Combina più cose (HTML, CSS, JS) e ci permette di costruire da 0 delle applicazioni
+
+      // 4. API browser e terze parti comuni
+      // cosa possono fare?
+      // API browser: per lavorare direttamente sul nostro sito
+      // per il fetch: fetch(), XMLHttprequest()
+      // per la modifica del DOM: document.querySelector()
+      // per la grafica: canvas(), webGL()
+      // API terze parti: per estenderci
+      // twitter
+      // facebook
+      // maps
+
+      // 5. Come funzionano: basati su oggetti
+      // API sono tutti metodi di oggetti
+
+      // 6. Come funzionano: entry point riconoscibile
+      // punto in cui collegare la spina
+      // voglio lavorare con il documento?
+      // l'entry point è l'oggetto document
+
+      // 7. Come funzionano: usano eventi per gestire cambiamenti di stato
+      // alcuni API non hanno alcun evento
+      // se dovessero gestire cambi di stato dell'applicazione sicuramente usano eventi
+      // esempio: request.onload è un evento
+      // (vedi megli esempio da documentazione)
+
+      // 8. Come funzionano: hanno meccaniche aggiuntive di sicurezza dove appropriato
+      // quando richiedono si possono inviare notifiche
+    </script>
+  </body>
+</html>

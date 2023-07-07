@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>this</title>
+  </head>
+  <body>
+    <script>
+      // THIS
+      // ----------- Oggetti
+      // mi permette di accedere ad una proprietà fuori dalla f
+      // model e energyLevel sono fuori dallo scope della f
+      // senza this (es: scrivendo solo model) darebbe errore
+      let robot = {
+        model: '1E78V2',
+        energyLevel: 100,
+        provideInfo() {
+          return `I am ${this.model} and my current energy level is ${this.energyLevel}`;
+        },
+      };
+
+      console.log(robot.provideInfo());
+
+      // ----------- Classi
+      class School {
+        // level with default values
+        constructor(
+          name,
+          level,
+          numberOfStudents,
+          averageTestScores,
+          schoolOverview
+        ) {
+          this._name = name;
+          this._level = level;
+          this._numberOfStudents = numberOfStudents;
+          this._averageTestScores = averageTestScores;
+          this._schoolOverview = schoolOverview;
+        }
+
+        get name() {
+          return this._name;
+        }
+        get level() {
+          return this._level;
+        }
+        get numberOfStudents() {
+          return this._numberOfStudents;
+        }
+        get averageTestScores() {
+          return this._averageTestScores;
+        }
+        get schoolOverview() {
+          return this._schoolOverview;
+        }
+
+        set numberOfStudents(newNumberOfStudents) {
+          typeof newNumberOfStudents == 'number'
+            ? (this.numberOfStudents = newNumberOfStudents)
+            : console.log(
+                'Invalid input: numberOfStudents must be set to a Number.'
+              );
+        }
+
+        quickFacts() {
+          console.log(
+            `${this.name} educates ${this.numberOfStudents} students at the ${this.level} school level.`
+          );
+        }
+
+        static pickSubstituteTeacher(substituteTeacher) {
+          const randomIndex = Math.floor(
+            Math.random() * substituteTeacher.length
+          );
+          console.log(substituteTeacher[randomIndex]);
+        }
+      }
+
+      // ----------- Arrow Functions
+      /* sintassi non funzionante: checkEnergy: () => {}
+      const robot = {
+        energyLevel: 100,
+        checkEnergy: () => {
+          console.log(`Energy is currently at ${this.energyLevel}%.`);
+        },
+      };
+
+      robot.checkEnergy();
+      */
+
+      // sintassi funzionante: checkEnergy () {}
+      robot = {
+        energyLevel: 100,
+        checkEnergy() {
+          console.log(`Energy is currently at ${this.energyLevel}%.`);
+        },
+      };
+
+      robot.checkEnergy();    
+    </script>
+  </body>
+</html>

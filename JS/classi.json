@@ -1,0 +1,70 @@
+[
+  {
+    "nome": "4A",
+    "scuola": "Scuola Elementare Miao",
+    "insegnanti": [
+      {
+        "nome": "Anna",
+        "cognome": "Blu",
+        "materieInsegante": ["storia", "italiano", "geografia"]
+      },
+      {
+        "nome": "Ludovica",
+        "cognome": "Rossi",
+        "materieInsegante": ["matematica", "geometria"]
+      }
+    ],
+    "alunni": [
+      {
+        "nome": "Marco",
+        "cognome": "Qwerty"
+      },
+      {
+        "nome": "Leonardo",
+        "cognome": "Ciao"
+      },
+      {
+        "nome": "Matteo",
+        "cognome": "Bella"
+      }
+    ],
+    "orari": {
+      "mattina": ["storia", "matematica"],
+      "pomeriggio": ["italiano", "geografia"]
+    }
+  },
+  {
+    "nome": "4A",
+    "scuola": "Scuola Elementare Miao",
+    "insegnanti": [
+      {
+        "nome": "Anna",
+        "cognome": "Blu",
+        "materieInsegante": ["storia", "italiano", "geografia"]
+      },
+      {
+        "nome": "Ludovica",
+        "cognome": "Rossi",
+        "materieInsegante": ["matematica", "geometria"]
+      }
+    ],
+    "alunni": [
+      {
+        "nome": "Marco",
+        "cognome": "Qwerty"
+      },
+      {
+        "nome": "Leonardo",
+        "cognome": "Ciao"
+      },
+      {
+        "nome": "Matteo",
+        "cognome": "Bella"
+      }
+    ],
+    "orari": {
+      "mattina": ["storia", "matematica"],
+      "pomeriggio": ["italiano", "geografia"]
+    }
+  }
+]

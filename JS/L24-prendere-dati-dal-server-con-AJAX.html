@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>L24: Prendere dati dal server con AJAX</title>
+  </head>
+  <body>
+    <script>
+      // 1. Introduzione
+      // 2. L'arrivo di AJAX: asynchronus JavaScript and XML
+
+      // pre-async(AJAX):
+      // faccio un richiesta e mi arriva la pagina
+      // che però è statica
+      // in real-time non c'è aggiornamento
+      // devo aggiornare la pagina per vedere cambiamenti
+
+      // post-AJAX: richedo la pagina e mi viene restituita
+      // la pagina è sempre la stessa MA
+      // in sottobanco vengono mandate delle richieste http
+      // per sapere se la pagina si sta aggiornando
+      // QUINDI
+      // vengono ricaricate parti di pagina alla volta
+      // senza bisogno di aggiornare (refresh)
+
+      // due tipi di chiamate AJAX (già viste)
+
+      // 3. richiesta XML
+      // (le richeiste AJAX di JQuery erano meglio)
+      let classeXML;
+      let classeFetch;
+
+      // definisco un url (locale o di un JSON online, con API di terze parti)
+      // creo una richiesta: un istanza dell'oggetto XML request
+      // apro la richiesta. Specifico il metodo (GET) e specifico l'url
+      // setto il tipo di risposta (qua JSON)
+
+      // definisco onload, l'evento per il controllo dello stato
+      // quando arriva eseguo una f
+      // che definisce classeXML come risposta
+      // e stampo
+
+      // invio la richiesta
+      let url = './classe.json';
+      let request = new XMLHttpRequest();
+      request.open('GET', url);
+      request.responseType = 'json';
+
+      request.onload = () => {
+        classeXML = request.response;
+        console.log('XMLHttpRequest: ', classeXML); // mi restituisce il JSON
+      };
+
+      request.send();
+
+      // 4. richiesta con fetch()
+      // fecth() è un API, arrivato qualche anno fa
+      // (fecth() è meglio anche di AJAX con JQuery)
+      fetch(url) // è un url
+        .then(
+          (
+            response // la risposta è un JSON
+          ) => response.json() // la risposta che mi viene ritornata la parso come JSON
+        )
+        .then(json => {
+          classeFetch = json; // assegno alla var il json che mi è stato dato
+          console.log('fetch: ', classeFetch);
+        });
+    </script>
+  </body>
+</html>
