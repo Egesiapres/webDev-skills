@@ -1,6 +1,0 @@
-Estensioni per node
-
-es6 code snippet
-node-snippet
-npm
-npm intellisense
