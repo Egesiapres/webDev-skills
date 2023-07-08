@@ -3,14 +3,14 @@ console.log('------ %c7: If else & switch ✅', 'font-weight: bold');
 // 1. Cosa sono le condizioni
 // if
 // se la condizione è soddisfatta (se ciò che c'è scritto dopo l'if e le ())
-let nome1 = 'Umberto';
-let eta = 21;
-let soglia = 25;
+let firstName = 'Umberto';
+let minAge = 21;
+let maxAge = 25;
 
 // 2. if else statement
 // se l'if è la condizione da eseguire nelle prime {}
 // l'else è la cosa da eseguire in caso la condizione non viene soddisfatta
-if (nome1 == 'Umberto') {
+if (firstName == 'Umberto') {
   console.log('Ciao Umberto'); // se si verifica la c
 } else {
   console.log('Ciao persona anonima'); // se non si verifica la c
@@ -19,25 +19,25 @@ if (nome1 == 'Umberto') {
 // 3. else if
 // se voglio aggiungere un'altra condizione
 // posso inserire tanti else if quanti me ne servono
-if (nome1 == 'Umberto') {
-  console.log(`${nome1} sei vecchio, hai già ${eta} anni`);
-} else if (nome == 'Emma') {
-  console.log(`${nome1} è giovane :(. Lei ha solo ${eta} anni!`);
-} else if (nome == 'Fede') {
-  console.log(`${nome1} flexa tutti i giorni almeno 1000 muscle-up...`);
+if (firstName == 'Umberto') {
+  console.log(`${firstName} sei vecchio, hai già ${maxAge} anni`);
+} else if (firstName == 'Emma') {
+  console.log(`${firstName} è giovane :(. Lei ha solo ${minAge} anni!`);
+} else if (firstName == 'Fede') {
+  console.log(`${firstName} flexa tutti i giorni almeno 1000 muscle-up...`);
 } else {
   console.log('Chissene tanto moriremo tutti');
 }
 
 // 4. Ripasso sugli operatori comparativi
 // === !== == != < > <= >=
-if (eta < 25) {
-  console.log(`Se l'età è minore di ${soglia}, potrebbe trattarsi di Emma`);
-} else if (eta > 25) {
-  console.log(`Se l'età è maggiore di ${soglia}, potrebbe trattarsi di Fede`);
-} else if (eta == 25) {
+if (minAge < 25) {
+  console.log(`Se l'età è minore di ${maxAge}, potrebbe trattarsi di Emma`);
+} else if (minAge > 25) {
+  console.log(`Se l'età è maggiore di ${maxAge}, potrebbe trattarsi di Fede`);
+} else if (minAge == 25) {
   //è uguale
-  console.log(`Se l'età è uguale a ${soglia}, si tratta certamente di Umbe`);
+  console.log(`Se l'età è uguale a ${maxAge}, si tratta certamente di Umbe`);
 } else {
   console.log(
     'Non si tratta di nessuno, oppure il valore scritto non è un numero'
@@ -48,7 +48,7 @@ let anni = 15;
 // non è uguale
 if (anni != 25) {
   console.log(
-    `Se l'età non è uguale a ${soglia}, potrebbe trattarsi di Emma o di Fede`
+    `Se l'età non è uguale a ${maxAge}, potrebbe trattarsi di Emma o di Fede`
   );
 }
 
@@ -56,11 +56,11 @@ let age = 25;
 
 if (age <= 25) {
   console.log(
-    `Se l'età è minore o uguale a ${soglia}, potrebbe trattarsi di Umbe o di Emma`
+    `Se l'età è minore o uguale a ${maxAge}, potrebbe trattarsi di Umbe o di Emma`
   );
 } else if (age >= 25) {
   console.log(
-    `Se l'età è maggiore o uguale a ${soglia}, potrebbe trattarsi di Umbe o di Fede`
+    `Se l'età è maggiore o uguale a ${maxAge}, potrebbe trattarsi di Umbe o di Fede`
   );
 }
 
@@ -68,12 +68,12 @@ let edad = '21';
 // è identico (controlla il valore e il tipo)
 if (edad === 25) {
   console.log(
-    `Se l'età è identica a ${soglia}, il valore dell'età di Umbe è un numero`
+    `Se l'età è identica a ${maxAge}, il valore dell'età di Umbe è un numero`
   );
 } else if (edad !== 25) {
   // non è identico
   console.log(
-    `Se l'età non è identica a ${soglia}, il valore dell'età di Umbe non è un numero`
+    `Se l'età non è identica a ${maxAge}, il valore dell'età di Umbe non è un numero`
   );
 }
 
@@ -132,10 +132,10 @@ if (!(nombre == 'Umberto')) {
 // risolve il problema dell'else if quando ce ne sono molti
 // più leggibile e pulito
 // si usa quando ho una condizione sola, senza operatori logici vari
-let marco = 'Marco';
+let personName = 'Marco';
 
 // dopo lo switch si inserisce la condizione
-switch (marco) {
+switch (personName) {
   // a ogni case si inserisce la condiziond dell'else if
   case 'Luca':
     console.log('Ciao Luca');
@@ -152,17 +152,17 @@ switch (marco) {
 
 // 8. Ternary operator
 // si usa molto nei template literals ``
-let numero2 = 12;
+let number2 = 12;
 // è numero2 minore di 20? Se si scrivi Luca, altrimenti Leonardo
 // ? stampa in caso di true
 // : stampa in caso di false
-let templateOperator = numero2 < 20 ? 'Luca' : 'Leonardo';
+let templateOperator = number2 < 20 ? 'Luca' : 'Leonardo';
 
 console.log(templateOperator);
 
 // AGGIUNTA
 // short-circuit evaluation
 let tool = 'marker'; // se rendo tool falso, svuotando la variabile inserendo 0, o '', viene stampato pen
-let writingUtensil = tool || 'pen';
+let writingTool = tool || 'pen';
 
-console.log(`The ${writingUtensil} is mightier than the sword.`);
+console.log(`The ${writingTool} is mightier than the sword`);

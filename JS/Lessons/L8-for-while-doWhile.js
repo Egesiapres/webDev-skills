@@ -9,17 +9,17 @@ console.log('------ %c8: For, while & do while ✅', 'font-weight: bold');
 // ogni volta che la condizione (trovo una pagina non letta) è vera eseguo
 // quando non trovo più pagine finisco, interrompo
 
-let array = [22, 13, 34, 6, 99, 101];
+let numbersArray = [22, 13, 34, 6, 99, 101];
 let a = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 // 2. Perchè ci servono i loop (cicli)
 // al posto di
-//  console.log(array[0]);
-//  console.log(array[1]);
-//  console.log(array[2]);
-//  console.log(array[3]);
-//  console.log(array[4]);
-//  console.log(array[5]);
+//  console.log(numbersArr[0]);
+//  console.log(numbersArr[1]);
+//  console.log(numbersArr[2]);
+//  console.log(numbersArr[3]);
+//  console.log(numbersArr[4]);
+//  console.log(numbersArr[5]);
 // macchinoso, ripetitivo e non automatico
 
 // 3. FOR
@@ -31,8 +31,8 @@ let a = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 // III: iteration statement: nuovo valore per ogni iterazione del loop
 
 console.log('normal loops');
-for (let i = 0; i < array.length; i++) {
-  console.log(array[i]);
+for (let i = 0; i < numbersArray.length; i++) {
+  console.log(numbersArray[i]);
 }
 
 for (let i = 0; i < 4; i++) {
@@ -55,9 +55,9 @@ for (let i = 2; i < a.length - 2; i++) {
 // BREAK: termina anche se la stopping condition non è soddisfatta
 // se mi imbatto nel numero 56 esci dal ciclo
 console.log("'BREAK': go out of the loop");
-for (let i = 0; i < array.length; i++) {
-  console.log(array[i]);
-  if (array[i] == 56) {
+for (let i = 0; i < numbersArray.length; i++) {
+  console.log(numbersArray[i]);
+  if (numbersArray[i] == 56) {
     break;
   }
 }
@@ -71,10 +71,10 @@ for (let i = 0; i < rapperArray.length; i++) {
   }
 }
 
-console.log("And if you don't know, now you know.");
+console.log("And if you don't know, now you know");
 
 // let array = [22,13,34,6,99,101];
-for (let i = 0; i < array.length; i++) {
+for (let i = 0; i < numbersArray.length; i++) {
   // 4. SALTARE l'iterazione
   // CONTINUE
   // stampa tutto tranne il numero 56
@@ -83,18 +83,18 @@ for (let i = 0; i < array.length; i++) {
 
   // io: saltare 13 e 34
   // no && si ||: può essere uno dei due o entrambi. Non per forza contemporaneamente
-  if (array[i] == 13 || array[i] == 34) {
+  if (numbersArray[i] == 13 || numbersArray[i] == 34) {
     continue;
   }
-  console.log(array[i]);
+  console.log(numbersArray[i]);
 }
 
 // stampa tutti i numeri dispari
-for (let i = 0; i < array.length; i++) {
-  if (array[i] % 2 == 0) {
+for (let i = 0; i < numbersArray.length; i++) {
+  if (numbersArray[i] % 2 == 0) {
     continue;
   }
-  console.log(array[i]);
+  console.log(numbersArray[i]);
 }
 
 // 6. WHILE & DO WHILE
