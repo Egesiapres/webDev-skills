@@ -1,0 +1,90 @@
+console.log('------ %c2: Variables ❌', 'font-weight: bold')
+
+// 1. Cos'è una variabile?
+// 2. Dichiarare vs inizializzare
+// quando dichiaro la variabile creo la scatola. Quando la inizializzo la riempio
+let nome = 'Edoardo';
+
+// 3. Aggiornare una variabile
+nome = 'Luca'; // riprendo il nome ma senza il let
+// i valori nella variabile sono mutabili nel corso del tempo
+
+console.log(nome); // se il risultato è undefined: la variabile esiste (è definita, è stata dichiarata) ma non ha contenuto (non è stata inzializzata)
+// console.log(cognome); // qui viene restituito un errore: la variabile non è definita, non è esiste (non c'è la scatola)
+
+// 4. Norme per la dichiarazione delle variabili
+// le variabili vanno scritte in minuscolo. Quando ho più parole una accanto all'altra posso user l'underscore ma il meglio è il camelCase
+// l' _ si usa di più nelle variabili di php
+// no _ per iniziare e no numeri all'inizio
+// no accenti
+// scrivere dei nomi intuibili e sensati
+let dichiarazioneVarabileNuova;
+let dichiarazionevariabilenuova; // è anche meno leggibile della precedente
+
+// 5. Let vs Var
+// meglio usare let quando devo definire una variabile, var ormai non si usa più
+// aggiornare una variabile
+let n = 'Umberto';
+n = 'Emma';
+
+// 6. Tipi di varibili
+let number = 25; // number: interi
+let float = 25.2; // float: numeri con la virgola
+let string = 'Umberto'; // string: stringhe di testo (il testo va scritto dento le '' o "")
+let boolean = true; // boolean: può essere true or false
+let erasmusFriends = ['Fede', 'Thomas', 'Kiki']; // array (vettore): insieme di dati
+// negli array (e in generale) il conteggio parte sempre da 0 (si tratta dell'indice, di index)
+let esempioInfame = [1, 2, 3];
+
+console.log(number);
+console.log(float);
+console.log(string);
+console.log(boolean);
+console.log(erasmusFriends);
+console.log(erasmusFriends[1]); // stampare valori ripresi dall'array. Stampa Thomas
+console.log(esempioInfame[0]); // stampa 1
+// posso usare la notazione sopra per accedere ad un valore solamente quando sono in presenza di array
+// con gli oggetti no (a meno che dentro all'oggetto ci siano altri array)
+
+// 7. Oggetti
+// sono rappresentazioni programmatiche, in codice di quello che esiste nella realtà
+// contengono molti dati fra cui ci possono anche essere array
+let persona = {
+  nome: 'Umberto',
+  cognome: 'Pasinetti',
+  codiceFiscale: 'PSNMRT96S01B157M',
+  dni: 'AY8213233',
+  eta: 25,
+  cittaNascita: 'Brescia',
+  coloriPreferiti: ['rosso', 'blu', 'nero'],
+};
+
+console.log(persona);
+console.log(persona.dni); // stampare valori specifici ripresi dall'interno dell'oggetto
+// in persona.dni, il . può essere letto come un "della"
+console.log(persona.coloriPreferiti[1]);
+
+// 8. Tipizzazione dinamica
+// js a differenza di ts (typescript) o java, quando dobbiamo dichiarare una variabile, non ci costringe a dichiararne il tipo
+let user = 'Giovanni'; // in altri linguaggi sarebbe stato una cosa tipo let string user = 'Giovanni';
+user = 55; // da string viene dimanicamente cambiato il tipo di variabile in number all'aggiornamento della variabile
+
+console.log(typeof user);
+
+// 9. Costanti
+// valori che non devono variare nel tempo (varaibili fisse)
+// quindi non possono essere aggiornate come per i let
+// es: indirizzo del db
+const secondUser = 'Mariarosa';
+// secondUser = 'Montirone'; //qui viene restituito un errore perchè le const sono fisse
+
+console.log(secondUser);
+
+// AGGIUNTA
+// posso dichiarare una variabile senza assegnarle un valore
+// viene inizializzata automaticamente con il valore: undefined
+// stessa cosa è assegnarle 0, o ''
+let ciao;
+console.log(ciao);
+ciao = 'ciao persona';
+console.log(ciao);
