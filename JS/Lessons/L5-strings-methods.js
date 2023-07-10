@@ -3,12 +3,12 @@ console.log('------ %c5: Strings methods 📝', 'font-weight: bold');
 // 1. Cosa è una stringa?
 // per js è un oggetto. Quindi ha dei metodi (delle funzioni)
 let jsCourse = `This is a complete and updated JS course`;
-let hello = `Hello`;
+let hi = `Hi`;
 
 // 2. Lunghezza di una stringa
 // .length
 console.log(jsCourse.length);
-console.log(hello.length);
+console.log(hi.length);
 
 // 3. Prendere la lunghezza di un carattere specifico
 // come per gli array
