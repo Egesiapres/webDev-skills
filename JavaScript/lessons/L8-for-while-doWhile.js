@@ -1,4 +1,4 @@
-console.log('------ %c8: For, while & do while ✅', 'font-weight: bold');
+console.log('------ %c8: For, while & do while 🔁', 'font-weight: bold');
 
 // 1. Introduzione
 // esempio del libro

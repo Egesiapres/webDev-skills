@@ -1,4 +1,4 @@
-console.log('------ %c9: Functions introduction', 'font-weight: bold');
+console.log('------ %c9: Functions introduction 🦾', 'font-weight: bold');
 
 // 1. Blocchi di codici riutilizzabili
 // set di istruzioni ripetuto ogni volta che viene invocato
