@@ -39,7 +39,8 @@ nav {
 }
 
 .bg-js {
-  background-color: #FFF8D6;
+  /* background-color: #FFF8D6; */
+  background-color: white;
 }
 
 table {
@@ -47,10 +48,10 @@ table {
   border-spacing: 0;
   border: solid 0.5px black;
   background-color: white;
-  
 }
 
-th, td {
+th,
+td {
   padding: 10px;
   border: solid 0.5px black;
   text-align: center;
