@@ -1,12 +1,12 @@
-// * L3
+// * L3: typescript working explanation
 const sum = (n1: number, n2: number) => {
   return n1 + n2;
 };
 
 console.log(sum(3, 5));
 
-// * L4
-// ? dynamic (JS) VS static (TS) typing
+// * L4: string, number and boolean
+// ? dynamic (JS) VS static (TS)
 // let dynamicTyping = 'hi';
 // dynamicTyping = 5;
 
@@ -29,8 +29,7 @@ const ta3: boolean = true;
 let typeInference = 10;
 // typeInference = 'ciao';
 
-// * L5
-// ? data types
+// * L5: object, array and tuple
 // 1. object
 const objTi = {
   name: 'Luke',
@@ -48,7 +47,7 @@ let objTa: {} = {
   surname: 'Skywalker',
 };
 
-objTa.name; // objectAssignment no
+objTa.name; // is specified objTa is an empty obj, so it could not have properties
 
 let complexObjTa: {
   name: string;
@@ -99,7 +98,7 @@ const game = {
   players: ['username1', 'username2'], // max 2 players
 };
 
-// L5
+// * L6: any, union, custom type and enum
 // ? 4. any
 let any: any;
 any = 'hi';
@@ -130,8 +129,7 @@ person = {
 
 function findPerson(person: PersonCustomType) {}
 
-// ? 7. enum
-// enumeration
+// ? 7. enum (enumeration)
 // allow to create a ticket
 enum Roles {
   ADMIN, // default = 0
@@ -151,5 +149,66 @@ const person1 = {
   name: 'Luke',
   surname: 'Skywalker',
   role: Roles.ADMIN,
-  role1: Roles1.ADMIN
+  role1: Roles1.ADMIN,
 };
+
+// * L7: functions
+function sum1(n1: number, n2 = 1): number {
+  return n1 + n2;
+}
+
+// ! reading the first line it's possible to understeand what the f does
+// due to the inference of the default values, the value expected is a number
+// the return value is inferred, it's a number
+// ! any as return value when I have ifs and different things returned
+sum1(5, 8);
+
+// ! void when there's no value returned
+function testVoid(v1: string): void {
+  console.log(v1);
+}
+
+let functionType: Function;
+functionType = sum1;
+
+console.log(functionType(1, 9));
+
+functionType = testVoid; // If i reassign the v to another f there is an error not retrieved
+console.log(functionType(1, 1));
+
+let functionType1: (x: number, y: number) => number;
+// testVoid parameters are not numbers
+
+// function test(x: number, cb: () => void{}){}
+
+// * L8: compiler
+// ? avoid continuously running tsc app.ts (1 file)
+// ! tsc app.ts -w (o --watch)
+
+// ? compile the entire project (1+ files)
+// (not creating a different watch mode for each file)
+// ! tsc init
+// ! tsc -w
+// generates a json
+
+// from the json I can exclude certain files
+// same thing with include
+
+// ? some useful json settings
+// compilation target: es5/6...
+
+// check with the compiler also the js files
+// (generating the json and activating these lines)
+// "allowJs": true,
+// "checkJs": true,
+// ! or use the ts bonus features in a js project
+
+// see the app.ts file in the source tab (dev tools)
+// "sourceMap": true,
+ 
+// folders to retrieve the project
+// "rootDir": "./"
+// "rootDirs": [],
+
+// folder where the project is outputted
+// "outDir": "./", 
