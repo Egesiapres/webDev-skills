@@ -205,10 +205,127 @@ let functionType1: (x: number, y: number) => number;
 
 // see the app.ts file in the source tab (dev tools)
 // "sourceMap": true,
- 
+
 // folders to retrieve the project
 // "rootDir": "./"
 // "rootDirs": [],
 
 // folder where the project is outputted
-// "outDir": "./", 
+// "outDir": "./",
+
+// * L9: compiler: classes
+class Person {
+  private name: string;
+  private surname: string;
+
+  constructor(name: string, surname: string) {
+    (this.name = name), (this.surname = surname);
+  }
+
+  introYourself(): void {
+    console.log(`Hi, I'm ${this.name} ${this.surname}`);
+  }
+
+  sayHello(person: Person): void {
+    console.log(`Hi ${person.name} ${person.surname}, nice to meet you`);
+  }
+
+  changeSurname() {}
+}
+
+let person2: Person;
+person2 = new Person('Luke', 'Rossi');
+console.log(person2);
+
+const umberto: Person = new Person('Umberto', 'Pasinetti');
+umberto.introYourself();
+// person2.sayHello('Umberto', 'Pasinetti')
+person2.sayHello(umberto);
+
+// ? public: to specify only in the constructor shorthand. The prop can change whenever u want
+// ? private: the prop cannot change outside the class, neither inside a child class (It can, but using a class method, so, insiede the class)
+// ? readonly: the property cannot change at all (useful for ids)
+// ? protected: the prop cannot change outside the class, but it can inside a child class
+person2.surname = 'Tirelli';
+person2.changeSurname();
+
+// ? constructor shorthand
+// I can omit the this. part and constructor part
+class PersonShorthand {
+  constructor(
+    private name: string,
+    protected surname: string,
+    readonly age: number
+  ) {}
+
+  introYourself(): void {
+    console.log(
+      `Hi, I'm ${this.name} ${this.surname} and I'm ${this.age} years old`
+    );
+  }
+
+  changeInfo() {
+    (this.name = 'A'), (this.surname = 'B');
+    this.age = 4;
+  }
+
+  // it can be called from the class, NOT from the class instance
+  static staticMethod() {}
+}
+
+let emma: PersonShorthand = new PersonShorthand('Emma', 'Franchino', 22);
+emma.introYourself();
+
+class StudentShorthand extends PersonShorthand {
+  constructor(
+    name: string,
+    surname: string,
+    age: number,
+    private favSubject: string
+  ) {
+    super(name, surname, age);
+  }
+
+  change() {
+    (this.name = 'miao'), (this.surname = 'bauuu');
+  }
+}
+
+const studentShorthand: StudentShorthand = new StudentShorthand(
+  'Student name',
+  'Student surname',
+  15,
+  'Geometry'
+);
+
+PersonShorthand.staticMethod();
+
+// abstract classes cannot be instanciated
+// ! useful as template for the child classes
+// if a method is abstract, it cannot be omitted in a child class
+abstract class Prova {}
+
+const prova: Prova = new Prova();
+
+// ? singleton: just 1 instance creable
+class Director {
+  private static instance: Director;
+
+  private constructor(private name: string, private surname: string) {}
+
+  static getInstance() {
+    if (Director.instance) {
+      return this.instance;
+    }
+
+    this.instance = new Director('Mario', 'Rossi');
+    return this.instance;
+  }
+
+  presenta() {
+    console.log(`Good morning, I'm the director ${this.name} ${this.surname}`);
+  }
+}
+
+// const preside: Preside = new Preside('Mario', 'Rossi');
+Director.getInstance().presenta();
