@@ -62,18 +62,18 @@ console.log(calculateArea(7, 8)); // Output: valore
 // 6. SCOPE
 // scope: accessibilità delle variabili
 // GLOBAL SCOPE (v globali): fuori dal block (contenuto delle {})
-let nome = 'Umberto';
-let eta = 25;
+let nameUmberto = 'Umberto';
+let ageUmberto = 25;
 // BLOCK SCOPE (v locali): dentro al block
-function prova() {
-  let cognome = 'Pasinetti';
-  console.log(`${nome} ${cognome} ha ${eta} anni`);
+function introduceUmberto() {
+  let surnameUmberto = 'Pasinetti';
+  console.log(`${nameUmberto} ${surnameUmberto} ha ${ageUmberto} anni`);
 }
 
-prova();
+introduceUmberto();
 
-console.log(nome);
-// console.log(cognome);
+console.log(nameUmberto);
+// console.log(surnameUmberto);
 // Output: cognome is not undefined (perché lo scope di cognome è prova())
 
 // 7. Innestare funzioni
@@ -90,41 +90,41 @@ function hello(x) {
 hello(); // stampa undefined: non ho richiamato la funzione con il parametro
 hello(e); // funzione richiamata correttamente con il parametro
 
-function ciao() {
-  let su = 'Pasinetti';
-  let se = 'Franchino';
-  console.log('ciao', su);
-  hello(se); // funzioni innestate
+function hiSurname() {
+  let surnameUmberto = 'Pasinetti';
+  let surnameEmma = 'Franchino';
+  console.log('Hi', surnameUmberto);
+  hello(surnameEmma); // funzioni innestate
   // ha il parametro in entrata
   // il parametro può essere solo locale
   // se prendo una variabile globale mi da errore ???
 }
 
-ciao(); // non parametro perché la f ciao() non ce l'ha
+hiSurname(); // non parametro perché la f ciao() non ce l'ha
 // ciao(surname); // error
 
 // concatenazione di funzioni serve molto nelle tabelle
 // esempio di innesto
-function generaTabella() {
-  generaHeader();
-  generaRighe();
-  generaFooter();
-  console.log('Tabella generata');
+function generateTable() {
+  generateHeader();
+  generateRows();
+  generateFooter();
+  console.log('Table generated');
 }
 
-function generaHeader() {
-  console.log('Header generato');
+function generateHeader() {
+  console.log('Header generated');
 }
 
-function generaRighe() {
+function generateRows() {
   console.log('Righe generate');
 }
 
-function generaFooter() {
-  console.log('Footer generato');
+function generateFooter() {
+  console.log('Footer generated');
 }
 
-generaTabella();
+generateTable();
 
 // AGGIUNTA
 // ARROW FUNCTIONS

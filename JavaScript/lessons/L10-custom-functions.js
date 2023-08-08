@@ -1,23 +1,23 @@
-console.log('------ %c2: Custom functions 🪢', 'font-weight: bold');
+console.log('------ %c10: Custom functions 🪢', 'font-weight: bold');
 
 // 1. Crea una funzione basica custom
-const name = document.querySelector('input');
-const helloButton = document.querySelector('button');
+const input = document.querySelector('input');
+const helloBtn = document.getElementById('hello-btn');
 const h1 = document.querySelector('h1');
 
 // io
 const b = document.getElementById('b');
 
 // 4. Parametri di DEFAULT: ciò che viene preso quando invoco la f senza inserire uno argomento specifico
-function greeting(name = 'stranger') {
-  console.log(`Hello, ${name}!`);
+function hiInput(input = 'stranger') {
+  console.log(`Hello, ${input}!`);
 }
 
-greeting('Nick'); // Output: Hello, Nick!
-greeting(); // Output: Hello, stranger!
+hiInput('Nick'); // Output: Hello, Nick!
+hiInput(); // Output: Hello, stranger!
 
 // se metto solo x come parametro (senza ="") non va perché non l'ho definito
-function sayHello(
+function sayHelloDefParam(
   x = "Ti stampo il parametro di default. O non hai messo un parametro nella funzione (sayHello()), o l'hai inserito non correttamente"
 ) {
   h1.innerHTML = `Ciao ${x}`; // .innerHTML cambia il contenuto (qui di h1)
@@ -35,20 +35,20 @@ prova('Umberto');
 // 3. Inserire dei parametri
 // devo aggiungere il listener sul bottone
 // .value prende il valore specifico
-helloButton.addEventListener('click', () => {
-  sayHello(name.value);
+button.addEventListener('click', () => {
+  sayHelloDefParam(input.value);
 });
 
 // io
 b.addEventListener('click', () => {
-  prova(name.value);
+  prova(input.value);
 });
 
 // AGGIUNTA
 // PARAMETRO: ciò che sta dentro alle () nella definizione di una f. Agisce da segnaposto
-function sayThanks(name) {
+function sayThanks(input) {
   console.log(
-    'Thank you for your purchase ' + name + '! We appreciate your business.'
+    'Thank you for your purchase ' + input + '! We appreciate your business.'
   );
 }
 // ARGOMENTO: ciò che sta dentro alle () nell'invocazione di una funzione. Valore vero e proprio che viene passato alla f
@@ -238,7 +238,7 @@ console.log(
   })
 );
 
-const cities = [
+const citiesArr = [
   'Orlando',
   'Dubai',
   'Edinburgh',
@@ -254,11 +254,11 @@ const nums = [1, 50, 75, 200, 350, 525, 1000];
 
 // "REAL LIFE" use case
 //  Choose a method that will return undefined
-cities.forEach(city => console.log('Have you visited ' + city + '?'));
+citiesArr.forEach(city => console.log('Have you visited ' + city + '?'));
 // Choose a method that will return a new array
-const longCities = cities.filter(city => city.length > 7);
+const longCities = citieArr.filter(city => city.length > 7);
 // Choose a method that will return a single value
-const word = cities.reduce((acc, currVal) => {
+const word = citiesArr.reduce((acc, currVal) => {
   return acc + currVal[0];
 }, 'C');
 console.log(word);
