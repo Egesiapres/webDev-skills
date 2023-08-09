@@ -61,7 +61,7 @@ td {
 
 form,
 div,
-p {
+li>p {
   display: flex;
   flex-direction: column;
   width: 50%;

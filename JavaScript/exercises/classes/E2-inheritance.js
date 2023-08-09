@@ -1,4 +1,4 @@
-console.log('------ %c21: Inheritance 👶🏻', 'font-weight: bold;');
+console.log('------ %c2: Inheritance 👶🏻', 'font-weight: bold;');
 
 // E1
 console.log(

@@ -1,3 +1,4 @@
+console.log('%cBASICS', 'font-weight: bold; color: aquamarine')
 console.log('------ %c1: Variables & constants ❎', 'font-weight: bold;');
 
 // E1

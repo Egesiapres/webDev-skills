@@ -1,4 +1,6 @@
-console.log('------ %c20: Classes 🏭', 'font-weight: bold;');
+console.log('')
+console.log('%cCLASSES', 'font-weight: bold; color: aquamarine')
+console.log('------ %c1: Classes 🏭', 'font-weight: bold;');
 
 // E1
 console.log(
