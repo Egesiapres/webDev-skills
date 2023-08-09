@@ -19,7 +19,8 @@ a {
   margin-right: 5px;
 }
 
-button, input {
+button,
+input {
   margin: 0 5px;
 }
 
@@ -56,4 +57,19 @@ td {
   padding: 10px;
   border: solid 0.5px black;
   text-align: center;
+}
+
+form,
+div,
+p {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin-top: 7px;
+}
+label {
+  margin-bottom: 5px;
+}
+form div:last-child {
+  margin-top: 15px;
 }

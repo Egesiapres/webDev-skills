@@ -106,7 +106,7 @@
 
         <li>
           <a
-            href="https://www.youtube.com/watch?v=YR6AG_oA-fs&list=PLP5MAKLy8lP9FUx06-avV66mS8LXz7_Bb&index=9&t=1s"
+            href="https://www.youtube.com/watch?v=WyC678zya3E&list=PLP5MAKLy8lP9FUx06-avV66mS8LXz7_Bb&index=10"
             target="_blank"
             >Custom functions 🦾🦾
           </a>
@@ -114,13 +114,77 @@
           <input
             type="text"
             name="name"
-            placeholder="nome persona"
+            placeholder="Name"
           />
           <button id="hello-btn-2">Say hello 2!</button>
           <button id="b">Execute a test!</button>
         </li>
 
-        <li>(missing lessons...)</li>
+        <li>
+          <a
+            href="https://www.youtube.com/watch?v=zq6chg-0Nx0&list=PLP5MAKLy8lP9FUx06-avV66mS8LXz7_Bb&index=11"
+            target="_blank"
+            >Return function values ⏎
+          </a>
+
+          <input
+            id="number-input"
+            type="number"
+            placeholder="Insert a number"
+          />
+
+          <button id="minus-btn">Calculate the cube</button>
+          <h1 id="minus-h1">-</h1>
+        </li>
+
+        <li>
+          <a
+            href="https://www.youtube.com/watch?v=qQHGRStxxJg&list=PLP5MAKLy8lP9FUx06-avV66mS8LXz7_Bb&index=12"
+            target="_blank"
+            >Events intro 🎉
+          </a>
+
+          <form>
+            <div>
+              <label for="name">Name:</label>
+              <input
+                id="name"
+                type="text"
+                placeholder="Name"
+              />
+            </div>
+            <div>
+              <label
+                for="surname"
+                onclick="prova()"
+              >
+                Surname:
+              </label>
+              <input
+                id="surname"
+                type="text"
+                placeholder="Surname"
+                onfocus="prova2()"
+              />
+            </div>
+            <div>
+              <label for="nickname">Nickname:</label>
+              <input
+                id="nickname"
+                type="text"
+                placeholder="Nickname"
+              />
+            </div>
+            <div>
+              <input
+                id="submit"
+                type="submit"
+              />
+            </div>
+          </form>
+          
+          <p id="output-p"></p>
+        </li>
 
         <li>
           <a
@@ -129,12 +193,14 @@
             >Objects 📦
           </a>
         </li>
+
+        <li>(Next lesson in progress...)</li>
       </ol>
 
       <h5>Tricky topics</h5>
       <ol>
         <li>Data types</li>
-        
+
         <li>Object oriented programming (OOP)</li>
 
         <li>
@@ -151,9 +217,10 @@
     <script src="lessons/L6-arrays.js"></script>
     <script src="lessons/L7-ifElse-and-switch.js"></script>
     <script src="lessons/L8-for-while-doWhile.js"></script>
-    <script src="lessons/L9-functions-introduction.js"></script>
+    <script src="lessons/L9-functions-intro.js"></script>
     <script src="lessons/L10-custom-functions.js"></script>
-
+    <script src="lessons/L11-return-function-values.js"></script>
+    <script src="lessons/L12-events-intro.js"></script>
     <script src="lessons/L13-objects-(object-literals).js"></script>
 
     <!-- Tricky topics -->
