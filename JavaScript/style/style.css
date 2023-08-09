@@ -16,10 +16,11 @@ li {
 
 a {
   text-decoration: none;
+  margin-right: 5px;
 }
 
-button {
-  margin-left: 10px;
+button, input {
+  margin: 0 5px;
 }
 
 button a,

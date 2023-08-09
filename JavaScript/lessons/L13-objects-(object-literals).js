@@ -4,13 +4,13 @@ console.log('------ %c13: Objects 📦', 'font-weight: bold');
 // 2. Creare un oggetto
 // collezione di dati correlati fra loro
 // * i dati si leggono per coppia chiave (key) valore (value) separari da una ,
-const person = {
+const person1 = {
   name: 'Luca',
   surname: 'Rossi',
   gender: 'Maschio',
   age: 25,
   interests: ['snowboard', 'basket', 'picnic al parco'],
-  // oggetti nidificat📥i
+  // oggetti nidificati
   address: {
     street: 'Piazza Roma',
     cap: '98765',
@@ -30,48 +30,48 @@ const person = {
 // saluta è il metodo di persona
 
 // 2. Leggere proprietà e funzioni
-console.log(person.name);
-console.log(person.age);
-console.log(person.interests[2]); // nell'array se voglio un dato specifico uso l'index
-console.log(person.address.cap); // proprietà di un oggetto in una proprietà di un oggetto
-persona.sayHello(); // richiamare le funzioni (oggetto.metodo())
+console.log(person1.name);
+console.log(person1.age);
+console.log(person1.interests[2]); // nell'array se voglio un dato specifico uso l'index
+console.log(person1.address.cap); // proprietà di un oggetto in una proprietà di un oggetto
+person1.sayHello(); // richiamare le funzioni (oggetto.metodo())
 // console.log(persona.saluta()); // bugga, da undefined. Sopra giusto
 // è uguale a
-console.log(person.name.toLocaleUpperCase());
+console.log(person1.name.toLocaleUpperCase());
 
 // 3. Dot vs brackets notation
 // questo
-console.log(persona.nome);
+console.log(person1.name);
 // è uguale a
-console.log(persona['nome']);
-console.log(persona['interessi']);
-console.log(persona['interessi'][1]);
-console.log(persona['indirizzo']['cap']);
+console.log(person1['name']);
+console.log(person1['interests']);
+console.log(person1['interests'][1]);
+console.log(person1['address']['cap']);
 // per prendere in maniera statica va bene la dot notation
 // per prendere dinamicamente cose è meglio la braketes notation
-const chiave = 'interessi';
-console.log(persona.chiave); // undefined, dentro a persona non c'è chiave
-console.log(persona[chiave][0]); // snowboard
+const key = 'interests';
+console.log(person1.key); // undefined, dentro a persona non c'è chiave
+console.log(person1[key][0]); // snowboard
 
 // 4. Aggiornare un oggetto
 // (come per i let, scendendo con i . fin dove mi serve)
 // perché posso modificare un valore nella costante?
 // perché non sto cambiando interamente la natura dell'oggetto persona
-persona.nome = 'Paolo';
+person1.nome = 'Paolo';
 // persona = 65; qua da errore
-persona.indirizzo.cap = 12300;
-persona.interessi[2] = 'cazzeggiare';
+person1.address.cap = 12300;
+person1.interests[2] = 'cazzeggiare';
 
-console.log(persona.nome);
-console.log(persona.indirizzo.cap);
-console.log(persona.interessi[2]);
+console.log(person1.name);
+console.log(person1.address.cap);
+console.log(person1.interests[2]);
 
 // aggiungere proprietà
 // l'aggiunta avviene in ordine alfabetico
-persona.colorePreferito = 'blu';
+person1.favColor = 'blu';
 
-console.log(persona.colorePreferito);
-console.log(persona);
+console.log(person1.favColor);
+console.log(person1);
 
 // 5. THIS
 // quando lo usiamo facciamo riferiemnto allo STESSO oggetto

@@ -2,7 +2,7 @@ console.log('------ %c10: Custom functions 🪢', 'font-weight: bold');
 
 // 1. Crea una funzione basica custom
 const input = document.querySelector('input');
-const helloBtn = document.getElementById('hello-btn');
+const helloBtn2 = document.getElementById('hello-btn-2');
 const h1 = document.querySelector('h1');
 
 // io
@@ -35,7 +35,7 @@ prova('Umberto');
 // 3. Inserire dei parametri
 // devo aggiungere il listener sul bottone
 // .value prende il valore specifico
-button.addEventListener('click', () => {
+helloBtn2.addEventListener('click', () => {
   sayHelloDefParam(input.value);
 });
 
@@ -256,7 +256,7 @@ const nums = [1, 50, 75, 200, 350, 525, 1000];
 //  Choose a method that will return undefined
 citiesArr.forEach(city => console.log('Have you visited ' + city + '?'));
 // Choose a method that will return a new array
-const longCities = citieArr.filter(city => city.length > 7);
+const longCities = citiesArr.filter(city => city.length > 7);
 // Choose a method that will return a single value
 const word = citiesArr.reduce((acc, currVal) => {
   return acc + currVal[0];
