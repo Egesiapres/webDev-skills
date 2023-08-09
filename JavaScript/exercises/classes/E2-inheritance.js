@@ -165,7 +165,48 @@ const student2 = new Student2('Mario', 'Philosphy');
 student2.greeting();
 
 // E8
-console.log('E8: ');
+console.log(
+  'E8: create a "Vehicle" class with a "startEngine" method. Next, create a "Motorcycle" class that inherits from the "Vehicle" class and has a "ride" method in addition to the "startMotor" method'
+);
+
+class Vehicle2 {
+  startEngine() {
+    console.log('Engine started');
+  }
+}
+
+class Motorbike extends Vehicle2 {
+  ride() {
+    console.log('Riding the motorbike');
+  }
+}
+
+const motorbike = new Motorbike();
+motorbike.startEngine();
+motorbike.ride();
 
 // E9
-console.log('E9: ');
+console.log(
+  'E9: create a class "Shape" with method "calculateArea". Next, create a "Circle" class that inherits from the "Shape" class and has a "radius" property and implements the "calculateArea" method to calculate the area of the circle'
+);
+
+class Shape1 {
+  calculateArea() {
+    console.log('Area sconosciuta')
+  }
+}
+
+class Circle1 extends Shape1 {
+  constructor(radius) {
+    super();
+    this.radius = radius;
+  }
+
+  calculateArea(){
+    const area = Math.PI * Math.pow(this.radius, 2)
+    console.log('Area del cerchio:', area)
+  }
+}
+
+const circle1 = new Circle1(5);
+circle1.calculateArea();
