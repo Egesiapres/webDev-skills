@@ -1,4 +1,4 @@
-console.log('------ %c10: Custom functions 🪢', 'font-weight: bold');
+console.log('------ %c10: Custom functions ⏎', 'font-weight: bold');
 
 // 1. Crea una funzione basica custom
 const input = document.querySelector('input');
