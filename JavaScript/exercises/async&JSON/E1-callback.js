@@ -162,7 +162,7 @@ const fakeAsyncCall2 = (status, callback) => callback(status);
 const callbackManageError = status => {
   setTimeout(() => {
     if (status === 'success') {
-      console.log('Successfull call :) !!!');
+      console.log('Successful call :) !!!');
     }
 
     if (status === 'pending') {
