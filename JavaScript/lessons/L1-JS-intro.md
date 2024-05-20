@@ -50,31 +50,24 @@ JS è dotato di molti APIs (Application Programming Interfaces)
 
 ### Inserire JS in una pagina HTML
 
-interno: tag <script></script> e lo inserisco, in head o body. Dentro al tag head, viene letto prima della creazione di eventuali pezzi della struttura html, quindi potrebbe restituire errori.
+1. **Embedded:** tag `<script></script>` e lo inserisco in *head* o *body.* Dentro al tag *head*, viene letto prima della creazione di eventuali pezzi della struttura html, quindi potrebbe restituire errori.
 
-esterno: <script src=""></script>
+2. **External:** `<script src=""></script>`
 
-inline: <p onclick="ciao()">Player 1: Umberto</p> (con la funzione ciao dentro allo script).
-Questa cosa non è consigliata perché altrimenti devo mettere un onclick ad ogni bottone. Meglio gli eventi ad ascoltare il click
+3. **Inline:** `<p onclick="ciao()">Player 1: Umberto</p>` (con la funzione ciao dentro allo script). Questa cosa non è consigliata perché altrimenti devo mettere un onclick ad ogni bottone. Meglio gli eventi ad ascoltare il click
 
-di solito si mette lo script dentro al body con rimando esterno
+Di solito si mette lo script dentro al body con rimando esterno.\ Alternativamente:
 
-alternativa
+> `<script>document.addEventListener("DOMContentLoaded", function(){});</script>`
 
-<script>
-  document.addEventListener("DOMContentLoaded", function(){
+Qui sopra ascoltiamo per un evento, il quale è il completo caricamento totale del DOM.
 
-  });
-</script>
+I *defer* 3 si leggono in ordine come se fossero uno propedeutico all'altro:
 
-qui sopra ascoltiamo per un evento, il quale è il completo caricamento totale del DOM
+> `<script src="" defer></script>`\
+> `<script src="" defer></script>`\
+> `<script src="" defer></script>`
 
-i defer 3 si leggono in ordine, come se fossero uno propedeutico all'altro
+*async* appena capita viene letto:
 
-<script src="" defer></script>
-<script src="" defer></script>
-<script src="" defer></script>
-
-async appena capita viene letto
-
-<script src="" async></script>
+> `<script src="" async></script>`
