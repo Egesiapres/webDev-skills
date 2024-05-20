@@ -36,7 +36,7 @@ const objTi = {
   surname: 'Skywalker',
 };
 
-// in JS you could access the property and the it finds an error
+// in JS you could access the property and then it finds an error
 // in TS the error is retrieved immediately here
 objTi.eta;
 objTi.name = 3;
@@ -72,7 +72,7 @@ complexObjTa = {
   },
 };
 
-// instead to use a lot of params: obj with properties and their data types
+// instead of using a lot of params: obj with properties and their data types
 function getData(data: { id: number; username: string; password: string }) {
   console.log(data.id);
 }
@@ -94,7 +94,7 @@ const tuple: [number, number] = [1, 2]; // just 2 elements, 2 numbers
 
 const game = {
   id: '',
-  acces_code: '',
+  access_code: '',
   players: ['username1', 'username2'], // max 2 players
 };
 
@@ -157,7 +157,7 @@ function sum1(n1: number, n2 = 1): number {
   return n1 + n2;
 }
 
-// ! reading the first line it's possible to understeand what the f does
+// ! reading the first line it's possible to understand what the f does
 // due to the inference of the default values, the value expected is a number
 // the return value is inferred, it's a number
 // ! any as return value when I have ifs and different things returned
@@ -213,7 +213,7 @@ let functionType1: (x: number, y: number) => number;
 // folder where the project is outputted
 // "outDir": "./",
 
-// * L9: compiler: classes
+// * L9: classes
 class Person {
   private name: string;
   private surname: string;
@@ -243,7 +243,7 @@ umberto.introYourself();
 person2.sayHello(umberto);
 
 // ? public: to specify only in the constructor shorthand. The prop can change whenever u want
-// ? private: the prop cannot change outside the class, neither inside a child class (It can, but using a class method, so, insiede the class)
+// ? private: the prop cannot change outside the class, neither inside a child class (It can, but using a class method, so, inside the class)
 // ? readonly: the property cannot change at all (useful for ids)
 // ? protected: the prop cannot change outside the class, but it can inside a child class
 person2.surname = 'Tirelli';
@@ -329,3 +329,203 @@ class Director {
 
 // const preside: Preside = new Preside('Mario', 'Rossi');
 Director.getInstance().presenta();
+
+// * L10: interfaces
+// implemented into classes
+// are tools to do things
+// not present in JS
+
+// interface VS abstract class
+interface Prova {
+  readonly name: string;
+  saluta(): void;
+  // abstract saluta(): void
+}
+
+interface Qwerty {
+  scrivi(): void;
+}
+
+abstract class x {
+  saluta() {}
+  abstract prova(): void;
+}
+
+// interface VS custom type
+// interface into classes to add functionalities
+// custom type per tipi più complessi
+type Provaa = {
+  name: string;
+  saluta(): void;
+};
+
+type Provaaa = string | number | {};
+
+class y implements Prova, Qwerty {
+  name: string;
+
+  constructor(name: string) {
+    this.name = name;
+  }
+  scrivi(): void {
+    throw new Error('Method not implemented.');
+  }
+
+  saluta(): void {
+    console.log('ciao');
+  }
+}
+
+// derivo dalla classe madre
+// implemento però più strumenti attraverso le interfacce
+
+abstract class Device {
+  constructor(protected name: string, protected year: number) {}
+
+  abstract turnOn(): void;
+  abstract turnOff(): void;
+}
+
+interface Internet {
+  ip: string;
+  connectToInternet(): void;
+}
+
+class Phone extends Device {
+  turnOn(): void {
+    console.log('The phone is turning on...');
+  }
+
+  turnOff(): void {
+    console.log('The phone is turning off...');
+  }
+}
+
+class Smartphone extends Device implements Internet {
+  ip: string;
+
+  constructor(name: string, year: number, ip: string) {
+    super(name, year);
+    this.ip = ip;
+  }
+
+  turnOn(): void {
+    console.log('The smartphone is turning on...');
+  }
+
+  turnOff(): void {
+    console.log('The smartphone is turning off...');
+  }
+
+  connectToInternet(): void {
+    console.log('The smartphone is connecting to internet');
+  }
+}
+
+class Computer extends Device implements Internet {
+  ip: string;
+
+  constructor(name: string, year: number, ip: string) {
+    super(name, year);
+    this.ip = ip;
+  }
+
+  turnOn(): void {
+    console.log('The computer is turning on...');
+  }
+
+  turnOff(): void {
+    console.log('The computer is turning off...');
+  }
+
+  connectToInternet(): void {
+    console.log('The computer is connecting to internet');
+  }
+}
+
+// interfaces extending other interfaces
+// just interfaces can extend multiple interfaces
+// classes no
+interface Interface1 {
+  name: string;
+  eat(): void;
+}
+
+interface Interface2 extends Interface1 {
+  surname: string;
+  breath(): void;
+}
+
+interface Interface3 extends Interface2 {
+  phone: string;
+  sayHello(): void;
+}
+
+interface Interface4 extends Interface2, Interface3 {
+  street: string;
+}
+
+class Persona implements Interface4 {
+  street: string;
+  surname: string;
+  name: string;
+  phone: string;
+
+  constructor(street: string, surname: string, name: string, phone: string) {
+    this.street = street;
+    this.surname = surname;
+    this.name = name;
+    this.phone = phone;
+  }
+
+  breath(): void {
+    throw new Error('Method not implemented.');
+  }
+
+  eat(): void {
+    throw new Error('Method not implemented.');
+  }
+
+  sayHello(): void {
+    throw new Error('Method not implemented.');
+  }
+}
+
+// * L11: generics
+// instrument that allow to create reusable components
+// generics built-in
+const noGenericsArr: string[] = ['umberto', 'emma'];
+const genericsArr: Array<string> = ['pasinetti', 'franchino'];
+// the type can change
+// i can add one or more generic types
+// using extends I can add constraints
+function createArray<T extends number | string>(items: T[]): T[] {
+  return new Array().concat(items);
+}
+
+// it understands we're dealing with numbers or strings
+// or the datatype needed
+const arr1 = createArray<number>([1, 2, 3, 4]);
+
+// class that generates lists of different things
+// T is a generic type that can change (similar ad an argument)
+class Test<T> {
+  private list: T[] = [];
+
+  addItem(item: T) {
+    this.list.push(item);
+  }
+
+  removeItem(item: T) {
+    this.list.splice(this.list.indexOf(item, 1));
+  }
+}
+
+const stringList = new Test<string>();
+stringList.addItem('nabil');
+stringList.addItem('livia');
+stringList.addItem('sofia');
+stringList.removeItem('sofia');
+
+const numberList = new Test<number>();
+numberList.addItem(1);
