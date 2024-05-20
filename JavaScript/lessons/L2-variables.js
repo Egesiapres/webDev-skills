@@ -1,8 +1,9 @@
 console.log('------ %c2: Variables ❌', 'font-weight: bold');
 
 // 1. Cos'è una variabile?
-// 2. Dichiarare vs inizializzare
-// quando dichiaro la variabile creo la scatola. Quando la inizializzo la riempio
+// !! 2. Dichiarare VS Inizializzare
+// quando dichiaro la variabile creo la scatola
+// quando la inizializzo la dichiaro e le assegno un valore (riempendo la scatola)
 let name = 'Edoardo';
 
 // 3. Aggiornare una variabile
@@ -10,8 +11,11 @@ name = 'Luca'; // riprendo il nome ma senza il let
 // i valori nella variabile sono mutabili nel corso del tempo
 name = 6;
 
-console.log(name); // se il risultato è undefined: la variabile esiste (è definita, è stata dichiarata) ma non ha contenuto (non è stata inizializzata)
-// console.log(cognome); // qui viene restituito un errore: la variabile non è definita, non è esiste (non c'è la scatola)
+console.log(name); 
+// !! undefined: la variabile esiste (è stata dichiarata) ma non ha contenuto 
+// (non è stata inizializzata, o meglio, è stata inizializzata con il dt undefined)
+// console.log(cognome); 
+// !! errore: la variabile non è definita, non esiste (non c'è la scatola)
 
 // 4. Norme per la dichiarazione delle variabili
 // le variabili vanno scritte in minuscolo. Quando ho più parole una accanto all'altra posso user l'underscore ma il meglio è il camelCase
@@ -20,11 +24,11 @@ console.log(name); // se il risultato è undefined: la variabile esiste (è defi
 // no accenti
 // scrivere dei nomi intuibili e sensati
 let dichiarazioneVariabileNuova;
-let dichiarazionevariabilenuova; // è anche meno leggibile della precedente
+let dichiarazionevariabilenuova; // meno leggibile della precedente
 
-// 5. Let vs Var
+// 5. Let VS Var
 // meglio usare let quando devo definire una variabile, var ormai non si usa più
-// aggiornare una variabile
+// aggiornare una variabile (riassegnazione del suo valore)
 let newName = 'Umberto';
 newName = 'Emma';
 
@@ -54,8 +58,9 @@ console.log(
   `- its data type is: ${typeof boolean}`
 );
 console.log('This is an array:', arr, `- its data type is: ${typeof arr}`);
-console.log(arr[1]); // stampare valori ripresi dall'array. Stampa Thomas
-console.log(infamousExample[0]); // stampa 1
+// stampare valori ripresi dall'array
+console.log(arr[1]); // Thomas
+console.log(infamousExample[0]); // 1
 // posso usare la notazione sopra per accedere ad un valore solamente quando sono in presenza di array
 // con gli oggetti no (a meno che dentro all'oggetto ci siano altri array)
 
@@ -73,11 +78,12 @@ let person = {
 };
 
 console.log(person);
-console.log(person.id); // stampare valori specifici ripresi dall'interno dell'oggetto
+// stampare valori specifici ripresi dall'interno dell'oggetto
 // in persona.dni, il . può essere letto come un "della"
+console.log(person.id);
 console.log(person.favorite_colors[1]);
 
-// 8. Tipizzazione dinamica
+// !! 8. Tipizzazione dinamica
 // js a differenza di ts (typescript) o java, quando dobbiamo dichiarare una variabile, non ci costringe a dichiararne il tipo
 let user = 'Giovanni'; // in altri linguaggi sarebbe stato una cosa tipo let string user = 'Giovanni';
 user = 55; // da string viene dinamicamente cambiato il tipo di variabile in number all'aggiornamento della variabile
@@ -94,8 +100,8 @@ const secondUser = 'Mariarosa';
 console.log(secondUser);
 
 // AGGIUNTA
-// posso dichiarare una variabile senza assegnarle un valore
-// viene inizializzata automaticamente con il valore: undefined
+// !! posso dichiarare una variabile senza assegnarle un valore
+// !! viene inizializzata automaticamente con il valore: undefined
 // stessa cosa è assegnarle 0, o ''
 let example;
 console.log(example);
