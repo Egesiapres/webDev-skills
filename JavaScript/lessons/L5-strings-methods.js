@@ -21,7 +21,7 @@ console.log(jsCourse.indexOf('course'));
 
 // trovo l'inizio di quello che mi interessa
 let courseIndex = jsCourse.indexOf('course');
-// stampo a partire dall valore della variabile indexCorso, ovvero 12
+// stampo a partire dal valore della variabile indexCorso, ovvero 12
 console.log(jsCourse.slice(courseIndex));
 
 // 5. Cambiare il case di una stringa

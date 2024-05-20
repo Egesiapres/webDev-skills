@@ -1,5 +1,13 @@
 console.log('------ %c8: For, while & do while 🔁', 'font-weight: bold');
 
+// * Cicli
+// for
+// for...of (arrays)
+// for...in (objects)
+// while
+// do...while
+
+
 // 1. Introduzione
 // esempio del libro
 // ho un libro con tante pagine
@@ -12,7 +20,7 @@ console.log('------ %c8: For, while & do while 🔁', 'font-weight: bold');
 let numbersArray = [22, 13, 34, 6, 99, 101];
 let a = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-// 2. Perchè ci servono i loop (cicli)
+// 2. Perché ci servono i loop (cicli)
 // al posto di
 //  console.log(numbersArr[0]);
 //  console.log(numbersArr[1]);
@@ -25,7 +33,7 @@ let a = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 // 3. FOR
 // per ogni volta che si verifica () esegui {}
 // i è il contatore (counter) (il nome, i, è una convenzione)
-// I: inizialization (inizializzare una variabile: let i = 0;)
+// I: initialization (inizializzare una variabile: let i = 0;)
 // ciclo a partire dall'elemento dell'array il cui indice è 0
 // II: stopping condition (finché i è minore della lunghezza totale 6. Quindi prendo fino a 5)
 // III: iteration statement: nuovo valore per ogni iterazione del loop
@@ -45,8 +53,8 @@ for (let i = 2; i < a.length - 2; i++) {
   console.log(a[i]);
 }
 
-// si ferma perché dopo array.lenght[5] il contatore prova a salire
-// però array.lenght[6] è uguale alla lenght totale, quindi si blocca
+// si ferma perché dopo array.length[5] il contatore prova a salire
+// però array.length[6] è uguale alla length totale, quindi si blocca
 // perché la condizione è solo <, non <=
 // se eseguo {console.log(i)} stampa l'indice a cui corrispondono i valori
 // per avere i numeri: {console.log(a[i])}
@@ -160,7 +168,7 @@ for (let i = 3; i >= 0; i--) {
 
 // io: stampare al contrario i numeri
 // console.log(a[i]) Output: undefined
-// credo perchè ho messo let i = a.length
+// credo perché ho messo let i = a.length
 console.log("'a' reverse");
 for (let i = a.length; i > a.indexOf(1); i--) {
   console.log(i);

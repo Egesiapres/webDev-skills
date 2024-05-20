@@ -23,6 +23,6 @@ const orderPromise = orderSunglasses();
 console.log(orderPromise);
 
 // NOTE:
-// to make this file work in node runTime enviroment:
+// to make this file work in node runTime environment:
 // node 'nameOfTheFile'
 // example: node L20-promises.js

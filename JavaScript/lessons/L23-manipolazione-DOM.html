@@ -33,7 +33,7 @@
       // DOM: struttura ad albero che descrive la gerarchia degli elementi del sito
       // costruito a partire dall'html
       // root node: html (tag padre di tutti)
-      // sibilings: 2 tag children sullo stesso lvl
+      // siblings: 2 tag children sullo stesso lvl
       // descendent: quando ci sono 2 o + lvl di separazione (figlio del figlio)
 
       // 2. Prendere elementi dal DOM
@@ -45,7 +45,7 @@
 
       let w = document.querySelectorAll('.prova'); // restituisce tutti gli elementi con quel selettore
       console.log('w: ', w[0]);
-      let j = document.getElementsByClassName('prova'); // tramite la classa
+      let j = document.getElementsByClassName('prova'); // tramite la classe
       // funzionamento simile a querySelectorAll()
       console.log('j: ', j[2]);
 
@@ -80,7 +80,7 @@
       // EVITA lo style inline
       // riutilizzabile
       // si usa molto per gli errori
-      // creo un attrivuto classe dal nome modificaStili
+      // creo un attributo classe dal nome modificaStili
       // creo un attributo personalizzato data-value dal valore ciao
       // ATTRIBUTI PERSONALIZZATI: storano un valore a nostro piacimento
       // se il nome è diverso da quello di uno attributo standard

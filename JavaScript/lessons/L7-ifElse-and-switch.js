@@ -122,7 +122,7 @@ let nombre = 'Umberto';
 //basta scrivere
 //if (nombre != 'Umberto')
 if (!(nombre == 'Umberto')) {
-  console.log(`Sicuramente non si tratta di Umnberto`);
+  console.log(`Sicuramente non si tratta di Umberto`);
 } else {
   console.log(`Si tratta sicuramente di Umberto`);
 }
@@ -136,7 +136,7 @@ let personName = 'Marco';
 
 // dopo lo switch si inserisce la condizione
 switch (personName) {
-  // a ogni case si inserisce la condiziond dell'else if
+  // a ogni case si inserisce la condizione dell'else if
   case 'Luca':
     console.log('Ciao Luca');
     break; // evita che il codice vada avanti, sono delle interruzioni

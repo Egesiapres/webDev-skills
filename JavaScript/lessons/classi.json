@@ -6,12 +6,12 @@
       {
         "nome": "Anna",
         "cognome": "Blu",
-        "materieInsegante": ["storia", "italiano", "geografia"]
+        "materieInsegnante": ["storia", "italiano", "geografia"]
       },
       {
         "nome": "Ludovica",
         "cognome": "Rossi",
-        "materieInsegante": ["matematica", "geometria"]
+        "materieInsegnante": ["matematica", "geometria"]
       }
     ],
     "alunni": [
@@ -40,12 +40,12 @@
       {
         "nome": "Anna",
         "cognome": "Blu",
-        "materieInsegante": ["storia", "italiano", "geografia"]
+        "materieInsegnante": ["storia", "italiano", "geografia"]
       },
       {
         "nome": "Ludovica",
         "cognome": "Rossi",
-        "materieInsegante": ["matematica", "geometria"]
+        "materieInsegnante": ["matematica", "geometria"]
       }
     ],
     "alunni": [

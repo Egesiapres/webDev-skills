@@ -1,17 +1,20 @@
 console.log('------ %c9: Functions introduction 🦾', 'font-weight: bold');
 
+
+
+
 // 1. Blocchi di codici riutilizzabili
 // set di istruzioni ripetuto ogni volta che viene invocato
 // function: keyword
-// function body (conteunto delle {}): blocks
+// function body (contenuto delle {}): blocks
 function cucinaPasta() {
-  tiraFuoripentola;
+  tirareFuoriPentola;
   mettereAcqua;
-  lasciareBollire;
+  lasciarBollire;
   mettereSale;
   metterePasta;
   fareSugo;
-  impiattate;
+  mettereDentroPiatti;
 }
 
 // 2. Funzioni del browser string.replace(), array.join(), Math.random()
@@ -41,7 +44,7 @@ sayHello(); // invocazione
 // 5. Funzioni ANONIME
 // no nome, chiamate in un altro modo
 // molto usate in eventi e callback
-// NO f anonima: dentro a const viene asseganatata alla variabile
+// NO f anonima: dentro a const viene assegnata alla variabile
 const helloBtn = document.getElementById('hello-btn');
 
 helloBtn.onclick = function () {

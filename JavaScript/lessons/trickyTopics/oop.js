@@ -27,7 +27,7 @@ console.log('------ %c2: OOP', 'font-weight: bold');
 
 // ! SOLID principles
 // ? improve maintainability, flexibility and quality of the code
-// * S: single responsiblity
+// * S: single responsibility
 // a class should have just one reason (responsibility), to be modified
 // TIP: divide functionalities into different classes
 // * O: open/closed
@@ -40,7 +40,7 @@ console.log('------ %c2: OOP', 'font-weight: bold');
 // * D: dependency inversion
 // high order classes should not depend on low order classes
 // both should depends on abstractions (interfaces, or abstract base classes)
-// TIP: this principle encourages the dipendencies abstraction
+// TIP: this principle encourages the dependencies abstraction
 
 // ? binding
 
@@ -95,7 +95,7 @@ class Vehicle {
   }
 
   vehicleDescription() {
-    return `This is a ${this._model.name}, an ${this._model.producer.nationality} ${this._model.type} produced by ${this._model.producer.name}. This ${this._model.year} model has ${this._engine.horsePower} HP, is ${this._engine.fuel} fueled, and it weights aroud ${this._weight} kg. It has ${this._seats} seats.`;
+    return `This is a ${this._model.name}, an ${this._model.producer.nationality} ${this._model.type} produced by ${this._model.producer.name}. This ${this._model.year} model has ${this._engine.horsePower} HP, is ${this._engine.fuel} fueled, and it weights around ${this._weight} kg. It has ${this._seats} seats.`;
   }
 }
 

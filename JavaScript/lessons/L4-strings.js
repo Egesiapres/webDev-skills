@@ -14,7 +14,7 @@ let str3 = "L'apostrofo";
 // let stringa4 = 'L'apostrofo';
 
 // 3. Escape dei caratteri in una stringa
-// per rispovere il problema dei caratteri devo usare il \ (back slash)
+// per risolvere il problema dei caratteri devo usare il \ (back slash)
 // così facendo eseguo l'escape dei caratteri
 let str4 = "L'apostrofo";
 

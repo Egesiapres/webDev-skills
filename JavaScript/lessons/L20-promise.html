@@ -10,12 +10,12 @@
     <script>
       // 1. Cosa sono le promise?
       // promise: rappresentanza di uno stato, dell'outcome di un'operazione asincrona
-      // stato: pending, fullfilled o rejected
+      // stato: pending, fulfilled o rejected
       // promessa di ritornare un valore che il programma ci da
       // non sappiamo nulla sul tipo di risposta
       // sappiamo solo che in modo asincrono ci verrà dato qualcosa
 
-      // 2. Il probalema con le callback
+      // 2. Il problema con le callback
       // chooseToppings(function (toppings) {
       //   placeOrder(
       //     toppings,
@@ -102,7 +102,7 @@
       });
 
       // esempio vero
-      // è come se specificassi il comportamento basandmi su ciò che accade
+      // è come se specificassi il comportamento basandomi su ciò che accade
       function timeoutPromise(message, interval) {
         return new Promise((resolve, reject) => {
           // la funzione creata deve restituire una promise

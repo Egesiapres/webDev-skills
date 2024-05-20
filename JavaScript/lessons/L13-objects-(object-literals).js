@@ -3,7 +3,7 @@ console.log('------ %c13: Objects 📦', 'font-weight: bold');
 // 1. Cosa è un oggetto? Proprietà, metodi
 // 2. Creare un oggetto
 // collezione di dati correlati fra loro
-// * i dati si leggono per coppia chiave (key) valore (value) separari da una ,
+// * i dati si leggono per coppia chiave (key) valore (value) separati da una ,
 const person1 = {
   name: 'Luca',
   surname: 'Rossi',
@@ -48,7 +48,7 @@ console.log(person1['interests']);
 console.log(person1['interests'][1]);
 console.log(person1['address']['cap']);
 // per prendere in maniera statica va bene la dot notation
-// per prendere dinamicamente cose è meglio la braketes notation
+// per prendere dinamicamente cose è meglio la brackets notation
 const key = 'interests';
 console.log(person1.key); // undefined, dentro a persona non c'è chiave
 console.log(person1[key][0]); // snowboard
@@ -74,7 +74,7 @@ console.log(person1.favColor);
 console.log(person1);
 
 // 5. THIS
-// quando lo usiamo facciamo riferiemnto allo STESSO oggetto
+// quando lo usiamo facciamo riferimento allo STESSO oggetto
 // quello che stiamo utilizzando
 // vedi sopra dove c'è la stampa del cognome
 // this prende come scope l'oggetto
@@ -103,7 +103,7 @@ const spaceshipOne = { type: 'shuttle' };
 spaceshipOne.type = 'alien'; // Changes the value of the type property
 spaceshipOne.speed = 'Mach 5'; // Creates a new key of 'speed' with a value of 'Mach 5'
 
-// delete operator per nimuovere proprietà
+// delete operator per rimuovere proprietà
 delete spaceshipOne.homePlanet;
 
 // quando a una key è associato un metodo, la key diventa il suo nome

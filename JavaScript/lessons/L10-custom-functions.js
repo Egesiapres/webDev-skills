@@ -59,7 +59,7 @@ sayThanks('Cole');
 // accettano altre funzioni come argomento, restituiscono f come output (anche entrambi)
 // permettono l'astrazione
 
-// riassegnamento della f in una variabile f più leggibile
+// riassegnazione della f in una variabile f più leggibile
 // f trattate come ogni altro tipo di dato
 const checkThatTwoPlusTwoEqualsFourAMillionTimes = () => {
   for (let i = 1; i <= 1000000; i++) {
@@ -104,7 +104,7 @@ console.log(checkConsistentOutput(addTwo, 7));
 
 // ITERATORS (.forEach(), .map(), .filter())
 // (vedi methods)
-// array built-in iteration methods (instead of using loopings)
+// array built-in iteration methods (instead of using loops)
 // they are high-order f because THE ARGUMENT IS A CB F
 // types of cb f: pre-defined f, f expression, or an arrow f
 
@@ -137,7 +137,7 @@ fruits.forEach(fruit => console.log(`I want to eat a ${fruit}`));
 
 // .map()
 // takes an argument of a cb, returns a new array
-// SIMILAR to .forEach(), BUT RETURNA A NEW ARRAY (with the updated elements)
+// SIMILAR to .forEach(), BUT RETURNS A NEW ARRAY (with the updated elements)
 // (elements in the original array are not modified)
 let animals = [
   'Hen',
@@ -210,12 +210,12 @@ console.log(startsWithS);
 
 // .reduce()
 // returns a SINGLE VALUE
-// 1 arg: cb f (anonymus f) with accumulator and currentValue as parameters
+// 1 arg: cb f (anonymous f) with accumulator and currentValue as parameters
 // accumulator: 10, currentValue: 1, return: 11; a: 11, cV: 3, r:14
 // 2 arg: number
 const newNumbers = [1, 3, 5, 7];
 const newSum = newNumbers.reduce((accumulator, currentValue) => {
-  console.log('The value of accoumulator: ', accumulator);
+  console.log('The value of accumulator: ', accumulator);
   console.log('The value of currentValue: ', currentValue);
   return accumulator + currentValue;
 }, 10);
@@ -223,7 +223,7 @@ const newSum = newNumbers.reduce((accumulator, currentValue) => {
 console.log(newSum);
 
 // .some(), .every()
-// Outoupt: true or false
+// Output: true or false
 const words = ['unique', 'uncanny', 'pique', 'oxymoron', 'guise'];
 console.log(
   words.some(word => {

@@ -11,10 +11,10 @@ let array = ['Emma', 'Fede', 'Umbe'];
 // 3. Accedere e modificare gli elementi di un array
 console.log(array);
 console.log(array[1]);
-console.log(array[4]); // stampa undefined perchè non esiste un elemento con index 4
+console.log(array[4]); // stampa undefined perché non esiste un elemento con index 4
 
 // la length è 4 (4 elementi). Stampa però l'index of di 4-1, il 3 è umbe
-console.log(array[array.length - 1]); //Umbe
+console.log(array[array.length - 1]); // Umbe
 
 // 4. Lunghezza di un array e passare in rassegna gli elementi all'interno
 // ciclo for ha 3 parametri in entrata
@@ -71,8 +71,8 @@ console.log(courses);
 array.unshift('Thomas');
 
 // .shift()
-// rimuove l'elemento all'inzio
-array.shift(); // quindi in questo caso ririmuove Thomas appena aggiunto
+// rimuove l'elemento all'inizio
+array.shift(); // quindi in questo caso rimuove Thomas appena aggiunto
 
 console.log(array);
 

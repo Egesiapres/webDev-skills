@@ -8,8 +8,9 @@ let name = 'Edoardo';
 // 3. Aggiornare una variabile
 name = 'Luca'; // riprendo il nome ma senza il let
 // i valori nella variabile sono mutabili nel corso del tempo
+name = 6;
 
-console.log(name); // se il risultato è undefined: la variabile esiste (è definita, è stata dichiarata) ma non ha contenuto (non è stata inzializzata)
+console.log(name); // se il risultato è undefined: la variabile esiste (è definita, è stata dichiarata) ma non ha contenuto (non è stata inizializzata)
 // console.log(cognome); // qui viene restituito un errore: la variabile non è definita, non è esiste (non c'è la scatola)
 
 // 4. Norme per la dichiarazione delle variabili
@@ -18,7 +19,7 @@ console.log(name); // se il risultato è undefined: la variabile esiste (è defi
 // no _ per iniziare e no numeri all'inizio
 // no accenti
 // scrivere dei nomi intuibili e sensati
-let dichiarazioneVarabileNuova;
+let dichiarazioneVariabileNuova;
 let dichiarazionevariabilenuova; // è anche meno leggibile della precedente
 
 // 5. Let vs Var
@@ -27,10 +28,10 @@ let dichiarazionevariabilenuova; // è anche meno leggibile della precedente
 let newName = 'Umberto';
 newName = 'Emma';
 
-// 6. Tipi di varibili
+// 6. Tipi di variabili
 let number = 25; // number: interi
 let f = 25.2; // float: numeri con la virgola
-let string = 'Umberto'; // string: stringhe di testo (il testo va scritto dento le '' o "")
+let string = 'Umberto'; // string: stringhe di testo (il testo va scritto dentro le '' o "")
 let boolean = true; // boolean: può essere true or false
 let arr = ['Fede', 'Thomas']; // array (vettore): insieme di dati
 // negli array (e in generale) il conteggio parte sempre da 0 (si tratta dell'indice, di index)
@@ -68,27 +69,27 @@ let person = {
   id: 'AA1111111',
   eta: 25,
   city_of_birth: 'Brescia',
-  favourite_colors: ['rosso', 'blu', 'nero'],
+  favorite_colors: ['rosso', 'blu', 'nero'],
 };
 
 console.log(person);
 console.log(person.id); // stampare valori specifici ripresi dall'interno dell'oggetto
 // in persona.dni, il . può essere letto come un "della"
-console.log(person.favourite_colors[1]);
+console.log(person.favorite_colors[1]);
 
 // 8. Tipizzazione dinamica
 // js a differenza di ts (typescript) o java, quando dobbiamo dichiarare una variabile, non ci costringe a dichiararne il tipo
 let user = 'Giovanni'; // in altri linguaggi sarebbe stato una cosa tipo let string user = 'Giovanni';
-user = 55; // da string viene dimanicamente cambiato il tipo di variabile in number all'aggiornamento della variabile
+user = 55; // da string viene dinamicamente cambiato il tipo di variabile in number all'aggiornamento della variabile
 
 console.log(typeof user);
 
 // 9. Costanti
-// valori che non devono variare nel tempo (varaibili fisse)
+// valori che non devono variare nel tempo (variabili fisse)
 // quindi non possono essere aggiornate come per i let
 // es: indirizzo del db
 const secondUser = 'Mariarosa';
-// secondUser = 'Montirone'; //qui viene restituito un errore perchè le const sono fisse
+// secondUser = 'Montirone'; //qui viene restituito un errore perché le const sono fisse
 
 console.log(secondUser);
 

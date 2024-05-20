@@ -1,7 +1,7 @@
 // HOW TO USE A PROMISE
 
-// setTimout(callback, 1000)
-// NodeAPI (siimilar to the API provided by web browsers)
+// setTimeout(callback, 1000)
+// NodeAPI (similar to the API provided by web browsers)
 // parameters: cb f and a delay in ms
 // in a common use, th cb f is a normal f
 
