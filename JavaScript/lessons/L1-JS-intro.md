@@ -58,16 +58,19 @@ JS è dotato di molti APIs (Application Programming Interfaces)
 
 Di solito si mette lo script dentro al body con rimando esterno.\ Alternativamente:
 
-> `<script>document.addEventListener("DOMContentLoaded", function(){});</script>`
+`<script>document.addEventListener("DOMContentLoaded", function(){});</script>`
 
 Qui sopra ascoltiamo per un evento, il quale è il completo caricamento totale del DOM.
 
 I *defer* 3 si leggono in ordine come se fossero uno propedeutico all'altro:
 
-> `<script src="" defer></script>`\
-> `<script src="" defer></script>`\
-> `<script src="" defer></script>`
+```
+<script src="" defer></script>
+<script src="" defer></script>
+<script src="" defer></script>
+```
+
 
 *async* appena capita viene letto:
 
-> `<script src="" async></script>`
+`<script src="" async></script>`
