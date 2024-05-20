@@ -1,6 +1,6 @@
 console.log('------ %c3: Numbers & operators 🔢', 'font-weight: bold');
 
-// 1. Tipi di numeri
+// !! 1. Tipi di numeri
 // interi
 let integer = 34;
 integer = -34;

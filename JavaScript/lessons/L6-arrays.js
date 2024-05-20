@@ -33,7 +33,7 @@ for (i = 0; i < cities.length; i++) {
 
 // 5. Convertire stringhe e array
 // .split('')
-// splittare, separare
+// separare
 // da stringa ad array
 // per eseguire lo split i dati devono essere in forma di stringa, no dentro a []
 let names = 'Umberto,Mariarosa,Giovanni';
@@ -78,7 +78,7 @@ console.log(array);
 
 // AGGIUNTA
 let sauces = ['Ketchup', 'Mustard', 'Soy Sauce', 'Sriracha'];
-const tools = ['Fork', 'Knife', 'Chopsticks', 'Spork'];
+const tools = ['Fork', 'Knife', 'Chopsticks', 'Fork'];
 
 sauces[0] = 'Mayo';
 console.log(sauces);
@@ -92,5 +92,5 @@ console.log(tools);
 // nested arrays
 const nestedArr = [[1], [2, 3]];
 
-console.log(nestedArr[1]); // Output: [2, 3]
-console.log(nestedArr[1][0]); // Output: 2
+console.log(nestedArr[1]); // [2, 3]
+console.log(nestedArr[1][0]); // 2

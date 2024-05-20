@@ -1,8 +1,5 @@
 console.log('------ %c9: Functions introduction 🦾', 'font-weight: bold');
 
-
-
-
 // 1. Blocchi di codici riutilizzabili
 // set di istruzioni ripetuto ogni volta che viene invocato
 // function: keyword
@@ -26,9 +23,9 @@ let e = u.replace('Umberto', 'Emma');
 console.log(e);
 
 // 3. Funzioni e metodi
-// METODI: funzioni di oggetti.
+// !! METODI: funzioni di oggetti.
 // sintassi: oggetto.metodo(). Es: console.log(), Math.random()
-// FUNZIONI: al di fuori di oggetti e custom
+// !! FUNZIONI: al di fuori di oggetti e custom
 
 // 4. Invocare una funzione
 // metodo (predefinite)

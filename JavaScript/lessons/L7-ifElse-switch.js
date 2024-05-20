@@ -150,7 +150,7 @@ switch (personName) {
     console.log('Non so il tuo nome');
 }
 
-// 8. Ternary operator
+// !! 8. Ternary operator
 // si usa molto nei template literals ``
 let number2 = 12;
 // è numero2 minore di 20? Se si scrivi Luca, altrimenti Leonardo
@@ -161,7 +161,7 @@ let templateOperator = number2 < 20 ? 'Luca' : 'Leonardo';
 console.log(templateOperator);
 
 // AGGIUNTA
-// short-circuit evaluation
+// !! short-circuit evaluation
 let tool = 'marker'; // se rendo tool falso, svuotando la variabile inserendo 0, o '', viene stampato pen
 let writingTool = tool || 'pen';
 

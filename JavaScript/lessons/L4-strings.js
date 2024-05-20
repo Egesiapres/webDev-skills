@@ -59,7 +59,7 @@ console.log(realSum);
 console.log(realSum2);
 console.log(str5);
 
-// 6. Template literals ``
+// !! 6. Template literals ``
 // (quel simbolo si chiama backtick)
 // posso inserire in una stringa funzioni, variabili, evito l'escape...
 // la caratteristica è la potenza delle stringhe ora
