@@ -2,12 +2,12 @@
 
 **Dichiarazione:** la creazione di una variabile, della scatola. Se mi limito a dichiarare una variabile, non le è ancora stato assegnato un valore, non è ancora stata dotata di contenuto. Per la precisione, in caso di sola dichiarazione alla variabile è assegnato automaticamente il valore *undefined*:
 
-> `let name;`
+`let name;`
 
 
 **Assegnazione:** di un valore ad una variabile. Riempimento della scatola (come spiegato da D. Malan l'assegnazione avviene da dx a sx):
 
-> `name = 'Umberto';`
+`name = 'Umberto';`
 
 
 **Inizializzazione (Assegnazione):** termine che indica dichiarazione + assegnazione:
