@@ -8,7 +8,7 @@
 
 JS è un linguaggio **interpretato:** viene passato così come lo scriviamo al browser. Compilati: un compilatore trasforma ciò che noi scriviamo in linguaggio macchina (fatto di 0 e di 1).
 
-#### Interpreted VS Compiled
+### Interpreted VS Compiled
 
 _Interpreted:_ JavaScript, Python, Ruby, PHP, Perl;\
 _Compiled:_ C, C++, Rust, Go
@@ -30,7 +30,7 @@ JS è un linguaggio **single-thread:** le istruzioni vengono lette dall'alto ver
 
 JS è un linguaggio dalla **tipizzazione dinamica** e **debole.**
 
-#### Dynamically VS Statically Typed
+### Dynamically VS Statically Typed
 
 |                                   | **T. Dinamica** | **T. Statica**    |
 | --------------------------------- | --------------- | ----------------- |
@@ -51,7 +51,7 @@ JS è un linguaggio dalla **tipizzazione dinamica** e **debole.**
 \
 JS è dotato di molti APIs (Application Programming Interfaces)
 
-### Inserire JS in una pagina HTML
+## Inserire JS in una pagina HTML
 
 1. **Embedded:** tag `<script></script>` e lo inserisco in _head_ o _body._ Dentro al tag _head_, viene letto prima della creazione di eventuali pezzi della struttura html, quindi potrebbe restituire errori.
 

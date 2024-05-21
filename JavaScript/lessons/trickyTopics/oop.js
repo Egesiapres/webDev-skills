@@ -25,6 +25,12 @@ console.log('------ %c2: OOP', 'font-weight: bold');
 // * instanceof
 // * typeof
 
+// ! OOP features
+// * abstraction
+// * inheritance
+// * encapsulation
+// * polymorphism
+
 // ! SOLID principles
 // ? improve maintainability, flexibility and quality of the code
 // * S: single responsibility
