@@ -43,7 +43,7 @@
 - Quanti tipi di prop esistono?
 - Cosa è il prop drilling?
 - Parla della children prop
-- Cos'è il virtual DOM
+- Cos'è il virtual DOM?
 - Cos'è il conditional rendering?
 - Stateful/Stateless components pattern
 - Come pulisco gli effetti di un eseguiti all'interno di un componente?

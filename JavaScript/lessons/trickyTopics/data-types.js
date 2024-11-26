@@ -23,7 +23,7 @@ console.log('------ %c1: Data types', 'font-weight: bold');
 // !! DIFFERENCE: the way in which they're stored/referred to in the memory
 // Primitive:
 // Passed by value (they're copied).
-// (When you assign a p dt to a variable or pass it as an argument to a function)you work on a copy, the original variable will not be affected
+// (When you assign a p dt to a variable or pass it as an argument to a function) you work on a copy, the original variable will not be affected
 let x = 10;
 let y = x; // Here, the value of x (10) is copied to y
 y = 20; // Modifying y does not affect x
