@@ -21,8 +21,10 @@
 - Quanti tipi di funzioni esistono?
 - Cosa sono le callbacks? Quando utili?
 - Cosa è lo scope? Di che tipi ce ne sono?
-- Cosa è una `promise`?
+- Cosa è una `Promise`?
 - Come possono essere gestiti gli errori?
+- Differenza fra Deep copy e Shallow copy
+- Mutabilità vs Immutabilità
 
 #### Design Patterns/Behavior
 
@@ -48,3 +50,6 @@
 - Stateful/Stateless components pattern
 - Come pulisco gli effetti di un eseguiti all'interno di un componente?
 - Cos'è il JSX?
+- Qual'è la differenza fra `useCallback` e `useMemo`?
+- Come può essere gestito lo stato in React?
+- Qual'è la differenza fra `useState` e `useRef`?
