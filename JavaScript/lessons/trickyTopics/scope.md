@@ -14,7 +14,7 @@ function addTen(n) {
 
   return n + ten;
 
-}
+};
 
 console.log(ten); // error
 ```
@@ -30,7 +30,7 @@ function addOneHundred(n) {
 
   return n + oneHundred;
 
-}
+};
 
 console.log(ten); // 100
 ```
@@ -38,7 +38,7 @@ console.log(ten); // 100
 - **Block:** la variabile `number` è accessibile solamente all'interno del blocco, ovvero tutto ciò che si trova all'interno delle `{}` (che si tratti di una funzione, di un `if...else`, o altro):
 
 ```
-{
+... {
 
   const number = 123;
 
@@ -61,7 +61,7 @@ function externalFunction() {
 
   }
 
-}
+};
 
 externalFunction();
 ```
@@ -77,7 +77,7 @@ function shadowScopeExample() {
 
   console.log(x); // Stampa "variabile interna"
 
-}
+};
 
 shadowScopeExample();
 

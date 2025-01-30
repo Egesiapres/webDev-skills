@@ -10,15 +10,20 @@ console.log('------ %c1: Data types', 'font-weight: bold');
 // 4. boolean
 // 5. null
 // 6. undefined
-// 7. symbol
+// 7. Symbol
 
 // * Reference
-// 1. objects
-// 2. array
-// 3. function
-// 4. date
+// 1. object literals
+// 2. Array
+// 3. Function
+// 4. Date
 // 5. regular expression
 // 6. custom (using classes)
+
+// * Introduced with ES6
+// 1. Map
+// 2. Set
+// 3. WeakMap
 
 // !! DIFFERENCE: the way in which they're stored/referred to in the memory
 // Primitive:

@@ -34,7 +34,7 @@ JS è un linguaggio dalla **tipizzazione dinamica** e **debole.**
 
 |                                   | **T. Dinamica** | **T. Statica**    |
 | --------------------------------- | --------------- | ----------------- |
-| _Possibile riassegnare variabile_ | No              | Si                |
+| _Possibile riassegnare variabile_ | Si              | No                |
 | _Controllo tipi di dati_          | Fase esecuzione | Fase compilazione |
 | _Rilevamento errori_              | Fase esecuzione | Fase compilazione |
 | _Linguaggio tipo_                 | Interpretato    | Compilato         |

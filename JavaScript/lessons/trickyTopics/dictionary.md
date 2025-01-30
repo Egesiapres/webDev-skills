@@ -12,7 +12,7 @@ let name;
 name = 'Umberto';
 ```
 
-**Inizializzazione (Assegnazione):** termine che indica dichiarazione + assegnazione:
+**Inizializzazione:** termine che indica dichiarazione + assegnazione:
 
 ```
 const age = 27;
