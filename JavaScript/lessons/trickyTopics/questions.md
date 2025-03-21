@@ -17,14 +17,15 @@
 - Quali sono i dt di JS?
 - Quali i nuovi aggiunti con ES6?
 - Reference VS Primitive dt
+- Mutabilità vs Immutabilità
+- Differenza fra Deep copy e Shallow copy
 - Differenza `let` e `const`
 - Quanti tipi di funzioni esistono?
 - Cosa sono le callbacks? Quando utili?
 - Cosa è lo scope? Di che tipi ce ne sono?
 - Cosa è una `Promise`?
 - Come possono essere gestiti gli errori?
-- Differenza fra Deep copy e Shallow copy
-- Mutabilità vs Immutabilità
+- Paradigma di programmazione in vanilla JS (no OOP)
 
 #### Design Patterns/Behavior
 
@@ -35,6 +36,8 @@
 - Cos'è la TDZ?
 - Cos'è il currying?
 - Cos'è lo shadowing (o shadow scope)?
+- Atomic Design (nato come pattern in ambito sviluppo, non nel design)
+- Design System
 
 ## React
 
@@ -43,9 +46,9 @@
 - Cos'è una prop?
 - Qual'è la differenza fra prop e stati?
 - Quanti tipi di prop esistono?
-- Cosa è il prop drilling?
-- Parla della children prop
-- Cos'è il virtual DOM?
+- Cosa è il `prop drilling`?
+- Parla della `children prop`
+- Cos'è il `virtual DOM`?
 - Cos'è il conditional rendering?
 - Stateful/Stateless components pattern
 - Come pulisco gli effetti di un eseguiti all'interno di un componente?
@@ -53,3 +56,7 @@
 - Qual'è la differenza fra `useCallback` e `useMemo`?
 - Come può essere gestito lo stato in React?
 - Qual'è la differenza fra `useState` e `useRef`?
+- Cos'è la **reconciliation**?
+- Accessibilità in React
+- Miglioramento performance
+- Problemi di accessibilità di React, causa? (come risolvere? SSR)
